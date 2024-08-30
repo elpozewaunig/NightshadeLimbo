@@ -10,7 +10,11 @@ direction = Vector3(0, 0, 0)
 spread = 180.0
 initial_velocity_min = 40.0
 initial_velocity_max = 60.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 200.0
 gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ieww2"]
 

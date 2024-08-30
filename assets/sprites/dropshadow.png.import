@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwunthpqe8644"
-path="res://.godot/imported/splatter4.png-50e57022dd9ddaa79377280cab55d7a1.ctex"
+uid="uid://caai8dkei1rht"
+path="res://.godot/imported/dropshadow.png-f4d5e4d12d48a17ca423001ea70fc7aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/splatters/splatter4.png"
-dest_files=["res://.godot/imported/splatter4.png-50e57022dd9ddaa79377280cab55d7a1.ctex"]
+source_file="res://assets/sprites/dropshadow.png"
+dest_files=["res://.godot/imported/dropshadow.png-f4d5e4d12d48a17ca423001ea70fc7aa.ctex"]
 
 [params]
 

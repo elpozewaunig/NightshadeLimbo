@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlnum2veb67v2"
-path="res://.godot/imported/tomatotwig.png-5f291f125ae7564470aadaf9c74caea6.ctex"
+uid="uid://cwunthpqe8644"
+path="res://.godot/imported/splatter4.png-5f761e7833fa874de4e8bba97e154593.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tomatotwig.png"
-dest_files=["res://.godot/imported/tomatotwig.png-5f291f125ae7564470aadaf9c74caea6.ctex"]
+source_file="res://assets/sprites/splatters/splatter4.png"
+dest_files=["res://.godot/imported/splatter4.png-5f761e7833fa874de4e8bba97e154593.ctex"]
 
 [params]
 
