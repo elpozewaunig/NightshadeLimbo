@@ -26,3 +26,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_projectile_hit() -> void:
 	pass
+
+func _on_beam_hit() -> void:
+	pass

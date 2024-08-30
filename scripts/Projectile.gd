@@ -1,5 +1,4 @@
 extends Area2D
-class_name Projectile
 
 signal player_hit
 

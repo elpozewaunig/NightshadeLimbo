@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var timeline = $AttackTimeline
 
 var projectile_scene = preload("res://scenes/objects/projectile.tscn")
+var beam_scene = preload("res://scenes/objects/beam_attack.tscn")
 
 var salvos = {}
 var salvo_id = 0
@@ -42,9 +43,16 @@ func machine_gun(to_pos: Vector2, amount: int = 20, duration: float = 2) -> void
 	create_salvo(to_pos, to_pos, amount, duration)
 
 # Creates a projectile instance and fires it
-func add_projectile(global_pos: Vector2) -> void:
+func beam(to_pos: Vector2, duration: float = 0.5) -> void:
+	var beam = beam_scene.instantiate()
+	beam.target_pos = to_pos
+	beam.duration = duration
+	add_child(beam)
+
+# Creates a projectile instance and fires it
+func add_projectile(global_pos_to: Vector2) -> void:
 	var projectile = projectile_scene.instantiate()
-	projectile.target_pos = global_pos
+	projectile.target_pos = global_pos_to
 	add_child(projectile)
 
 # Adds a salvo to salvos array
