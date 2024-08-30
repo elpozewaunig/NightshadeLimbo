@@ -35,14 +35,11 @@ func _process(delta: float) -> void:
 			salvos.erase(key)
 
 # Enqueues a salvo to fire
-func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, time_between: float = 0.1) -> void:
-	salvos[salvo_id] = {
-		"targets": create_salvo(from_pos, to_pos, amount),
-		"shot": 0,
-		"interval": time_between,
-		"countdown": 0
-	}
-	salvo_id += 1
+func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
+	create_salvo(from_pos, to_pos, amount, duration)
+
+func machine_gun(to_pos: Vector2, amount: int = 20, duration: float = 2) -> void:
+	create_salvo(to_pos, to_pos, amount, duration)
 
 # Creates a projectile instance and fires it
 func add_projectile(global_pos: Vector2) -> void:
@@ -50,13 +47,19 @@ func add_projectile(global_pos: Vector2) -> void:
 	projectile.target_pos = global_pos
 	add_child(projectile)
 
-# Creates an array containing positions to be fired at in that order
-func create_salvo(from_pos: Vector2, to_pos: Vector2, salvo_amount: int) -> Array[Vector2]:
+# Adds a salvo to salvos array
+func create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: float) -> void:
 	var projectiles : Array[Vector2] = []
 	var offset = to_pos - from_pos
-	for i in range(0, salvo_amount):
-		var target_pos_x = from_pos.x + (offset.x / salvo_amount) * i
-		var target_pos_y = from_pos.y + (offset.y / salvo_amount) * i
+	for i in range(0, amount):
+		var target_pos_x = from_pos.x + (offset.x / amount) * i
+		var target_pos_y = from_pos.y + (offset.y / amount) * i
 		projectiles.append(Vector2(target_pos_x, target_pos_y))
-	
-	return projectiles
+		
+	salvos[salvo_id] = {
+	"targets": projectiles,
+	"shot": 0,
+	"interval": duration / amount,
+	"countdown": 0
+	}
+	salvo_id += 1
