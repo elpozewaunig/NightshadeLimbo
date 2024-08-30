@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=12 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_brnu4"]
 [ext_resource type="Texture2D" uid="uid://dfm6ftk7vj0ky" path="res://assets/sprites/icon.svg" id="2_ggfyx"]
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="3_dc5q6"]
 [ext_resource type="Texture2D" uid="uid://1pglbjau0nyo" path="res://assets/sprites/placeholdermato.png" id="4_0luse"]
+[ext_resource type="PackedScene" uid="uid://faxfonmc1dmx" path="res://scenes/tomatospritetest.tscn" id="5_tneax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stp6r"]
 radius = 30.0
@@ -79,7 +80,10 @@ position = Vector2(960, 200)
 script = ExtResource("3_dc5q6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boss"]
+visible = false
 texture = ExtResource("4_0luse")
+
+[node name="Tomato" parent="Boss" instance=ExtResource("5_tneax")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 position = Vector2(0, 40)
