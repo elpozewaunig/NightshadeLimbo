@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-@export var salvo_amount : int = 20
 @onready var timeline = $AnimationPlayer
 
 var projectile_scene = preload("res://scenes/objects/projectile.tscn")
@@ -43,15 +42,16 @@ func add_projectile(global_pos: Vector2) -> void:
 	add_child(projectile)
 
 # Enqueues a salvo to fire
-func add_salvo(from_pos: Vector2, to_pos: Vector2) -> void:
+func add_salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, time_between: float = 0.1) -> void:
 	salvos[salvo_id] = {
-		"targets": create_salvo(from_pos, to_pos),
-		"shot": 0
+		"targets": create_salvo(from_pos, to_pos, amount),
+		"shot": 0,
+		"interval": time_between
 	}
 	salvo_id += 1
 
 # Creates an array containing positions to be fired at in that order
-func create_salvo(from_pos: Vector2, to_pos: Vector2) -> Array[Vector2]:
+func create_salvo(from_pos: Vector2, to_pos: Vector2, salvo_amount: int) -> Array[Vector2]:
 	var projectiles : Array[Vector2] = []
 	var offset = to_pos - from_pos
 	for i in range(0, salvo_amount):
