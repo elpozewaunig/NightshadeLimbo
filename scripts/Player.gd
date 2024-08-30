@@ -4,7 +4,10 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
+	motion_mode = MOTION_MODE_FLOATING
+
+func _physics_process(_delta: float) -> void:
 	# Get the x-axis input direction and handle the movement/deceleration.
 	var x_movement := Input.get_axis("ui_left", "ui_right")
 	if x_movement:
