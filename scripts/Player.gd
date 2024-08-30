@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 400.0
 
 
 func _ready() -> void:
@@ -23,3 +23,6 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
 	move_and_slide()
+
+func _on_projectile_hit() -> void:
+	pass
