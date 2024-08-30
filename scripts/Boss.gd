@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var timeline = $AnimationPlayer
+@onready var timeline = $AttackTimeline
 
 var projectile_scene = preload("res://scenes/objects/projectile.tscn")
 
