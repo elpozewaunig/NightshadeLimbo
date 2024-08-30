@@ -35,8 +35,8 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [Vector2(0, 1080), Vector2(1920, 1080), 20],
-"method": &"add_salvo"
+"args": [Vector2(0, 1080), Vector2(1920, 1080), 20, 0.2],
+"method": &"salvo"
 }]
 }
 
