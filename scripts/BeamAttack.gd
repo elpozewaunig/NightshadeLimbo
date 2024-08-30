@@ -10,7 +10,7 @@ var length = 0
 var target_pos : Vector2 = Vector2(960, 1080)
 var duration : float = 1
 
-var speed : int
+var speed : float
 var distance : float
 
 signal player_hit

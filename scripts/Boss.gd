@@ -44,10 +44,10 @@ func machine_gun(to_pos: Vector2, amount: int = 20, duration: float = 2) -> void
 
 # Creates a projectile instance and fires it
 func beam(to_pos: Vector2, duration: float = 0.5) -> void:
-	var beam = beam_scene.instantiate()
-	beam.target_pos = to_pos
-	beam.duration = duration
-	add_child(beam)
+	var new_beam = beam_scene.instantiate()
+	new_beam.target_pos = to_pos
+	new_beam.duration = duration
+	add_child(new_beam)
 
 # Creates a projectile instance and fires it
 func add_projectile(global_pos_to: Vector2) -> void:
