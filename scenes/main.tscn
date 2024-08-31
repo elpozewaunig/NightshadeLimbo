@@ -155,8 +155,7 @@ scale = Vector2(0.655, 0.655)
 texture = ExtResource("7_46nrs")
 
 [node name="SpriteAnimation" parent="Boss" instance=ExtResource("4_lrp5j")]
-position = Vector2(3.9, 32.85)
-scale = Vector2(1.255, 1.255)
+frame = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 position = Vector2(0, 40)
