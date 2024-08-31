@@ -5,7 +5,7 @@ extends Area2D
 @onready var particles = $Particles
 
 @export var width = 20
-@export var animation_fps = 5
+@export var animation_fps = 10
 var length = 0
 
 var target_pos : Vector2 = Vector2(960, 1080)
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	
 	# Change to next frame of texture when specified time has passed
 	time_elapsed += delta
-	if time_elapsed >= 1 / animation_fps:
+	if time_elapsed >= 1 / float(animation_fps):
 		# Get next frame if within bounds
 		if texture.frame < texture.hframes * texture.vframes - 1:
 			texture.frame += 1

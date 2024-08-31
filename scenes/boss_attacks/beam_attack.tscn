@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/BeamAttack.gd" id="1_ey2ax"]
 [ext_resource type="Texture2D" uid="uid://cqfkbd1tl6fic" path="res://assets/sprites/laserparticle.png" id="2_i2jbm"]
-[ext_resource type="Texture2D" uid="uid://dcjq0yum71xwy" path="res://assets/sprites/beam.svg" id="3_05g85"]
 [ext_resource type="AudioStream" uid="uid://b0jvhpmpknpbu" path="res://assets/sounds/attacks/Boss_Laser.ogg" id="4_8rmtn"]
 [ext_resource type="Texture2D" uid="uid://hg7mhghh7my1" path="res://assets/sprites/beamattack_sprite.png" id="4_l4d8i"]
 
