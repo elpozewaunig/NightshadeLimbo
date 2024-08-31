@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=22 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="13_moeav"]
 [ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fq2vf"]
 [ext_resource type="Script" path="res://scripts/MusicManager.gd" id="15_isqen"]
+[ext_resource type="AudioStream" uid="uid://cfqn0iec8vj0u" path="res://assets/music/BGM_BossJump.ogg" id="16_8p4fi"]
 [ext_resource type="AudioStream" uid="uid://ece276grexf7" path="res://assets/music/BGM_BossBullets.ogg" id="16_blnxq"]
 [ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shader_overlays/screenvignette.png" id="16_jxlxq"]
 [ext_resource type="AudioStream" uid="uid://crooj44safm2h" path="res://assets/music/BGM_BossLaser.ogg" id="17_elhki"]
@@ -153,6 +154,10 @@ parameters/looping = true
 stream = ExtResource("18_4dvss")
 volume_db = -10.0
 parameters/looping = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("16_8p4fi")
+volume_db = -10.0
 
 [node name="Vignette" type="Sprite2D" parent="."]
 position = Vector2(960, 540)

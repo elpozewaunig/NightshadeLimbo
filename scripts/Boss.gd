@@ -15,6 +15,7 @@ var salvo_id = 0
 var beams = []
 
 var jumping = false
+var jump_end_anim = false
 var jump_target
 var jump_duration = 0
 var jump_speed = 0
@@ -67,11 +68,14 @@ func _process(delta: float) -> void:
 		if jumping:
 			jump_duration -= delta
 			global_position.move_toward(jump_target, jump_speed * delta)
+			if jump_duration <= 0.5 and not jump_end_anim:
+				animation.play("JumpAttack_END")
+				jump_end_anim = true
 			if jump_duration <= 0:
 				global_position = jump_target
-				animation.play("JumpAttack_END")
 				jumping = false
 				add_child(impact_scene.instantiate())
+				emit_signal("attack_status_changed", "jump", false)
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
@@ -92,9 +96,11 @@ func beam(to_pos: Vector2, duration: float = 0.5) -> void:
 func jump(to_pos: Vector2, duration: float = 2) -> void:
 	animation.play("JumpAttack_START")
 	jumping = true
+	jump_end_anim = false
 	jump_target = to_pos
 	jump_duration = duration
 	jump_speed = global_position.distance_to(to_pos) / duration
+	emit_signal("attack_status_changed", "jump", true)
 
 # Creates a projectile instance and fires it
 func add_projectile(global_pos_to: Vector2) -> void:
