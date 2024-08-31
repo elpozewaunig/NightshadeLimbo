@@ -20,27 +20,10 @@ signal attack_status_changed(attack, status)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-	
-var a = true
-func queuetest():
-	if a:
-		for i in range(50):
-			$SpriteAnimation/AnimationPlayer.queue("MockIntense")
-			$SpriteAnimation/AnimationPlayer.queue("MockShort")
-			$SpriteAnimation/AnimationPlayer.queue("MockIntense")
-			$SpriteAnimation/AnimationPlayer.queue("MockShort")
-			$SpriteAnimation/AnimationPlayer.queue("TakeDamage")
-			$SpriteAnimation/AnimationPlayer.queue("MockShort")
-			$SpriteAnimation/AnimationPlayer.queue("TakeDamage")
-			$SpriteAnimation/AnimationPlayer.queue("TakeDamage")
-			$SpriteAnimation/AnimationPlayer.queue("TakeDamage")
-		a = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if intro_over and not game_over:
-		queuetest()
-		
 		# Iterate through all current salvos
 		for key in salvos:
 			# Get salvo and associated progress
@@ -117,7 +100,9 @@ func create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: flo
 func _on_game_over() -> void:
 	game_over = true
 	timeline.pause()
-
+	$TOMATO/AnimationPlayer.clear_queue()
+	$TOMATO/AnimationPlayer.play("PlayerHasDied")
+	
 
 func _on_intro_done() -> void:
 	intro_over = true
