@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=29 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://scripts/GameOver.gd" id="12_qyr5r"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="13_moeav"]
 [ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fq2vf"]
-[ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="14_kvh1o"]
 [ext_resource type="Script" path="res://scripts/MusicManager.gd" id="15_isqen"]
 [ext_resource type="AudioStream" uid="uid://ece276grexf7" path="res://assets/music/BGM_BossBullets.ogg" id="16_blnxq"]
 [ext_resource type="AudioStream" uid="uid://crooj44safm2h" path="res://assets/music/BGM_BossLaser.ogg" id="17_elhki"]
@@ -178,9 +177,6 @@ libraries = {
 visible = false
 script = ExtResource("9_gl7br")
 
-[node name="Ambience" type="AudioStreamPlayer" parent="IntroScreen"]
-stream = ExtResource("14_kvh1o")
-
 [node name="Illumination" type="Sprite2D" parent="IntroScreen"]
 position = Vector2(960, 540)
 texture = ExtResource("10_roquk")
@@ -233,7 +229,9 @@ parameters/looping = true
 
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
 [connection signal="game_over" from="Player" to="GameOverScreen" method="_on_game_over"]
+[connection signal="game_over" from="Player" to="MusicManager" method="_on_game_over"]
 [connection signal="attack_status_changed" from="Boss" to="MusicManager" method="_on_boss_attack_status_changed"]
 [connection signal="intro_done" from="IntroScreen" to="Player" method="_on_intro_done"]
 [connection signal="intro_done" from="IntroScreen" to="Boss" method="_on_intro_done"]
+[connection signal="intro_done" from="IntroScreen" to="MusicManager" method="_on_intro_done"]
 [connection signal="permit_movement" from="IntroScreen" to="Player" method="_on_intro_permit_movement"]

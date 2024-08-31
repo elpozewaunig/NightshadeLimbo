@@ -10,11 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for track_name in tracks:
-		var track = tracks[track_name]["stream"]
-		track.play()
-		if not tracks[track_name]["active"]:
-			track.volume_db = -50
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,3 +37,18 @@ func _on_boss_attack_status_changed(attack: String, status: bool) -> void:
 		tracks["bullets"]["active"] = status
 	elif(attack == "beam"):
 		tracks["laser"]["active"] = status
+
+
+func _on_intro_done() -> void:
+	# Iterate through all tracks and start playing them in unison
+	for track_name in tracks:
+		var track = tracks[track_name]["stream"]
+		track.play()
+		if not tracks[track_name]["active"]:
+			track.volume_db = -50
+
+
+func _on_game_over() -> void:
+	# Disable all tracks
+	for track_name in tracks:
+		tracks[track_name]["active"] = false

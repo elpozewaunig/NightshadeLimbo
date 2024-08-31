@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://xcg3hg44u2n5"]
+
+[ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="1_wqjxb"]
+
+[node name="AmbienceMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_wqjxb")
+parameters/looping = true

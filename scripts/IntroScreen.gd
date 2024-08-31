@@ -3,6 +3,8 @@ extends Node2D
 @onready var illumination = $Illumination
 @onready var black = $Black
 
+var music = AmbienceMusic
+
 var time_elapsed = 0
 var phase = 0
 
@@ -11,6 +13,8 @@ signal permit_movement
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not music.playing:
+		music.play()
 	show()
 
 
@@ -29,9 +33,11 @@ func _process(delta: float) -> void:
 	
 	if phase == 2:
 		illumination.modulate.a -= delta
+		music.volume_db -= delta * 25
 		if illumination.modulate.a <= 0:
 			illumination.modulate.a = 0
 			illumination.hide()
+			music.stop()
 			queue_free()
 	
 	# Automatically advance phases after every timer reset

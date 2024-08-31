@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var label = $Background/Label
+
+var music = AmbienceMusic
 var game_scene = preload("res://scenes/main.tscn")
 
 var game_over = false
@@ -36,5 +38,7 @@ func _process(delta: float) -> void:
 
 func _on_game_over() -> void:
 	game_over = true
+	music.volume_db = 0
+	music.play()
 	label.text = messages[randi() % messages.size()]
 	
