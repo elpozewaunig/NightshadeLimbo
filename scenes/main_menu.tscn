@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
 [ext_resource type="Script" path="res://scenes/button_selector.gd" id="6_su6v2"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://settings/credits_label_settings.tres" id="6_w50mp"]
+[ext_resource type="Script" path="res://scripts/start_button.gd" id="7_fgtfw"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://settings/credits_subtitle_settings.tres" id="7_fky7d"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
@@ -17,15 +18,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
 font_size = 180
-
-[sub_resource type="GDScript" id="GDScript_2f371"]
-script/source = "extends Area2DButton
-
-var game_scene = preload(\"res://scenes/main.tscn\")
-
-func _on_clicked():
-	get_tree().change_scene_to_packed(game_scene)
-"
 
 [sub_resource type="LabelSettings" id="LabelSettings_mriem"]
 font = ExtResource("2_hht2f")
@@ -75,7 +67,7 @@ buttons = [NodePath("../StartButton"), NodePath("../CreditsButton")]
 
 [node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
 position = Vector2(0, -90)
-script = SubResource("GDScript_2f371")
+script = ExtResource("7_fgtfw")
 
 [node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
 text = "Start journey"
