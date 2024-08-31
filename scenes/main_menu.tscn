@@ -1,11 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=32 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
 [ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/sprites/bgtry1_blur.png" id="2_j6hu7"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/reusable/button.tscn" id="3_fx80t"]
+[ext_resource type="Script" path="res://scenes/bg.gd" id="3_mbh0a"]
 [ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/sprites/bg_flickeroverlay.png" id="3_qdwo1"]
+[ext_resource type="Script" path="res://scenes/bg_flicker.gd" id="4_2erio"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
 [ext_resource type="Script" path="res://scripts/MainMenuButtons.gd" id="6_swuh5"]
 [ext_resource type="Script" path="res://scripts/ButtonSelector.gd" id="7_eh7es"]
@@ -13,10 +15,107 @@
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
 [ext_resource type="Script" path="res://scripts/StartButton.gd" id="9_ntakj"]
 [ext_resource type="Script" path="res://scripts/CreditsView.gd" id="10_8l1x4"]
+[ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="11_0lrvh"]
 [ext_resource type="Script" path="res://scripts/CreditsExitButton.gd" id="11_60r02"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://assets/settings/labels/credits_subtitle_settings.tres" id="13_iih06"]
 [ext_resource type="AudioStream" uid="uid://c8prdyktbfx3i" path="res://assets/music/BGM_MainMenuLoop.ogg" id="17_yrybt"]
+
+[sub_resource type="Animation" id="Animation_17cl1"]
+resource_name = "slowzoom"
+length = 160.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 80.2, 159.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.355, 1.355), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 80.2, 159.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(306.15, 180.405), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vi0cq"]
+_data = {
+"slowzoom": SubResource("Animation_17cl1")
+}
+
+[sub_resource type="Animation" id="Animation_impck"]
+resource_name = "scaryfadeflicker"
+length = 13.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.4, 3.46667, 3.53333, 11.3333, 11.4, 11.4667),
+"transitions": PackedFloat32Array(0.120742, 0.120742, 9.18957, 2.92817, 0.120742, 9.18957, 2.92817),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.156863), Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.156863), Color(1, 1, 1, 0.0392157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BG:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.966667, 1.76667, 4, 4.4, 5.2, 6.06667, 6.43333, 6.86667, 9.33333, 10.1667, 11.9333, 12.6333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bhm3c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0588235)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BG:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6ulh"]
+_data = {
+"RESET": SubResource("Animation_bhm3c"),
+"scaryfadeflicker": SubResource("Animation_impck")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
@@ -46,11 +145,24 @@ position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 
 [node name="BG" type="Sprite2D" parent="UI"]
+self_modulate = Color(0.785334, 0.785334, 0.785334, 1)
 texture = ExtResource("2_j6hu7")
+script = ExtResource("3_mbh0a")
 
-[node name="BGFlicker" type="Sprite2D" parent="UI"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/BG"]
+libraries = {
+"": SubResource("AnimationLibrary_vi0cq")
+}
+
+[node name="BGFlicker" type="Sprite2D" parent="UI/BG"]
 self_modulate = Color(1, 1, 1, 0.0588235)
 texture = ExtResource("3_qdwo1")
+script = ExtResource("4_2erio")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/BG/BGFlicker"]
+libraries = {
+"": SubResource("AnimationLibrary_n6ulh")
+}
 
 [node name="Label" type="Label" parent="UI"]
 self_modulate = Color(1, 1, 1, 0.980392)
@@ -67,12 +179,6 @@ text = "Nightshade Limbo"
 label_settings = SubResource("LabelSettings_0c7lh")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="scawyspwite" type="Sprite2D" parent="UI"]
-visible = false
-position = Vector2(-600, 0)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_5j4db")
 
 [node name="MainMenuButtons" type="Node2D" parent="UI"]
 script = ExtResource("6_swuh5")
@@ -100,6 +206,20 @@ text = "Credits"
 [node name="CollisionShape2D" parent="UI/MainMenuButtons/CreditsButton" index="2"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_j4rsm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/MainMenuButtons"]
+position = Vector2(960, 540)
+stream = ExtResource("11_0lrvh")
+
+[node name="ScaryClick" type="Sprite2D" parent="UI"]
+visible = false
+texture = ExtResource("1_3me3h")
+
+[node name="scawyspwite" type="Sprite2D" parent="UI/ScaryClick"]
+self_modulate = Color(1, 1, 1, 0.0352941)
+position = Vector2(14, -50)
+scale = Vector2(1.615, 1.615)
+texture = ExtResource("3_5j4db")
 
 [node name="Credits" type="ColorRect" parent="UI"]
 visible = false

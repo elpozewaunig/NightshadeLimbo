@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var label = $Background/Label
+@onready var label = $Label
 
 var music = AmbienceMusic
 var game_scene = preload("res://scenes/main.tscn")

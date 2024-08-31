@@ -24,6 +24,7 @@ func _process(_delta: float) -> void:
 		
 		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_select"):
 			emit_signal("clicked")
+			$AudioStreamPlayer2D.play()
 			
 	else:
 		modulate = Color("ffffff")

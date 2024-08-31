@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://s47feaqqdtgj"]
+[gd_scene load_steps=63 format=3 uid="uid://s47feaqqdtgj"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="1_3ifcl"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="2_4c6eb"]
@@ -17,99 +17,15 @@
 [ext_resource type="AudioStream" uid="uid://2tbi8nox7078" path="res://assets/sounds/voice/Boss_hehihi.ogg" id="15_2nse7"]
 [ext_resource type="AudioStream" uid="uid://c0bij2uvssivx" path="res://assets/sounds/voice/Boss_HoHahaa.ogg" id="16_wqp8q"]
 [ext_resource type="AudioStream" uid="uid://bocaey3bkjw2r" path="res://assets/sounds/voice/Boss_IIAA.ogg" id="17_f4ntp"]
-[ext_resource type="Shader" path="res://assets/shaders/colorinvert.gdshader" id="18_cngl2"]
-
-[sub_resource type="Animation" id="Animation_b0qkw"]
-resource_name = "JumpAttack"
-length = 4.081
-step = 0.05
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_g1l8a")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("5_o7gcs")
-}],
-"times": PackedFloat32Array(0, 3.15)
-}
-tracks/0/use_blend = true
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TOMATO:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.75, 2.75, 2.95, 3.15)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TOMATO:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, -750, -0.25, 0, 0.25, 0, -500, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 1.75, 2.75, 2.95, 3.2, 3.4)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TOMATO:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(1.00402, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 0.609, -0.25, 0, 0.25, 0, 0.609, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 1.00402, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 3, 3.2, 3.4)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TOMATO:scale:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.991686, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 0.991686, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 3, 3.2, 3.4)
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("TOMATO:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.7, 1.75, 2.8, 2.85),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, false, true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("TOMATO:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.75, 2.8, 3.3, 3.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 2, 3, 1]
-}
+[ext_resource type="Shader" path="res://assets/shaders/negative.gdshader" id="18_fhefg"]
+[ext_resource type="Texture2D" uid="uid://c5uk7355c1umy" path="res://assets/sprites/TomatoRagingAuroSpriteDownscale.png" id="18_hjhdo"]
+[ext_resource type="Shader" path="res://assets/shaders/mirage.gdshader" id="19_661uf"]
+[ext_resource type="Script" path="res://scenes/entities/aura_overlay.gd" id="19_cwyxu"]
+[ext_resource type="Shader" path="res://assets/shaders/contrasted.gdshader" id="20_50m7f"]
+[ext_resource type="Shader" path="res://assets/shaders/normalized.gdshader" id="21_tuup4"]
+[ext_resource type="Shader" path="res://assets/shaders/old_film.gdshader" id="22_57xkm"]
+[ext_resource type="Texture2D" uid="uid://b5balmxe7ebn4" path="res://assets/shader_overlays/filmgrain.png" id="23_ldehw"]
+[ext_resource type="Texture2D" uid="uid://jkfe0jh7htj" path="res://assets/shader_overlays/vignette.png" id="24_wm84g"]
 
 [sub_resource type="Animation" id="Animation_2blex"]
 resource_name = "MockIntense1"
@@ -766,6 +682,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_avpw4"]
 resource_name = "laugh1"
@@ -833,9 +761,210 @@ tracks/4/keys = {
 "times": PackedFloat32Array(-0.05, 0.25, 0.4, 0.6)
 }
 
+[sub_resource type="Animation" id="Animation_b0qkw"]
+resource_name = "JumpAttack_START"
+length = 2.2
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_g1l8a")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.75)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, -750, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 1.75)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.00402, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 0.609, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.37794)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.991686, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.37794)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TOMATO:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.7, 1.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TOMATO:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2, 1.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_yx575"]
+resource_name = "JumpAttack_END"
+length = 1.6
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_o7gcs")
+}],
+"times": PackedFloat32Array(0.45)
+}
+tracks/0/use_blend = true
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.0499999, 0.25, 0.45)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-500, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.0499999, 0.25, 0.5, 0.7)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.609, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 1.00402, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.5, 0.7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 0.991686, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.5, 0.7)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TOMATO:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0999999, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TOMATO:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0999999, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmcjg"]
 _data = {
-"JumpAttack": SubResource("Animation_b0qkw"),
+"JumpAttack_END": SubResource("Animation_yx575"),
+"JumpAttack_START": SubResource("Animation_b0qkw"),
 "MockIntense1": SubResource("Animation_2blex"),
 "MockIntense2": SubResource("Animation_v3mi5"),
 "MockIntense3": SubResource("Animation_wus56"),
@@ -851,7 +980,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e6kbd"]
-radius = 210.0
+radius = 149.013
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y46kn"]
 polygon = PackedVector2Array(-44, -167, -61, -157, -92, -142, -121, -130, -151, -117, -178, -99, -198, -72, -214, -36, -221, -7, -212, 84, -171, 172, -134, 220, -85, 243, -29, 257, 32, 261, 81, 245, 131, 219, 172, 160, 198, 108, 204, 24, 199, -47, 160, -118, 119, -145, 74, -156, 40, -154, 13, -163, 19, -182, 22, -197, 12, -198, -13, -179)
@@ -896,17 +1025,125 @@ _data = {
 "salvos_1": SubResource("Animation_doasl")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(0, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa6xs"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(384, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijmxm"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(768, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4cvl"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(1152, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pb1t"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(1536, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3psao"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(0, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5yrt"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(384, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ficpf"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(768, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f5n1"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(1152, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4t7b"]
+atlas = ExtResource("18_hjhdo")
+region = Rect2(1536, 384, 384, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3eyk"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3fhgg")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_wa6xs")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ijmxm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_q4cvl")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7pb1t")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3psao")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n5yrt")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ficpf")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0f5n1")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_j4t7b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5mocj"]
-shader = ExtResource("18_cngl2")
+shader = ExtResource("18_fhefg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2wim"]
+shader = ExtResource("19_661uf")
+shader_parameter/frequency = 60.0
+shader_parameter/depth = 0.005
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8eng0"]
+shader = ExtResource("20_50m7f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1pg5"]
+shader = ExtResource("21_tuup4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r34jc"]
+shader = ExtResource("22_57xkm")
+shader_parameter/base = Color(1, 1, 1, 1)
+shader_parameter/grain_strength = 0.32
+shader_parameter/fps = 12.0
+shader_parameter/stretch = 0.5
+shader_parameter/flashing = 0.0
+shader_parameter/grain = ExtResource("23_ldehw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rl8xq"]
+shader = ExtResource("22_57xkm")
+shader_parameter/base = Color(1, 1, 1, 1)
+shader_parameter/grain_strength = 0.0
+shader_parameter/fps = 12.0
+shader_parameter/stretch = 0.5
+shader_parameter/flashing = 0.1
+shader_parameter/grain = ExtResource("23_ldehw")
+shader_parameter/vignette = ExtResource("24_wm84g")
 
 [node name="Boss" type="StaticBody2D"]
 position = Vector2(960, 200)
 script = ExtResource("1_3ifcl")
 
 [node name="DropShadow" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.32549)
-position = Vector2(-1, 220)
-scale = Vector2(0.655, 0.655)
+self_modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(-1, 126)
+scale = Vector2(0.54, 0.54)
 texture = ExtResource("2_4c6eb")
 
 [node name="TOMATO" type="Sprite2D" parent="."]
@@ -923,10 +1160,12 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TOMATO"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 40)
+position = Vector2(0, 4)
+scale = Vector2(1.19, 1)
 shape = SubResource("CircleShape2D_e6kbd")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(5, 9)
 occluder = SubResource("OccluderPolygon2D_y46kn")
 
@@ -935,14 +1174,117 @@ libraries = {
 "": SubResource("AnimationLibrary_14rc6")
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
+[node name="PostProcessing" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Shader_ColorInvert" type="ColorRect" parent="CanvasLayer"]
-self_modulate = Color(1, 1, 1, 0)
+[node name="AuraOverlay" type="AnimatedSprite2D" parent="PostProcessing"]
+self_modulate = Color(1, 1, 1, 0.521569)
+position = Vector2(0, -11)
+scale = Vector2(1.9, 1.59)
+sprite_frames = SubResource("SpriteFrames_j3eyk")
+frame_progress = 0.625311
+script = ExtResource("19_cwyxu")
+
+[node name="AuraOverlay2" type="AnimatedSprite2D" parent="PostProcessing"]
+self_modulate = Color(1, 1, 1, 0.568627)
+position = Vector2(0, -11)
+scale = Vector2(1.9, 1.59)
+sprite_frames = SubResource("SpriteFrames_j3eyk")
+frame = 3
+script = ExtResource("19_cwyxu")
+
+[node name="Colorinvert" type="CanvasLayer" parent="PostProcessing"]
+visible = false
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="Shader_ColorInvert" type="ColorRect" parent="PostProcessing/Colorinvert"]
 material = SubResource("ShaderMaterial_5mocj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="PostProcessing"]
+visible = false
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="Shader_Mirage" type="ColorRect" parent="PostProcessing/CanvasLayer2"]
+material = SubResource("ShaderMaterial_b2wim")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="PostProcessing"]
+visible = false
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="Shader_Contrast" type="ColorRect" parent="PostProcessing/CanvasLayer3"]
+material = SubResource("ShaderMaterial_8eng0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="PostProcessing"]
+visible = false
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="Shader_Normalized" type="ColorRect" parent="PostProcessing/CanvasLayer4"]
+material = SubResource("ShaderMaterial_d1pg5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer5" type="CanvasLayer" parent="PostProcessing"]
+visible = false
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="Shader_Filmgrain" type="ColorRect" parent="PostProcessing/CanvasLayer5"]
+material = SubResource("ShaderMaterial_r34jc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer6" type="CanvasLayer" parent="PostProcessing"]
+visible = false
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="Shader_Flashing" type="ColorRect" parent="PostProcessing/CanvasLayer6"]
+material = SubResource("ShaderMaterial_rl8xq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

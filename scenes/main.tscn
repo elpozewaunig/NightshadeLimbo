@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=21 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fq2vf"]
 [ext_resource type="Script" path="res://scripts/MusicManager.gd" id="15_isqen"]
 [ext_resource type="AudioStream" uid="uid://ece276grexf7" path="res://assets/music/BGM_BossBullets.ogg" id="16_blnxq"]
+[ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shader_overlays/screenvignette.png" id="16_jxlxq"]
 [ext_resource type="AudioStream" uid="uid://crooj44safm2h" path="res://assets/music/BGM_BossLaser.ogg" id="17_elhki"]
 [ext_resource type="AudioStream" uid="uid://crupw2p5juf3k" path="res://assets/music/BGM_BossVines.ogg" id="18_4dvss"]
 
@@ -33,6 +34,7 @@ font_size = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
+zoom = Vector2(0.87, 0.87)
 
 [node name="Lights" type="Node2D" parent="."]
 
@@ -96,11 +98,13 @@ visible = false
 script = ExtResource("9_gl7br")
 
 [node name="Illumination" type="Sprite2D" parent="IntroScreen"]
-position = Vector2(960, 540)
+position = Vector2(960, 521.765)
+scale = Vector2(1.24, 1.373)
 texture = ExtResource("10_roquk")
 
 [node name="Black" type="Sprite2D" parent="IntroScreen"]
 position = Vector2(960, 540)
+scale = Vector2(1.28, 1.28)
 texture = ExtResource("11_g3ka4")
 
 [node name="GameOverScreen" type="Node2D" parent="."]
@@ -109,18 +113,19 @@ script = ExtResource("12_qyr5r")
 
 [node name="Background" type="Sprite2D" parent="GameOverScreen"]
 position = Vector2(960, 540)
+scale = Vector2(1.195, 1.236)
 texture = ExtResource("11_g3ka4")
 
-[node name="Label" type="Label" parent="GameOverScreen/Background"]
+[node name="Label" type="Label" parent="GameOverScreen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1000.0
-offset_top = -551.5
-offset_right = -920.0
-offset_bottom = -528.5
+offset_left = 548.0
+offset_top = 478.0
+offset_right = 1372.0
+offset_bottom = 602.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Death messages go here."
@@ -148,6 +153,11 @@ parameters/looping = true
 stream = ExtResource("18_4dvss")
 volume_db = -10.0
 parameters/looping = true
+
+[node name="Vignette" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("16_jxlxq")
 
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
 [connection signal="game_over" from="Player" to="GameOverScreen" method="_on_game_over"]

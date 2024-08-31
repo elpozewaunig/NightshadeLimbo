@@ -17,6 +17,7 @@ signal player_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$CollisionShape2D/AnimatedSprite2D.play()
 	# Set collider to specified width
 	collider.shape.size.x = width
 	
