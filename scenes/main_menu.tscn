@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=24 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -16,13 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
 [ext_resource type="Script" path="res://scripts/credits_exit_button.gd" id="8_ovmfo"]
+[ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/button1.png" id="10_db6j4"]
+[ext_resource type="Texture2D" uid="uid://sbbpntgnpmqu" path="res://assets/button2.png" id="11_61tpf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
 font_size = 180
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4rsm"]
-size = Vector2(282, 119)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mriem"]
 font = ExtResource("2_hht2f")
@@ -87,18 +86,19 @@ script = ExtResource("7_fgtfw")
 [node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
 text = "Start journey"
 
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainMenuButtons/StartButton"]
+scale = Vector2(1.235, 1)
+texture = ExtResource("10_db6j4")
+
 [node name="CreditsButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
 position = Vector2(-748, 413)
-
-[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/CreditsButton" index="0"]
-scale = Vector2(1, 1)
 
 [node name="Label" parent="UI/MainMenuButtons/CreditsButton" index="1"]
 text = "Credits"
 
-[node name="CollisionShape2D" parent="UI/MainMenuButtons/CreditsButton" index="2"]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_j4rsm")
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainMenuButtons/CreditsButton"]
+position = Vector2(-15, 0)
+texture = ExtResource("11_61tpf")
 
 [node name="Credits" type="ColorRect" parent="UI"]
 visible = false
@@ -117,10 +117,6 @@ texture = ExtResource("1_3me3h")
 [node name="ExitButton" parent="UI/Credits" instance=ExtResource("3_fx80t")]
 position = Vector2(1790, 110)
 script = ExtResource("8_ovmfo")
-
-[node name="AnimatedSprite2D" parent="UI/Credits/ExitButton" index="0"]
-position = Vector2(0, -14)
-scale = Vector2(0.415, 0.945)
 
 [node name="Label" parent="UI/Credits/ExitButton" index="1"]
 offset_left = -29.0
@@ -399,6 +395,11 @@ offset_top = -222.0
 offset_right = 240.0
 offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Credits"]
+position = Vector2(1790, 96)
+scale = Vector2(0.415, 0.945)
+texture = ExtResource("11_61tpf")
 
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]

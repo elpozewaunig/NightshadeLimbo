@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=25 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://ckoq7lna1g8t3" path="res://assets/sprites/bg.png" id="1_1sqkm"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_brnu4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="8_pv1il"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="9_fvg0j"]
 [ext_resource type="Texture2D" uid="uid://brrpc86p6br0m" path="res://assets/sprites/toplight_fullscreen.png" id="10_cnnar"]
+[ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fqndv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1627, 863, 1637, -171, 1870, -316, 1858, 1031, -369, 1011, -367, -301, -223, -145, -185, 865)
@@ -155,7 +156,6 @@ scale = Vector2(0.655, 0.655)
 texture = ExtResource("7_46nrs")
 
 [node name="SpriteAnimation" parent="Boss" instance=ExtResource("4_lrp5j")]
-frame = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 position = Vector2(0, 40)
@@ -204,6 +204,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Death messages go here."
 label_settings = SubResource("LabelSettings_ryhxr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_fqndv")
+autoplay = true
 
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
 [connection signal="game_over" from="Player" to="GameOverScreen" method="_on_game_over"]
