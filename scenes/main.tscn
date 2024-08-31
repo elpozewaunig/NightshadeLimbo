@@ -1,19 +1,37 @@
-[gd_scene load_steps=25 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=55 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
+[ext_resource type="Shader" path="res://assets/shaders/colorinvert.gdshader" id="1_o1au0"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
 [ext_resource type="Texture2D" uid="uid://ckoq7lna1g8t3" path="res://assets/sprites/bg.png" id="3_ypeof"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_uynq2"]
 [ext_resource type="Texture2D" uid="uid://tojoudhopwtp" path="res://assets/sprites/uwuplaceholder.png" id="5_s15or"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="6_28kw0"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="7_0i3ea"]
-[ext_resource type="PackedScene" uid="uid://g2to87knm6n4" path="res://scenes/helpers/tomato_sprite_animation.tscn" id="8_fueip"]
 [ext_resource type="Script" path="res://scripts/IntroScreen.gd" id="9_gl7br"]
+[ext_resource type="Texture2D" uid="uid://ciibeq1sxy6bi" path="res://assets/sprites/tomato_sprite.png" id="9_xb1af"]
+[ext_resource type="AudioStream" uid="uid://d27fsxb7qs1tv" path="res://assets/sounds/voice/Boss_hehehee.ogg" id="10_ltsp8"]
 [ext_resource type="Texture2D" uid="uid://brrpc86p6br0m" path="res://assets/sprites/toplight_fullscreen.png" id="10_roquk"]
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="11_g3ka4"]
+[ext_resource type="AudioStream" uid="uid://bgljw5wi0so7k" path="res://assets/sounds/voice/Boss_heheo.ogg" id="11_pnhwd"]
+[ext_resource type="AudioStream" uid="uid://d0lnlok77tgo" path="res://assets/sounds/voice/Boss_IAhahaha.ogg" id="12_qjg0k"]
 [ext_resource type="Script" path="res://scripts/GameOver.gd" id="12_qyr5r"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="13_moeav"]
+[ext_resource type="AudioStream" uid="uid://bocaey3bkjw2r" path="res://assets/sounds/voice/Boss_IIAA.ogg" id="13_pavyx"]
 [ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fq2vf"]
+[ext_resource type="AudioStream" uid="uid://s3qop203ehjv" path="res://assets/sounds/voice/Boss_LachenWUOO.ogg" id="14_gpseh"]
+[ext_resource type="AudioStream" uid="uid://cwsw58twme32w" path="res://assets/sounds/voice/Boss_HAHA.ogg" id="15_c27gy"]
+[ext_resource type="AudioStream" uid="uid://dv2kt0auq8qgg" path="res://assets/sounds/voice/Boss_HoeHaha.ogg" id="16_lxbxe"]
+[ext_resource type="AudioStream" uid="uid://2tbi8nox7078" path="res://assets/sounds/voice/Boss_hehihi.ogg" id="17_ru1nw"]
+[ext_resource type="AudioStream" uid="uid://lo5ukuccuk6v" path="res://assets/sounds/voice/Boss_hehhihee.ogg" id="18_ei1y4"]
+[ext_resource type="AudioStream" uid="uid://c0bij2uvssivx" path="res://assets/sounds/voice/Boss_HoHahaa.ogg" id="19_3t2dl"]
+[ext_resource type="AudioStream" uid="uid://cyh8drp5seksm" path="res://assets/sounds/voice/Boss_huhu.ogg" id="20_8ugio"]
+[ext_resource type="AudioStream" uid="uid://oq2l21ij0fux" path="res://assets/sounds/voice/Boss_IIHAHA.ogg" id="21_pxsrq"]
+[ext_resource type="AudioStream" uid="uid://be2pk21rs6u8f" path="res://assets/sounds/voice/Boss_OIhaha.ogg" id="22_yyeqj"]
+[ext_resource type="AudioStream" uid="uid://cfoe13ghsf6sh" path="res://assets/sounds/voice/Boss_hohaha.ogg" id="23_b5yio"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmeft"]
+shader = ExtResource("1_o1au0")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1627, 863, 1637, -171, 1870, -316, 1858, 1031, -369, 1011, -367, -301, -223, -145, -185, 865)
@@ -29,6 +47,837 @@ size = Vector2(20, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clw16"]
 size = Vector2(1920, 20)
+
+[sub_resource type="Animation" id="Animation_avpw4"]
+resource_name = "laugh1"
+length = 1.848
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 0, 1]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_pavyx")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.25, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.66, 0, 0, 1), Color(0.66, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.24, -0.25, 0, 0.05, -0.24101, 1.24, -0.25, 0, 0.05, -0.24101, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.05, 0.25, 0.4, 0.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.61, -0.237107, -0.113979, 0.062893, 0.22937, 0.61, -0.237107, -0.113979, 0.062893, 0.22937, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.05, 0.25, 0.4, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_jcuak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TOMATO:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TOMATO:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TOMATO:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TOMATO:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b0qkw"]
+resource_name = "JumpAttack"
+length = 4.081
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_gpseh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_c27gy")
+}],
+"times": PackedFloat32Array(0, 3.15)
+}
+tracks/0/use_blend = true
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.75, 2.75, 2.95, 3.15)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, -750, -0.25, 0, 0.25, 0, -500, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 1.75, 2.75, 2.95, 3.2, 3.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.00402, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 0.609, -0.25, 0, 0.25, 0, 0.609, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 1.00402, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 3, 3.2, 3.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.991686, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 0.991686, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 3, 3.2, 3.4)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TOMATO:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.7, 1.75, 2.8, 2.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TOMATO:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.75, 2.8, 3.3, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 2, 3, 1]
+}
+
+[sub_resource type="Animation" id="Animation_k0yyv"]
+resource_name = "MockTwoLaugh"
+length = 2.2
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_lxbxe")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_ru1nw")
+}],
+"times": PackedFloat32Array(1.1)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_j0r4h"]
+resource_name = "MockShort1"
+length = 0.8
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_pnhwd")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 0.435275, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 0.183011, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bfd82"]
+resource_name = "MockShort2"
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_ei1y4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 0.435275, 1, 0.435275, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 0.183011, 1, 0.183011, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rg5yq"]
+resource_name = "PlayerHasDied"
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("19_3t2dl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 0.435275, 1, 0.435275, 1, 0.435275, 1, 0.435275, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 0.183011, 1, 4.43828),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1), Vector2(1.605, 1.43)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.308363, 0.263753, 3.36915e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nvqsl"]
+resource_name = "MockShort3"
+length = 1.5
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_8ugio")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 2, 1, 2, 1, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 0.435275, 1, 0.435275, 1, 1, 0.435275, 1, 0.435275, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 0.183011, 1, 0.183011, 1, 1, 0.183011, 1, 0.183011, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wus56"]
+resource_name = "MockIntense3"
+length = 1.6
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_ltsp8")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 0.153893),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, 20.87)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.9, 1.45123),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2blex"]
+resource_name = "MockIntense1"
+length = 1.95
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_qjg0k")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.2, 1.35, 1.85, 10.725),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 3, 2, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.75, 0.85, 1.05, 1.9, 10.4, 10.7, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.153893, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, 20.87), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.5, 1.3),
+"transitions": PackedFloat32Array(1, 0.196146, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.285), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v3mi5"]
+resource_name = "MockIntense2"
+length = 0.8
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("21_pxsrq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6, 0.7, 10.725),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 3, 2, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.7, 10.4, 10.7, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 0.153893, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 20.87), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 0.196146, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.285), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jv1bg"]
+resource_name = "MockIntense4"
+length = 1.6
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("22_yyeqj")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 0.153893),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, -8.795), Vector2(0, 0), Vector2(0, 20.87)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.9, 1.45123),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0rfwp"]
+resource_name = "MockShort4"
+length = 1.2
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("23_b5yio")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 2, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 0.435275, 1, 0.435275, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 32.525), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0), Vector2(0, -16.35), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 0.183011, 1, 0.183011, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.865), Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1), Vector2(1, 0.805), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmcjg"]
+_data = {
+"JumpAttack": SubResource("Animation_b0qkw"),
+"MockIntense1": SubResource("Animation_2blex"),
+"MockIntense2": SubResource("Animation_v3mi5"),
+"MockIntense3": SubResource("Animation_wus56"),
+"MockIntense4": SubResource("Animation_jv1bg"),
+"MockShort1": SubResource("Animation_j0r4h"),
+"MockShort2": SubResource("Animation_bfd82"),
+"MockShort3": SubResource("Animation_nvqsl"),
+"MockShort4": SubResource("Animation_0rfwp"),
+"MockTwoLaugh": SubResource("Animation_k0yyv"),
+"PlayerHasDied": SubResource("Animation_rg5yq"),
+"RESET": SubResource("Animation_jcuak"),
+"TakeDamage": SubResource("Animation_avpw4")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e6kbd"]
 radius = 210.0
@@ -53,12 +902,34 @@ tracks/0/keys = {
 "args": [Vector2(0, 1080), Vector2(1920, 1080), 20, 4.0],
 "method": &"salvo"
 }, {
-"args": [Vector2(960, 1080), 0.5],
+"args": [Vector2(960, 1080), 1.265],
 "method": &"beam"
 }, {
 "args": [Vector2(960, 1080), 20, 1.0],
 "method": &"machine_gun"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera2D/CanvasLayer/Shader_ColorInvert:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.9, 5.2, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("MockIntense1", "MockShort2", "MockIntense4", "JumpAttack", "MockIntense1", "MockIntense2", "MockIntense3", "MockIntense4", "MockShort1", "MockShort2", "MockShort3", "MockShort4", "MockTwoLaugh", "TakeDamage"),
+"times": PackedFloat32Array(0, 2, 4.9, 8.5, 12.7, 14.7, 15.5, 17.2, 18.9, 19.8, 20.9, 22.6, 24, 26.4)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14rc6"]
@@ -74,6 +945,18 @@ font_size = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Shader_ColorInvert" type="ColorRect" parent="Camera2D/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_cmeft")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Lights" type="Node2D" parent="."]
 
@@ -154,7 +1037,18 @@ position = Vector2(-1, 220)
 scale = Vector2(0.655, 0.655)
 texture = ExtResource("7_0i3ea")
 
-[node name="SpriteAnimation" parent="Boss" instance=ExtResource("8_fueip")]
+[node name="TOMATO" type="Sprite2D" parent="Boss"]
+texture = ExtResource("9_xb1af")
+hframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss/TOMATO"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_nmcjg")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Boss/TOMATO"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 position = Vector2(0, 40)
@@ -208,6 +1102,7 @@ label_settings = SubResource("LabelSettings_ryhxr")
 
 [node name="Background" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("14_fq2vf")
+volume_db = -6.265
 autoplay = true
 
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
