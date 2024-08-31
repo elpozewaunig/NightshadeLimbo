@@ -2,6 +2,7 @@ extends Area2D
 class_name Area2DButton
 
 var mouse_inside = false
+var disabled = false
 var highlight_active = false
 var ext_selected = false
 
@@ -19,7 +20,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if (mouse_inside and not highlight_active) or (ext_selected and highlight_active):
+	if ((mouse_inside and not highlight_active) or (ext_selected and highlight_active)) and not disabled:
 		modulate = Color("ff7070")
 		sprite.frame = 1
 		
@@ -33,8 +34,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_mouse_entered() -> void:
-	mouse_inside = true
-	_on_selected()
+	if not disabled:
+		mouse_inside = true
+		_on_selected()
 
 func _on_mouse_exited() -> void:
 	mouse_inside = false

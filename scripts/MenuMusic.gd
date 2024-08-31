@@ -10,6 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Fade in volume
 	if volume_db < target_volume:
 		volume_db += delta * 10
 		if volume_db > target_volume:

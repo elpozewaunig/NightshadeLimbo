@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=32 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -13,13 +13,12 @@
 [ext_resource type="Script" path="res://scripts/ButtonSelector.gd" id="7_eh7es"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
-[ext_resource type="Script" path="res://scripts/StartButton.gd" id="9_ntakj"]
 [ext_resource type="Script" path="res://scripts/CreditsView.gd" id="10_8l1x4"]
 [ext_resource type="Script" path="res://scripts/CreditsExitButton.gd" id="11_60r02"]
-[ext_resource type="Script" path="res://scripts/ScaryPic.gd" id="12_arjaf"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://assets/settings/labels/credits_subtitle_settings.tres" id="13_iih06"]
 [ext_resource type="AudioStream" uid="uid://c8prdyktbfx3i" path="res://assets/music/BGM_MainMenuLoop.ogg" id="17_yrybt"]
+[ext_resource type="Script" path="res://scripts/MenuSceneTransition.gd" id="19_6iilf"]
 [ext_resource type="Script" path="res://scripts/MenuMusic.gd" id="21_otmm1"]
 
 [sub_resource type="Animation" id="Animation_17cl1"]
@@ -166,7 +165,6 @@ buttons = [NodePath("../StartButton"), NodePath("../CreditsButton")]
 
 [node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
 position = Vector2(-722, 262)
-script = ExtResource("9_ntakj")
 
 [node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
 text = "Start journey"
@@ -183,17 +181,6 @@ text = "Credits"
 [node name="CollisionShape2D" parent="UI/MainMenuButtons/CreditsButton" index="2"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_j4rsm")
-
-[node name="ScaryClick" type="Sprite2D" parent="UI"]
-visible = false
-texture = ExtResource("1_3me3h")
-script = ExtResource("12_arjaf")
-
-[node name="scawyspwite" type="Sprite2D" parent="UI/ScaryClick"]
-self_modulate = Color(1, 1, 1, 0.0352941)
-position = Vector2(14, -50)
-scale = Vector2(1.615, 1.615)
-texture = ExtResource("3_5j4db")
 
 [node name="Credits" type="ColorRect" parent="UI"]
 visible = false
@@ -495,6 +482,17 @@ offset_right = 240.0
 offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
 
+[node name="SceneTransition" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_3me3h")
+script = ExtResource("19_6iilf")
+
+[node name="scawyspwite" type="Sprite2D" parent="SceneTransition"]
+self_modulate = Color(1, 1, 1, 0.0352941)
+position = Vector2(14, -50)
+scale = Vector2(1.615, 1.615)
+texture = ExtResource("3_5j4db")
+
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_yrybt")
 volume_db = -10.0
@@ -502,7 +500,8 @@ autoplay = true
 parameters/looping = true
 script = ExtResource("21_otmm1")
 
-[connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="UI/ScaryClick" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="UI/MainMenuButtons" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="SceneTransition" method="_on_start_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/Credits/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
