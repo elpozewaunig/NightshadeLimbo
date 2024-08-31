@@ -8,12 +8,20 @@ var permit_movement = false
 
 var dead = false
 
+var time_mouse_idle = 0
+
 signal game_over
 
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	time_mouse_idle += delta
+	
+	# Hide mouse automatically if it isn't moved for a long time
+	if time_mouse_idle > 5:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
 	# If flag to reset the slowdown has been set
 	if reset_debuff:
 		# Gradually decrease debuff
@@ -58,3 +66,9 @@ func _on_intro_done() -> void:
 func _on_intro_permit_movement() -> void:
 	permit_movement = true
 	speed_debuff = 450
+
+func _input(event):
+	# After the mouse is moved, disable the highlight
+	if event is InputEventMouseMotion:
+		time_mouse_idle = 0
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

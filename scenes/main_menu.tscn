@@ -1,15 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=20 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/button.tscn" id="3_fx80t"]
+[ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="4_8qgyw"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="5_u4igt"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
+[ext_resource type="Script" path="res://scenes/button_selector.gd" id="6_su6v2"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://settings/credits_label_settings.tres" id="6_w50mp"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://settings/credits_subtitle_settings.tres" id="7_fky7d"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
+[ext_resource type="Script" path="res://scripts/credits_exit_button.gd" id="8_ovmfo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
@@ -63,20 +66,28 @@ position = Vector2(-600, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5j4db")
 
-[node name="StartButton" parent="UI" instance=ExtResource("3_fx80t")]
+[node name="MainMenuButtons" type="Node2D" parent="UI"]
+script = ExtResource("4_8qgyw")
+
+[node name="ButtonSelector" type="Node2D" parent="UI/MainMenuButtons" node_paths=PackedStringArray("buttons")]
+script = ExtResource("6_su6v2")
+buttons = [NodePath("../StartButton"), NodePath("../CreditsButton")]
+
+[node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
 position = Vector2(0, -90)
 script = SubResource("GDScript_2f371")
 
-[node name="Label" parent="UI/StartButton" index="1"]
+[node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
 text = "Start journey"
 
-[node name="CreditsButton" parent="UI" instance=ExtResource("3_fx80t")]
+[node name="CreditsButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
 position = Vector2(0, 50)
 
-[node name="Label" parent="UI/CreditsButton" index="1"]
+[node name="Label" parent="UI/MainMenuButtons/CreditsButton" index="1"]
 text = "Credits"
 
 [node name="Credits" type="ColorRect" parent="UI"]
+visible = false
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
@@ -91,6 +102,7 @@ texture = ExtResource("1_3me3h")
 
 [node name="ExitButton" parent="UI/Credits" instance=ExtResource("3_fx80t")]
 position = Vector2(1790, 110)
+script = ExtResource("8_ovmfo")
 
 [node name="Label" parent="UI/Credits/ExitButton" index="1"]
 offset_left = -29.0
@@ -353,9 +365,11 @@ offset_right = 240.0
 offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
 
-[connection signal="clicked" from="UI/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/Credits/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="UI/Credits/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
 
-[editable path="UI/StartButton"]
-[editable path="UI/CreditsButton"]
+[editable path="UI/MainMenuButtons/StartButton"]
+[editable path="UI/MainMenuButtons/CreditsButton"]
 [editable path="UI/Credits/ExitButton"]
