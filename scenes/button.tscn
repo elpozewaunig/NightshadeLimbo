@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Area2DButton.gd" id="1_hdsiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkhs4"]
-size = Vector2(400, 100)
+size = Vector2(395, 85)
 
 [node name="Button" type="Area2D"]
 position = Vector2(960, 450)
@@ -28,8 +28,9 @@ text = "Text goes here"
 label_settings = ExtResource("1_gem6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -2)
+position = Vector2(-3.5, -2)
 shape = SubResource("RectangleShape2D_xkhs4")
 
+[connection signal="clicked" from="." to="." method="_on_clicked"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

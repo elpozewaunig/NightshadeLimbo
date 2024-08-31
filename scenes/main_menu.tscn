@@ -1,12 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=17 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
+[ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/button.tscn" id="3_fx80t"]
+[ext_resource type="Script" path="res://scenes/button.gd" id="5_0wv3x"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="5_u4igt"]
+[ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
+[ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://settings/credits_label_settings.tres" id="6_w50mp"]
+[ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://settings/credits_subtitle_settings.tres" id="7_fky7d"]
+[ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
+[ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
 font_size = 180
+
+[sub_resource type="LabelSettings" id="LabelSettings_mriem"]
+font = ExtResource("2_hht2f")
+font_size = 150
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5pb1"]
+size = Vector2(72, 85)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlt60"]
+font = ExtResource("2_hht2f")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2bji"]
+font_size = 30
 
 [node name="MainMenu" type="Node2D"]
 
@@ -28,17 +50,294 @@ label_settings = SubResource("LabelSettings_0c7lh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(-600, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5j4db")
+
 [node name="StartButton" parent="UI" instance=ExtResource("3_fx80t")]
 position = Vector2(0, -90)
+script = ExtResource("5_0wv3x")
 
 [node name="Label" parent="UI/StartButton" index="1"]
 text = "Start journey"
 
-[node name="Button" parent="UI" instance=ExtResource("3_fx80t")]
+[node name="CreditsButton" parent="UI" instance=ExtResource("3_fx80t")]
 position = Vector2(0, 50)
 
-[node name="Label" parent="UI/Button" index="1"]
+[node name="Label" parent="UI/CreditsButton" index="1"]
 text = "Credits"
 
+[node name="Credits" type="Sprite2D" parent="UI"]
+visible = false
+texture = ExtResource("1_3me3h")
+script = ExtResource("5_u4igt")
+
+[node name="ExitButton" parent="UI/Credits" instance=ExtResource("3_fx80t")]
+position = Vector2(830, -430)
+
+[node name="Label" parent="UI/Credits/ExitButton" index="1"]
+offset_left = -29.0
+offset_top = -74.0
+offset_right = 29.0
+offset_bottom = 75.0
+text = "X"
+label_settings = SubResource("LabelSettings_mriem")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" parent="UI/Credits/ExitButton" index="2"]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_u5pb1")
+
+[node name="Title" type="Label" parent="UI/Credits"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1101.5
+offset_top = -500.0
+offset_right = -818.5
+offset_bottom = -351.0
+grow_horizontal = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_vlt60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="UI/Credits"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1200.0
+offset_top = -890.0
+offset_right = -720.0
+offset_bottom = -777.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Developed by Q1 Studios
+for Mini Jame Gam #34"
+label_settings = ExtResource("6_w50mp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="People" type="Control" parent="UI/Credits"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -570.0
+offset_right = -920.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Markus" type="Label" parent="UI/Credits/People"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -160.0
+offset_right = 220.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Markus Müllauer
+"
+label_settings = ExtResource("6_w50mp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/Credits/People/Markus"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = 25.5
+offset_right = 215.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lead Artist & Designer"
+label_settings = ExtResource("7_fky7d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Laurenz" type="Label" parent="UI/Credits/People"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -40.0
+offset_right = 220.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Laurenz Platzer"
+label_settings = ExtResource("6_w50mp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/Credits/People/Laurenz"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = 25.5
+offset_right = 215.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Composer & Sound Designer"
+label_settings = ExtResource("7_fky7d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Elias" type="Label" parent="UI/Credits/People"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = 80.0
+offset_right = 220.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Elias Pozewaunig"
+label_settings = ExtResource("6_w50mp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/Credits/People/Elias"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = 25.5
+offset_right = 215.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lead Developer"
+label_settings = ExtResource("7_fky7d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="David" type="Label" parent="UI/Credits/People"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = 200.0
+offset_right = 220.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "David Schwaiger
+"
+label_settings = ExtResource("6_w50mp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/Credits/People/David"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = 25.5
+offset_right = 215.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Artist & Consultant"
+label_settings = ExtResource("7_fky7d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engine" type="Label" parent="UI/Credits"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1200.0
+offset_top = -180.0
+offset_right = -720.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made with ♥ and"
+label_settings = SubResource("LabelSettings_v2bji")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Q1Sprite" type="Sprite2D" parent="UI/Credits"]
+position = Vector2(-800, 380)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_2k0lu")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Credits/Q1Sprite"]
+offset_left = -120.0
+offset_top = -124.0
+offset_right = 124.0
+offset_bottom = 128.0
+uri = "https://q1studios.itch.io/"
+
+[node name="GodotSprite" type="Sprite2D" parent="UI/Credits"]
+position = Vector2(0, 470)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("8_khbxw")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Credits/GodotSprite"]
+offset_left = -453.0
+offset_top = -173.0
+offset_right = 476.0
+offset_bottom = 182.0
+uri = "https://godotengine.org/"
+
+[node name="MiniJameGamSprite" type="Sprite2D" parent="UI/Credits"]
+position = Vector2(780, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_kq7md")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Credits/MiniJameGamSprite"]
+offset_left = -232.0
+offset_top = -222.0
+offset_right = 240.0
+offset_bottom = 188.0
+uri = "https://itch.io/jam/mini-jame-gam-34"
+
+[connection signal="clicked" from="UI/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
+[connection signal="clicked" from="UI/Credits/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
+
 [editable path="UI/StartButton"]
-[editable path="UI/Button"]
+[editable path="UI/CreditsButton"]
+[editable path="UI/Credits/ExitButton"]

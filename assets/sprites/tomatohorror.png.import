@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bydy6pf5yw8g4"
-path="res://.godot/imported/bullet.svg-81048bc4f5e59bec633e8fc41e5385f5.ctex"
+uid="uid://by7sp5ronuisv"
+path="res://.godot/imported/tomatohorror.png-450108a3d4c5c918ddbf00d32df9a837.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bullet.svg"
-dest_files=["res://.godot/imported/bullet.svg-81048bc4f5e59bec633e8fc41e5385f5.ctex"]
+source_file="res://assets/sprites/tomatohorror.png"
+dest_files=["res://.godot/imported/tomatohorror.png-450108a3d4c5c918ddbf00d32df9a837.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
