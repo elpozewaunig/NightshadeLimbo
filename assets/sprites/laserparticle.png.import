@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bigdw6byal88k"
-path="res://.godot/imported/tomat.png-793e234a0dd317b2d239e12069316cdf.ctex"
+uid="uid://cqfkbd1tl6fic"
+path="res://.godot/imported/laserparticle.png-8aa56f8af24d1a9318559198fb9cdb1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tomat.png"
-dest_files=["res://.godot/imported/tomat.png-793e234a0dd317b2d239e12069316cdf.ctex"]
+source_file="res://assets/sprites/laserparticle.png"
+dest_files=["res://.godot/imported/laserparticle.png-8aa56f8af24d1a9318559198fb9cdb1f.ctex"]
 
 [params]
 
