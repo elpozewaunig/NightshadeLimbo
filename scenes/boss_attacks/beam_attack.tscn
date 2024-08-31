@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cg8ie5l0qs2ju"]
 
 [ext_resource type="Script" path="res://scripts/BeamAttack.gd" id="1_ey2ax"]
-[ext_resource type="Texture2D" uid="uid://31sabsn8cvuc" path="res://assets/sprites/beam_particle.svg" id="2_bqasa"]
+[ext_resource type="Texture2D" uid="uid://cqfkbd1tl6fic" path="res://assets/sprites/laserparticle.png" id="2_i2jbm"]
+[ext_resource type="Texture2D" uid="uid://dcjq0yum71xwy" path="res://assets/sprites/beam.svg" id="3_05g85"]
 [ext_resource type="AudioStream" uid="uid://b0jvhpmpknpbu" path="res://assets/sounds/attacks/Boss_Laser.ogg" id="4_8rmtn"]
 [ext_resource type="Texture2D" uid="uid://hg7mhghh7my1" path="res://assets/sprites/beamattack_sprite.png" id="4_l4d8i"]
 
@@ -16,6 +17,8 @@ angular_velocity_max = 200.0
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
+scale_min = 0.05
+scale_max = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ieww2"]
 size = Vector2(20, 100)
@@ -26,12 +29,13 @@ script = ExtResource("1_ey2ax")
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="GlobalParticles" type="GPUParticles2D" parent="Particles"]
+amount = 16
 process_material = SubResource("ParticleProcessMaterial_y0ejb")
-texture = ExtResource("2_bqasa")
+texture = ExtResource("2_i2jbm")
 
 [node name="LocalParticles" type="GPUParticles2D" parent="Particles"]
 process_material = SubResource("ParticleProcessMaterial_y0ejb")
-texture = ExtResource("2_bqasa")
+texture = ExtResource("2_i2jbm")
 local_coords = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
