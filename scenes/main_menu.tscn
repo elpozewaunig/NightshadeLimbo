@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=24 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
+[ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/bgtry1_blur.png" id="2_y2byd"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/button.tscn" id="3_fx80t"]
+[ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/bg_flickeroverlay.png" id="3_tw0gk"]
 [ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="4_8qgyw"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="5_u4igt"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
@@ -14,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
 [ext_resource type="Script" path="res://scripts/credits_exit_button.gd" id="8_ovmfo"]
+[ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/button1.png" id="10_db6j4"]
+[ext_resource type="Texture2D" uid="uid://sbbpntgnpmqu" path="res://assets/button2.png" id="11_61tpf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
@@ -39,21 +43,31 @@ font_size = 30
 position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 
+[node name="BG" type="Sprite2D" parent="UI"]
+texture = ExtResource("2_y2byd")
+
+[node name="BGFlicker" type="Sprite2D" parent="UI"]
+self_modulate = Color(1, 1, 1, 0.0588235)
+texture = ExtResource("3_tw0gk")
+
 [node name="Label" type="Label" parent="UI"]
+self_modulate = Color(1, 1, 1, 0.980392)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1329.0
-offset_top = -500.0
-offset_right = -591.0
-offset_bottom = -253.0
+offset_left = -742.0
+offset_top = -528.0
+offset_right = 235.0
+offset_bottom = -281.0
 grow_horizontal = 2
+scale = Vector2(0.73813, 0.73813)
 text = "Nightshade Limbo"
 label_settings = SubResource("LabelSettings_0c7lh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
+[node name="scawyspwite" type="Sprite2D" parent="UI"]
+visible = false
 position = Vector2(-600, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5j4db")
@@ -66,20 +80,27 @@ script = ExtResource("6_su6v2")
 buttons = [NodePath("../StartButton"), NodePath("../CreditsButton")]
 
 [node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
-position = Vector2(0, -90)
+position = Vector2(-722, 262)
 script = ExtResource("7_fgtfw")
 
 [node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
 text = "Start journey"
 
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainMenuButtons/StartButton"]
+scale = Vector2(1.235, 1)
+texture = ExtResource("10_db6j4")
+
 [node name="CreditsButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
-position = Vector2(0, 50)
+position = Vector2(-748, 413)
 
 [node name="Label" parent="UI/MainMenuButtons/CreditsButton" index="1"]
 text = "Credits"
 
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainMenuButtons/CreditsButton"]
+position = Vector2(-15, 0)
+texture = ExtResource("11_61tpf")
+
 [node name="Credits" type="ColorRect" parent="UI"]
-visible = false
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
@@ -303,6 +324,25 @@ label_settings = ExtResource("7_fky7d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="dankefelix" type="Label" parent="UI/Credits/People"]
+self_modulate = Color(1, 1, 1, 0.152941)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -865.0
+offset_top = 467.0
+offset_right = -435.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "& danke felix :3"
+label_settings = ExtResource("7_fky7d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Engine" type="Label" parent="UI/Credits"]
 layout_mode = 1
 anchors_preset = 8
@@ -356,6 +396,11 @@ offset_top = -222.0
 offset_right = 240.0
 offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Credits"]
+position = Vector2(1790, 96)
+scale = Vector2(0.415, 0.945)
+texture = ExtResource("11_61tpf")
 
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
