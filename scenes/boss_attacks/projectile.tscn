@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b17k760rfqwu2"]
+[gd_scene load_steps=4 format=3 uid="uid://b17k760rfqwu2"]
 
-<<<<<<< Updated upstream:scenes/boss_attacks/projectile.tscn
 [ext_resource type="Script" path="res://scripts/Projectile.gd" id="1_jyir0"]
 [ext_resource type="Texture2D" uid="uid://dpk77hai3qmsu" path="res://assets/sprites/projectile.png" id="2_qj00h"]
-=======
-[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_nob28"]
-[ext_resource type="Texture2D" uid="uid://dpk77hai3qmsu" path="res://assets/sprites/projectile.png" id="2_vxqk0"]
-[ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="3_hrpa6"]
->>>>>>> Stashed changes:scenes/objects/projectile.tscn
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6q1un"]
 
@@ -22,10 +16,5 @@ texture = ExtResource("2_qj00h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.425, 0.86)
 shape = SubResource("CircleShape2D_6q1un")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_hrpa6")
-volume_db = -5.012
-autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

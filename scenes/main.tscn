@@ -209,7 +209,6 @@ label_settings = SubResource("LabelSettings_ryhxr")
 [node name="Background" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("14_fq2vf")
 autoplay = true
-parameters/looping = true
 
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
 [connection signal="game_over" from="Player" to="GameOverScreen" method="_on_game_over"]
