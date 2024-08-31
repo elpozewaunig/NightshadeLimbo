@@ -502,6 +502,7 @@ script = ExtResource("21_otmm1")
 
 [connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="UI/MainMenuButtons" method="_on_start_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="SceneTransition" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="MenuMusic" method="_on_start_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/Credits/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
