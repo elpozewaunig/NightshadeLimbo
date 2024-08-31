@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	if (mouse_inside and not highlight_active) or (ext_selected and highlight_active):
 		label.modulate = Color("1c1c1c")
 		
-		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_select"):
 			emit_signal("clicked")
 			
 	else:

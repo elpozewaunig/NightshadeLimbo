@@ -386,7 +386,7 @@ offset_bottom = 182.0
 uri = "https://godotengine.org/"
 
 [node name="MiniJameGamSprite" type="Sprite2D" parent="UI/Credits"]
-position = Vector2(1740, 940)
+position = Vector2(1760, 940)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_kq7md")
 
