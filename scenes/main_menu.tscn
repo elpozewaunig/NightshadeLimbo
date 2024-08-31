@@ -365,10 +365,10 @@ offset_right = 240.0
 offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
 
-[connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
-[connection signal="clicked" from="UI/Credits/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/Credits/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="UI/Credits/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
 
 [editable path="UI/MainMenuButtons/StartButton"]
 [editable path="UI/MainMenuButtons/CreditsButton"]
