@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/BGM_BossBullets.ogg-57012a0b7c424ec6b7901bced
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

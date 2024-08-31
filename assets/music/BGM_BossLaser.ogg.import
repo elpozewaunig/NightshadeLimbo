@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/BGM_BossLaser.ogg-7b097d3f1216c66397e1ad27ebd
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
