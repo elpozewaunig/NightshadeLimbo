@@ -17,6 +17,7 @@ radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ieww2"]
+size = Vector2(50, 100)
 
 [node name="BeamAttack" type="Area2D"]
 script = ExtResource("1_7xfpv")
@@ -40,3 +41,5 @@ texture_repeat = 2
 texture = ExtResource("2_m2dsl")
 region_enabled = true
 region_rect = Rect2(0, 0, 50, 100)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
