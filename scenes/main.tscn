@@ -107,8 +107,7 @@ occluder = SubResource("OccluderPolygon2D_6tmgd")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(948.306, 546.237)
-rotation = 1.5708
-scale = Vector2(0.638849, 0.801934)
+scale = Vector2(0.802, 0.639)
 texture = ExtResource("1_1sqkm")
 
 [node name="Player" type="CharacterBody2D" parent="."]
