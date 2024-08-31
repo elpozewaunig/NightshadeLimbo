@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d0ngxbsvkqk2n"]
+
+[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="1_d8rm0"]
+
+[resource]
+font = ExtResource("1_d8rm0")
+font_size = 80

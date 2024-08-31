@@ -79,14 +79,12 @@ position = Vector2(960, 540)
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
 position = Vector2(61, 533)
 color = Color(0.712855, 0.161183, 0.151044, 1)
-shadow_enabled = true
 texture = ExtResource("1_te3v5")
 texture_scale = 2.13
 
 [node name="PointLight2D2" type="PointLight2D" parent="Lights"]
 position = Vector2(1823, 974)
 color = Color(0.293021, 0.582994, 0.872841, 1)
-shadow_enabled = true
 texture = ExtResource("1_te3v5")
 texture_scale = 1.8
 

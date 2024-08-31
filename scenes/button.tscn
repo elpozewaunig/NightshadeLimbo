@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://u3fwqvgrct4r"]
+
+[ext_resource type="LabelSettings" uid="uid://d0ngxbsvkqk2n" path="res://settings/button_label_settings.tres" id="1_gem6f"]
+[ext_resource type="Script" path="res://scripts/Area2DButton.gd" id="1_hdsiu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkhs4"]
+size = Vector2(400, 100)
+
+[node name="Button" type="Area2D"]
+position = Vector2(960, 450)
+script = ExtResource("1_hdsiu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -37.5
+offset_right = 111.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Text goes here"
+label_settings = ExtResource("1_gem6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_xkhs4")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

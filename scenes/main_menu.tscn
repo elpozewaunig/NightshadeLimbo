@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtxu2sk0uugbs"]
+
+[ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
+[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
+[ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/button.tscn" id="3_fx80t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
+font = ExtResource("2_hht2f")
+font_size = 180
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="UI" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_3me3h")
+
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1329.0
+offset_top = -500.0
+offset_right = -591.0
+offset_bottom = -253.0
+grow_horizontal = 2
+text = "Nightshade Limbo"
+label_settings = SubResource("LabelSettings_0c7lh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" parent="UI" instance=ExtResource("3_fx80t")]
+position = Vector2(0, -90)
+
+[node name="Label" parent="UI/StartButton" index="1"]
+text = "Start journey"
+
+[node name="Button" parent="UI" instance=ExtResource("3_fx80t")]
+position = Vector2(0, 50)
+
+[node name="Label" parent="UI/Button" index="1"]
+text = "Credits"
+
+[editable path="UI/StartButton"]
+[editable path="UI/Button"]
