@@ -22,7 +22,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/negative.gdshader" id="18_fhefg"]
 [ext_resource type="Texture2D" uid="uid://c5uk7355c1umy" path="res://assets/sprites/TomatoRagingAuroSpriteDownscale.png" id="18_hjhdo"]
 [ext_resource type="Shader" path="res://assets/shaders/mirage.gdshader" id="19_661uf"]
-[ext_resource type="Script" path="res://scenes/entities/aura_overlay.gd" id="19_cwyxu"]
+[ext_resource type="Script" path="res://scripts/AuraOverlay.gd" id="19_cwyxu"]
 [ext_resource type="Shader" path="res://assets/shaders/contrasted.gdshader" id="20_50m7f"]
 [ext_resource type="Shader" path="res://assets/shaders/normalized.gdshader" id="21_tuup4"]
 [ext_resource type="Shader" path="res://assets/shaders/old_film.gdshader" id="22_57xkm"]

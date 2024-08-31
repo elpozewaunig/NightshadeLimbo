@@ -7,14 +7,15 @@ var ext_selected = false
 
 @onready var sprite = $AnimatedSprite2D
 @onready var label = $Label
+@onready var click_sfx = $ClickSFX
+@onready var select_sfx = $SelectSFX
 
 signal clicked
-signal selected
+signal selected(button)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -24,7 +25,7 @@ func _process(_delta: float) -> void:
 		
 		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_select"):
 			emit_signal("clicked")
-			$AudioStreamPlayer2D.play()
+			click_sfx.play()
 			
 	else:
 		modulate = Color("ffffff")
@@ -33,13 +34,18 @@ func _process(_delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	mouse_inside = true
-	emit_signal("selected", self)
+	_on_selected()
 
 func _on_mouse_exited() -> void:
 	mouse_inside = false
 
 func _on_clicked() -> void:
-	pass # Replace with function body.
+	# To be implemented by inheriting classes
+	pass
+	
+func _on_selected() -> void:
+	emit_signal("selected", self)
+	select_sfx.play()
 
 # Triggered by button selector through key/gamepad input
 func _on_ext_selected(btn_node):
@@ -47,13 +53,13 @@ func _on_ext_selected(btn_node):
 		highlight_active = true
 		if btn_node == self:
 			ext_selected = true
-			emit_signal("selected", self)
+			_on_selected()
 		else:
 			ext_selected = false
 
 # Triggered by button selector when the current selection is replaced by mouse movement
 func _on_ext_cleared():
 	if highlight_active and mouse_inside and visible:
-		emit_signal("selected", self)
+		_on_selected()
 	highlight_active = false
 	ext_selected = false
