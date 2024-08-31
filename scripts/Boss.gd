@@ -5,11 +5,17 @@ extends StaticBody2D
 var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
 var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
 
+# Stores necessary data for firing bullets
 var salvos = {}
 var salvo_id = 0
 
+# Stores simple countdown for each beam to trigger actions upon completion
+var beams = []
+
 var game_over = false
 var intro_over = false
+
+signal attack_status_changed(attack, status)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +40,7 @@ func queuetest():
 func _process(delta: float) -> void:
 	if intro_over and not game_over:
 		queuetest()
+		
 		# Iterate through all current salvos
 		for key in salvos:
 			# Get salvo and associated progress
@@ -54,6 +61,17 @@ func _process(delta: float) -> void:
 			else:
 				# Delete salvo to free up ressources
 				salvos.erase(key)
+				if salvos.is_empty():
+					emit_signal("attack_status_changed","salvo", false)
+		
+		# Iterate through all beams and count down their remaining time
+		for i in range(0, beams.size()):
+			beams[i] -= delta
+			# Remove expired beams
+			if beams[i] <= 0:
+				beams.remove_at(i)
+				if beams.is_empty():
+					emit_signal("attack_status_changed", "beam", false)
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
@@ -62,12 +80,14 @@ func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float
 func machine_gun(to_pos: Vector2, amount: int = 20, duration: float = 2) -> void:
 	create_salvo(to_pos, to_pos, amount, duration)
 
-# Creates a projectile instance and fires it
+# Creates a beam instance and fires it
 func beam(to_pos: Vector2, duration: float = 0.5) -> void:
 	var new_beam = beam_scene.instantiate()
 	new_beam.target_pos = to_pos
 	new_beam.duration = duration
 	add_child(new_beam)
+	beams.append(duration)
+	emit_signal("attack_status_changed", "beam", true)
 
 # Creates a projectile instance and fires it
 func add_projectile(global_pos_to: Vector2) -> void:
@@ -91,6 +111,7 @@ func create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: flo
 	"countdown": 0
 	}
 	salvo_id += 1
+	emit_signal("attack_status_changed", "salvo", true)
 
 
 func _on_game_over() -> void:

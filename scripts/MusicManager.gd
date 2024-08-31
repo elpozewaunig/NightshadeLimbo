@@ -25,12 +25,19 @@ func _process(delta: float) -> void:
 		
 		# If track is disabled, reduce its volume continously until it falls silent
 		if not active and track.volume_db > -50:
-			track.volume_db -= delta * 10
+			track.volume_db -= delta * 100
 			if track.volume_db < -50:
 				track.volume_db = -50
 		
 		# If track is enabled, reduce its volume up to zero db
 		elif active and track.volume_db < 0:
-			track.volume_db += delta * 10
+			track.volume_db += delta * 100
 			if track.volume_db > 0:
 				track.volume_db = 0
+
+
+func _on_boss_attack_status_changed(attack: String, status: bool) -> void:
+	if(attack == "salvo"):
+		tracks["bullets"]["active"] = status
+	elif(attack == "beam"):
+		tracks["laser"]["active"] = status
