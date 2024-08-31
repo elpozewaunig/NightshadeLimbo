@@ -1,19 +1,19 @@
 [gd_scene load_steps=25 format=3 uid="uid://muherruagjtj"]
 
-[ext_resource type="Texture2D" uid="uid://ckoq7lna1g8t3" path="res://assets/sprites/bg.png" id="1_1sqkm"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_brnu4"]
-[ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_te3v5"]
-[ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_74us1"]
-[ext_resource type="Script" path="res://scripts/boss.gd" id="3_dc5q6"]
-[ext_resource type="Texture2D" uid="uid://tojoudhopwtp" path="res://assets/sprites/uwuplaceholder.png" id="4_7i55u"]
-[ext_resource type="PackedScene" uid="uid://g2to87knm6n4" path="res://scenes/helpers/tomato_sprite_animation.tscn" id="4_lrp5j"]
-[ext_resource type="Script" path="res://scripts/intro_screen.gd" id="7_3devr"]
-[ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="7_46nrs"]
-[ext_resource type="Script" path="res://scripts/game_over.gd" id="7_ijg48"]
-[ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="8_pv1il"]
-[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="9_fvg0j"]
-[ext_resource type="Texture2D" uid="uid://brrpc86p6br0m" path="res://assets/sprites/toplight_fullscreen.png" id="10_cnnar"]
-[ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fqndv"]
+[ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
+[ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
+[ext_resource type="Texture2D" uid="uid://ckoq7lna1g8t3" path="res://assets/sprites/bg.png" id="3_ypeof"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_uynq2"]
+[ext_resource type="Texture2D" uid="uid://tojoudhopwtp" path="res://assets/sprites/uwuplaceholder.png" id="5_s15or"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="6_28kw0"]
+[ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="7_0i3ea"]
+[ext_resource type="PackedScene" uid="uid://g2to87knm6n4" path="res://scenes/helpers/tomato_sprite_animation.tscn" id="8_fueip"]
+[ext_resource type="Script" path="res://scripts/IntroScreen.gd" id="9_gl7br"]
+[ext_resource type="Texture2D" uid="uid://brrpc86p6br0m" path="res://assets/sprites/toplight_fullscreen.png" id="10_roquk"]
+[ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="11_g3ka4"]
+[ext_resource type="Script" path="res://scripts/GameOver.gd" id="12_qyr5r"]
+[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="13_moeav"]
+[ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fq2vf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1627, 863, 1637, -171, 1870, -316, 1858, 1031, -369, 1011, -367, -301, -223, -145, -185, 865)
@@ -67,7 +67,7 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_ryhxr"]
-font = ExtResource("9_fvg0j")
+font = ExtResource("13_moeav")
 font_size = 100
 
 [node name="Main" type="Node2D"]
@@ -80,13 +80,13 @@ position = Vector2(960, 540)
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
 position = Vector2(61, 533)
 color = Color(0.712855, 0.161183, 0.151044, 1)
-texture = ExtResource("1_te3v5")
+texture = ExtResource("1_6do2r")
 texture_scale = 2.13
 
 [node name="PointLight2D2" type="PointLight2D" parent="Lights"]
 position = Vector2(1823, 974)
 color = Color(0.293021, 0.582994, 0.872841, 1)
-texture = ExtResource("1_te3v5")
+texture = ExtResource("1_6do2r")
 texture_scale = 1.8
 
 [node name="PointLight2D3" type="PointLight2D" parent="Lights"]
@@ -98,7 +98,7 @@ energy = 2.32
 range_z_min = -2048
 range_z_max = 4096
 shadow_enabled = true
-texture = ExtResource("2_74us1")
+texture = ExtResource("2_hvtn2")
 offset = Vector2(-158.6, -1408.91)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lights"]
@@ -108,16 +108,16 @@ occluder = SubResource("OccluderPolygon2D_6tmgd")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(948.306, 546.237)
 scale = Vector2(0.802, 0.639)
-texture = ExtResource("1_1sqkm")
+texture = ExtResource("3_ypeof")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(960, 800)
 motion_mode = 1
-script = ExtResource("1_brnu4")
+script = ExtResource("4_uynq2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.26, 0.26)
-texture = ExtResource("4_7i55u")
+texture = ExtResource("5_s15or")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1, 3)
@@ -146,15 +146,15 @@ shape = SubResource("RectangleShape2D_clw16")
 
 [node name="Boss" type="StaticBody2D" parent="."]
 position = Vector2(960, 200)
-script = ExtResource("3_dc5q6")
+script = ExtResource("6_28kw0")
 
 [node name="DropShadow" type="Sprite2D" parent="Boss"]
 self_modulate = Color(1, 1, 1, 0.32549)
 position = Vector2(-1, 220)
 scale = Vector2(0.655, 0.655)
-texture = ExtResource("7_46nrs")
+texture = ExtResource("7_0i3ea")
 
-[node name="SpriteAnimation" parent="Boss" instance=ExtResource("4_lrp5j")]
+[node name="SpriteAnimation" parent="Boss" instance=ExtResource("8_fueip")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 position = Vector2(0, 40)
@@ -171,23 +171,23 @@ libraries = {
 
 [node name="IntroScreen" type="Node2D" parent="."]
 visible = false
-script = ExtResource("7_3devr")
+script = ExtResource("9_gl7br")
 
 [node name="Illumination" type="Sprite2D" parent="IntroScreen"]
 position = Vector2(960, 540)
-texture = ExtResource("10_cnnar")
+texture = ExtResource("10_roquk")
 
 [node name="Black" type="Sprite2D" parent="IntroScreen"]
 position = Vector2(960, 540)
-texture = ExtResource("8_pv1il")
+texture = ExtResource("11_g3ka4")
 
 [node name="GameOverScreen" type="Node2D" parent="."]
 visible = false
-script = ExtResource("7_ijg48")
+script = ExtResource("12_qyr5r")
 
 [node name="Background" type="Sprite2D" parent="GameOverScreen"]
 position = Vector2(960, 540)
-texture = ExtResource("8_pv1il")
+texture = ExtResource("11_g3ka4")
 
 [node name="Label" type="Label" parent="GameOverScreen/Background"]
 anchors_preset = 8
@@ -205,7 +205,7 @@ text = "Death messages go here."
 label_settings = SubResource("LabelSettings_ryhxr")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_fqndv")
+stream = ExtResource("14_fq2vf")
 autoplay = true
 
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]

@@ -2,20 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
-[ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/bgtry1_blur.png" id="2_y2byd"]
+[ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/sprites/bgtry1_blur.png" id="2_j6hu7"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
-[ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/button.tscn" id="3_fx80t"]
-[ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/bg_flickeroverlay.png" id="3_tw0gk"]
-[ext_resource type="Script" path="res://scripts/main_menu_buttons.gd" id="4_8qgyw"]
-[ext_resource type="Script" path="res://scripts/credits.gd" id="5_u4igt"]
+[ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/components/button.tscn" id="3_fx80t"]
+[ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/sprites/bg_flickeroverlay.png" id="3_qdwo1"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
-[ext_resource type="Script" path="res://scenes/button_selector.gd" id="6_su6v2"]
-[ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://settings/credits_label_settings.tres" id="6_w50mp"]
-[ext_resource type="Script" path="res://scripts/start_button.gd" id="7_fgtfw"]
-[ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://settings/credits_subtitle_settings.tres" id="7_fky7d"]
+[ext_resource type="Script" path="res://scripts/MainMenuButtons.gd" id="6_swuh5"]
+[ext_resource type="Script" path="res://scripts/ButtonSelector.gd" id="7_eh7es"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
-[ext_resource type="Script" path="res://scripts/credits_exit_button.gd" id="8_ovmfo"]
+[ext_resource type="Script" path="res://scripts/StartButton.gd" id="9_ntakj"]
+[ext_resource type="Script" path="res://scripts/CreditsView.gd" id="10_8l1x4"]
+[ext_resource type="Script" path="res://scripts/CreditsExitButton.gd" id="11_60r02"]
+[ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
+[ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://assets/settings/labels/credits_subtitle_settings.tres" id="13_iih06"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
@@ -45,11 +45,11 @@ position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 
 [node name="BG" type="Sprite2D" parent="UI"]
-texture = ExtResource("2_y2byd")
+texture = ExtResource("2_j6hu7")
 
 [node name="BGFlicker" type="Sprite2D" parent="UI"]
 self_modulate = Color(1, 1, 1, 0.0588235)
-texture = ExtResource("3_tw0gk")
+texture = ExtResource("3_qdwo1")
 
 [node name="Label" type="Label" parent="UI"]
 self_modulate = Color(1, 1, 1, 0.980392)
@@ -74,15 +74,15 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5j4db")
 
 [node name="MainMenuButtons" type="Node2D" parent="UI"]
-script = ExtResource("4_8qgyw")
+script = ExtResource("6_swuh5")
 
 [node name="ButtonSelector" type="Node2D" parent="UI/MainMenuButtons" node_paths=PackedStringArray("buttons")]
-script = ExtResource("6_su6v2")
+script = ExtResource("7_eh7es")
 buttons = [NodePath("../StartButton"), NodePath("../CreditsButton")]
 
 [node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
 position = Vector2(-722, 262)
-script = ExtResource("7_fgtfw")
+script = ExtResource("9_ntakj")
 
 [node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
 text = "Start journey"
@@ -108,7 +108,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("5_u4igt")
+script = ExtResource("10_8l1x4")
 
 [node name="Background" type="Sprite2D" parent="UI/Credits"]
 position = Vector2(960, 540)
@@ -116,7 +116,7 @@ texture = ExtResource("1_3me3h")
 
 [node name="ExitButton" parent="UI/Credits" instance=ExtResource("3_fx80t")]
 position = Vector2(1790, 110)
-script = ExtResource("8_ovmfo")
+script = ExtResource("11_60r02")
 
 [node name="AnimatedSprite2D" parent="UI/Credits/ExitButton" index="0"]
 position = Vector2(0, -14)
@@ -164,7 +164,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Developed by Q1 Studios
 for Mini Jame Gam #34"
-label_settings = ExtResource("6_w50mp")
+label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -196,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Markus Müllauer
 "
-label_settings = ExtResource("6_w50mp")
+label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -214,7 +214,7 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Lead Artist & Designer"
-label_settings = ExtResource("7_fky7d")
+label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -232,7 +232,7 @@ offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Laurenz Platzer"
-label_settings = ExtResource("6_w50mp")
+label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -250,7 +250,7 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Composer & Sound Designer"
-label_settings = ExtResource("7_fky7d")
+label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -268,7 +268,7 @@ offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Elias Pozewaunig"
-label_settings = ExtResource("6_w50mp")
+label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -286,7 +286,7 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Lead Developer"
-label_settings = ExtResource("7_fky7d")
+label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -305,7 +305,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "David Schwaiger
 "
-label_settings = ExtResource("6_w50mp")
+label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -323,7 +323,7 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Artist & Consultant"
-label_settings = ExtResource("7_fky7d")
+label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -342,7 +342,7 @@ offset_bottom = 522.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "& danke felix :3"
-label_settings = ExtResource("7_fky7d")
+label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 

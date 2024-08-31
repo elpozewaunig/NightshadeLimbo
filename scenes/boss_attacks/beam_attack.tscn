@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cg8ie5l0qs2ju"]
 
-[ext_resource type="Script" path="res://scripts/beam_attack.gd" id="1_7xfpv"]
-[ext_resource type="Texture2D" uid="uid://dcjq0yum71xwy" path="res://assets/sprites/beam.svg" id="2_m2dsl"]
-[ext_resource type="Texture2D" uid="uid://31sabsn8cvuc" path="res://assets/sprites/beam_particle.svg" id="3_nod64"]
+[ext_resource type="Script" path="res://scripts/BeamAttack.gd" id="1_ey2ax"]
+[ext_resource type="Texture2D" uid="uid://31sabsn8cvuc" path="res://assets/sprites/beam_particle.svg" id="2_bqasa"]
+[ext_resource type="Texture2D" uid="uid://dcjq0yum71xwy" path="res://assets/sprites/beam.svg" id="3_05g85"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y0ejb"]
 particle_flag_disable_z = true
@@ -20,17 +20,17 @@ radial_accel_max = -2.23517e-06
 size = Vector2(50, 100)
 
 [node name="BeamAttack" type="Area2D"]
-script = ExtResource("1_7xfpv")
+script = ExtResource("1_ey2ax")
 
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="GlobalParticles" type="GPUParticles2D" parent="Particles"]
 process_material = SubResource("ParticleProcessMaterial_y0ejb")
-texture = ExtResource("3_nod64")
+texture = ExtResource("2_bqasa")
 
 [node name="LocalParticles" type="GPUParticles2D" parent="Particles"]
 process_material = SubResource("ParticleProcessMaterial_y0ejb")
-texture = ExtResource("3_nod64")
+texture = ExtResource("2_bqasa")
 local_coords = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -38,7 +38,7 @@ shape = SubResource("RectangleShape2D_ieww2")
 
 [node name="Texture" type="Sprite2D" parent="CollisionShape2D"]
 texture_repeat = 2
-texture = ExtResource("2_m2dsl")
+texture = ExtResource("3_05g85")
 region_enabled = true
 region_rect = Rect2(0, 0, 50, 100)
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5l2kdjigrbec"
-path="res://.godot/imported/button1.png-4f937150fe63afa6ebca9c8b91cf9ce4.ctex"
+uid="uid://cjjh5vhxcvrl5"
+path="res://.godot/imported/bgtry1_blur.png-6fcd43ab42acadd067a4f697c059f258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button1.png"
-dest_files=["res://.godot/imported/button1.png-4f937150fe63afa6ebca9c8b91cf9ce4.ctex"]
+source_file="res://assets/sprites/bgtry1_blur.png"
+dest_files=["res://.godot/imported/bgtry1_blur.png-6fcd43ab42acadd067a4f697c059f258.ctex"]
 
 [params]
 

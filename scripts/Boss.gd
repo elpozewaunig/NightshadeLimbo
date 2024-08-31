@@ -2,8 +2,8 @@ extends StaticBody2D
 
 @onready var timeline = $AttackTimeline
 
-var projectile_scene = preload("res://scenes/objects/projectile.tscn")
-var beam_scene = preload("res://scenes/objects/beam_attack.tscn")
+var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
+var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
 
 var salvos = {}
 var salvo_id = 0

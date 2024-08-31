@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8v25rlg60e86"
-path="res://.godot/imported/bg_flickeroverlay.png-a7552d0689f5470fd13949b73cc90764.ctex"
+uid="uid://sbbpntgnpmqu"
+path="res://.godot/imported/button2.png-a8e4d8591622ec512c5941d1e82f7267.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bg_flickeroverlay.png"
-dest_files=["res://.godot/imported/bg_flickeroverlay.png-a7552d0689f5470fd13949b73cc90764.ctex"]
+source_file="res://assets/sprites/button2.png"
+dest_files=["res://.godot/imported/button2.png-a8e4d8591622ec512c5941d1e82f7267.ctex"]
 
 [params]
 
