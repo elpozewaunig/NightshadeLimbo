@@ -1,17 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=21 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://ckoq7lna1g8t3" path="res://assets/sprites/bg.png" id="1_1sqkm"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_brnu4"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_brnu4"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_te3v5"]
 [ext_resource type="Texture2D" uid="uid://dfm6ftk7vj0ky" path="res://assets/sprites/icon.svg" id="2_ggfyx"]
-[ext_resource type="Script" path="res://scripts/Boss.gd" id="3_dc5q6"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="3_dc5q6"]
 [ext_resource type="PackedScene" uid="uid://g2to87knm6n4" path="res://scenes/helpers/tomato_sprite_animation.tscn" id="4_lrp5j"]
+[ext_resource type="Script" path="res://scripts/intro_screen.gd" id="7_3devr"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="7_ijg48"]
+[ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="8_pv1il"]
+[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="9_fvg0j"]
+[ext_resource type="Texture2D" uid="uid://brrpc86p6br0m" path="res://assets/sprites/toplight_fullscreen.png" id="10_cnnar"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stp6r"]
 radius = 30.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6hy7b"]
-polygon = PackedVector2Array(-28, -26, 25, -28, 28, 28, -28, 29)
+polygon = PackedVector2Array(30, 30, 26, 32, -26, 32, -29, 30, -32, 27, -31, -27, -29, -29, -26, -32, 27, -31, 29, -29, 31, -26, 32, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c178f"]
 size = Vector2(20, 1080)
@@ -36,7 +41,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 4),
+"times": PackedFloat32Array(2, 5, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [Vector2(0, 1080), Vector2(1920, 1080), 20, 4.0],
@@ -55,6 +60,10 @@ _data = {
 "salvos_1": SubResource("Animation_doasl")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_ryhxr"]
+font = ExtResource("9_fvg0j")
+font_size = 100
+
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -64,20 +73,23 @@ position = Vector2(960, 540)
 
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
 position = Vector2(1280, 0)
+shadow_enabled = true
 texture = ExtResource("1_te3v5")
 
 [node name="PointLight2D2" type="PointLight2D" parent="Lights"]
 position = Vector2(640, 0)
+shadow_enabled = true
 texture = ExtResource("1_te3v5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(948.306, 546.237)
 rotation = 1.5708
 scale = Vector2(0.638849, 0.801934)
 texture = ExtResource("1_1sqkm")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(960, 1000)
+position = Vector2(960, 800)
+motion_mode = 1
 script = ExtResource("1_brnu4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -85,6 +97,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ggfyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_stp6r")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player"]
@@ -127,3 +140,43 @@ occluder = SubResource("OccluderPolygon2D_y46kn")
 libraries = {
 "": SubResource("AnimationLibrary_14rc6")
 }
+
+[node name="IntroScreen" type="Node2D" parent="."]
+script = ExtResource("7_3devr")
+
+[node name="Illumination" type="Sprite2D" parent="IntroScreen"]
+position = Vector2(960, 540)
+texture = ExtResource("10_cnnar")
+
+[node name="Black" type="Sprite2D" parent="IntroScreen"]
+position = Vector2(960, 540)
+texture = ExtResource("8_pv1il")
+
+[node name="GameOverScreen" type="Node2D" parent="."]
+visible = false
+script = ExtResource("7_ijg48")
+
+[node name="Background" type="Sprite2D" parent="GameOverScreen"]
+position = Vector2(960, 540)
+texture = ExtResource("8_pv1il")
+
+[node name="Label" type="Label" parent="GameOverScreen/Background"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -551.5
+offset_right = -920.0
+offset_bottom = -528.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Death messages go here."
+label_settings = SubResource("LabelSettings_ryhxr")
+
+[connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
+[connection signal="game_over" from="Player" to="GameOverScreen" method="_on_game_over"]
+[connection signal="intro_done" from="IntroScreen" to="Player" method="_on_intro_done"]
+[connection signal="intro_done" from="IntroScreen" to="Boss" method="_on_intro_done"]
+[connection signal="permit_movement" from="IntroScreen" to="Player" method="_on_intro_permit_movement"]

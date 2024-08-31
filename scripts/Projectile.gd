@@ -42,4 +42,5 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not collider.disabled:
 		player_hit.connect(body._on_projectile_hit)
+		emit_signal("player_hit")
 		collider.set_deferred("disabled", true)

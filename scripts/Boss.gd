@@ -8,32 +8,36 @@ var beam_scene = preload("res://scenes/objects/beam_attack.tscn")
 var salvos = {}
 var salvo_id = 0
 
+var game_over = false
+var intro_over = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timeline.play("salvos_1")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# Iterate through all current salvos
-	for key in salvos:
-		# Get salvo and associated progress
-		var salvo_targets = salvos[key]["targets"]
-		var shot_nr = salvos[key]["shot"]
-		# If the salvo isn't completed yet
-		if shot_nr < salvo_targets.size():
-			# Reduce the salvo's countdown until the next shot
-			salvos[key]["countdown"] -= delta
-			
-			if salvos[key]["countdown"] <= 0:
-				# Reset countdown for next projectile
-				salvos[key]["countdown"] = salvos[key]["interval"]
+	if intro_over and not game_over:
+		# Iterate through all current salvos
+		for key in salvos:
+			# Get salvo and associated progress
+			var salvo_targets = salvos[key]["targets"]
+			var shot_nr = salvos[key]["shot"]
+			# If the salvo isn't completed yet
+			if shot_nr < salvo_targets.size():
+				# Reduce the salvo's countdown until the next shot
+				salvos[key]["countdown"] -= delta
 				
-				# Fire the next projectile in the salvo
-				add_projectile(salvos[key]["targets"][shot_nr])
-				salvos[key]["shot"] += 1
-		else:
-			# Delete salvo to free up ressources
-			salvos.erase(key)
+				if salvos[key]["countdown"] <= 0:
+					# Reset countdown for next projectile
+					salvos[key]["countdown"] = salvos[key]["interval"]
+					
+					# Fire the next projectile in the salvo
+					add_projectile(salvos[key]["targets"][shot_nr])
+					salvos[key]["shot"] += 1
+			else:
+				# Delete salvo to free up ressources
+				salvos.erase(key)
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
@@ -71,3 +75,13 @@ func create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: flo
 	"countdown": 0
 	}
 	salvo_id += 1
+
+
+func _on_game_over() -> void:
+	game_over = true
+	timeline.pause()
+
+
+func _on_intro_done() -> void:
+	intro_over = true
+	timeline.play("salvos_1")
