@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=55 format=3 uid="uid://muherruagjtj"]
+=======
+[gd_scene load_steps=30 format=3 uid="uid://muherruagjtj"]
+>>>>>>> feabfe864fb8a30abebc54366f6ffb9fcfef0193
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Shader" path="res://assets/shaders/colorinvert.gdshader" id="1_o1au0"]
@@ -6,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ckoq7lna1g8t3" path="res://assets/sprites/bg.png" id="3_ypeof"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_uynq2"]
 [ext_resource type="Texture2D" uid="uid://tojoudhopwtp" path="res://assets/sprites/uwuplaceholder.png" id="5_s15or"]
-[ext_resource type="Script" path="res://scripts/boss.gd" id="6_28kw0"]
+[ext_resource type="Script" path="res://scripts/Boss.gd" id="6_2vof3"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="7_0i3ea"]
 [ext_resource type="Script" path="res://scripts/IntroScreen.gd" id="9_gl7br"]
 [ext_resource type="Texture2D" uid="uid://ciibeq1sxy6bi" path="res://assets/sprites/tomato_sprite.png" id="9_xb1af"]
@@ -29,6 +33,11 @@
 [ext_resource type="AudioStream" uid="uid://oq2l21ij0fux" path="res://assets/sounds/voice/Boss_IIHAHA.ogg" id="21_pxsrq"]
 [ext_resource type="AudioStream" uid="uid://be2pk21rs6u8f" path="res://assets/sounds/voice/Boss_OIhaha.ogg" id="22_yyeqj"]
 [ext_resource type="AudioStream" uid="uid://cfoe13ghsf6sh" path="res://assets/sounds/voice/Boss_hohaha.ogg" id="23_b5yio"]
+[ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="14_kvh1o"]
+[ext_resource type="Script" path="res://scripts/MusicManager.gd" id="15_isqen"]
+[ext_resource type="AudioStream" uid="uid://ece276grexf7" path="res://assets/music/BGM_BossBullets.ogg" id="16_blnxq"]
+[ext_resource type="AudioStream" uid="uid://crooj44safm2h" path="res://assets/music/BGM_BossLaser.ogg" id="17_elhki"]
+[ext_resource type="AudioStream" uid="uid://crupw2p5juf3k" path="res://assets/music/BGM_BossVines.ogg" id="18_4dvss"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cmeft"]
 shader = ExtResource("1_o1au0")
@@ -1029,7 +1038,7 @@ shape = SubResource("RectangleShape2D_clw16")
 
 [node name="Boss" type="StaticBody2D" parent="."]
 position = Vector2(960, 200)
-script = ExtResource("6_28kw0")
+script = ExtResource("6_2vof3")
 
 [node name="DropShadow" type="Sprite2D" parent="Boss"]
 self_modulate = Color(1, 1, 1, 0.32549)
@@ -1067,6 +1076,9 @@ libraries = {
 visible = false
 script = ExtResource("9_gl7br")
 
+[node name="Ambience" type="AudioStreamPlayer" parent="IntroScreen"]
+stream = ExtResource("14_kvh1o")
+
 [node name="Illumination" type="Sprite2D" parent="IntroScreen"]
 position = Vector2(960, 540)
 texture = ExtResource("10_roquk")
@@ -1099,14 +1111,32 @@ text = "Death messages go here."
 label_settings = SubResource("LabelSettings_ryhxr")
 
 [node name="MusicManager" type="Node2D" parent="."]
+script = ExtResource("15_isqen")
 
 [node name="Background" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("14_fq2vf")
+<<<<<<< HEAD
 volume_db = -6.265
 autoplay = true
+=======
+parameters/looping = true
+
+[node name="Bullets" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("16_blnxq")
+parameters/looping = true
+
+[node name="Laser" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("17_elhki")
+parameters/looping = true
+
+[node name="Vines" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("18_4dvss")
+parameters/looping = true
+>>>>>>> feabfe864fb8a30abebc54366f6ffb9fcfef0193
 
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
 [connection signal="game_over" from="Player" to="GameOverScreen" method="_on_game_over"]
+[connection signal="attack_status_changed" from="Boss" to="MusicManager" method="_on_boss_attack_status_changed"]
 [connection signal="intro_done" from="IntroScreen" to="Player" method="_on_intro_done"]
 [connection signal="intro_done" from="IntroScreen" to="Boss" method="_on_intro_done"]
 [connection signal="permit_movement" from="IntroScreen" to="Player" method="_on_intro_permit_movement"]
