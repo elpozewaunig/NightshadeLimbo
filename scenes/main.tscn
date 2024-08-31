@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=20 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
-[ext_resource type="Shader" path="res://assets/shaders/colorinvert.gdshader" id="1_o1au0"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
 [ext_resource type="Texture2D" uid="uid://ckoq7lna1g8t3" path="res://assets/sprites/bg.png" id="3_ypeof"]
 [ext_resource type="PackedScene" uid="uid://v8w2nt3d8m03" path="res://scenes/entities/player.tscn" id="5_r2yhf"]
@@ -16,9 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://ece276grexf7" path="res://assets/music/BGM_BossBullets.ogg" id="16_blnxq"]
 [ext_resource type="AudioStream" uid="uid://crooj44safm2h" path="res://assets/music/BGM_BossLaser.ogg" id="17_elhki"]
 [ext_resource type="AudioStream" uid="uid://crupw2p5juf3k" path="res://assets/music/BGM_BossVines.ogg" id="18_4dvss"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmeft"]
-shader = ExtResource("1_o1au0")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1627, 863, 1637, -171, 1870, -316, 1858, 1031, -369, 1011, -367, -301, -223, -145, -185, 865)
@@ -37,18 +33,6 @@ font_size = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="Shader_ColorInvert" type="ColorRect" parent="Camera2D/CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 1, 1, 0)
-material = SubResource("ShaderMaterial_cmeft")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Lights" type="Node2D" parent="."]
 
