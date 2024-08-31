@@ -19,13 +19,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if (mouse_inside and not highlight_active) or (ext_selected and highlight_active):
-		label.modulate = Color("1c1c1c")
+		modulate = Color("ff7070")
+		sprite.frame = 1
 		
 		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_select"):
 			emit_signal("clicked")
 			
 	else:
-		label.modulate = Color("ffffff")
+		modulate = Color("ffffff")
+		sprite.frame = 0
 
 
 func _on_mouse_entered() -> void:
