@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		black.hide()
 		emit_signal("permit_movement")
 		time_elapsed = 0
-			
+	
 	if phase == 1 and time_elapsed > 1:
 		emit_signal("intro_done")
 		time_elapsed = 0

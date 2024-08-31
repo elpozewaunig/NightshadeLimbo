@@ -14,6 +14,9 @@ var total_progress : float = 0
 func _ready() -> void:
 	offset = target_pos - global_position
 	length = sqrt(pow(offset.x, 2) + pow(offset.y, 2))
+	
+	# Rotate projectile correctly
+	look_at(target_pos)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

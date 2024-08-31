@@ -14,7 +14,9 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	# If flag to reset the slowdown has been set
 	if reset_debuff:
+		# Gradually decrease debuff
 		speed_debuff -= delta * 500
 		if speed_debuff <= 0:
 			speed_debuff = 0
