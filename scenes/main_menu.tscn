@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
 [ext_resource type="Script" path="res://scripts/StartButton.gd" id="9_ntakj"]
 [ext_resource type="Script" path="res://scripts/CreditsView.gd" id="10_8l1x4"]
-[ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="11_0lrvh"]
+[ext_resource type="AudioStream" uid="uid://ceiadu76lnhq4" path="res://assets/sounds/sfx_UIClick.ogg" id="11_2icso"]
 [ext_resource type="Script" path="res://scripts/CreditsExitButton.gd" id="11_60r02"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://assets/settings/labels/credits_subtitle_settings.tres" id="13_iih06"]
@@ -55,7 +55,24 @@ _data = {
 "slowzoom": SubResource("Animation_17cl1")
 }
 
-[sub_resource type="Animation" id="Animation_bhm3c"]
+[sub_resource type="Animation" id="Animation_reqgs"]
+resource_name = "scaryfadeflicker"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.733333, 0.813151, 0.9, 1.3, 1.37982, 1.46667, 3.03333, 3.11315, 3.2, 5.46667, 5.54648, 5.63333, 5.7, 5.96667, 6.01315, 6.06667, 6.13333, 6.16667, 6.2, 7.16667, 7.24649, 7.33333, 8.36667, 8.44649, 8.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.203922), Color(1, 1, 1, 0.0588235)]
+}
+
+[sub_resource type="Animation" id="Animation_d5rvl"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -67,54 +84,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.0588235)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../BG:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.203922)]
 }
 
-[sub_resource type="Animation" id="Animation_impck"]
-resource_name = "scaryfadeflicker"
-length = 13.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.4, 3.46667, 3.53333, 11.3333, 11.4, 11.4667),
-"transitions": PackedFloat32Array(0.120742, 0.120742, 9.18957, 2.92817, 0.120742, 9.18957, 2.92817),
-"update": 0,
-"values": [Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.156863), Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.0392157), Color(1, 1, 1, 0.156863), Color(1, 1, 1, 0.0392157)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../BG:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.133333, 0.966667, 1.76667, 4, 4.4, 5.2, 6.06667, 6.43333, 6.86667, 9.33333, 10.1667, 11.9333, 12.6333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(0.769432, 0.769432, 0.769432, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6ulh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yrtdq"]
 _data = {
-"RESET": SubResource("Animation_bhm3c"),
-"scaryfadeflicker": SubResource("Animation_impck")
+"RESET": SubResource("Animation_d5rvl"),
+"scaryfadeflicker": SubResource("Animation_reqgs")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
@@ -155,13 +131,13 @@ libraries = {
 }
 
 [node name="BGFlicker" type="Sprite2D" parent="UI/BG"]
-self_modulate = Color(1, 1, 1, 0.0588235)
+self_modulate = Color(1, 1, 1, 0.203922)
 texture = ExtResource("3_qdwo1")
 script = ExtResource("4_2erio")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/BG/BGFlicker"]
 libraries = {
-"": SubResource("AnimationLibrary_n6ulh")
+"": SubResource("AnimationLibrary_yrtdq")
 }
 
 [node name="Label" type="Label" parent="UI"]
@@ -209,7 +185,8 @@ shape = SubResource("RectangleShape2D_j4rsm")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/MainMenuButtons"]
 position = Vector2(960, 540)
-stream = ExtResource("11_0lrvh")
+stream = ExtResource("11_2icso")
+volume_db = 2.0
 
 [node name="ScaryClick" type="Sprite2D" parent="UI"]
 visible = false
