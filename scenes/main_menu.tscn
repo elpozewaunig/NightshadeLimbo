@@ -101,6 +101,7 @@ position = Vector2(-15, 0)
 texture = ExtResource("11_61tpf")
 
 [node name="Credits" type="ColorRect" parent="UI"]
+visible = false
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
