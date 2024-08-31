@@ -19,7 +19,7 @@ config/icon="res://assets/sprites/tomato_icon.png"
 
 [autoload]
 
-AmbienceMusic="*res://scenes/helpers/AmbienceMusicAutoload.tscn"
+AmbienceMusic="*res://scenes/helpers/ambience_music_autoload.tscn"
 
 [display]
 
