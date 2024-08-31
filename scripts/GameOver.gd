@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 
 func _on_game_over() -> void:
 	game_over = true
-	music.volume_db = 0
+	music.reset_volume()
 	music.play()
 	label.text = messages[randi() % messages.size()]
 	

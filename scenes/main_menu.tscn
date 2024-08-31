@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=24 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/CreditsExitButton.gd" id="11_60r02"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://assets/settings/labels/credits_subtitle_settings.tres" id="13_iih06"]
+[ext_resource type="AudioStream" uid="uid://c8prdyktbfx3i" path="res://assets/music/BGM_MainMenuLoop.ogg" id="17_yrybt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0c7lh"]
 font = ExtResource("2_hht2f")
@@ -399,6 +400,12 @@ offset_top = -222.0
 offset_right = 240.0
 offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_yrybt")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
