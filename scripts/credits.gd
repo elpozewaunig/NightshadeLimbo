@@ -1,4 +1,4 @@
-extends Sprite2D
+extends ColorRect
 
 
 func _on_credits_button_clicked() -> void:
