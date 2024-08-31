@@ -1,9 +1,11 @@
 extends StaticBody2D
 
 @onready var timeline = $AttackTimeline
+@onready var animation = $TOMATO/AnimationPlayer
 
 var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
 var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
+var impact_scene = preload("res://scenes/boss_attacks/jump_impact.tscn")
 
 # Stores necessary data for firing bullets
 var salvos = {}
@@ -11,6 +13,11 @@ var salvo_id = 0
 
 # Stores simple countdown for each beam to trigger actions upon completion
 var beams = []
+
+var jumping = false
+var jump_target
+var jump_duration = 0
+var jump_speed = 0
 
 var game_over = false
 var intro_over = false
@@ -24,6 +31,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if intro_over and not game_over:
+		
 		# Iterate through all current salvos
 		for key in salvos:
 			# Get salvo and associated progress
@@ -55,6 +63,15 @@ func _process(delta: float) -> void:
 				beams.remove_at(i)
 				if beams.is_empty():
 					emit_signal("attack_status_changed", "beam", false)
+					
+		if jumping:
+			jump_duration -= delta
+			global_position.move_toward(jump_target, jump_speed * delta)
+			if jump_duration <= 0:
+				global_position = jump_target
+				animation.play("JumpAttack_END")
+				jumping = false
+				add_child(impact_scene.instantiate())
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
@@ -71,6 +88,13 @@ func beam(to_pos: Vector2, duration: float = 0.5) -> void:
 	add_child(new_beam)
 	beams.append(duration)
 	emit_signal("attack_status_changed", "beam", true)
+
+func jump(to_pos: Vector2, duration: float = 2) -> void:
+	animation.play("JumpAttack_START")
+	jumping = true
+	jump_target = to_pos
+	jump_duration = duration
+	jump_speed = global_position.distance_to(to_pos) / duration
 
 # Creates a projectile instance and fires it
 func add_projectile(global_pos_to: Vector2) -> void:
@@ -100,8 +124,8 @@ func create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: flo
 func _on_game_over() -> void:
 	game_over = true
 	timeline.pause()
-	$TOMATO/AnimationPlayer.clear_queue()
-	$TOMATO/AnimationPlayer.play("PlayerHasDied")
+	animation.clear_queue()
+	animation.play("PlayerHasDied")
 	
 
 func _on_intro_done() -> void:
