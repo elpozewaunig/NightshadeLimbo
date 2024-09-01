@@ -728,6 +728,9 @@ script = ExtResource("28_ufeeg")
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource("29_pypiw")]
 
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(1470, 700)
+
 [node name="IntroScreen" type="Node2D" parent="."]
 visible = false
 z_index = 5
