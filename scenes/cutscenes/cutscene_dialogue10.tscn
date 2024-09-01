@@ -1,13 +1,38 @@
-[gd_scene load_steps=12 format=3 uid="uid://l7bqt76n44gw"]
+[gd_scene load_steps=12 format=3 uid="uid://bqus1wrkcrg40"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_ks5xm"]
-[ext_resource type="PackedScene" uid="uid://bsabigdulxnjh" path="res://scenes/cutscenes/cutscene_dialogue11.tscn" id="2_oc7mw"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_i60yp"]
+[ext_resource type="PackedScene" path="res://scenes/cutscenes/cutscene_dialogue11.tscn" id="2_oc7mw"]
+[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_i60yp"]
 [ext_resource type="Texture2D" uid="uid://ciibeq1sxy6bi" path="res://assets/sprites/tomato_sprite.png" id="4_16cej"]
 [ext_resource type="Script" path="res://scenes/cutscenes/animation_player.gd" id="5_60otf"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="7_7pto1"]
 [ext_resource type="AudioStream" uid="uid://csptbfwwotli7" path="res://assets/sounds/typewritertalking/sfx_TomatoVoice.ogg" id="8_nribo"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="9_1o3f5"]
+[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="9_1o3f5"]
+
+[sub_resource type="Animation" id="Animation_2n22m"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(665.991, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(484.016, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_l8tpp"]
 resource_name = "circle"
@@ -34,31 +59,6 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(406, -0.25, 0, 0.25, 0, 319, -0.522617, -80, 0.477383, 126, 427, -0.25, 0, 0.25, 0, 501, -0.25, 0, 0.25, 0, 406, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0.0625919, 1.46259, 2.82926, 4.16259, 5.06259)
-}
-
-[sub_resource type="Animation" id="Animation_2n22m"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(665.991, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(484.016, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6g6oe"]

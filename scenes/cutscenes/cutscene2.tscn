@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://1ge1re42owvl"]
+[gd_scene load_steps=11 format=3 uid="uid://ggxy2ae0rr3c"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_8mf8e"]
 [ext_resource type="Texture2D" uid="uid://coklo6b7ib7ic" path="res://assets/cutscenes/cutscene1.png" id="2_6ui60"]
-[ext_resource type="PackedScene" uid="uid://brfbrnskl0606" path="res://scenes/cutscenes/cutscene_dialogue1.tscn" id="2_ye2sl"]
+[ext_resource type="PackedScene" path="res://scenes/cutscenes/cutscene_dialogue1.tscn" id="2_ye2sl"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="3_0cltj"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_g6wlr"]
+[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_g6wlr"]
 [ext_resource type="AudioStream" uid="uid://dstmtihkv5iwt" path="res://assets/sounds/typewritertalking/sfx_PlayerVoice.ogg" id="4_n4oea"]
 [ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="6_styry"]
 
