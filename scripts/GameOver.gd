@@ -6,6 +6,7 @@ var music = AmbienceMusic
 var game_scene = preload("res://scenes/main.tscn")
 
 var game_over = false
+var chance_missed = false
 var time_elapsed = 0
 var messages = [
 	"Failure was inevitable.",
@@ -46,5 +47,10 @@ func _on_game_over() -> void:
 	game_over = true
 	music.reset_volume()
 	music.play()
-	label.text = messages[randi() % messages.size()]
-	
+	if chance_missed:
+		label.text = "You missed your chance."
+	else:
+		label.text = messages[randi() % messages.size()]
+
+func _on_chance_missed() -> void:
+	chance_missed = true

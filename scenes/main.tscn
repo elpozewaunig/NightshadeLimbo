@@ -586,13 +586,13 @@ _data = {
 "die": SubResource("Animation_yyjtw")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_ryhxr"]
-font = ExtResource("13_moeav")
-font_size = 100
-
 [sub_resource type="LabelSettings" id="LabelSettings_7bn66"]
 font = ExtResource("13_moeav")
 font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryhxr"]
+font = ExtResource("13_moeav")
+font_size = 100
 
 [node name="Main" type="Node2D"]
 
@@ -731,6 +731,51 @@ script = ExtResource("28_ufeeg")
 [node name="Obstacle2" parent="Obstacles" instance=ExtResource("29_pypiw")]
 position = Vector2(1470, 700)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+zoom = Vector2(0.87, 0.87)
+
+[node name="Vignette" type="Sprite2D" parent="Camera2D"]
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("16_jxlxq")
+
+[node name="Instructions" type="Label" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = 350.0
+offset_right = 960.0
+offset_bottom = 651.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Now is my chance to strike!
+Press Space"
+label_settings = SubResource("LabelSettings_7bn66")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("33_rkonn")
+
+[node name="HealthIndicator" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("src_node")]
+position = Vector2(790, 455)
+script = ExtResource("35_6s6uf")
+src_node = NodePath("../../Boss")
+heart_texture = ExtResource("36_bymvh")
+no_heart_texture = ExtResource("37_lc3i1")
+heart_scale = 0.1
+spacing = 120
+
+[node name="Box" type="Sprite2D" parent="Camera2D/HealthIndicator"]
+texture = ExtResource("36_ds7ou")
+
+[node name="Transition" type="Sprite2D" parent="Camera2D"]
+visible = false
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("43_8p0wm")
+script = ExtResource("44_pnwlx")
+
 [node name="IntroScreen" type="Node2D" parent="."]
 visible = false
 z_index = 5
@@ -752,10 +797,10 @@ volume_db = -10.0
 
 [node name="GameOverScreen" type="Node2D" parent="."]
 visible = false
+z_index = 5
 script = ExtResource("12_qyr5r")
 
 [node name="Background" type="Sprite2D" parent="GameOverScreen"]
-z_index = 5
 position = Vector2(960, 540)
 scale = Vector2(1.195, 1.236)
 texture = ExtResource("11_g3ka4")
@@ -809,52 +854,16 @@ stream = ExtResource("40_vsbyh")
 volume_db = -10.0
 parameters/looping = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
-zoom = Vector2(0.87, 0.87)
-
-[node name="Vignette" type="Sprite2D" parent="Camera2D"]
-scale = Vector2(1.15, 1.15)
-texture = ExtResource("16_jxlxq")
-
-[node name="Instructions" type="Label" parent="Camera2D"]
-visible = false
-offset_left = -960.0
-offset_top = 370.0
-offset_right = 960.0
-offset_bottom = 520.0
-text = "Instruction text goes here."
-label_settings = SubResource("LabelSettings_7bn66")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("33_rkonn")
-
-[node name="HealthIndicator" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("src_node")]
-position = Vector2(790, 455)
-script = ExtResource("35_6s6uf")
-src_node = NodePath("../../Boss")
-heart_texture = ExtResource("36_bymvh")
-no_heart_texture = ExtResource("37_lc3i1")
-heart_scale = 0.1
-spacing = 120
-
-[node name="Box" type="Sprite2D" parent="Camera2D/HealthIndicator"]
-texture = ExtResource("36_ds7ou")
-
-[node name="Transition" type="Sprite2D" parent="Camera2D"]
-visible = false
-scale = Vector2(1.15, 1.15)
-texture = ExtResource("43_8p0wm")
-script = ExtResource("44_pnwlx")
-
 [connection signal="body_entered" from="BackgroundWIN/Exit" to="BackgroundWIN/Exit" method="_on_body_entered"]
 [connection signal="player_exited" from="BackgroundWIN/Exit" to="PlayerClippingMask/Player" method="_on_player_exited"]
 [connection signal="player_exited" from="BackgroundWIN/Exit" to="Camera2D/Transition" method="_on_player_exited"]
 [connection signal="boss_hit" from="PlayerClippingMask/Player" to="Boss" method="_on_player_boss_hit"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Boss" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Instructions" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="GameOverScreen" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="MusicManager" method="_on_game_over"]
 [connection signal="attack_status_changed" from="Boss" to="MusicManager" method="_on_boss_attack_status_changed"]
+[connection signal="chance_missed" from="Boss" to="GameOverScreen" method="_on_chance_missed"]
 [connection signal="defeated" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="ExplodingTomato" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="MusicManager" method="_on_boss_defeated"]

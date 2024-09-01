@@ -37,6 +37,7 @@ var dead = false
 signal attack_status_changed(attack, status)
 signal vulnerable_status_changed(status)
 signal player_hit
+signal chance_missed
 signal defeated
 signal destroy_obstacle(index)
 
@@ -126,6 +127,8 @@ func _process(delta: float) -> void:
 					animation.play("TakeDamageDONE")
 				else:
 					animation.play("Vulnerable_END")
+					emit_signal("chance_missed")
+					emit_signal("player_hit")
 					
 				vulnerable_duration = 0
 				vulnerable = false
@@ -238,4 +241,5 @@ func _on_player_boss_hit() -> void:
 		health -= 1
 		
 		emit_signal("vulnerable_status_changed", false)
+		animation.play("RESET")
 		animation.play("TakeDamageINITIATE")
