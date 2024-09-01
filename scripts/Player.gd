@@ -8,6 +8,7 @@ const SPEED = 500.0
 var speed_debuff = 0
 var reset_debuff = false
 var permit_movement = false
+var escaped = false
 
 var dead = false
 var fight_back = false
@@ -67,6 +68,10 @@ func _physics_process(delta: float) -> void:
 			if weapon.modulate.a <= 0:
 				weapon.modulate.a = 0
 				weapon.hide()
+		
+	# Player has touched exit
+	if escaped:
+		global_position = global_position.move_toward(Vector2(-300, 540), delta * 200)
 
 func _input(event):
 	# After the mouse is moved, disable the highlight
@@ -120,3 +125,14 @@ func _on_boss_vulnerable_status_changed(vulnerable: bool) -> void:
 func _on_weapon_hitbox_entered(body: Node2D) -> void:
 	if body.name == "Boss":
 		emit_signal("boss_hit")
+
+
+func _on_boss_defeated() -> void:
+	permit_movement = false
+
+func _on_boss_death_done() -> void:
+	permit_movement = true
+
+func _on_player_exited() -> void:
+	permit_movement = false
+	escaped = true

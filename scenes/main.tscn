@@ -1,13 +1,17 @@
-[gd_scene load_steps=47 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=56 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="3_wra42"]
+[ext_resource type="Script" path="res://scripts/GameBackground.gd" id="4_6y6bw"]
 [ext_resource type="Texture2D" uid="uid://c8ifxrg352wy1" path="res://assets/sprites/background_win.jpg" id="4_dfn0x"]
 [ext_resource type="Texture2D" uid="uid://soek5skx42mg" path="res://assets/sprites/tomato_esplotano_spritesheet.png" id="5_5q7bv"]
 [ext_resource type="PackedScene" uid="uid://v8w2nt3d8m03" path="res://scenes/entities/player.tscn" id="5_r2yhf"]
+[ext_resource type="Script" path="res://scripts/BackgroundWin.gd" id="6_ka8p1"]
 [ext_resource type="PackedScene" uid="uid://s47feaqqdtgj" path="res://scenes/entities/boss.tscn" id="6_ofatc"]
+[ext_resource type="Script" path="res://scripts/ExplodingTomato.gd" id="7_8xnes"]
 [ext_resource type="Texture2D" uid="uid://ccxoro3vp38iq" path="res://assets/sprites/thorns.png" id="7_60k23"]
+[ext_resource type="Script" path="res://scripts/Exit.gd" id="7_3271t"]
 [ext_resource type="AudioStream" uid="uid://cwsw58twme32w" path="res://assets/sounds/voice/Boss_HAHA.ogg" id="9_faant"]
 [ext_resource type="Script" path="res://scripts/IntroScreen.gd" id="9_gl7br"]
 [ext_resource type="Texture2D" uid="uid://c35i00sbdkdnv" path="res://assets/sprites/thornsb.png" id="9_tkm8o"]
@@ -38,9 +42,20 @@
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
 [ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/sprites/button1.png" id="36_ds7ou"]
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
+[ext_resource type="Texture2D" uid="uid://cl3osl5ef14vx" path="res://assets/sprites/white_bg.svg" id="43_8p0wm"]
+[ext_resource type="Script" path="res://scripts/WinTransition.gd" id="44_pnwlx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7niph"]
+size = Vector2(70.0001, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjuc"]
+size = Vector2(118.723, 44.7217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7mmn"]
+size = Vector2(111.765, 39.7072)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c178f"]
 size = Vector2(20, 1080)
@@ -608,14 +623,52 @@ occluder = SubResource("OccluderPolygon2D_6tmgd")
 position = Vector2(948.306, 546.237)
 scale = Vector2(1.462, 1.165)
 texture = ExtResource("3_wra42")
+script = ExtResource("4_6y6bw")
 
 [node name="BackgroundWIN" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(948.306, 546.237)
 scale = Vector2(1.462, 1.165)
 texture = ExtResource("4_dfn0x")
+script = ExtResource("6_ka8p1")
 
-[node name="Player" parent="." instance=ExtResource("5_r2yhf")]
+[node name="UnlockSFX" type="AudioStreamPlayer" parent="BackgroundWIN"]
+stream = ExtResource("24_6qan5")
+
+[node name="Exit" type="Area2D" parent="BackgroundWIN"]
+position = Vector2(-614.436, 3.23007)
+scale = Vector2(0.683995, 0.858369)
+monitoring = false
+script = ExtResource("7_3271t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundWIN/Exit"]
+position = Vector2(10, 23.4999)
+shape = SubResource("RectangleShape2D_7niph")
+debug_color = Color(0.246587, 0.635884, 0, 0.42)
+
+[node name="DoorObstacle" type="StaticBody2D" parent="BackgroundWIN"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundWIN/DoorObstacle"]
+position = Vector2(-608.467, -90.7701)
+rotation = 1.01753
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0fjuc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundWIN/DoorObstacle"]
+position = Vector2(-594.851, 114.203)
+rotation = -0.884882
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w7mmn")
+
+[node name="PlayerClippingMask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(1005, 553)
+scale = Vector2(1.12188, 1.22037)
+texture = ExtResource("11_g3ka4")
+
+[node name="Player" parent="PlayerClippingMask" instance=ExtResource("5_r2yhf")]
+position = Vector2(-40.1115, 202.398)
+scale = Vector2(0.891365, 0.819423)
 
 [node name="ArenaBounds" type="StaticBody2D" parent="."]
 
@@ -638,8 +691,8 @@ shape = SubResource("RectangleShape2D_clw16")
 [node name="Boss" parent="." instance=ExtResource("6_ofatc")]
 
 [node name="ExplodingTomato" type="Node2D" parent="."]
-visible = false
 position = Vector2(946, 219)
+script = ExtResource("7_8xnes")
 
 [node name="Throns" type="Sprite2D" parent="ExplodingTomato"]
 position = Vector2(2, 94)
@@ -653,7 +706,6 @@ hframes = 5
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ExplodingTomato/Tomato"]
-active = false
 libraries = {
 "": SubResource("AnimationLibrary_el3m6")
 }
@@ -763,20 +815,36 @@ src_node = NodePath("../../Boss")
 heart_texture = ExtResource("36_bymvh")
 no_heart_texture = ExtResource("37_lc3i1")
 heart_scale = 0.1
-spacing = 120
 
 [node name="Box" type="Sprite2D" parent="Camera2D/HealthIndicator"]
 texture = ExtResource("36_ds7ou")
 
-[connection signal="boss_hit" from="Player" to="Boss" method="_on_player_boss_hit"]
-[connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
-[connection signal="game_over" from="Player" to="GameOverScreen" method="_on_game_over"]
-[connection signal="game_over" from="Player" to="MusicManager" method="_on_game_over"]
+[node name="Transition" type="Sprite2D" parent="Camera2D"]
+visible = false
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("43_8p0wm")
+script = ExtResource("44_pnwlx")
+
+[connection signal="body_entered" from="BackgroundWIN/Exit" to="BackgroundWIN/Exit" method="_on_body_entered"]
+[connection signal="player_exited" from="BackgroundWIN/Exit" to="PlayerClippingMask/Player" method="_on_player_exited"]
+[connection signal="player_exited" from="BackgroundWIN/Exit" to="Camera2D/Transition" method="_on_player_exited"]
+[connection signal="boss_hit" from="PlayerClippingMask/Player" to="Boss" method="_on_player_boss_hit"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Boss" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="GameOverScreen" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="MusicManager" method="_on_game_over"]
 [connection signal="attack_status_changed" from="Boss" to="MusicManager" method="_on_boss_attack_status_changed"]
-[connection signal="player_hit" from="Boss" to="Player" method="_on_boss_hit"]
-[connection signal="vulnerable_status_changed" from="Boss" to="Player" method="_on_boss_vulnerable_status_changed"]
+[connection signal="defeated" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_defeated"]
+[connection signal="defeated" from="Boss" to="ExplodingTomato" method="_on_boss_defeated"]
+[connection signal="defeated" from="Boss" to="MusicManager" method="_on_boss_defeated"]
+[connection signal="player_hit" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_hit"]
+[connection signal="vulnerable_status_changed" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_vulnerable_status_changed"]
 [connection signal="vulnerable_status_changed" from="Boss" to="Camera2D/Instructions" method="_on_boss_vulnerable_status_changed"]
-[connection signal="intro_done" from="IntroScreen" to="Player" method="_on_intro_done"]
+[connection signal="boss_death_done" from="ExplodingTomato" to="Background" method="_on_boss_death_done"]
+[connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN" method="_on_boss_death_done"]
+[connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN/Exit" method="_on_boss_death_done"]
+[connection signal="boss_death_done" from="ExplodingTomato" to="PlayerClippingMask/Player" method="_on_boss_death_done"]
+[connection signal="animation_finished" from="ExplodingTomato/Tomato/AnimationPlayer" to="ExplodingTomato" method="_on_animation_finished"]
+[connection signal="intro_done" from="IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
 [connection signal="intro_done" from="IntroScreen" to="Boss" method="_on_intro_done"]
 [connection signal="intro_done" from="IntroScreen" to="MusicManager" method="_on_intro_done"]
-[connection signal="permit_movement" from="IntroScreen" to="Player" method="_on_intro_permit_movement"]
+[connection signal="permit_movement" from="IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]

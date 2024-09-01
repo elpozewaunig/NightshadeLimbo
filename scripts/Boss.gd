@@ -35,8 +35,9 @@ var intro_over = false
 var dead = false
 
 signal attack_status_changed(attack, status)
-signal player_hit
 signal vulnerable_status_changed(status)
+signal player_hit
+signal defeated
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -131,6 +132,9 @@ func _process(delta: float) -> void:
 		if health <= 0:
 			dead = true
 			emit_signal("defeated")
+			dmg_zone.monitoring = false
+			timeline.pause()
+			hide()
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:

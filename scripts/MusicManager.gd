@@ -9,8 +9,8 @@ extends Node2D
 	"dash": {"stream": $Jump, "active": false},
 }
 
-@export var silence_level : float = -50
-@export var change_speed : float = 100
+@export var silence_level : float = -100
+@export var change_speed : float = 300
 
 
 # Called when the node enters the scene tree for the first time.
@@ -69,5 +69,10 @@ func _on_intro_done() -> void:
 
 func _on_game_over() -> void:
 	# Disable all tracks
+	for track_name in tracks:
+		tracks[track_name]["active"] = false
+
+
+func _on_boss_defeated() -> void:
 	for track_name in tracks:
 		tracks[track_name]["active"] = false

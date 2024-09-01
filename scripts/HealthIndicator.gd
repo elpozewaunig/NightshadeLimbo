@@ -32,10 +32,10 @@ func _ready() -> void:
 		add_child(heart)
 	
 	box.scale.x = (hearts.size() * spacing + 0.5 * heart_texture.get_width() * heart_scale) / box.texture.get_width()
-	box.position.x = -spacing / 2
+	box.position.x = - float(spacing) / 2
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	for i in range(0, hearts.size()):
 		if i < src_node.health:
 			hearts[i].texture = heart_texture
