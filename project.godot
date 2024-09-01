@@ -19,7 +19,7 @@ config/icon="res://assets/sprites/tomato_icon.png"
 
 [audio]
 
-buses/default_bus_layout="res://assets/typewriter_audioBUS.tres"
+buses/default_bus_layout="res://assets/settings/audio/typewriter_audioBUS.tres"
 
 [autoload]
 

@@ -31,8 +31,8 @@
 [ext_resource type="Shader" path="res://assets/shaders/normalized.gdshader" id="21_tuup4"]
 [ext_resource type="Shader" path="res://assets/shaders/old_film.gdshader" id="22_57xkm"]
 [ext_resource type="Texture2D" uid="uid://c35i00sbdkdnv" path="res://assets/sprites/thornsb.png" id="22_kub0s"]
-[ext_resource type="Texture2D" uid="uid://b5balmxe7ebn4" path="res://assets/shader_overlays/filmgrain.png" id="23_ldehw"]
-[ext_resource type="Texture2D" uid="uid://jkfe0jh7htj" path="res://assets/shader_overlays/vignette.png" id="24_wm84g"]
+[ext_resource type="Texture2D" uid="uid://b5balmxe7ebn4" path="res://assets/shaders/shader_overlays/filmgrain.png" id="23_ldehw"]
+[ext_resource type="Texture2D" uid="uid://jkfe0jh7htj" path="res://assets/shaders/shader_overlays/vignette.png" id="24_wm84g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mp6rq"]
 radius = 80.0

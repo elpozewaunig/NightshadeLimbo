@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5balmxe7ebn4"
-path="res://.godot/imported/filmgrain.png-d91eaedb3332f5cfe08a934378d5c72c.ctex"
+uid="uid://gokqxajtnsko"
+path="res://.godot/imported/screenvignette.png-3ae26b548649a7dc0f13bb0e12df979b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shader_overlays/filmgrain.png"
-dest_files=["res://.godot/imported/filmgrain.png-d91eaedb3332f5cfe08a934378d5c72c.ctex"]
+source_file="res://assets/shaders/shader_overlays/screenvignette.png"
+dest_files=["res://.godot/imported/screenvignette.png-3ae26b548649a7dc0f13bb0e12df979b.ctex"]
 
 [params]
 

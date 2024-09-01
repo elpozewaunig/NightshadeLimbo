@@ -31,7 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://cfqn0iec8vj0u" path="res://assets/music/BGM_BossJump.ogg" id="16_8p4fi"]
 [ext_resource type="AudioStream" uid="uid://ece276grexf7" path="res://assets/music/BGM_BossBullets.ogg" id="16_blnxq"]
 [ext_resource type="AudioStream" uid="uid://be2pk21rs6u8f" path="res://assets/sounds/voice/Boss_OIhaha.ogg" id="16_dpsqt"]
-[ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shader_overlays/screenvignette.png" id="16_jxlxq"]
+[ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shaders/shader_overlays/screenvignette.png" id="16_jxlxq"]
 [ext_resource type="AudioStream" uid="uid://csptbfwwotli7" path="res://assets/sounds/typewritertalking/sfx_TomatoVoice.ogg" id="17_4w886"]
 [ext_resource type="AudioStream" uid="uid://crooj44safm2h" path="res://assets/music/BGM_BossLaser.ogg" id="17_elhki"]
 [ext_resource type="AudioStream" uid="uid://crupw2p5juf3k" path="res://assets/music/BGM_BossVines.ogg" id="18_4dvss"]

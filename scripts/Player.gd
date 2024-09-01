@@ -120,13 +120,12 @@ func _on_boss_vulnerable_status_changed(vulnerable: bool) -> void:
 		fight_back = true
 		weapon.modulate.a = 0
 	else:
-		animation.play("chibicycle")
 		fight_back = false
+		animation.play("chibicycle")
 
 func _on_weapon_hitbox_entered(body: Node2D) -> void:
 	if body.name == "Boss":
 		emit_signal("boss_hit")
-
 
 func _on_boss_defeated() -> void:
 	fight_back = false

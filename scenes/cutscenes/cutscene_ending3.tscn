@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnkbygqbfnflh"]
 
-[ext_resource type="Script" path="res://scenes/cutscenegruber.gd" id="1_j68q8"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="2_o0lu0"]
+[ext_resource type="Script" path="res://scenes/cutscenes/cutscenegruber.gd" id="1_j68q8"]
+[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://scenes/cutscenes/cutscene1box.tres" id="2_o0lu0"]
 [ext_resource type="Texture2D" uid="uid://bgi6rvs80e2i6" path="res://assets/sprites/chibisketch.jpg" id="3_gc8wi"]
-[ext_resource type="Script" path="res://scenes/typewriter.gd" id="4_s66i3"]
+[ext_resource type="Script" path="res://scenes/cutscenes/typewriter.gd" id="4_s66i3"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="5_kgyv1"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="6_3l2jb"]
+[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/cutscenes/clickweiter_hint.tscn" id="6_3l2jb"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_j68q8")
