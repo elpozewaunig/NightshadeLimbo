@@ -1960,8 +1960,8 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2, 5, 6, 8, 10.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2, 5, 6, 8, 12, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [Vector2(0, 1080), Vector2(1920, 1080), 20, 4.0],
 "method": &"salvo"
@@ -1972,11 +1972,14 @@ tracks/0/keys = {
 "args": [Vector2(960, 1080), 20, 1.0],
 "method": &"machine_gun"
 }, {
-"args": [Vector2(960, 540), 2.0],
+"args": [Vector2(960, 540), 3.0],
 "method": &"jump"
 }, {
 "args": [[Vector2(1800, 900), Vector2(100, 900)], 2.0],
 "method": &"vine"
+}, {
+"args": [3.0],
+"method": &"turn_vulnerable"
 }]
 }
 tracks/1/type = "animation"
@@ -2114,7 +2117,6 @@ position = Vector2(960, 200)
 script = ExtResource("1_3ifcl")
 
 [node name="DamageZone" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
 position = Vector2(0, 120)

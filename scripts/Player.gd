@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var animation = $Sprite2D/AnimationPlayer
+@onready var weapon = $Weapon
+@onready var weapon_hitbox = $Weapon/CollisionShape2D
 
 const SPEED = 500.0
 var speed_debuff = 0
@@ -7,10 +10,12 @@ var reset_debuff = false
 var permit_movement = false
 
 var dead = false
+var fight_back = false
 
 var time_mouse_idle = 0
 
 signal game_over
+signal boss_hit
 
 func _ready() -> void:
 	pass
@@ -46,6 +51,28 @@ func _physics_process(delta: float) -> void:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 		move_and_slide()
+		
+		# If the player is in a phase where he can attack
+		if fight_back:
+			if Input.is_action_just_pressed("game_attack"):
+				animation.play("attack")
+				
+			weapon.show()
+			weapon.modulate.a += delta * 3
+			if weapon.modulate.a >= 1:
+				weapon.modulate.a = 1
+		
+		else:
+			weapon.modulate.a -= delta * 3
+			if weapon.modulate.a <= 0:
+				weapon.modulate.a = 0
+				weapon.hide()
+
+func _input(event):
+	# After the mouse is moved, disable the highlight
+	if event is InputEventMouseMotion:
+		time_mouse_idle = 0
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func set_game_over() -> void:
 	if not dead:
@@ -66,17 +93,22 @@ func _on_impact_hit() -> void:
 
 func _on_boss_hit() -> void:
 	set_game_over()
-	
+
+
 func _on_intro_done() -> void:
 	reset_debuff = true
-
 
 func _on_intro_permit_movement() -> void:
 	permit_movement = true
 	speed_debuff = 450
 
-func _input(event):
-	# After the mouse is moved, disable the highlight
-	if event is InputEventMouseMotion:
-		time_mouse_idle = 0
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+func _on_boss_vulnerable_status_changed(vulnerable: bool) -> void:
+	if vulnerable:
+		fight_back = true
+		weapon.modulate.a = 0
+	else:
+		fight_back = false
+
+func _on_weapon_hitbox_entered(body: Node2D) -> void:
+	if body.name == "Boss":
+		emit_signal("boss_hit")

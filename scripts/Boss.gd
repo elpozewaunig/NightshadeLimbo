@@ -9,6 +9,11 @@ var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
 var vine_scene = preload("res://scenes/boss_attacks/vine_attack.tscn")
 var impact_scene = preload("res://scenes/boss_attacks/jump_impact.tscn")
 
+@export var health : int = 3
+var vulnerable = true
+var vulnerable_duration = 0
+var got_hit = false
+
 # Stores necessary data for firing bullets
 var salvos = {}
 var salvo_id = 0
@@ -25,9 +30,11 @@ var jump_speed = 0
 
 var game_over = false
 var intro_over = false
+var dead = false
 
 signal attack_status_changed(attack, status)
 signal player_hit
+signal vulnerable_status_changed(status)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,7 +42,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if intro_over and not game_over:
+	if intro_over and not game_over and not dead:
 		
 		# Iterate through all current salvos
 		for key in salvos:
@@ -78,19 +85,38 @@ func _process(delta: float) -> void:
 				if vines.is_empty():
 					emit_signal("attack_status_changed", "vine", false)
 		
+		# Handle jumping
 		if jumping:
 			dmg_zone.monitoring = false
 			jump_duration -= delta
 			global_position.move_toward(jump_target, jump_speed * delta)
-			if jump_duration <= 0.5 and not jump_end_anim:
+			
+			# Start playing jump end animation ahead of time
+			if jump_duration <= 0.6 and not jump_end_anim:
 				animation.play("JumpAttack_END")
 				jump_end_anim = true
+			
 			if jump_duration <= 0:
 				global_position = jump_target
 				jumping = false
 				add_child(impact_scene.instantiate())
 				dmg_zone.monitoring = true
 				emit_signal("attack_status_changed", "jump", false)
+		
+		# Handle vulnerability windows
+		if vulnerable:
+			vulnerable_duration -= delta
+			# Invulnerability has expired without a hit
+			if vulnerable_duration <= 0:
+				vulnerable_duration = 0
+				vulnerable = false
+				emit_signal("vulnerable_status_changed", false)
+				animation.play("Vulnerable_END")
+		
+		# If boss was just mortally wounded
+		if health <= 0:
+			dead = true
+			emit_signal("defeated")
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
@@ -116,7 +142,7 @@ func vine(points: Array, duration: float = 2) -> void:
 	vines.append(duration)
 	emit_signal("attack_status_changed", "vine", true)
 
-func jump(to_pos: Vector2, duration: float = 2) -> void:
+func jump(to_pos: Vector2, duration: float = 3) -> void:
 	animation.play("JumpAttack_START")
 	jumping = true
 	jump_end_anim = false
@@ -124,6 +150,13 @@ func jump(to_pos: Vector2, duration: float = 2) -> void:
 	jump_duration = duration
 	jump_speed = global_position.distance_to(to_pos) / duration
 	emit_signal("attack_status_changed", "jump", true)
+
+func turn_vulnerable(duration: float = 3) -> void:
+	dmg_zone.monitoring = false
+	animation.play("Vulnerable_INITIATE")
+	emit_signal("vulnerable_status_changed", true)
+	vulnerable = true
+	vulnerable_duration = duration
 
 # Creates a projectile instance and fires it
 func _add_projectile(global_pos_to: Vector2) -> void:
@@ -165,3 +198,10 @@ func _on_intro_done() -> void:
 func _on_damage_zone_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		emit_signal("player_hit")
+
+func _on_player_boss_hit() -> void:
+	if vulnerable:
+		vulnerable = false
+		emit_signal("vulnerable_status_changed", false)
+		animation.play("TakeDamageINITIATE")
+		health -= 1
