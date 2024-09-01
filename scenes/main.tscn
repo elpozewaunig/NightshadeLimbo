@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=57 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://crooj44safm2h" path="res://assets/music/BGM_BossLaser.ogg" id="17_elhki"]
 [ext_resource type="AudioStream" uid="uid://crupw2p5juf3k" path="res://assets/music/BGM_BossVines.ogg" id="18_4dvss"]
 [ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="18_n4k8v"]
+[ext_resource type="AudioStream" uid="uid://nre6jkgxqst" path="res://assets/sounds/voice/BOSS_wryyyy.ogg" id="20_bnghq"]
 [ext_resource type="AudioStream" uid="uid://c8nd1nlotsdxj" path="res://assets/sounds/sfx_Click.ogg" id="24_6qan5"]
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/HealthIndicator.gd" id="35_6s6uf"]
@@ -572,6 +573,21 @@ tracks/19/keys = {
 "points": PackedFloat32Array(0.33, -0.25, 0, 0.25, 0, 0.099, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0.833333, 1.33333)
 }
+tracks/20/type = "audio"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../AudioStreamPlayer2D")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_bnghq")
+}],
+"times": PackedFloat32Array(3.5)
+}
+tracks/20/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_el3m6"]
 _data = {
@@ -651,13 +667,11 @@ debug_color = Color(0.246587, 0.635884, 0, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundWIN/DoorObstacle"]
 position = Vector2(-608.467, -90.7701)
 rotation = 1.01753
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0fjuc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundWIN/DoorObstacle"]
 position = Vector2(-594.851, 114.203)
 rotation = -0.884882
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w7mmn")
 
 [node name="PlayerClippingMask" type="Sprite2D" parent="."]
