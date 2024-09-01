@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2534wha5fpy5"]
+[gd_scene load_steps=8 format=3 uid="uid://c2534wha5fpy5"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/cutscene_masterending.gd" id="1_mbk2d"]
+[ext_resource type="PackedScene" uid="uid://bh8w40j0bjo7h" path="res://scenes/cutscenes/cutscene_ending1.tscn" id="2_32d3c"]
+[ext_resource type="PackedScene" uid="uid://6vowrfc3w2fu" path="res://scenes/cutscenes/cutscene_ending2.tscn" id="3_0gj4m"]
 [ext_resource type="AudioStream" uid="uid://xjhmkoy544cy" path="res://assets/music/BGM_BossEndingLoop.ogg" id="3_64wfw"]
+[ext_resource type="PackedScene" uid="uid://cnkbygqbfnflh" path="res://scenes/cutscenes/cutscene_ending3.tscn" id="4_1giau"]
+[ext_resource type="PackedScene" uid="uid://dsau4fnslsp2p" path="res://scenes/cutscenes/cutscene_ending5.tscn" id="5_byi22"]
+[ext_resource type="PackedScene" uid="uid://csppmsc4i1i7c" path="res://scenes/cutscenes/cutscene_ending6.tscn" id="6_ypq3j"]
 
 [node name="CutsceneMaster" type="Node2D"]
 script = ExtResource("1_mbk2d")
+scenes = Array[PackedScene]([ExtResource("2_32d3c"), ExtResource("3_0gj4m"), ExtResource("4_1giau"), ExtResource("5_byi22"), ExtResource("6_ypq3j")])
 
 [node name="PERMAPLAYER1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_64wfw")
