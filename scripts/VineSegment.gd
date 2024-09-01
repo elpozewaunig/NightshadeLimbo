@@ -2,6 +2,7 @@ extends CollisionShape2D
 class_name VineSegment
 
 @onready var texture = $Texture
+@onready var gapfill = $GapFill
 
 var from_pos : Vector2 = Vector2(0, 0)
 var target_pos : Vector2 = Vector2(960, 540)
@@ -59,6 +60,7 @@ func _process(delta: float) -> void:
 	# Reposition correctly
 	global_position.x = from_pos.x + (offset.x * progress) / 2
 	global_position.y = from_pos.y + (offset.y * progress) / 2
+	gapfill.global_position = from_pos
 	
 	# Always make the texture and collider match the specified dimensions
 	texture.region_rect = Rect2(0, 0, 250, length / texture.scale.y)
