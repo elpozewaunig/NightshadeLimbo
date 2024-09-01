@@ -1,13 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://b17k760rfqwu2"]
+[gd_scene load_steps=7 format=3 uid="uid://b17k760rfqwu2"]
 
 [ext_resource type="Script" path="res://scripts/Projectile.gd" id="1_jyir0"]
 [ext_resource type="Texture2D" uid="uid://dpk77hai3qmsu" path="res://assets/sprites/projectile.png" id="2_qj00h"]
 [ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="3_hrpa6"]
+[ext_resource type="Texture2D" uid="uid://dvl50ncbe28rx" path="res://assets/sprites/projectile_splatter.png" id="4_5ejsk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g6007"]
+particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = 180.0
+direction = Vector3(0, 0, 0)
+spread = 2.0
+initial_velocity_min = 9.4
+initial_velocity_max = 40.62
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 200.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+scale_min = 0.01
+scale_max = 0.02
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6q1un"]
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_jyir0")
+
+[node name="GlobalParticles" type="GPUParticles2D" parent="."]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_g6007")
+texture = ExtResource("4_5ejsk")
+lifetime = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-21, 0)
