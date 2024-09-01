@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0tiw3gb5k8yb"]
+[gd_scene load_steps=2 format=3 uid="uid://c0tiw3gb5k8yb"]
 
 [ext_resource type="Script" path="res://scripts/VineAttack.gd" id="1_h5pcb"]
-[ext_resource type="PackedScene" uid="uid://sqglvltvgjlb" path="res://scenes/boss_attacks/vine_segment.tscn" id="2_fl4gy"]
 
 [node name="VineAttack" type="Area2D"]
 script = ExtResource("1_h5pcb")
-
-[node name="VineSegment" parent="." instance=ExtResource("2_fl4gy")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 					emit_signal("attack_status_changed", "beam", false)
 		
 		# Iterate through all vines and count down their remaining time
-		for i in range(0, beams.size()):
+		for i in range(0, vines.size()):
 			vines[i] -= delta
 			# Remove expired beams
 			if vines[i] <= 0:
@@ -104,7 +104,7 @@ func beam(to_pos: Vector2, duration: float = 0.5) -> void:
 	beams.append(duration)
 	emit_signal("attack_status_changed", "beam", true)
 
-func vine(points: Array[Vector2], duration: float = 2) -> void:
+func vine(points: Array, duration: float = 2) -> void:
 	var new_vine = vine_scene.instantiate()
 	new_vine.points = points
 	new_vine.duration = duration

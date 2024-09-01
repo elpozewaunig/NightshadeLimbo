@@ -58,6 +58,9 @@ func _on_projectile_hit() -> void:
 func _on_beam_hit() -> void:
 	set_game_over()
 
+func _on_vine_hit() -> void:
+	set_game_over()
+
 func _on_impact_hit() -> void:
 	set_game_over()
 
