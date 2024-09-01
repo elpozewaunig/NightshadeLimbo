@@ -39,7 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://nre6jkgxqst" path="res://assets/sounds/voice/BOSS_wryyyy.ogg" id="20_bnghq"]
 [ext_resource type="AudioStream" uid="uid://c8nd1nlotsdxj" path="res://assets/sounds/sfx_Click.ogg" id="24_6qan5"]
 [ext_resource type="Script" path="res://scripts/ObstacleManager.gd" id="28_ufeeg"]
-[ext_resource type="PackedScene" path="res://scenes/reusable/obstacle.tscn" id="29_pypiw"]
+[ext_resource type="PackedScene" uid="uid://cpqmks55fi0m" path="res://scenes/reusable/obstacle.tscn" id="29_pypiw"]
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/HealthIndicator.gd" id="35_6s6uf"]
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]

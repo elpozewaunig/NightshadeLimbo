@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://6vowrfc3w2fu"]
 
-[ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_3lorj"]
+[ext_resource type="Script" path="res://scenes/cutscenegruber.gd" id="1_pgav0"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="2_7nq8v"]
 [ext_resource type="Texture2D" uid="uid://bgi6rvs80e2i6" path="res://assets/sprites/chibisketch.jpg" id="3_wm0id"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="4_xbm51"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_qfuan"]
 
 [node name="Cutscene" type="Node2D"]
-script = ExtResource("1_3lorj")
+script = ExtResource("1_pgav0")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

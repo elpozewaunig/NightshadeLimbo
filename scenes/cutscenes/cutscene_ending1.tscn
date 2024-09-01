@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bh8w40j0bjo7h"]
 
-[ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_5ll6c"]
+[ext_resource type="Script" path="res://scenes/cutscenegruber.gd" id="1_hh42h"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_1x6m2"]
 [ext_resource type="Texture2D" uid="uid://bgi6rvs80e2i6" path="res://assets/sprites/chibisketch.jpg" id="3_bnmre"]
 [ext_resource type="Script" path="res://scenes/cutscenes/cutscenemusictriggerer.gd" id="4_17ok0"]
@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="8_pyyyu"]
 
 [node name="Cutscene" type="Node2D"]
-script = ExtResource("1_5ll6c")
+script = ExtResource("1_hh42h")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

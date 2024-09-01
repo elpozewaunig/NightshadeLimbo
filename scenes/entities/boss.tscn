@@ -2134,6 +2134,7 @@ shader_parameter/vignette = ExtResource("24_wm84g")
 [node name="Boss" type="StaticBody2D"]
 position = Vector2(960, 200)
 script = ExtResource("1_3ifcl")
+health = 0
 
 [node name="DamageZone" type="Area2D" parent="."]
 
