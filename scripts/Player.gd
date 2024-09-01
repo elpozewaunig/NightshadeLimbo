@@ -55,9 +55,6 @@ func _physics_process(delta: float) -> void:
 		
 		# If the player is in a phase where he can attack
 		if fight_back:
-			if Input.is_action_just_pressed("game_attack"):
-				animation.play("attack")
-				
 			weapon.show()
 			weapon.modulate.a += delta * 3
 			if weapon.modulate.a >= 1:
@@ -68,6 +65,9 @@ func _physics_process(delta: float) -> void:
 			if weapon.modulate.a <= 0:
 				weapon.modulate.a = 0
 				weapon.hide()
+		
+		if Input.is_action_just_pressed("game_attack"):
+			animation.play("attack")
 		
 	# Player has touched exit
 	if escaped:
@@ -129,6 +129,7 @@ func _on_weapon_hitbox_entered(body: Node2D) -> void:
 
 
 func _on_boss_defeated() -> void:
+	fight_back = false
 	animation.play("win")
 	permit_movement = false
 
