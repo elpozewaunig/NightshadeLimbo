@@ -5,7 +5,8 @@ extends Node2D
 	"bullets": {"stream": $Bullets, "active": false},
 	"laser": {"stream": $Laser, "active": false},
 	"vines": {"stream": $Vines, "active": false},
-	"jump": {"stream": $Jump, "active": false}
+	"jump": {"stream": $Jump, "active": false},
+	"dash": {"stream": $Jump, "active": false},
 }
 
 @export var silence_level : float = -50
@@ -42,14 +43,16 @@ func _process(delta: float) -> void:
 
 
 func _on_boss_attack_status_changed(attack: String, status: bool) -> void:
-	if(attack == "salvo"):
+	if attack == "salvo":
 		tracks["bullets"]["active"] = status
-	elif(attack == "beam"):
+	elif attack == "beam":
 		tracks["laser"]["active"] = status
-	elif(attack == "vine"):
+	elif attack == "vine":
 		tracks["vines"]["active"] = status
-	elif(attack == "jump"):
+	elif attack == "jump":
 		tracks["jump"]["active"] = status
+	elif attack == "dash":
+		tracks["dash"]["active"] = status
 
 
 func _on_intro_done() -> void:

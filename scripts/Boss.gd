@@ -24,9 +24,11 @@ var vines = []
 
 var jumping = false
 var jump_end_anim = false
-var jump_target
-var jump_duration = 0
-var jump_speed = 0
+var dashing = false
+
+var move_target
+var move_duration = 0
+var move_speed = 0
 
 var game_over = false
 var intro_over = false
@@ -88,20 +90,30 @@ func _process(delta: float) -> void:
 		# Handle jumping
 		if jumping:
 			dmg_zone.monitoring = false
-			jump_duration -= delta
-			global_position.move_toward(jump_target, jump_speed * delta)
+			move_duration -= delta
 			
 			# Start playing jump end animation ahead of time
-			if jump_duration <= 0.6 and not jump_end_anim:
+			if move_duration <= 0.6 and not jump_end_anim:
+				global_position = move_target
 				animation.play("JumpAttack_END")
 				jump_end_anim = true
 			
-			if jump_duration <= 0:
-				global_position = jump_target
+			if move_duration <= 0:
 				jumping = false
+				jump_end_anim = false
 				add_child(impact_scene.instantiate())
 				dmg_zone.monitoring = true
 				emit_signal("attack_status_changed", "jump", false)
+		
+		# Handle dashing
+		if dashing:
+			move_duration -= delta
+			global_position = global_position.move_toward(move_target, move_speed * delta)
+			
+			if move_duration <= 0:
+				global_position = move_target
+				dashing = false
+				emit_signal("attack_status_changed", "dash", false)
 		
 		# Handle vulnerability windows
 		if vulnerable:
@@ -146,10 +158,17 @@ func jump(to_pos: Vector2, duration: float = 3) -> void:
 	animation.play("JumpAttack_START")
 	jumping = true
 	jump_end_anim = false
-	jump_target = to_pos
-	jump_duration = duration
-	jump_speed = global_position.distance_to(to_pos) / duration
+	move_target = to_pos
+	move_duration = duration
 	emit_signal("attack_status_changed", "jump", true)
+
+func dash(to_pos: Vector2, duration: float = 0.5) -> void:
+	animation.play("Walk")
+	dashing = true
+	move_target = to_pos
+	move_duration = duration
+	move_speed = global_position.distance_to(to_pos) / duration
+	emit_signal("attack_status_changed", "dash", true)
 
 func turn_vulnerable(duration: float = 3) -> void:
 	dmg_zone.monitoring = false

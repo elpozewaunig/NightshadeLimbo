@@ -14,7 +14,8 @@ var messages = [
 	"Has that glimmer of hope still not died?",
 	"You'll fail again.",
 	"You're stuck here forever.",
-	"Failure won't save you."
+	"Failure won't save you.",
+	"You were doomed from the start."
 	]
 
 # Called when the node enters the scene tree for the first time.
