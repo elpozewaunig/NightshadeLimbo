@@ -694,6 +694,7 @@ position = Vector2(967, 1048)
 shape = SubResource("RectangleShape2D_clw16")
 
 [node name="Boss" parent="." instance=ExtResource("6_ofatc")]
+health = 1
 
 [node name="ExplodingTomato" type="Node2D" parent="."]
 visible = false
@@ -853,6 +854,9 @@ volume_db = -10.0
 stream = ExtResource("40_vsbyh")
 volume_db = -10.0
 parameters/looping = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1592, 364)
 
 [connection signal="body_entered" from="BackgroundWIN/Exit" to="BackgroundWIN/Exit" method="_on_body_entered"]
 [connection signal="player_exited" from="BackgroundWIN/Exit" to="PlayerClippingMask/Player" method="_on_player_exited"]
