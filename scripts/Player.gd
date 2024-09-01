@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var animation = $Sprite2D/AnimationPlayer
 @onready var weapon = $Weapon
-@onready var weapon_hitbox = $Weapon/CollisionShape2D
 @onready var death_sfx = $DeathSFX
 
 const SPEED = 500.0
