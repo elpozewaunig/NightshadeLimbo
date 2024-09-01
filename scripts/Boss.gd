@@ -184,7 +184,7 @@ func dash(to_pos: Vector2, duration: float = 0.5) -> void:
 	move_speed = global_position.distance_to(to_pos) / duration
 	emit_signal("attack_status_changed", "dash", true)
 
-func turn_vulnerable(duration: float = 3) -> void:
+func turn_vulnerable(duration: float = 5) -> void:
 	dmg_zone.monitoring = false
 	animation.play("Vulnerable_INITIATE")
 	emit_signal("vulnerable_status_changed", true)
