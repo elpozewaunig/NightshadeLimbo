@@ -63,7 +63,6 @@ func _process(delta: float) -> void:
 		collider.shape.size.y = length
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and not collider.disabled:
+	if body.name == "Player":
 		player_hit.connect(body._on_beam_hit)
 		emit_signal("player_hit")
-		collider.set_deferred("disabled", true)

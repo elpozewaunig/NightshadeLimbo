@@ -14,10 +14,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Fade in volume
 	if volume_db < target_volume and not scene_transition:
-		volume_db += delta * 10
+		volume_db += delta * 20
 		if volume_db > target_volume:
 			volume_db = target_volume
-			
+	
+	# Fade out volume when changing scene
 	elif scene_transition:
 		volume_db -= delta * 10
 

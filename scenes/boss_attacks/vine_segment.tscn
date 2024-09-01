@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://sqglvltvgjlb"]
+
+[ext_resource type="Script" path="res://scripts/VineSegment.gd" id="1_slclr"]
+[ext_resource type="Texture2D" uid="uid://hg7mhghh7my1" path="res://assets/sprites/beamattack_sprite.png" id="1_yjmm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18yem"]
+size = Vector2(55, 100)
+
+[node name="VineSegment" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_18yem")
+script = ExtResource("1_slclr")
+
+[node name="Texture" type="Sprite2D" parent="."]
+modulate = Color(0.00784314, 1, 0, 1)
+texture_repeat = 2
+texture = ExtResource("1_yjmm3")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 260, 100)

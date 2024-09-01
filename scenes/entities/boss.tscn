@@ -1177,7 +1177,7 @@ script = ExtResource("1_3ifcl")
 
 [node name="DropShadow" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.14902)
-position = Vector2(-1, 126)
+position = Vector2(0, 126)
 scale = Vector2(0.54, 0.54)
 texture = ExtResource("2_4c6eb")
 

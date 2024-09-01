@@ -8,8 +8,6 @@ var offset : Vector2
 var length : float
 var total_progress : float = 0
 
-@onready var collider = $CollisionShape2D
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	offset = target_pos - global_position
@@ -21,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if collider.disabled:
+	if not monitoring:
 		# Make projectile fade out
 		modulate.a -= 2 * delta
 		if modulate.a <= 0:
@@ -39,11 +37,10 @@ func _process(delta: float) -> void:
 	
 	if total_progress >= 1:
 		global_position = target_pos
-		collider.set_deferred("disabled", true)
+		monitoring = false
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and not collider.disabled:
+	if body.name == "Player":
 		player_hit.connect(body._on_projectile_hit)
 		emit_signal("player_hit")
-		collider.set_deferred("disabled", true)

@@ -131,6 +131,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Death messages go here."
 label_settings = SubResource("LabelSettings_ryhxr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MusicManager" type="Node2D" parent="."]
 script = ExtResource("15_isqen")
