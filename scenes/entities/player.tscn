@@ -1,10 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://v8w2nt3d8m03"]
+[gd_scene load_steps=18 format=3 uid="uid://v8w2nt3d8m03"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_lgxym"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="2_do7yw"]
-[ext_resource type="Script" path="res://scenes/entities/animation_player.gd" id="3_oo13t"]
 [ext_resource type="AudioStream" uid="uid://cs4w62hbh2cxq" path="res://assets/sounds/sfx_PlayerDeath.ogg" id="5_t74wv"]
-[ext_resource type="Script" path="res://scenes/entities/broomautoplay.gd" id="5_uinho"]
 [ext_resource type="Texture2D" uid="uid://dvh83f7shqs4d" path="res://assets/sprites/broom.png" id="5_xcjhp"]
 
 [sub_resource type="Animation" id="Animation_44kvd"]
@@ -210,7 +208,7 @@ frame = 2
 libraries = {
 "": SubResource("AnimationLibrary_bxdp4")
 }
-script = ExtResource("3_oo13t")
+autoplay = "chibicycle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
@@ -226,12 +224,12 @@ position = Vector2(-6.99998, 5.00002)
 rotation = 0.479966
 scale = Vector2(0.09, 0.125)
 texture = ExtResource("5_xcjhp")
-script = ExtResource("5_uinho")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_vjoh5")
 }
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
 position = Vector2(-10.9999, 37)

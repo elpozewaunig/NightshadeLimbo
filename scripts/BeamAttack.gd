@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 		collider.shape.size.y = length
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and not body.dead:
 		player_hit.connect(body._on_beam_hit)
 		emit_signal("player_hit")
 	elif body.get_class() == "StaticBody2D" and not body.name == "Boss":
