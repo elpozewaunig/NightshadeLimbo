@@ -94,6 +94,7 @@ text_overrun_behavior = 3
 visible_characters_behavior = 1
 
 [node name="clickweiterHint" parent="Control/HBoxContainer/VBoxContainer/Panel2" instance=ExtResource("7_pemsj")]
+visible = false
 
 [node name="Panel3" type="Panel" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(384, 0)
