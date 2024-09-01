@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6kp0kignror1"]
+[gd_scene load_steps=12 format=3 uid="uid://inxx8j5f8ewd"]
 
-[ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_5ll6c"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_1x6m2"]
-[ext_resource type="Texture2D" uid="uid://coklo6b7ib7ic" path="res://assets/cutscenes/cutscene1.png" id="4_08yfe"]
-[ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_87f0x"]
-[ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="7_lrhtb"]
-[ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="8_pyyyu"]
+[ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_16gf1"]
+[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="2_edc3o"]
+[ext_resource type="Texture2D" uid="uid://coklo6b7ib7ic" path="res://assets/cutscenes/cutscene1.png" id="3_77k5x"]
+[ext_resource type="Script" path="res://scenes/typewriter.gd" id="4_6xgil"]
+[ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="5_i15a2"]
+[ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="6_4ji2c"]
+[ext_resource type="Script" path="res://scenes/cutscenes/changemusic1.gd" id="7_3ie0a"]
+[ext_resource type="AudioStream" uid="uid://bklpbpee5btea" path="res://assets/music/BGM_HappyEndingPiano.ogg" id="8_4wl41"]
 
 [sub_resource type="Animation" id="Animation_au45n"]
 length = 0.001
@@ -45,7 +47,7 @@ _data = {
 }
 
 [node name="Cutscene" type="Node2D"]
-script = ExtResource("1_5ll6c")
+script = ExtResource("1_16gf1")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -62,7 +64,7 @@ offset_top = -563.0
 offset_right = 977.0
 offset_bottom = 527.0
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("3_1x6m2")
+theme_override_styles/panel = ExtResource("2_edc3o")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
@@ -74,7 +76,7 @@ offset_bottom = 540.0
 [node name="Panel" type="Panel" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(384, 0)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_1x6m2")
+theme_override_styles/panel = ExtResource("2_edc3o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
@@ -83,7 +85,7 @@ size_flags_horizontal = 3
 [node name="Panel" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 720)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_1x6m2")
+theme_override_styles/panel = ExtResource("2_edc3o")
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/Panel"]
 custom_minimum_size = Vector2(15.115, 196.79)
@@ -97,13 +99,13 @@ offset_right = -15.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_08yfe")
+texture = ExtResource("3_77k5x")
 expand_mode = 2
 
 [node name="Panel2" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("3_1x6m2")
+theme_override_styles/panel = ExtResource("2_edc3o")
 
 [node name="Typewriter" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel2"]
 layout_mode = 1
@@ -112,11 +114,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_87f0x")
+script = ExtResource("4_6xgil")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/HBoxContainer/VBoxContainer/Panel2/Typewriter"]
 position = Vector2(377, 100)
-stream = ExtResource("8_pyyyu")
+stream = ExtResource("5_i15a2")
 max_polyphony = 30
 bus = &"TypewriterPitcher"
 
@@ -128,9 +130,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 61
-text = "After an eternity...
-
-Dave reawakens."
+text = "The end"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
@@ -152,7 +152,7 @@ offset_right = -25.0
 offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("7_lrhtb")
+texture = ExtResource("6_4ji2c")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/HBoxContainer/VBoxContainer/Panel2/clickweiterHint"]
 libraries = {
@@ -160,10 +160,17 @@ libraries = {
 }
 speed_scale = 0.5
 
+[node name="CHANGEMUSIC" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel2"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_3ie0a")
+
 [node name="Panel3" type="Panel" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(384, 0)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_1x6m2")
+theme_override_styles/panel = ExtResource("2_edc3o")
 
 [node name="Label" type="Label" parent="Control/HBoxContainer/Panel3"]
 visible = false
@@ -192,3 +199,7 @@ max_value = 2.0
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4wl41")
+autoplay = true

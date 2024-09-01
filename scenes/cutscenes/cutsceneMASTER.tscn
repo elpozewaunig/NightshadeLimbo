@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cc5w35ofwntrt"]
+[gd_scene load_steps=26 format=3 uid="uid://cc5w35ofwntrt"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/cutscene_master.gd" id="1_cbea7"]
-[ext_resource type="PackedScene" uid="uid://bv32ddfslt6cv" path="res://scenes/cutscenes/cutscene_aintro1.tscn" id="2_eq88m"]
-[ext_resource type="PackedScene" uid="uid://f2a3tusylnc4" path="res://scenes/cutscenes/cutscene_aintro2.tscn" id="3_ppeqm"]
+[ext_resource type="PackedScene" uid="uid://dkghpjrodsyia" path="res://scenes/cutscenes/cutscene_aintro1.tscn" id="2_eq88m"]
+[ext_resource type="PackedScene" uid="uid://duskp3wqbcqob" path="res://scenes/cutscenes/cutscene_aintro2.tscn" id="3_ppeqm"]
 [ext_resource type="PackedScene" uid="uid://wkjl8u4y3vco" path="res://scenes/cutscenes/cutscene_aintro3.tscn" id="4_yumgg"]
 [ext_resource type="PackedScene" uid="uid://df7ne4niw27qd" path="res://scenes/cutscenes/cutscene_aintro4.tscn" id="5_qejkx"]
 [ext_resource type="PackedScene" uid="uid://dxt75vqk3p58h" path="res://scenes/cutscenes/cutscene_aintro5.tscn" id="6_au1nh"]
@@ -24,11 +24,17 @@
 [ext_resource type="PackedScene" uid="uid://t755pvydnxoe" path="res://scenes/cutscenes/cutscene_dialogue13.tscn" id="22_6n3bd"]
 [ext_resource type="PackedScene" uid="uid://muherruagjtj" path="res://scenes/main.tscn" id="23_uuosk"]
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="24_rtr15"]
+[ext_resource type="AudioStream" uid="uid://bmmmp71lry1gk" path="res://assets/music/BGM_BossIntro.ogg" id="25_vipen"]
 
 [node name="CutsceneMaster" type="Node2D"]
 script = ExtResource("1_cbea7")
 scenes = Array[PackedScene]([ExtResource("2_eq88m"), ExtResource("3_ppeqm"), ExtResource("4_yumgg"), ExtResource("5_qejkx"), ExtResource("6_au1nh"), ExtResource("7_6joph"), ExtResource("8_j2eq0"), ExtResource("9_ge233"), ExtResource("10_ud1rk"), ExtResource("11_i5ixw"), ExtResource("12_u0bfk"), ExtResource("13_sf3kp"), ExtResource("14_ahb65"), ExtResource("15_ru8uo"), ExtResource("16_u5aje"), ExtResource("17_ty8xp"), ExtResource("18_gmlj1"), ExtResource("19_b7y6h"), ExtResource("20_6jlhe"), ExtResource("21_575hx"), ExtResource("22_6n3bd"), ExtResource("23_uuosk")])
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="PERMAPLAYER1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_rtr15")
 autoplay = true
+parameters/looping = true
+
+[node name="PERMAPLAYER2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_vipen")
+parameters/looping = false

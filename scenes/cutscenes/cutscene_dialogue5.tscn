@@ -176,9 +176,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 46
-text = "Your entire life you have desecrated the nightshade family.
-Now you must atone,
-for the countless sins you have commited."
+text = "Your entire life you have desecrated 
+the nightshade family.
+Now you must atone for 
+the countless sins you have commited."
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
