@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var illumination = $Illumination
 @onready var black = $Black
+@onready var light_sfx = $LightSFX
 
 var music = AmbienceMusic
 
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 	
 	if phase == 0 and time_elapsed > 1:
 		black.hide()
+		light_sfx.play()
 		emit_signal("permit_movement")
 		time_elapsed = 0
 	
