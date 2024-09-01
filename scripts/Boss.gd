@@ -10,7 +10,7 @@ var vine_scene = preload("res://scenes/boss_attacks/vine_attack.tscn")
 var impact_scene = preload("res://scenes/boss_attacks/jump_impact.tscn")
 
 @export var health : int = 3
-var vulnerable = true
+var vulnerable = false
 var vulnerable_duration = 0
 var got_hit = false
 
