@@ -28,13 +28,16 @@ script = ExtResource("1_ey2ax")
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="GlobalParticles" type="GPUParticles2D" parent="Particles"]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_y0ejb")
+texture = ExtResource("2_i2jbm")
+lifetime = 8.0
+
+[node name="LocalParticles" type="GPUParticles2D" parent="Particles"]
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_y0ejb")
 texture = ExtResource("2_i2jbm")
-
-[node name="LocalParticles" type="GPUParticles2D" parent="Particles"]
-process_material = SubResource("ParticleProcessMaterial_y0ejb")
-texture = ExtResource("2_i2jbm")
+lifetime = 5.0
 local_coords = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
