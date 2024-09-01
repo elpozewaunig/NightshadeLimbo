@@ -1,7 +1,6 @@
 extends Sprite2D
 
 @export var duration : float = 2.0
-@onready var outro_scene = preload("res://scenes/cutscenes/cutsceneMASTERENDING.tscn")
 
 var transition = false
 
@@ -17,7 +16,7 @@ func _process(delta: float) -> void:
 		if modulate.a >= 1:
 			modulate.a = 1
 			transition = false
-			get_tree().change_scene_to_packed(outro_scene)
+			get_tree().change_scene_to_packed(SceneManager.endscene_scene)
 		
 
 

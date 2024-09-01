@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		if modulate.a >= 1:
 			modulate.a = 1
 			transition = false
-			get_tree().change_scene_to_packed(SceneManager.game_scene)
+			get_tree().change_scene_to_packed(SceneManager.cutscene_scene)
 
 func _on_start_button_clicked():
 	transition = true
