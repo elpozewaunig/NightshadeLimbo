@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2r2ntsrwkjsf"
-path="res://.godot/imported/splatter3.png-c2ca0b75f30857b7cab6cede590102c5.ctex"
+uid="uid://cxv52dq4jai7b"
+path="res://.godot/imported/clickweiterHint.png-d863c9d0d419bf61e61818fb52f67c9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/splatters/splatter3.png"
-dest_files=["res://.godot/imported/splatter3.png-c2ca0b75f30857b7cab6cede590102c5.ctex"]
+source_file="res://assets/sprites/clickweiterHint.png"
+dest_files=["res://.godot/imported/clickweiterHint.png-d863c9d0d419bf61e61818fb52f67c9c.ctex"]
 
 [params]
 
