@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=60 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
 [ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/sprites/button1.png" id="36_ds7ou"]
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
+[ext_resource type="AudioStream" uid="uid://bhyls1aqibrla" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="40_vsbyh"]
 [ext_resource type="Texture2D" uid="uid://cl3osl5ef14vx" path="res://assets/sprites/white_bg.svg" id="43_8p0wm"]
 [ext_resource type="Script" path="res://scripts/WinTransition.gd" id="44_pnwlx"]
 
@@ -798,6 +799,11 @@ parameters/looping = true
 stream = ExtResource("16_8p4fi")
 volume_db = -10.0
 
+[node name="VictoryJingle" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("40_vsbyh")
+volume_db = -10.0
+parameters/looping = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 zoom = Vector2(0.87, 0.87)
@@ -855,6 +861,7 @@ script = ExtResource("44_pnwlx")
 [connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN/Exit" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="PlayerClippingMask/Player" method="_on_boss_death_done"]
+[connection signal="boss_death_done" from="ExplodingTomato" to="MusicManager" method="_on_boss_death_done"]
 [connection signal="animation_finished" from="ExplodingTomato/Tomato/AnimationPlayer" to="ExplodingTomato" method="_on_animation_finished"]
 [connection signal="intro_done" from="IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
 [connection signal="intro_done" from="IntroScreen" to="Boss" method="_on_intro_done"]

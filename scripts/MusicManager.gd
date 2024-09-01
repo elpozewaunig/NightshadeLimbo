@@ -76,3 +76,7 @@ func _on_game_over() -> void:
 func _on_boss_defeated() -> void:
 	for track_name in tracks:
 		tracks[track_name]["active"] = false
+
+
+func _on_boss_death_done() -> void:
+	$VictoryJingle.play()

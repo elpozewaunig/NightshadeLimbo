@@ -128,6 +128,7 @@ func _on_weapon_hitbox_entered(body: Node2D) -> void:
 
 
 func _on_boss_defeated() -> void:
+	animation.play("win")
 	permit_movement = false
 
 func _on_boss_death_done() -> void:
