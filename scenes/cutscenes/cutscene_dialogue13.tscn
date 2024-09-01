@@ -72,7 +72,7 @@ grow_vertical = 2
 script = ExtResource("7_f4mjr")
 pitch = 0.75
 pitchrange = 0.1
-typespeed = 0.15
+typespeed = 0.08
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/HBoxContainer/VBoxContainer/Panel2/Typewriter"]
 position = Vector2(377, 100)

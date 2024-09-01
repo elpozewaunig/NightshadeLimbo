@@ -33,4 +33,4 @@ func _process(delta: float) -> void:
 	
 	
 func skip_cutscene():
-	get_tree().change_scene_to_packed(preload("res://scenes/main.tscn"))
+	$"../".emit_signal("SKIP")
