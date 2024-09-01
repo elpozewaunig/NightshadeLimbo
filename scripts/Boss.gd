@@ -191,7 +191,7 @@ func turn_vulnerable(duration: float = 5) -> void:
 	vulnerable = true
 	vulnerable_duration = duration
 
-func destroy(obstacle_index):
+func destroy(obstacle_index: int):
 	emit_signal("destroy_obstacle", obstacle_index)
 
 # Creates a projectile instance and fires it
