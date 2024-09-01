@@ -182,6 +182,7 @@ visible = false
 position = Vector2(60, 0)
 rotation = 1.5708
 scale = Vector2(0.3, 0.1)
+monitoring = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon"]
 texture = ExtResource("4_6301q")
