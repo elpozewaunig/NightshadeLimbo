@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpl830cqjvgpk"]
+
+[ext_resource type="Script" path="res://scenes/cutscenes/cutscene_maintp.gd" id="1_krs0d"]
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource("1_krs0d")
