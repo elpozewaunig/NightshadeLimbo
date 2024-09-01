@@ -295,7 +295,7 @@ offset_right = 215.0
 offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Lead Artist & Designer"
+text = "Lead Artist, Designer & Writer"
 label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -483,6 +483,7 @@ offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
 
 [node name="SceneTransition" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 script = ExtResource("19_6iilf")
