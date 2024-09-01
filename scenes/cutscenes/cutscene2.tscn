@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ggxy2ae0rr3c"]
+[gd_scene load_steps=11 format=3 uid="uid://1ge1re42owvl"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_8mf8e"]
 [ext_resource type="Texture2D" uid="uid://coklo6b7ib7ic" path="res://assets/cutscenes/cutscene1.png" id="2_6ui60"]
-[ext_resource type="PackedScene" uid="uid://muherruagjtj" path="res://scenes/main.tscn" id="2_ntj0b"]
+[ext_resource type="PackedScene" uid="uid://brfbrnskl0606" path="res://scenes/cutscenes/cutscene_dialogue1.tscn" id="2_ye2sl"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="3_0cltj"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_g6wlr"]
 [ext_resource type="AudioStream" uid="uid://dstmtihkv5iwt" path="res://assets/sounds/typewritertalking/sfx_PlayerVoice.ogg" id="4_n4oea"]
@@ -47,7 +47,7 @@ _data = {
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_8mf8e")
-nextCutscene = ExtResource("2_ntj0b")
+nextCutscene = ExtResource("2_ye2sl")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

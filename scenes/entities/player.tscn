@@ -1,7 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://v8w2nt3d8m03"]
+[gd_scene load_steps=9 format=3 uid="uid://v8w2nt3d8m03"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_lgxym"]
-[ext_resource type="Texture2D" uid="uid://tojoudhopwtp" path="res://assets/sprites/uwuplaceholder.png" id="2_m5rhc"]
+[ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="2_do7yw"]
+[ext_resource type="Script" path="res://scenes/entities/animation_player.gd" id="3_oo13t"]
+
+[sub_resource type="Animation" id="Animation_44kvd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ai6a4"]
+resource_name = "chibicycle"
+length = 16.2625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.86667, 3.73333, 5.4, 7.2, 8.76667, 10.9, 12.7, 14.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bxdp4"]
+_data = {
+"RESET": SubResource("Animation_44kvd"),
+"chibicycle": SubResource("Animation_ai6a4")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stp6r"]
 radius = 30.0
@@ -15,8 +53,17 @@ motion_mode = 1
 script = ExtResource("1_lgxym")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.26, 0.26)
-texture = ExtResource("2_m5rhc")
+position = Vector2(0, 3.5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_do7yw")
+hframes = 5
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_bxdp4")
+}
+script = ExtResource("3_oo13t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)

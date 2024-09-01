@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7rgjvnslwqqh"
-path="res://.godot/imported/chibi_chad.png-88e3f83752749912897e15637a526314.ctex"
+uid="uid://dcqgjx1pajac"
+path="res://.godot/imported/chibifacesprites.png-1b038e767aa681f057091cd334cc3d15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/chibi/chibi_chad.png"
-dest_files=["res://.godot/imported/chibi_chad.png-88e3f83752749912897e15637a526314.ctex"]
+source_file="res://assets/sprites/chibifacesprites.png"
+dest_files=["res://.godot/imported/chibifacesprites.png-1b038e767aa681f057091cd334cc3d15.ctex"]
 
 [params]
 

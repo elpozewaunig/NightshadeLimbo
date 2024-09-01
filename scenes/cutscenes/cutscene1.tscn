@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://coklo6b7ib7ic" path="res://assets/cutscenes/cutscene1.png" id="1_0l8a4"]
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_hjlf4"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="1_vkumk"]
-[ext_resource type="PackedScene" uid="uid://ggxy2ae0rr3c" path="res://scenes/cutscenes/cutscene2.tscn" id="2_o5opu"]
+[ext_resource type="PackedScene" uid="uid://brfbrnskl0606" path="res://scenes/cutscenes/cutscene_dialogue1.tscn" id="2_gdvsy"]
 [ext_resource type="AudioStream" uid="uid://dstmtihkv5iwt" path="res://assets/sounds/typewritertalking/sfx_PlayerVoice.ogg" id="2_x6v3u"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_8xx5x"]
 [ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="6_omu8e"]
 
-[sub_resource type="Animation" id="Animation_3gorn"]
+[sub_resource type="Animation" id="Animation_w4flh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_8se08"]
+[sub_resource type="Animation" id="Animation_oe17a"]
 resource_name = "blink"
 loop_mode = 1
 tracks/0/type = "value"
@@ -39,15 +39,15 @@ tracks/0/keys = {
 "values": [false, false, true, true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qa43s"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cvmh1"]
 _data = {
-"RESET": SubResource("Animation_3gorn"),
-"blink": SubResource("Animation_8se08")
+"RESET": SubResource("Animation_w4flh"),
+"blink": SubResource("Animation_oe17a")
 }
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_hjlf4")
-nextCutscene = ExtResource("2_o5opu")
+nextCutscene = ExtResource("2_gdvsy")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -157,7 +157,7 @@ texture = ExtResource("6_omu8e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/HBoxContainer/VBoxContainer/Panel2/clickweiterHint"]
 libraries = {
-"": SubResource("AnimationLibrary_qa43s")
+"": SubResource("AnimationLibrary_cvmh1")
 }
 speed_scale = 0.5
 
@@ -167,6 +167,7 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("3_8xx5x")
 
 [node name="Label" type="Label" parent="Control/HBoxContainer/Panel3"]
+self_modulate = Color(1, 1, 1, 0.145098)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
