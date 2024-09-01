@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=58 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/Exit.gd" id="7_3271t"]
 [ext_resource type="AudioStream" uid="uid://cwsw58twme32w" path="res://assets/sounds/voice/Boss_HAHA.ogg" id="9_faant"]
 [ext_resource type="Script" path="res://scripts/IntroScreen.gd" id="9_gl7br"]
+[ext_resource type="Texture2D" uid="uid://dnb72stid5764" path="res://assets/sprites/black.png" id="9_j8xgq"]
 [ext_resource type="Texture2D" uid="uid://c35i00sbdkdnv" path="res://assets/sprites/thornsb.png" id="9_tkm8o"]
 [ext_resource type="AudioStream" uid="uid://d27fsxb7qs1tv" path="res://assets/sounds/voice/Boss_hehehee.ogg" id="10_6fquw"]
 [ext_resource type="Texture2D" uid="uid://brrpc86p6br0m" path="res://assets/sprites/toplight_fullscreen.png" id="10_roquk"]
@@ -180,7 +181,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("..:visible")
+tracks/10/path = NodePath("../Throns2:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -189,92 +190,80 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/11/type = "value"
+tracks/11/type = "bezier"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../Throns2:visible")
+tracks/11/path = NodePath("../Throns2:position:x")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../Throns2:position:x")
+tracks/12/path = NodePath("../Throns2:position:y")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-5, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(107, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/13/type = "bezier"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../Throns2:position:y")
+tracks/13/path = NodePath("../Throns2:scale:x")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(107, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.468, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/14/type = "bezier"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../Throns2:scale:x")
+tracks/14/path = NodePath("../Throns2:scale:y")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.468, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/15/type = "bezier"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("../Throns2:scale:y")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.422, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("../Throns:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Throns:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/17/type = "bezier"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("../Throns:scale:x")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../Throns:scale:x")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.485, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/18/type = "bezier"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("../Throns:scale:y")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../Throns:scale:y")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.33, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -579,6 +568,9 @@ _data = {
 "die": SubResource("Animation_yyjtw")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfb22"]
+size = Vector2(149, 37)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ryhxr"]
 font = ExtResource("13_moeav")
 font_size = 100
@@ -691,6 +683,7 @@ shape = SubResource("RectangleShape2D_clw16")
 [node name="Boss" parent="." instance=ExtResource("6_ofatc")]
 
 [node name="ExplodingTomato" type="Node2D" parent="."]
+visible = false
 position = Vector2(946, 219)
 script = ExtResource("7_8xnes")
 
@@ -716,6 +709,17 @@ scale = Vector2(0.468, 0.422)
 texture = ExtResource("9_tkm8o")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ExplodingTomato"]
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+position = Vector2(450, 700)
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
+scale = Vector2(10, 8)
+texture = ExtResource("9_j8xgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2(0.5, 40.5)
+shape = SubResource("RectangleShape2D_lfb22")
 
 [node name="IntroScreen" type="Node2D" parent="."]
 visible = false
@@ -815,6 +819,7 @@ src_node = NodePath("../../Boss")
 heart_texture = ExtResource("36_bymvh")
 no_heart_texture = ExtResource("37_lc3i1")
 heart_scale = 0.1
+spacing = 120
 
 [node name="Box" type="Sprite2D" parent="Camera2D/HealthIndicator"]
 texture = ExtResource("36_ds7ou")

@@ -14,3 +14,4 @@ func _on_boss_defeated() -> void:
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "die":
 		emit_signal("boss_death_done")
+		hide()

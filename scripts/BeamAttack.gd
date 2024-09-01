@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 	
 	# Target reached
 	if length >= distance:
+		length = distance
 		modulate.a -= 2 * delta
 		if modulate.a <= 0:
 			hide()
@@ -67,3 +68,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_hit.connect(body._on_beam_hit)
 		emit_signal("player_hit")
+	elif body.get_class() == "StaticBody2D" and not body.name == "Boss":
+		# Set target distance to current length, stops the beam
+		distance = length
+		
