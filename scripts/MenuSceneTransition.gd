@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var game_scene = preload("res://scenes/main.tscn")
+var game_scene = preload("res://scenes/cutscenes/cutscene1.tscn")
 
 @export var transition_duration : float = 1.5
 var transition = false

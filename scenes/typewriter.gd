@@ -10,11 +10,12 @@ var flip = true
 
 @export var pitch = 1.00
 @export var pitchrange = 0.05
+@export var typespeed = 0.3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if $Label.visible_ratio < 1:
-		$Label.visible_ratio += 0.30 * delta
+		$Label.visible_ratio += typespeed * delta
 	elif flip:
 		$"../clickweiterHint".visible = true
 		$"../clickweiterHint/AnimationPlayer".play("blink")

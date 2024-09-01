@@ -1218,7 +1218,10 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AuraOverlay" type="AnimatedSprite2D" parent="PostProcessing"]
+[node name="ScribbeLine" type="Node2D" parent="PostProcessing"]
+visible = false
+
+[node name="AuraOverlay" type="AnimatedSprite2D" parent="PostProcessing/ScribbeLine"]
 self_modulate = Color(1, 1, 1, 0.521569)
 position = Vector2(0, -11)
 scale = Vector2(1.9, 1.59)
@@ -1226,7 +1229,7 @@ sprite_frames = SubResource("SpriteFrames_j3eyk")
 frame_progress = 0.625311
 script = ExtResource("19_cwyxu")
 
-[node name="AuraOverlay2" type="AnimatedSprite2D" parent="PostProcessing"]
+[node name="AuraOverlay2" type="AnimatedSprite2D" parent="PostProcessing/ScribbeLine"]
 self_modulate = Color(1, 1, 1, 0.568627)
 position = Vector2(0, -11)
 scale = Vector2(1.9, 1.59)
