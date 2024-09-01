@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://c8nd1nlotsdxj" path="res://assets/sounds/sfx_Click.ogg" id="24_6qan5"]
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/HealthIndicator.gd" id="35_6s6uf"]
+[ext_resource type="PackedScene" uid="uid://dgw71c6oosdyk" path="res://scenes/healthbar.tscn" id="35_uhfa4"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -758,6 +759,10 @@ position = Vector2(800, -550)
 script = ExtResource("35_6s6uf")
 src_node = NodePath("../../Boss")
 spacing = 100
+
+[node name="Healthbar" parent="." instance=ExtResource("35_uhfa4")]
+position = Vector2(1580, 1050)
+scale = Vector2(0.565, 0.565)
 
 [connection signal="boss_hit" from="Player" to="Boss" method="_on_player_boss_hit"]
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
