@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=47 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -35,7 +35,9 @@
 [ext_resource type="AudioStream" uid="uid://c8nd1nlotsdxj" path="res://assets/sounds/sfx_Click.ogg" id="24_6qan5"]
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/HealthIndicator.gd" id="35_6s6uf"]
-[ext_resource type="PackedScene" uid="uid://dgw71c6oosdyk" path="res://scenes/healthbar.tscn" id="35_uhfa4"]
+[ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
+[ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/sprites/button1.png" id="36_ds7ou"]
+[ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -755,14 +757,16 @@ vertical_alignment = 1
 script = ExtResource("33_rkonn")
 
 [node name="HealthIndicator" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("src_node")]
-position = Vector2(800, -550)
+position = Vector2(790, 455)
 script = ExtResource("35_6s6uf")
 src_node = NodePath("../../Boss")
-spacing = 100
+heart_texture = ExtResource("36_bymvh")
+no_heart_texture = ExtResource("37_lc3i1")
+heart_scale = 0.1
+spacing = 120
 
-[node name="Healthbar" parent="." instance=ExtResource("35_uhfa4")]
-position = Vector2(1580, 1050)
-scale = Vector2(0.565, 0.565)
+[node name="Box" type="Sprite2D" parent="Camera2D/HealthIndicator"]
+texture = ExtResource("36_ds7ou")
 
 [connection signal="boss_hit" from="Player" to="Boss" method="_on_player_boss_hit"]
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
