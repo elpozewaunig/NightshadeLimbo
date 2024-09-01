@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkghpjrodsyia"]
+[gd_scene load_steps=7 format=3 uid="uid://bfc0gn46xuutq"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_gsle1"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_xmk2b"]
+[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_xmk2b"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_sde0x"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_60ors"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="6_i04rw"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_8rh5m"]
+[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_8rh5m"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_gsle1")
@@ -83,8 +83,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Pondering, in what brief glimpse 
-of consciousness David has left.
+text = "In the brief glimpses 
+of consciousness that David has left, he can't help but wonder...
 
 What is he to expect?"
 horizontal_alignment = 1

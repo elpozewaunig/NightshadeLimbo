@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://df7ne4niw27qd"]
+[gd_scene load_steps=7 format=3 uid="uid://bvej6r1hnoyte"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_bpqpm"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_ukkrw"]
+[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_ukkrw"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_bm0ok"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_5q1xc"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="6_2sskp"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_hgm7o"]
+[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_hgm7o"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_bpqpm")

@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxt75vqk3p58h"]
+[gd_scene load_steps=7 format=3 uid="uid://p3cdl8qvkw8j"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_na7y5"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_2ejfe"]
+[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_2ejfe"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_c6jmn"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_7a5g3"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="6_lushy"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_fyfmx"]
+[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_fyfmx"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_na7y5")
@@ -83,7 +83,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Or perhaps even reincarnated into a fantasy setting?"
+text = "Or perhaps even being reincarnated into a fantasy setting?"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true

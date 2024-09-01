@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://kfbw8h8swyjp"]
+[gd_scene load_steps=7 format=3 uid="uid://md5tq4w7jhvw"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_4k766"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_jakr5"]
+[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_jakr5"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_m31cg"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_6wl7f"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="6_hona5"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_xfh80"]
+[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_xfh80"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_4k766")
@@ -83,7 +83,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "He encounters..
+text = "... he encounters..
 No god, no soul of a passed relative.
 
 No divine entity or the grim reaper."

@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://t755pvydnxoe"]
+[gd_scene load_steps=8 format=3 uid="uid://brlj46fx7pso"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_fsieb"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_ee5pa"]
+[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_ee5pa"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="4_jphi5"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="7_f4mjr"]
 [ext_resource type="Script" path="res://scenes/cutscenes/changemusic2.gd" id="7_pd6lb"]
 [ext_resource type="AudioStream" uid="uid://csptbfwwotli7" path="res://assets/sounds/typewritertalking/sfx_TomatoVoice.ogg" id="8_0lt1e"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="9_5tbjs"]
+[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="9_5tbjs"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_fsieb")
@@ -87,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 46
 text = "Your punishment begins
-NOW
+NOW.
 "
 horizontal_alignment = 1
 vertical_alignment = 1
