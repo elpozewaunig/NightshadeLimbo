@@ -12,7 +12,7 @@ var impact_scene = preload("res://scenes/boss_attacks/jump_impact.tscn")
 @export var health : int = 3
 var vulnerable = false
 var vulnerable_duration = 0
-var got_hit = false
+var dmg_taken = false
 
 # Stores necessary data for firing bullets
 var salvos = {}
@@ -118,10 +118,12 @@ func _process(delta: float) -> void:
 		# Handle vulnerability windows
 		if vulnerable:
 			vulnerable_duration -= delta
-			# Invulnerability has expired without a hit
+			# Invulnerability has expired
 			if vulnerable_duration <= 0:
 				vulnerable_duration = 0
 				vulnerable = false
+				dmg_taken = false
+				dmg_zone.monitoring = true
 				emit_signal("vulnerable_status_changed", false)
 				animation.play("Vulnerable_END")
 		
@@ -219,8 +221,9 @@ func _on_damage_zone_entered(body: Node2D) -> void:
 		emit_signal("player_hit")
 
 func _on_player_boss_hit() -> void:
-	if vulnerable:
-		vulnerable = false
+	if vulnerable and not dmg_taken:
+		dmg_taken = true
+		health -= 1
+		
 		emit_signal("vulnerable_status_changed", false)
 		animation.play("TakeDamageINITIATE")
-		health -= 1
