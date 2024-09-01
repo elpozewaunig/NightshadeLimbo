@@ -1,14 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://brlyw0n2mw7hs"]
+[gd_scene load_steps=20 format=3 uid="uid://brlyw0n2mw7hs"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_rdy48"]
-[ext_resource type="PackedScene" uid="uid://hqcv4fs6lvtt" path="res://scenes/cutscenes/cutscene_dialogue6.tscn" id="2_jk7ij"]
-[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_xkjyg"]
+[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_xkjyg"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_xjfcy"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_asctm"]
 [ext_resource type="AudioStream" uid="uid://csptbfwwotli7" path="res://assets/sounds/typewritertalking/sfx_TomatoVoice.ogg" id="6_c2qjl"]
 [ext_resource type="Texture2D" uid="uid://c5uk7355c1umy" path="res://assets/sprites/TomatoRagingAuroSpriteDownscale.png" id="6_mk3c0"]
 [ext_resource type="Script" path="res://scripts/AuraOverlay.gd" id="7_tlr0t"]
-[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="9_e7bno"]
+[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="9_e7bno"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
 atlas = ExtResource("6_mk3c0")
@@ -90,7 +89,6 @@ animations = [{
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_rdy48")
-nextCutscene = ExtResource("2_jk7ij")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

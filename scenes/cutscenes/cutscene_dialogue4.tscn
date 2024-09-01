@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2g5573mx8333"]
+[gd_scene load_steps=7 format=3 uid="uid://d2g5573mx8333"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_cglc6"]
-[ext_resource type="PackedScene" uid="uid://y0xpvwi6mnlv" path="res://scenes/cutscenes/cutscene_dialogue5.tscn" id="2_0qylg"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_hjf2j"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="4_w4tv8"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_c57r2"]
@@ -10,7 +9,6 @@
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_cglc6")
-nextCutscene = ExtResource("2_0qylg")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -55,7 +53,7 @@ position = Vector2(570, 429)
 texture = ExtResource("4_w4tv8")
 hframes = 5
 vframes = 2
-frame = 2
+frame = 3
 
 [node name="Panel2" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -95,6 +93,7 @@ text_overrun_behavior = 3
 visible_characters_behavior = 1
 
 [node name="clickweiterHint" parent="Control/HBoxContainer/VBoxContainer/Panel2" instance=ExtResource("7_5vrrs")]
+layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0

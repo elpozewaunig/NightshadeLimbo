@@ -1,16 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl1lftx2tvval"]
+[gd_scene load_steps=7 format=3 uid="uid://cl1lftx2tvval"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_c65kb"]
-[ext_resource type="PackedScene" path="res://scenes/cutscenes/cutscene_dialogue4.tscn" id="2_ruxqj"]
-[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_c8l6u"]
+[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_c8l6u"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_mswsa"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_73uwj"]
 [ext_resource type="AudioStream" uid="uid://csptbfwwotli7" path="res://assets/sounds/typewritertalking/sfx_TomatoVoice.ogg" id="6_nhfkl"]
-[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_603wi"]
+[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_603wi"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_c65kb")
-nextCutscene = ExtResource("2_ruxqj")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -1,14 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwsbaow7f0syn"]
+[gd_scene load_steps=12 format=3 uid="uid://cwsbaow7f0syn"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_s3d2d"]
-[ext_resource type="PackedScene" uid="uid://dqo26rddab1mk" path="res://scenes/cutscenes/cutscene_dialogue9.tscn" id="2_xb1tx"]
-[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_jg7bg"]
+[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_jg7bg"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_sds2p"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="5_1mw0b"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_3gugm"]
 [ext_resource type="AudioStream" uid="uid://csptbfwwotli7" path="res://assets/sounds/typewritertalking/sfx_TomatoVoice.ogg" id="6_7qxlc"]
 [ext_resource type="Script" path="res://scenes/cutscenes/sprite_2d.gd" id="6_ij5uj"]
-[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="8_mtg2y"]
+[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="8_mtg2y"]
 
 [sub_resource type="Animation" id="Animation_t5v73"]
 length = 0.001
@@ -49,7 +48,6 @@ _data = {
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_s3d2d")
-nextCutscene = ExtResource("2_xb1tx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

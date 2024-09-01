@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://brfbrnskl0606"]
+[gd_scene load_steps=7 format=3 uid="uid://brfbrnskl0606"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_nsa6g"]
-[ext_resource type="PackedScene" uid="uid://bi6xur8s111hg" path="res://scenes/cutscenes/cutscene_dialogue2.tscn" id="2_xj4m3"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_i6ru3"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_1kffj"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_hxo3q"]
@@ -10,7 +9,6 @@
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_nsa6g")
-nextCutscene = ExtResource("2_xj4m3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

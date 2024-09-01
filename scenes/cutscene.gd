@@ -1,7 +1,8 @@
 extends Node2D
 
-@export var nextCutscene: PackedScene
+@export var notext = false
 
+signal NEXT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,12 +21,12 @@ func _process(delta: float) -> void:
 	if(holdskipcounter>2):
 		skip_cutscene()
 	if Input.is_action_just_pressed("cutscene_click"):
-		if $Control/HBoxContainer/VBoxContainer/Panel2/Typewriter/Label.visible_ratio == 1:
+		if $Control/HBoxContainer/VBoxContainer/Panel2/Typewriter/Label.visible_ratio == 1 or notext:
 			#optional?
 			$Control/HBoxContainer/VBoxContainer/Panel2/clickweiterHint/AnimationPlayer.stop()
 			$Control/HBoxContainer/VBoxContainer/Panel2/clickweiterHint/AnimationPlayer.clear_queue()
-			
-			get_tree().change_scene_to_packed(nextCutscene)
+			$"../".emit_signal("NEXT")
+			#get_tree().change_scene_to_packed(nextCutscene)
 		else:
 			$Control/HBoxContainer/VBoxContainer/Panel2/Typewriter/Label.visible_ratio = 1
 			
