@@ -19,7 +19,8 @@ signal player_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Set collider to specified width
+	# Create new shape so that properties are independent
+	collider.shape = RectangleShape2D.new()
 	collider.shape.size.x = width
 	
 	# Rotate towards target, -90 because beam is pointing downwards
