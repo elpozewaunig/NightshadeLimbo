@@ -122,12 +122,16 @@ func _process(delta: float) -> void:
 			vulnerable_duration -= delta
 			# Invulnerability has expired
 			if vulnerable_duration <= 0:
+				if dmg_taken:
+					animation.play("TakeDamageDONE")
+				else:
+					animation.play("Vulnerable_END")
+					
 				vulnerable_duration = 0
 				vulnerable = false
 				dmg_taken = false
 				dmg_zone.monitoring = true
 				emit_signal("vulnerable_status_changed", false)
-				animation.play("Vulnerable_END")
 		
 		# If boss was just mortally wounded
 		if health <= 0:
