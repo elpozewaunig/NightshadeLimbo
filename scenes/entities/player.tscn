@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="2_do7yw"]
 [ext_resource type="Script" path="res://scenes/entities/animation_player.gd" id="3_oo13t"]
 [ext_resource type="Texture2D" uid="uid://dnfwwt2w77wp" path="res://assets/sprites/impact.png" id="4_6301q"]
-[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="5_v4dns"]
+[ext_resource type="AudioStream" uid="uid://cs4w62hbh2cxq" path="res://assets/sounds/sfx_PlayerDeath.ogg" id="5_t74wv"]
 
 [sub_resource type="Animation" id="Animation_44kvd"]
 length = 0.001
@@ -90,21 +90,6 @@ tracks/0/keys = {
 "values": [2, 7, 7, 2, 2, 7, 7, 2, 2, 7, 6, 6, 7, 7]
 }
 
-[sub_resource type="Animation" id="Animation_8bxc3"]
-resource_name = "die2"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
 [sub_resource type="Animation" id="Animation_0yqkh"]
 resource_name = "die1"
 tracks/0/type = "value"
@@ -118,6 +103,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_8bxc3"]
+resource_name = "die2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_chinw"]
@@ -193,30 +193,7 @@ shape = SubResource("RectangleShape2D_iimnv")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_yihxk")
 
-[node name="clickweiterHint" parent="." instance=ExtResource("5_v4dns")]
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 177.0
-offset_bottom = 32.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="clickweiterHint2" parent="." instance=ExtResource("5_v4dns")]
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 177.0
-offset_bottom = 32.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t74wv")
 
 [connection signal="body_entered" from="Weapon" to="." method="_on_weapon_hitbox_entered"]
