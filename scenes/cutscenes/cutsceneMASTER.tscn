@@ -1,16 +1,27 @@
-[gd_scene load_steps=25 format=3 uid="uid://bw5hat56kc4gk"]
+[gd_scene load_steps=37 format=3 uid="uid://bw5hat56kc4gk"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/cutscene_master.gd" id="1_cbea7"]
 [ext_resource type="PackedScene" uid="uid://bfc0gn46xuutq" path="res://scenes/cutscenes/cutscene_aintro1.tscn" id="2_eq88m"]
+[ext_resource type="PackedScene" uid="uid://bxpqiq1jgverw" path="res://scenes/cutscenes/cutscene_aabeforetomato1.tscn" id="2_i0ete"]
+[ext_resource type="PackedScene" uid="uid://ctuxxy1ch3jv7" path="res://scenes/cutscenes/cutscene_aabeforetomato2.tscn" id="3_531db"]
 [ext_resource type="PackedScene" uid="uid://duskp3wqbcqob" path="res://scenes/cutscenes/cutscene_aintro2.tscn" id="3_ppeqm"]
+[ext_resource type="PackedScene" uid="uid://pqjuxwcryu1a" path="res://scenes/cutscenes/cutscene_aabeforetomato3.tscn" id="4_kbhwu"]
 [ext_resource type="PackedScene" uid="uid://wkjl8u4y3vco" path="res://scenes/cutscenes/cutscene_aintro3.tscn" id="4_yumgg"]
+[ext_resource type="PackedScene" uid="uid://w3wdc7q1ng20" path="res://scenes/cutscenes/cutscene_aabeforetomato4.tscn" id="5_1lrcc"]
 [ext_resource type="PackedScene" uid="uid://bvej6r1hnoyte" path="res://scenes/cutscenes/cutscene_aintro4.tscn" id="5_qejkx"]
 [ext_resource type="PackedScene" uid="uid://p3cdl8qvkw8j" path="res://scenes/cutscenes/cutscene_aintro5.tscn" id="6_au1nh"]
+[ext_resource type="PackedScene" uid="uid://dki7f7pvfskki" path="res://scenes/cutscenes/cutscene_aabeforetomato5.tscn" id="6_bmbpg"]
 [ext_resource type="PackedScene" uid="uid://b05j5sj6314pc" path="res://scenes/cutscenes/cutscene_aintro6.tscn" id="7_6joph"]
+[ext_resource type="PackedScene" uid="uid://bmxcmh3okp01f" path="res://scenes/cutscenes/cutscene_aabeforetomato6.tscn" id="7_vqm6m"]
 [ext_resource type="PackedScene" uid="uid://md5tq4w7jhvw" path="res://scenes/cutscenes/cutscene_aintro7.tscn" id="8_j2eq0"]
+[ext_resource type="PackedScene" uid="uid://d0seiq5enswwc" path="res://scenes/cutscenes/cutscene_aabeforetomato7.tscn" id="8_oohgw"]
 [ext_resource type="PackedScene" uid="uid://cuiexqvitpgu1" path="res://scenes/cutscenes/cutscene_aintro8.tscn" id="9_ge233"]
+[ext_resource type="PackedScene" uid="uid://tywsggradhhc" path="res://scenes/cutscenes/cutscene_aabeforetomato8.tscn" id="9_jxy1k"]
+[ext_resource type="PackedScene" uid="uid://ctkp5b56gnyn6" path="res://scenes/cutscenes/cutscene_aabeforetomato9.tscn" id="10_jm6uk"]
 [ext_resource type="PackedScene" uid="uid://brfbrnskl0606" path="res://scenes/cutscenes/cutscene_dialogue1.tscn" id="10_ud1rk"]
 [ext_resource type="PackedScene" uid="uid://bi6xur8s111hg" path="res://scenes/cutscenes/cutscene_dialogue2.tscn" id="11_i5ixw"]
+[ext_resource type="PackedScene" uid="uid://difpkilm1kyoa" path="res://scenes/cutscenes/cutscene_aabeforetomato10.tscn" id="11_xr2d3"]
+[ext_resource type="PackedScene" uid="uid://dawhxdyh43l0o" path="res://scenes/cutscenes/cutscene_aabeforetomato11.tscn" id="12_eac30"]
 [ext_resource type="PackedScene" uid="uid://cl1lftx2tvval" path="res://scenes/cutscenes/cutscene_dialogue3.tscn" id="12_u0bfk"]
 [ext_resource type="PackedScene" uid="uid://d2g5573mx8333" path="res://scenes/cutscenes/cutscene_dialogue4.tscn" id="13_sf3kp"]
 [ext_resource type="PackedScene" uid="uid://brlyw0n2mw7hs" path="res://scenes/cutscenes/cutscene_dialogue5.tscn" id="14_ahb65"]
@@ -23,17 +34,20 @@
 [ext_resource type="PackedScene" uid="uid://brlj46fx7pso" path="res://scenes/cutscenes/cutscene_dialogue13.tscn" id="22_6n3bd"]
 [ext_resource type="PackedScene" uid="uid://muherruagjtj" path="res://scenes/main.tscn" id="23_uuosk"]
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="24_rtr15"]
+[ext_resource type="AudioStream" uid="uid://cflwtsmld20pl" path="res://assets/music/BGM_DrumsSlow.ogg" id="24_s20br"]
 [ext_resource type="AudioStream" uid="uid://bmmmp71lry1gk" path="res://assets/music/BGM_BossIntro.ogg" id="25_vipen"]
 
 [node name="CutsceneMaster" type="Node2D"]
 script = ExtResource("1_cbea7")
-scenes = Array[PackedScene]([ExtResource("2_eq88m"), ExtResource("3_ppeqm"), ExtResource("4_yumgg"), ExtResource("5_qejkx"), ExtResource("6_au1nh"), ExtResource("7_6joph"), ExtResource("8_j2eq0"), ExtResource("9_ge233"), ExtResource("10_ud1rk"), ExtResource("11_i5ixw"), ExtResource("12_u0bfk"), ExtResource("13_sf3kp"), ExtResource("14_ahb65"), ExtResource("15_ru8uo"), ExtResource("16_u5aje"), ExtResource("17_ty8xp"), ExtResource("18_gmlj1"), ExtResource("20_6jlhe"), ExtResource("21_575hx"), ExtResource("22_6n3bd"), ExtResource("23_uuosk")])
+scenes = Array[PackedScene]([ExtResource("2_i0ete"), ExtResource("3_531db"), ExtResource("4_kbhwu"), ExtResource("5_1lrcc"), ExtResource("6_bmbpg"), ExtResource("7_vqm6m"), ExtResource("8_oohgw"), ExtResource("9_jxy1k"), ExtResource("10_jm6uk"), ExtResource("11_xr2d3"), ExtResource("12_eac30"), ExtResource("2_eq88m"), ExtResource("3_ppeqm"), ExtResource("4_yumgg"), ExtResource("5_qejkx"), ExtResource("6_au1nh"), ExtResource("7_6joph"), ExtResource("8_j2eq0"), ExtResource("9_ge233"), ExtResource("10_ud1rk"), ExtResource("11_i5ixw"), ExtResource("12_u0bfk"), ExtResource("13_sf3kp"), ExtResource("14_ahb65"), ExtResource("15_ru8uo"), ExtResource("16_u5aje"), ExtResource("17_ty8xp"), ExtResource("18_gmlj1"), ExtResource("20_6jlhe"), ExtResource("21_575hx"), ExtResource("22_6n3bd"), ExtResource("23_uuosk")])
 
 [node name="PERMAPLAYER1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_rtr15")
-autoplay = true
 parameters/looping = true
 
 [node name="PERMAPLAYER2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_vipen")
-parameters/looping = false
+
+[node name="PERMAPLAYER3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_s20br")
+parameters/looping = true
