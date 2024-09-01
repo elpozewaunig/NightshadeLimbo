@@ -5,14 +5,16 @@ extends StaticBody2D
 
 var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
 var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
+var vine_scene = preload("res://scenes/boss_attacks/vine_attack.tscn")
 var impact_scene = preload("res://scenes/boss_attacks/jump_impact.tscn")
 
 # Stores necessary data for firing bullets
 var salvos = {}
 var salvo_id = 0
 
-# Stores simple countdown for each beam to trigger actions upon completion
+# Stores simple countdown for each attack to trigger actions upon completion
 var beams = []
+var vines = []
 
 var jumping = false
 var jump_end_anim = false
@@ -48,7 +50,7 @@ func _process(delta: float) -> void:
 					salvos[key]["countdown"] = salvos[key]["interval"]
 					
 					# Fire the next projectile in the salvo
-					add_projectile(salvos[key]["targets"][shot_nr])
+					_add_projectile(salvos[key]["targets"][shot_nr])
 					salvos[key]["shot"] += 1
 			else:
 				# Delete salvo to free up ressources
@@ -64,7 +66,16 @@ func _process(delta: float) -> void:
 				beams.remove_at(i)
 				if beams.is_empty():
 					emit_signal("attack_status_changed", "beam", false)
-					
+		
+		# Iterate through all vines and count down their remaining time
+		for i in range(0, beams.size()):
+			vines[i] -= delta
+			# Remove expired beams
+			if vines[i] <= 0:
+				vines.remove_at(i)
+				if vines.is_empty():
+					emit_signal("attack_status_changed", "vine", false)
+		
 		if jumping:
 			jump_duration -= delta
 			global_position.move_toward(jump_target, jump_speed * delta)
@@ -79,10 +90,10 @@ func _process(delta: float) -> void:
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
-	create_salvo(from_pos, to_pos, amount, duration)
+	_create_salvo(from_pos, to_pos, amount, duration)
 
 func machine_gun(to_pos: Vector2, amount: int = 20, duration: float = 2) -> void:
-	create_salvo(to_pos, to_pos, amount, duration)
+	_create_salvo(to_pos, to_pos, amount, duration)
 
 # Creates a beam instance and fires it
 func beam(to_pos: Vector2, duration: float = 0.5) -> void:
@@ -92,6 +103,14 @@ func beam(to_pos: Vector2, duration: float = 0.5) -> void:
 	add_child(new_beam)
 	beams.append(duration)
 	emit_signal("attack_status_changed", "beam", true)
+
+func vine(points: Array[Vector2], duration: float = 2) -> void:
+	var new_vine = vine_scene.instantiate()
+	new_vine.points = points
+	new_vine.duration = duration
+	add_child(new_vine)
+	vines.append(duration)
+	emit_signal("attack_status_changed", "vine", true)
 
 func jump(to_pos: Vector2, duration: float = 2) -> void:
 	animation.play("JumpAttack_START")
@@ -103,13 +122,13 @@ func jump(to_pos: Vector2, duration: float = 2) -> void:
 	emit_signal("attack_status_changed", "jump", true)
 
 # Creates a projectile instance and fires it
-func add_projectile(global_pos_to: Vector2) -> void:
+func _add_projectile(global_pos_to: Vector2) -> void:
 	var projectile = projectile_scene.instantiate()
 	projectile.target_pos = global_pos_to
 	add_child(projectile)
 
 # Adds a salvo to salvos array
-func create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: float) -> void:
+func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: float) -> void:
 	var projectiles : Array[Vector2] = []
 	var offset = to_pos - from_pos
 	for i in range(0, amount):
