@@ -730,6 +730,7 @@ script = ExtResource("28_ufeeg")
 
 [node name="IntroScreen" type="Node2D" parent="."]
 visible = false
+z_index = 5
 script = ExtResource("9_gl7br")
 
 [node name="Illumination" type="Sprite2D" parent="IntroScreen"]
@@ -751,6 +752,7 @@ visible = false
 script = ExtResource("12_qyr5r")
 
 [node name="Background" type="Sprite2D" parent="GameOverScreen"]
+z_index = 5
 position = Vector2(960, 540)
 scale = Vector2(1.195, 1.236)
 texture = ExtResource("11_g3ka4")

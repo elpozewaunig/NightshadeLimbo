@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh7r10i4ev0yu"]
 
 [ext_resource type="Script" path="res://scripts/JumpImpact.gd" id="1_pq2dd"]
-[ext_resource type="Texture2D" uid="uid://dnfwwt2w77wp" path="res://assets/sprites/impact.png" id="2_271rr"]
+[ext_resource type="Texture2D" uid="uid://ca0n763mymfml" path="res://assets/sprites/crater.png" id="2_ghhym"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d8nc6"]
 radius = 180.0
@@ -11,9 +11,10 @@ height = 600.0
 script = ExtResource("1_pq2dd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-5, 1.00002)
-scale = Vector2(0.805497, 1.44206)
-texture = ExtResource("2_271rr")
+position = Vector2(-24.17, 1)
+rotation = 1.5708
+scale = Vector2(0.45, 0.56)
+texture = ExtResource("2_ghhym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

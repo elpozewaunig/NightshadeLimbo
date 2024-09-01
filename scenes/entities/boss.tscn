@@ -2134,7 +2134,6 @@ shader_parameter/vignette = ExtResource("24_wm84g")
 [node name="Boss" type="StaticBody2D"]
 position = Vector2(960, 200)
 script = ExtResource("1_3ifcl")
-health = 0
 
 [node name="DamageZone" type="Area2D" parent="."]
 
@@ -2156,6 +2155,7 @@ scale = Vector2(0.485, 0.33)
 texture = ExtResource("3_5l0u7")
 
 [node name="TOMATO" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("3_1ef8q")
 hframes = 5
 frame = 2
@@ -2196,10 +2196,12 @@ libraries = {
 
 [node name="VulnerableOverlay" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 scale = Vector2(0.455, 0.455)
 texture = ExtResource("20_0q56x")
 
 [node name="Throns2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(-5, 107)
 scale = Vector2(0.468, 0.422)
 texture = ExtResource("22_kub0s")
@@ -2210,6 +2212,7 @@ scale = Vector2(1.19, 1)
 shape = SubResource("RectangleShape2D_33fff")
 
 [node name="PostProcessing" type="Control" parent="."]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -2329,12 +2332,14 @@ size_flags_vertical = 3
 
 [node name="Throns3" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(2, 94)
 scale = Vector2(0.485, 0.33)
 texture = ExtResource("3_5l0u7")
 
 [node name="Throns4" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(-5, 107)
 scale = Vector2(0.468, 0.422)
 texture = ExtResource("22_kub0s")
