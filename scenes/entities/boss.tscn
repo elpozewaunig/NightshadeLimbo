@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://s47feaqqdtgj"]
+[gd_scene load_steps=73 format=3 uid="uid://s47feaqqdtgj"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="1_3ifcl"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="2_4c6eb"]
@@ -263,9 +263,9 @@ tracks/1/path = NodePath("TOMATO:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.75)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.45, 0.7, 1.1725, 1.75)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -274,9 +274,9 @@ tracks/2/path = NodePath("TOMATO:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, -750, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.37794, 1.75)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 27.29, -0.25, 0, 0.25, 0, -30.263, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 64.26, -0.25, 0, 0.25, 0, -187.495, -0.25, 0, 0.25, 0, -750, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.45, 0.7, 1.1725, 1.37794, 1.75)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -285,9 +285,9 @@ tracks/3/path = NodePath("TOMATO:scale:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1.00402, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 0.609, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.37794)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.00402, -0.25, 0, 0.25, 0, 1.099, -0.25, 0, 0.25, 0, 1.00402, -0.25, 0, 0.25, 0, 1.00402, -0.25, 0, 0.25, 0, 1.004, -0.25, 0, 0.25, 0, 0.609, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.7, 1.1725, 1.37794)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -296,9 +296,9 @@ tracks/4/path = NodePath("TOMATO:scale:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.991686, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.7, 1.1725, 1.37794)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.991686, -0.25, 0, 0.25, 0, 0.767, -0.25, 0, 0.25, 0, 0.991686, -0.25, 0, 0.25, 0, 0.991686, -0.25, 0, 0.25, 0, 0.622, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.7, 1.1725, 1.37794)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -372,7 +372,7 @@ tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.65)
 }
 tracks/11/type = "bezier"
 tracks/11/imported = false
@@ -383,7 +383,7 @@ tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(94, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.65)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
@@ -394,7 +394,7 @@ tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0.485, -0.25, 0, 0.25, 0, 0.21, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
+"times": PackedFloat32Array(0.65, 1.15)
 }
 tracks/13/type = "bezier"
 tracks/13/imported = false
@@ -405,7 +405,7 @@ tracks/13/loop_wrap = true
 tracks/13/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0.33, -0.25, 0, 0.25, 0, 0.143, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
+"times": PackedFloat32Array(0.65, 1.15)
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -414,10 +414,10 @@ tracks/14/path = NodePath("Throns2:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.95, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, true, false]
+"values": [true, false]
 }
 tracks/15/type = "bezier"
 tracks/15/imported = false
@@ -428,7 +428,7 @@ tracks/15/loop_wrap = true
 tracks/15/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0.468, -0.25, 0, 0.25, 0, 0.433, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 0.35)
+"times": PackedFloat32Array(0.75, 1)
 }
 tracks/16/type = "bezier"
 tracks/16/imported = false
@@ -439,7 +439,7 @@ tracks/16/loop_wrap = true
 tracks/16/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0.422, -0.25, 0, 0.25, 0, 0.075, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 0.35)
+"times": PackedFloat32Array(0.75, 1)
 }
 tracks/17/type = "bezier"
 tracks/17/imported = false
@@ -450,7 +450,7 @@ tracks/17/loop_wrap = true
 tracks/17/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(-5, -0.25, 0, 0.25, 0, -5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.15, 0.35)
+"times": PackedFloat32Array(0.8, 0.95)
 }
 tracks/18/type = "bezier"
 tracks/18/imported = false
@@ -460,8 +460,8 @@ tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(107, -0.25, 0, 0.25, 0, 169.415, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.15, 0.35)
+"points": PackedFloat32Array(107, -0.25, 0, 0.25, 0, 122.875, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.8, 0.95)
 }
 
 [sub_resource type="Animation" id="Animation_2blex"]
@@ -1365,72 +1365,6 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_avpw4"]
-resource_name = "laugh1"
-length = 1.848
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TOMATO:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 0, 1]
-}
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TOMATO/AudioStreamPlayer2D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("17_f4ntp")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TOMATO:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.25, 0.6, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.66, 0, 0, 1), Color(0.66, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TOMATO:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.24, -0.25, 0, 0.05, -0.24101, 1.24, -0.25, 0, 0.05, -0.24101, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(-0.05, 0.25, 0.4, 0.6)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TOMATO:scale:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.61, -0.237107, -0.113979, 0.062893, 0.22937, 0.61, -0.237107, -0.113979, 0.062893, 0.22937, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(-0.05, 0.25, 0.4, 0.6)
-}
-
 [sub_resource type="Animation" id="Animation_ggd8g"]
 resource_name = "Vulnerable"
 length = 12.0
@@ -1683,6 +1617,134 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.1, 0.7, 1, 1.5, 1.9, 2.4, 2.8, 3.3, 4, 4.7)
 }
 
+[sub_resource type="Animation" id="Animation_fgltm"]
+resource_name = "TakeDamageDONE"
+length = 0.2425
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.66, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.05, 0.05)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.05, 0.05)
+}
+
+[sub_resource type="Animation" id="Animation_avpw4"]
+resource_name = "TakeDamageINITIATE"
+length = 0.761
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TOMATO:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TOMATO/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_f4ntp")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TOMATO:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.66, 0, 0, 1)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TOMATO:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.24, -0.25, 0, 0.05, -0.24101, 1.24, -0.25, 0, 0.05, -0.24101),
+"times": PackedFloat32Array(-0.05, 0.25, 0.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TOMATO:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.61, -0.237107, -0.113979, 0.062893, 0.22937, 0.61, -0.237107, -0.113979, 0.062893, 0.22937),
+"times": PackedFloat32Array(-0.05, 0.25, 0.4)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmcjg"]
 _data = {
 "JumpAttack_END": SubResource("Animation_yx575"),
@@ -1700,7 +1762,8 @@ _data = {
 "SoundMockTwoLaugh": SubResource("Animation_k0yyv"),
 "THORNSINVISIBLE": SubResource("Animation_ayyi2"),
 "THORNSVISIBLE": SubResource("Animation_1j3so"),
-"TakeDamage": SubResource("Animation_avpw4"),
+"TakeDamageDONE": SubResource("Animation_fgltm"),
+"TakeDamageINITIATE": SubResource("Animation_avpw4"),
 "Vulnerable": SubResource("Animation_ggd8g"),
 "Walk": SubResource("Animation_mptwy")
 }
@@ -2039,3 +2102,15 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Throns3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 94)
+scale = Vector2(0.485, 0.33)
+texture = ExtResource("3_5l0u7")
+
+[node name="Throns4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5, 107)
+scale = Vector2(0.468, 0.422)
+texture = ExtResource("22_kub0s")
