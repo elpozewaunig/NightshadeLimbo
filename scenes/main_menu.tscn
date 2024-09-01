@@ -495,7 +495,7 @@ texture = ExtResource("1_3me3h")
 script = ExtResource("19_6iilf")
 
 [node name="scawyspwite" type="Sprite2D" parent="SceneTransition"]
-self_modulate = Color(1, 1, 1, 0.0235294)
+self_modulate = Color(1, 1, 1, 0.0313726)
 position = Vector2(14, -50)
 scale = Vector2(1.615, 1.615)
 texture = ExtResource("3_5j4db")
