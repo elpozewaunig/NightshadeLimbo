@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnkev3hxey4ba"]
+
+[ext_resource type="Texture2D" uid="uid://f5eukgvbfxor" path="res://assets/sprites/tomat.png" id="1_8a8oy"]
+
+[node name="Heart" type="Sprite2D"]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_8a8oy")

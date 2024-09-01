@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=44 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="18_n4k8v"]
 [ext_resource type="AudioStream" uid="uid://c8nd1nlotsdxj" path="res://assets/sounds/sfx_Click.ogg" id="24_6qan5"]
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="33_rkonn"]
+[ext_resource type="Script" path="res://scripts/HealthIndicator.gd" id="35_6s6uf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -751,6 +752,12 @@ label_settings = SubResource("LabelSettings_7bn66")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("33_rkonn")
+
+[node name="HealthIndicator" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("src_node")]
+position = Vector2(800, -550)
+script = ExtResource("35_6s6uf")
+src_node = NodePath("../../Boss")
+spacing = 100
 
 [connection signal="boss_hit" from="Player" to="Boss" method="_on_player_boss_hit"]
 [connection signal="game_over" from="Player" to="Boss" method="_on_game_over"]
