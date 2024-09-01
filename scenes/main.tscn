@@ -760,6 +760,7 @@ vertical_alignment = 1
 script = ExtResource("33_rkonn")
 
 [node name="HealthIndicator" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("src_node")]
+visible = false
 position = Vector2(790, 455)
 script = ExtResource("35_6s6uf")
 src_node = NodePath("../../Boss")
