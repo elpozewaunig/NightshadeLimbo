@@ -79,6 +79,13 @@ func set_game_over() -> void:
 	if not dead:
 		dead = true
 		death_sfx.play()
+		
+		# Play random death animation
+		if randi() % 2 == 0:
+			animation.play("die1")
+		else:
+			animation.play("die2")
+			
 		emit_signal("game_over")
 
 func _on_projectile_hit() -> void:
