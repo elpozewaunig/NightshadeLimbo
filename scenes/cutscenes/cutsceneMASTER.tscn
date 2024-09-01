@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bw5hat56kc4gk"]
+[gd_scene load_steps=38 format=3 uid="uid://bw5hat56kc4gk"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/cutscene_master.gd" id="1_cbea7"]
 [ext_resource type="PackedScene" uid="uid://bfc0gn46xuutq" path="res://scenes/cutscenes/cutscene_aintro1.tscn" id="2_eq88m"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="24_rtr15"]
 [ext_resource type="AudioStream" uid="uid://cflwtsmld20pl" path="res://assets/music/BGM_DrumsSlow.ogg" id="24_s20br"]
 [ext_resource type="AudioStream" uid="uid://bmmmp71lry1gk" path="res://assets/music/BGM_BossIntro.ogg" id="25_vipen"]
+[ext_resource type="AudioStream" uid="uid://bhyls1aqibrla" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="37_rwy65"]
 
 [node name="CutsceneMaster" type="Node2D"]
 script = ExtResource("1_cbea7")
@@ -50,4 +51,11 @@ stream = ExtResource("25_vipen")
 
 [node name="PERMAPLAYER3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_s20br")
+parameters/looping = true
+
+[node name="PERMAPLAYER4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("37_rwy65")
+volume_db = 0.5
+pitch_scale = 1.15
+autoplay = true
 parameters/looping = true

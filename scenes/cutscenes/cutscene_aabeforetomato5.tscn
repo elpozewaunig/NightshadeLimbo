@@ -68,7 +68,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_ttk7s")
-typespeed = 0.25
+pitch = 0.95
+typespeed = 0.35
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/HBoxContainer/VBoxContainer/Panel2/Typewriter"]
 position = Vector2(377, 100)

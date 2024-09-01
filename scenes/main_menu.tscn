@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=33 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/sprites/bg_flickeroverlay.png" id="3_qdwo1"]
 [ext_resource type="Script" path="res://scripts/BgFlicker.gd" id="4_2erio"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
+[ext_resource type="Texture2D" uid="uid://bsxiace5ji7vs" path="res://assets/sprites/HPtomato_outline_white.png" id="6_ngex0"]
 [ext_resource type="Script" path="res://scripts/MainMenuButtons.gd" id="6_swuh5"]
 [ext_resource type="Script" path="res://scripts/ButtonSelector.gd" id="7_eh7es"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
@@ -140,15 +141,20 @@ libraries = {
 "": SubResource("AnimationLibrary_yrtdq")
 }
 
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(701, -354)
+scale = Vector2(0.255, 0.205)
+texture = ExtResource("6_ngex0")
+
 [node name="Label" type="Label" parent="UI"]
 self_modulate = Color(1, 1, 1, 0.980392)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -742.0
-offset_top = -528.0
-offset_right = 235.0
-offset_bottom = -281.0
+offset_left = -858.0
+offset_top = -442.0
+offset_right = 119.0
+offset_bottom = -195.0
 grow_horizontal = 2
 scale = Vector2(0.73813, 0.73813)
 text = "Nightshade Limbo"

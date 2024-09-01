@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 	if $Label.visible_ratio < 1:
 		$Label.visible_ratio += typespeed * delta
 	elif flip:
-		$"../clickweiterHint".visible = true
 		$"../clickweiterHint/AnimationPlayer".play("blink")
 		flip = false
 	if vis_char != $Label.visible_characters:

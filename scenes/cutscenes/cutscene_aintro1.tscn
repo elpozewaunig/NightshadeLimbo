@@ -1,12 +1,98 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfc0gn46xuutq"]
+[gd_scene load_steps=12 format=3 uid="uid://bfc0gn46xuutq"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_gsle1"]
+[ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="3_cu8us"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_xmk2b"]
-[ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_sde0x"]
+[ext_resource type="Script" path="res://scenes/cutscenes/autoplayanimationscriptnumber9345823.gd" id="4_gq4db"]
 [ext_resource type="Script" path="res://scenes/cutscenes/beginhell.gd" id="4_xgn1a"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_60ors"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="6_i04rw"]
 [ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_8rh5m"]
+
+[sub_resource type="Animation" id="Animation_juew0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.885, 1.885)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.129412)]
+}
+
+[sub_resource type="Animation" id="Animation_dkl6k"]
+resource_name = "zoom"
+length = 29.047
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15.6333, 28.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.885, 1.885), Vector2(1.195, 1.195), Vector2(0.245, 0.245)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 15.6333, 26.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.284489, -0.0663225]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 11.0333, 24.1667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.298039), Color(1, 1, 1, 0.129412), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdcor"]
+_data = {
+"RESET": SubResource("Animation_juew0"),
+"zoom": SubResource("Animation_dkl6k")
+}
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_gsle1")
@@ -49,10 +135,20 @@ custom_minimum_size = Vector2(0, 720)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_xmk2b")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/VBoxContainer/Panel"]
-visible = false
+[node name="Sprite2D2" type="Sprite2D" parent="Control/HBoxContainer/VBoxContainer/Panel"]
+self_modulate = Color(1, 1, 1, 0.129412)
 position = Vector2(570, 429)
-texture = ExtResource("4_sde0x")
+scale = Vector2(1.885, 1.885)
+texture = ExtResource("3_cu8us")
+hframes = 5
+vframes = 2
+frame = 3
+script = ExtResource("4_gq4db")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/HBoxContainer/VBoxContainer/Panel/Sprite2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_jdcor")
+}
 
 [node name="Panel2" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -96,18 +192,6 @@ text_overrun_behavior = 3
 visible_characters_behavior = 1
 
 [node name="clickweiterHint" parent="Control/HBoxContainer/VBoxContainer/Panel2" instance=ExtResource("7_8rh5m")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 177.0
-offset_bottom = 32.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Panel3" type="Panel" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(384, 0)

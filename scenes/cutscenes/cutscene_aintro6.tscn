@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://b05j5sj6314pc"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_t5grm"]
-[ext_resource type="StyleBox" path="res://assets/cutscene1box.tres" id="3_6r73e"]
+[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="3_6r73e"]
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="4_fblmw"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="5_nb6uu"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="6_fc2we"]
-[ext_resource type="PackedScene" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_3gt2s"]
+[ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="7_3gt2s"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_t5grm")
@@ -91,18 +91,6 @@ text_overrun_behavior = 3
 visible_characters_behavior = 1
 
 [node name="clickweiterHint" parent="Control/HBoxContainer/VBoxContainer/Panel2" instance=ExtResource("7_3gt2s")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 177.0
-offset_bottom = 32.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Panel3" type="Panel" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(384, 0)
