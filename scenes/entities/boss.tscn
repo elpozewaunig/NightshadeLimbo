@@ -1992,8 +1992,8 @@ tracks/1/path = NodePath("TOMATO/AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": PackedStringArray("MockIntense1", "MockShort2", "MockIntense4", "MockIntense1", "MockIntense2", "MockIntense3", "MockIntense4", "MockShort1", "TakeDamage", "MockShort2", "MockShort3", "MockShort4", "MockTwoLaugh"),
-"times": PackedFloat32Array(0, 2, 4.9, 20.1, 22.1, 22.9, 24.6, 26.3, 26.4, 27.2, 28.3, 30, 31.4)
+"clips": PackedStringArray("THORNSVISIBLE", "MockIntense1", "MockShort2", "MockIntense4", "MockIntense1", "MockIntense2", "MockIntense3", "MockIntense4", "MockShort1", "TakeDamage", "MockShort2", "MockShort3", "MockShort4", "MockTwoLaugh"),
+"times": PackedFloat32Array(0.1, 0.5, 2.5, 4.9, 20.1, 22.1, 22.9, 24.6, 26.3, 26.4, 27.2, 28.3, 30, 31.4)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14rc6"]
