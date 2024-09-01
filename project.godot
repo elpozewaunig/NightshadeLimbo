@@ -24,6 +24,7 @@ buses/default_bus_layout="res://assets/typewriter_audioBUS.tres"
 [autoload]
 
 AmbienceMusic="*res://scenes/helpers/ambience_music_autoload.tscn"
+SceneManager="*res://scripts/SceneManager.gd"
 
 [display]
 
