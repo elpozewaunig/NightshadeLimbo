@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctkp5b56gnyn6"]
+[gd_scene load_steps=7 format=3 uid="uid://ctkp5b56gnyn6"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_85evf"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="2_bmr1b"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="3_o6wvb"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="4_qg5mu"]
-[ext_resource type="Script" path="res://scenes/cutscenes/cutscenestopaudio.gd" id="4_xrm41"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="5_u0w6j"]
 [ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="6_rvjv0"]
 
@@ -50,6 +49,7 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("2_bmr1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/VBoxContainer/Panel"]
+visible = false
 position = Vector2(570, 429)
 texture = ExtResource("3_o6wvb")
 hframes = 5
@@ -60,7 +60,6 @@ frame = 6
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("2_bmr1b")
-script = ExtResource("4_xrm41")
 
 [node name="Typewriter" type="Control" parent="Control/HBoxContainer/VBoxContainer/Panel2"]
 layout_mode = 1
@@ -87,7 +86,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "And just so he does one night, in his late shift..."
+text = "Then, one night shift...
+
+As he does just that."
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true

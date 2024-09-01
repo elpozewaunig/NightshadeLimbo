@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_hkrsg"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/cutscene1box.tres" id="2_mkcjf"]
-[ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="3_b0oh8"]
+[ext_resource type="Texture2D" uid="uid://ncx5jxh7lvo" path="res://assets/sprites/throwtomatooutintrash.jpg" id="3_1w3fd"]
 [ext_resource type="Script" path="res://scenes/typewriter.gd" id="4_tidjw"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="5_khki3"]
 [ext_resource type="PackedScene" uid="uid://lclr1nuadtgs" path="res://scenes/reusable/clickweiter_hint.tscn" id="6_t2mvk"]
@@ -48,12 +48,11 @@ custom_minimum_size = Vector2(0, 720)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_mkcjf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/VBoxContainer/Panel"]
+[node name="Sprite2D2" type="Sprite2D" parent="Control/HBoxContainer/VBoxContainer/Panel"]
+self_modulate = Color(1, 1, 1, 0.8)
 position = Vector2(570, 429)
-texture = ExtResource("3_b0oh8")
-hframes = 5
-vframes = 2
-frame = 6
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("3_1w3fd")
 
 [node name="Panel2" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
