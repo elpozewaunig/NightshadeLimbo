@@ -29,5 +29,5 @@ func changeScene():
 func skip():
 	if todelete != null:
 		remove_child(todelete)
-	todelete = scenes[31].instantiate()
+	todelete = scenes[4].instantiate()
 	add_child(todelete)

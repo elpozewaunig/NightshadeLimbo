@@ -32,15 +32,15 @@
 [ext_resource type="PackedScene" uid="uid://4mpnwukn54lu" path="res://scenes/cutscenes/cutscene_dialogue11.tscn" id="20_6jlhe"]
 [ext_resource type="PackedScene" uid="uid://c4ws6rh7riwf" path="res://scenes/cutscenes/cutscene_dialogue12.tscn" id="21_575hx"]
 [ext_resource type="PackedScene" uid="uid://brlj46fx7pso" path="res://scenes/cutscenes/cutscene_dialogue13.tscn" id="22_6n3bd"]
-[ext_resource type="PackedScene" uid="uid://muherruagjtj" path="res://scenes/main.tscn" id="23_uuosk"]
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="24_rtr15"]
 [ext_resource type="AudioStream" uid="uid://cflwtsmld20pl" path="res://assets/music/BGM_DrumsSlow.ogg" id="24_s20br"]
 [ext_resource type="AudioStream" uid="uid://bmmmp71lry1gk" path="res://assets/music/BGM_BossIntro.ogg" id="25_vipen"]
+[ext_resource type="PackedScene" uid="uid://dpl830cqjvgpk" path="res://scenes/cutscenes/cutscene_MAINTP.tscn" id="33_33xsw"]
 [ext_resource type="AudioStream" uid="uid://b604cqk27kjg8" path="res://assets/music/BGM_VinesSlowEXTRA.ogg" id="37_yqct1"]
 
 [node name="CutsceneMaster" type="Node2D"]
 script = ExtResource("1_cbea7")
-scenes = Array[PackedScene]([ExtResource("2_i0ete"), ExtResource("3_531db"), ExtResource("4_kbhwu"), ExtResource("5_1lrcc"), ExtResource("6_bmbpg"), ExtResource("7_vqm6m"), ExtResource("8_oohgw"), ExtResource("9_jxy1k"), ExtResource("10_jm6uk"), ExtResource("11_xr2d3"), ExtResource("12_eac30"), ExtResource("2_eq88m"), ExtResource("3_ppeqm"), ExtResource("4_yumgg"), ExtResource("5_qejkx"), ExtResource("6_au1nh"), ExtResource("7_6joph"), ExtResource("8_j2eq0"), ExtResource("9_ge233"), ExtResource("10_ud1rk"), ExtResource("11_i5ixw"), ExtResource("12_u0bfk"), ExtResource("13_sf3kp"), ExtResource("14_ahb65"), ExtResource("15_ru8uo"), ExtResource("16_u5aje"), ExtResource("17_ty8xp"), ExtResource("18_gmlj1"), ExtResource("20_6jlhe"), ExtResource("21_575hx"), ExtResource("22_6n3bd"), ExtResource("23_uuosk")])
+scenes = Array[PackedScene]([ExtResource("2_i0ete"), ExtResource("3_531db"), ExtResource("4_kbhwu"), ExtResource("5_1lrcc"), ExtResource("6_bmbpg"), ExtResource("7_vqm6m"), ExtResource("8_oohgw"), ExtResource("9_jxy1k"), ExtResource("10_jm6uk"), ExtResource("11_xr2d3"), ExtResource("12_eac30"), ExtResource("2_eq88m"), ExtResource("3_ppeqm"), ExtResource("4_yumgg"), ExtResource("5_qejkx"), ExtResource("6_au1nh"), ExtResource("7_6joph"), ExtResource("8_j2eq0"), ExtResource("9_ge233"), ExtResource("10_ud1rk"), ExtResource("11_i5ixw"), ExtResource("12_u0bfk"), ExtResource("13_sf3kp"), ExtResource("14_ahb65"), ExtResource("15_ru8uo"), ExtResource("16_u5aje"), ExtResource("17_ty8xp"), ExtResource("18_gmlj1"), ExtResource("20_6jlhe"), ExtResource("21_575hx"), ExtResource("22_6n3bd"), ExtResource("33_33xsw")])
 
 [node name="PERMAPLAYER1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_rtr15")
