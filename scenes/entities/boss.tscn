@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://s47feaqqdtgj"]
+[gd_scene load_steps=75 format=3 uid="uid://s47feaqqdtgj"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="1_3ifcl"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="2_4c6eb"]
@@ -31,6 +31,10 @@
 [ext_resource type="Texture2D" uid="uid://c35i00sbdkdnv" path="res://assets/sprites/thornsb.png" id="22_kub0s"]
 [ext_resource type="Texture2D" uid="uid://b5balmxe7ebn4" path="res://assets/shader_overlays/filmgrain.png" id="23_ldehw"]
 [ext_resource type="Texture2D" uid="uid://jkfe0jh7htj" path="res://assets/shader_overlays/vignette.png" id="24_wm84g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mp6rq"]
+radius = 80.0
+height = 550.0
 
 [sub_resource type="Animation" id="Animation_yx575"]
 resource_name = "JumpAttack_END"
@@ -1932,9 +1936,6 @@ _data = {
 "Walk": SubResource("Animation_mptwy")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e6kbd"]
-radius = 149.013
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y46kn"]
 polygon = PackedVector2Array(-44, -167, -61, -157, -92, -142, -121, -130, -151, -117, -178, -99, -198, -72, -214, -36, -221, -7, -212, 84, -171, 172, -134, 220, -85, 243, -29, 257, 32, 261, 81, 245, 131, 219, 172, 160, 198, 108, 204, 24, 199, -47, 160, -118, 119, -145, 74, -156, 40, -154, 13, -163, 19, -182, 22, -197, 12, -198, -13, -179)
 
@@ -1983,6 +1984,9 @@ tracks/1/keys = {
 _data = {
 "salvos_1": SubResource("Animation_doasl")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6kbd"]
+radius = 149.013
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
 atlas = ExtResource("18_hjhdo")
@@ -2099,6 +2103,15 @@ shader_parameter/vignette = ExtResource("24_wm84g")
 position = Vector2(960, 200)
 script = ExtResource("1_3ifcl")
 
+[node name="DamageZone" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
+position = Vector2(0, 120)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mp6rq")
+debug_color = Color(0.829367, 0.394127, 0, 0.42)
+
 [node name="DropShadow" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.14902)
 position = Vector2(0, 126)
@@ -2124,11 +2137,6 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TOMATO"]
 max_polyphony = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-scale = Vector2(1.19, 1)
-shape = SubResource("CircleShape2D_e6kbd")
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
 position = Vector2(5, 9)
@@ -2148,6 +2156,11 @@ texture = ExtResource("20_0q56x")
 position = Vector2(-5, 107)
 scale = Vector2(0.468, 0.422)
 texture = ExtResource("22_kub0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(1.19, 1)
+shape = SubResource("CircleShape2D_e6kbd")
 
 [node name="PostProcessing" type="Control" parent="."]
 layout_mode = 3
@@ -2278,3 +2291,5 @@ visible = false
 position = Vector2(-5, 107)
 scale = Vector2(0.468, 0.422)
 texture = ExtResource("22_kub0s")
+
+[connection signal="body_entered" from="DamageZone" to="." method="_on_damage_zone_entered"]

@@ -64,6 +64,9 @@ func _on_vine_hit() -> void:
 func _on_impact_hit() -> void:
 	set_game_over()
 
+func _on_boss_hit() -> void:
+	set_game_over()
+	
 func _on_intro_done() -> void:
 	reset_debuff = true
 

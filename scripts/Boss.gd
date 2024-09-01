@@ -2,6 +2,7 @@ extends StaticBody2D
 
 @onready var timeline = $AttackTimeline
 @onready var animation = $TOMATO/AnimationPlayer
+@onready var dmg_zone = $DamageZone
 
 var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
 var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
@@ -26,6 +27,7 @@ var game_over = false
 var intro_over = false
 
 signal attack_status_changed(attack, status)
+signal player_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -77,6 +79,7 @@ func _process(delta: float) -> void:
 					emit_signal("attack_status_changed", "vine", false)
 		
 		if jumping:
+			dmg_zone.monitoring = false
 			jump_duration -= delta
 			global_position.move_toward(jump_target, jump_speed * delta)
 			if jump_duration <= 0.5 and not jump_end_anim:
@@ -86,6 +89,7 @@ func _process(delta: float) -> void:
 				global_position = jump_target
 				jumping = false
 				add_child(impact_scene.instantiate())
+				dmg_zone.monitoring = true
 				emit_signal("attack_status_changed", "jump", false)
 
 # Enqueues a salvo to fire
@@ -156,3 +160,8 @@ func _on_game_over() -> void:
 func _on_intro_done() -> void:
 	intro_over = true
 	timeline.play("salvos_1")
+
+
+func _on_damage_zone_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		emit_signal("player_hit")
