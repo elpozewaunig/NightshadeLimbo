@@ -632,6 +632,7 @@ shape = SubResource("RectangleShape2D_clw16")
 [node name="Boss" parent="." instance=ExtResource("6_ofatc")]
 
 [node name="ExplodingTomato" type="Node2D" parent="."]
+visible = false
 position = Vector2(946, 219)
 
 [node name="Throns" type="Sprite2D" parent="ExplodingTomato"]
@@ -646,6 +647,7 @@ hframes = 5
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ExplodingTomato/Tomato"]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_el3m6")
 }
