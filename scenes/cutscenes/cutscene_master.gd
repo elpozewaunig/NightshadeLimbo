@@ -12,13 +12,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	pass	
 
 var sceneIndex = 0
 var todelete = null
 
 func changeScene():
-	print("CHANGEW!")
 	if todelete != null:
 		remove_child(todelete)
 	todelete = scenes[sceneIndex].instantiate()
