@@ -15,8 +15,7 @@ var vulnerable_duration = 0
 var dmg_taken = false
 
 # Stores necessary data for firing bullets
-var salvos = {}
-var salvo_id = 0
+var salvos = []
 
 # Stores simple countdown for each attack to trigger actions upon completion
 var beams = []
@@ -49,26 +48,28 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if intro_over and not game_over and not dead:
 		
+		var next_salvos = salvos.duplicate()
+		
 		# Iterate through all current salvos
-		for key in salvos:
+		for i in range(0, next_salvos.size()):
 			# Get salvo and associated progress
-			var salvo_targets = salvos[key]["targets"]
-			var shot_nr = salvos[key]["shot"]
+			var salvo_targets = next_salvos[i]["targets"]
+			var shot_nr = next_salvos[i]["shot"]
 			# If the salvo isn't completed yet
 			if shot_nr < salvo_targets.size():
 				# Reduce the salvo's countdown until the next shot
-				salvos[key]["countdown"] -= delta
+				next_salvos[i]["countdown"] -= delta
 				
-				if salvos[key]["countdown"] <= 0:
+				if next_salvos[i]["countdown"] <= 0:
 					# Reset countdown for next projectile
-					salvos[key]["countdown"] = salvos[key]["interval"]
+					next_salvos[i]["countdown"] = next_salvos[i]["interval"]
 					
 					# Fire the next projectile in the salvo
-					_add_projectile(salvos[key]["targets"][shot_nr])
-					salvos[key]["shot"] += 1
+					_add_projectile(next_salvos[i]["targets"][shot_nr])
+					next_salvos[i]["shot"] += 1
 			else:
 				# Delete salvo to free up ressources
-				salvos.erase(key)
+				salvos.remove_at(i)
 				if salvos.is_empty():
 					emit_signal("attack_status_changed","salvo", false)
 		
@@ -209,13 +210,12 @@ func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: fl
 		var target_pos_y = from_pos.y + (offset.y / amount) * i
 		projectiles.append(Vector2(target_pos_x, target_pos_y))
 		
-	salvos[salvo_id] = {
+	salvos.append({
 	"targets": projectiles,
 	"shot": 0,
 	"interval": duration / amount,
 	"countdown": 0
-	}
-	salvo_id += 1
+	})
 	emit_signal("attack_status_changed", "salvo", true)
 
 
