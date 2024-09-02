@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=32 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -96,6 +96,12 @@ _data = {
 font = ExtResource("2_hht2f")
 font_size = 180
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fvk6i"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(350, 1, 1)
+gravity = Vector3(0, 98, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4rsm"]
 size = Vector2(282, 119)
 
@@ -159,6 +165,10 @@ text = "Nightshade Limbo"
 label_settings = SubResource("LabelSettings_0c7lh")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="UI"]
+position = Vector2(460, -342)
+process_material = SubResource("ParticleProcessMaterial_fvk6i")
 
 [node name="MainMenuButtons" type="Node2D" parent="UI"]
 script = ExtResource("6_swuh5")
