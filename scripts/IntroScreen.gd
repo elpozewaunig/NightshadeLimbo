@@ -6,8 +6,10 @@ extends Node2D
 
 var music = AmbienceMusic
 
+enum Phase {BLACK_SCREEN, GAME_START, FADE_OUT}
+
 var time_elapsed = 0
-var phase = 0
+var phase = Phase.BLACK_SCREEN
 
 signal intro_done
 signal permit_movement
@@ -16,6 +18,7 @@ signal permit_movement
 func _ready() -> void:
 	if not music.playing:
 		music.play()
+	
 	show()
 
 
@@ -23,25 +26,28 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time_elapsed += delta
 	
-	if phase == 0 and time_elapsed > 1:
-		black.hide()
-		light_sfx.play()
-		emit_signal("permit_movement")
-		time_elapsed = 0
-	
-	if phase == 1 and time_elapsed > 1:
-		emit_signal("intro_done")
-		time_elapsed = 0
-	
-	if phase == 2:
-		illumination.modulate.a -= delta
-		music.volume_db -= delta * 25
-		if illumination.modulate.a <= 0:
-			illumination.modulate.a = 0
-			illumination.hide()
-			music.stop()
-			queue_free()
-	
-	# Automatically advance phases after every timer reset
-	if time_elapsed == 0:
-		phase += 1
+	match phase:
+		Phase.BLACK_SCREEN:
+			if time_elapsed > 1:
+				black.hide()
+				light_sfx.play()
+				emit_signal("permit_movement")
+				advance_phase()
+		
+		Phase.GAME_START:
+			if time_elapsed > 1:
+				emit_signal("intro_done")
+				advance_phase()
+		
+		Phase.FADE_OUT:
+			illumination.modulate.a -= delta
+			music.volume_db -= delta * 25
+			if illumination.modulate.a <= 0:
+				illumination.modulate.a = 0
+				illumination.hide()
+				music.stop()
+				queue_free()
+
+func advance_phase() -> void:
+	time_elapsed = 0
+	phase += 1
