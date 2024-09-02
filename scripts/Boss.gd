@@ -42,7 +42,9 @@ signal destroy_obstacle(index)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	# Create singular bullet and play animation to combat first-time lag on web export
+	_add_projectile(global_position)
+	animation.play("RESET")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
