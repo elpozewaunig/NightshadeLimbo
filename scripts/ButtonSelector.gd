@@ -1,11 +1,14 @@
 extends Node2D
+class_name ButtonSelector
 
 @export var buttons : Array[Area2DButton] = []
+
 var highlight_active = false
 var highlight_index = 0
 
+signal set_key_mode
 signal ext_selected(button)
-signal ext_cleared()
+signal ext_cleared
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,15 +38,20 @@ func activate_or_move(move: String) -> void:
 			highlight_index += 1
 	
 	# Else, just enable the highlight but don't change the position
-	highlight_active = true
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	emit_signal("set_key_mode")
+	
+	# Notify buttons of the currently highlighted button
 	emit_signal("ext_selected", buttons[highlight_index])
 
-func _input(event):
-	# As soon as the mouse is moved, disable the highlight
-	if event is InputEventMouseMotion:
+func _on_key_mode_changed(active) -> void:
+	# Input through keyboard
+	if active:
+		highlight_active = true
+		emit_signal("ext_selected", buttons[highlight_index])
+		
+	# Input through mouse
+	else:
 		highlight_active = false
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		emit_signal("ext_cleared")
 
 # When a button reports that it has been selected, update the selection index

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=34 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/reusable/button.tscn" id="3_fx80t"]
 [ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/sprites/bg_flickeroverlay.png" id="3_qdwo1"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
+[ext_resource type="PackedScene" uid="uid://bo5ct1aq1wmge" path="res://scenes/reusable/input_mode_manager.tscn" id="6_bjcm3"]
 [ext_resource type="Texture2D" uid="uid://bsxiace5ji7vs" path="res://assets/sprites/HPtomato_outline_white.png" id="6_ngex0"]
 [ext_resource type="Script" path="res://scripts/MainMenuButtons.gd" id="6_swuh5"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
@@ -170,6 +171,9 @@ vertical_alignment = 1
 [node name="GPUParticles2D" type="GPUParticles2D" parent="UI"]
 position = Vector2(460, -342)
 process_material = SubResource("ParticleProcessMaterial_fvk6i")
+
+[node name="InputModeManager" parent="UI" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("6_bjcm3")]
+selectors_to_sync = [NodePath("../MainMenuButtons/ButtonSelector"), NodePath("../Credits/ButtonSelector")]
 
 [node name="MainMenuButtons" type="Node2D" parent="UI"]
 script = ExtResource("6_swuh5")

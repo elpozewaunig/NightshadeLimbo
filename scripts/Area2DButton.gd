@@ -37,12 +37,6 @@ func _process(_delta: float) -> void:
 			emit_signal("clicked")
 			click_sfx.play()
 			
-			# If the selecting input was a key, switch to highlight mode
-			if Input.is_action_just_pressed("ui_select"):
-				Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-				highlight_active = true
-				ext_selected = true
-			
 	# Button is not selected
 	else:
 		modulate = Color("ffffff")
@@ -78,7 +72,11 @@ func _on_ext_selected(btn_node):
 		highlight_active = true
 		if btn_node == self:
 			ext_selected = true
-			_on_selected()
+			
+			# Only perform selection action when visible
+			if is_visible_in_tree():
+				_on_selected()
+		
 		else:
 			ext_selected = false
 
