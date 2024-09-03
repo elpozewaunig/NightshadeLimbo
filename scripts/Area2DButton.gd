@@ -37,6 +37,12 @@ func _process(_delta: float) -> void:
 			emit_signal("clicked")
 			click_sfx.play()
 			
+			# If the selecting input was a key, switch to highlight mode
+			if Input.is_action_just_pressed("ui_select"):
+				Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+				highlight_active = true
+				ext_selected = true
+			
 	# Button is not selected
 	else:
 		modulate = Color("ffffff")
@@ -50,7 +56,10 @@ func _process(_delta: float) -> void:
 func _on_mouse_entered() -> void:
 	if is_visible_in_tree() and not disabled:
 		mouse_inside = true
-		_on_selected()
+		
+		# Don't perform selection action if external selection is active
+		if not highlight_active:
+			_on_selected()
 
 func _on_mouse_exited() -> void:
 	mouse_inside = false
@@ -65,7 +74,7 @@ func _on_selected() -> void:
 
 # Triggered by button selector through key/gamepad input
 func _on_ext_selected(btn_node):
-	if is_visible_in_tree() and not disabled:
+	if not disabled:
 		highlight_active = true
 		if btn_node == self:
 			ext_selected = true
@@ -75,7 +84,7 @@ func _on_ext_selected(btn_node):
 
 # Triggered by button selector when the current selection is replaced by mouse movement
 func _on_ext_cleared():
-	if highlight_active and mouse_inside and is_visible_in_tree() and not disabled:
+	if highlight_active and mouse_inside and not disabled:
 		_on_selected()
 	highlight_active = false
 	ext_selected = false

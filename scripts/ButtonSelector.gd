@@ -40,7 +40,7 @@ func activate_or_move(move: String) -> void:
 	emit_signal("ext_selected", buttons[highlight_index])
 
 func _input(event):
-	# After the mouse is moved, disable the highlight
+	# As soon as the mouse is moved, disable the highlight
 	if event is InputEventMouseMotion:
 		highlight_active = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
