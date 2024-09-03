@@ -99,7 +99,7 @@ func _process(delta: float) -> void:
 			move_duration -= delta
 			
 			# Start playing jump end animation ahead of time
-			if move_duration <= 0.6 and not jump_end_anim:
+			if move_duration <= 0.85 and not jump_end_anim:
 				global_position = move_target
 				animation.play("JumpAttack_END")
 				jump_end_anim = true

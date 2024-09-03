@@ -20,7 +20,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if buttons[highlight_index].visible and is_visible_in_tree():
+	if buttons[highlight_index].is_visible_in_tree() and not buttons[highlight_index].disabled:
 		if Input.is_action_just_pressed("ui_up"):
 			activate_or_move("up")
 		if Input.is_action_just_pressed("ui_down"):

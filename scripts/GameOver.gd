@@ -19,8 +19,9 @@ var messages = [
 	"Again.",
 	"The Nightshades know no mercy.",
 	"You failed.",
-	"Keep failing - it is futile",
-	"You were doomed from the start."
+	"Keep failing - it is futile.",
+	"You were doomed from the start.",
+	"Your failure was only a matter of time."
 	]
 
 # Called when the node enters the scene tree for the first time.

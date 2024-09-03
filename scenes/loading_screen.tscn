@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="LoadingScreen" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_b201a")
 
 [node name="Background" type="Sprite2D" parent="."]

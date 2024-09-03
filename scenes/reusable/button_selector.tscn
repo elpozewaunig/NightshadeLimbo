@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://df8xqdg6jx3ei"]
+
+[ext_resource type="Script" path="res://scripts/ButtonSelector.gd" id="1_tnjy4"]
+
+[node name="ButtonSelector" type="Node2D" node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_tnjy4")
+buttons = [null, null]

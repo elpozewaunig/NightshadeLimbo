@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=66 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -40,6 +40,7 @@
 [ext_resource type="AudioStream" uid="uid://c8nd1nlotsdxj" path="res://assets/sounds/sfx_Click.ogg" id="24_6qan5"]
 [ext_resource type="Script" path="res://scripts/ObstacleManager.gd" id="28_ufeeg"]
 [ext_resource type="PackedScene" uid="uid://cpqmks55fi0m" path="res://scenes/reusable/obstacle.tscn" id="29_pypiw"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="30_jje2y"]
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/HealthIndicator.gd" id="35_6s6uf"]
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
@@ -47,7 +48,10 @@
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
 [ext_resource type="AudioStream" uid="uid://bhyls1aqibrla" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="40_vsbyh"]
 [ext_resource type="LabelSettings" uid="uid://s0qyqn44ctv7" path="res://assets/settings/labels/big_text_label.tres" id="42_80jy0"]
+[ext_resource type="Script" path="res://scripts/Pause.gd" id="43_8c0bu"]
 [ext_resource type="Texture2D" uid="uid://cl3osl5ef14vx" path="res://assets/sprites/white_bg.svg" id="43_8p0wm"]
+[ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/reusable/button_selector.tscn" id="43_j1v2b"]
+[ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/reusable/button.tscn" id="44_8ttwp"]
 [ext_resource type="Script" path="res://scripts/WinTransition.gd" id="44_pnwlx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
@@ -591,6 +595,15 @@ _data = {
 font = ExtResource("13_moeav")
 font_size = 120
 
+[sub_resource type="LabelSettings" id="LabelSettings_2vbv8"]
+font = ExtResource("13_moeav")
+font_size = 150
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpns3"]
+font = ExtResource("13_moeav")
+font_size = 60
+font_color = Color(0.485703, 0.485704, 0.485703, 1)
+
 [node name="Main" type="Node2D"]
 
 [node name="Lights" type="Node2D" parent="."]
@@ -732,12 +745,16 @@ position = Vector2(1470, 700)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 zoom = Vector2(0.87, 0.87)
+script = ExtResource("30_jje2y")
 
-[node name="Vignette" type="Sprite2D" parent="Camera2D"]
+[node name="Overlays" type="Node2D" parent="Camera2D"]
+z_index = 5
+
+[node name="Vignette" type="Sprite2D" parent="Camera2D/Overlays"]
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("16_jxlxq")
 
-[node name="Instructions" type="Label" parent="Camera2D"]
+[node name="Instructions" type="Label" parent="Camera2D/Overlays"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -756,70 +773,133 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("33_rkonn")
 
-[node name="HealthIndicator" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("src_node")]
+[node name="HealthIndicator" type="Node2D" parent="Camera2D/Overlays" node_paths=PackedStringArray("src_node")]
 visible = false
 position = Vector2(790, 455)
 script = ExtResource("35_6s6uf")
-src_node = NodePath("../../Boss")
+src_node = NodePath("../../../Boss")
 heart_texture = ExtResource("36_bymvh")
 no_heart_texture = ExtResource("37_lc3i1")
 heart_scale = 0.1
 spacing = 120
 
-[node name="Box" type="Sprite2D" parent="Camera2D/HealthIndicator"]
+[node name="Box" type="Sprite2D" parent="Camera2D/Overlays/HealthIndicator"]
 texture = ExtResource("36_ds7ou")
 
-[node name="Transition" type="Sprite2D" parent="Camera2D"]
+[node name="Transition" type="Sprite2D" parent="Camera2D/Overlays"]
 visible = false
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("43_8p0wm")
 script = ExtResource("44_pnwlx")
 
-[node name="IntroScreen" type="Node2D" parent="."]
+[node name="IntroScreen" type="Node2D" parent="Camera2D/Overlays"]
 visible = false
-z_index = 5
+position = Vector2(-960, -540)
 script = ExtResource("9_gl7br")
 
-[node name="Illumination" type="Sprite2D" parent="IntroScreen"]
+[node name="Illumination" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
 position = Vector2(960, 521.765)
 scale = Vector2(1.24, 1.373)
 texture = ExtResource("10_roquk")
 
-[node name="Black" type="Sprite2D" parent="IntroScreen"]
+[node name="Black" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
 position = Vector2(960, 540)
 scale = Vector2(1.28, 1.28)
 texture = ExtResource("11_g3ka4")
 
-[node name="LightSFX" type="AudioStreamPlayer" parent="IntroScreen"]
+[node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
 stream = ExtResource("24_6qan5")
 volume_db = -10.0
 
-[node name="GameOverScreen" type="Node2D" parent="."]
+[node name="GameOverScreen" type="Node2D" parent="Camera2D/Overlays"]
 visible = false
-z_index = 5
+position = Vector2(-960, -540)
 script = ExtResource("12_qyr5r")
 
-[node name="Background" type="Sprite2D" parent="GameOverScreen"]
+[node name="Background" type="Sprite2D" parent="Camera2D/Overlays/GameOverScreen"]
 position = Vector2(960, 540)
 scale = Vector2(1.195, 1.236)
 texture = ExtResource("11_g3ka4")
 
-[node name="Label" type="Label" parent="GameOverScreen"]
+[node name="Label" type="Label" parent="Camera2D/Overlays/GameOverScreen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 548.0
-offset_top = 478.0
-offset_right = 1372.0
-offset_bottom = 602.0
+offset_left = 541.0
+offset_top = 482.0
+offset_right = 1365.0
+offset_bottom = 606.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Death messages go here."
 label_settings = ExtResource("42_80jy0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseScreen" type="Node2D" parent="Camera2D/Overlays"]
+process_mode = 3
+visible = false
+script = ExtResource("43_8c0bu")
+
+[node name="Background" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen"]
+texture = ExtResource("11_g3ka4")
+
+[node name="Label" type="Label" parent="Camera2D/Overlays/PauseScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.5
+offset_top = -62.0
+offset_right = 217.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game paused"
+label_settings = SubResource("LabelSettings_2vbv8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scared" type="Label" parent="Camera2D/Overlays/PauseScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 50.0
+offset_right = 152.5
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you scared?"
+label_settings = SubResource("LabelSettings_vpns3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Node2D" parent="Camera2D/Overlays/PauseScreen"]
+
+[node name="ButtonSelector" parent="Camera2D/Overlays/PauseScreen/Buttons" node_paths=PackedStringArray("buttons") instance=ExtResource("43_j1v2b")]
+buttons = [NodePath("../ContinueButton"), NodePath("../ExitButton")]
+
+[node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/Buttons" instance=ExtResource("44_8ttwp")]
+position = Vector2(0, 260)
+
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ContinueButton" index="1"]
+text = "Continue"
+
+[node name="ExitButton" parent="Camera2D/Overlays/PauseScreen/Buttons" instance=ExtResource("44_8ttwp")]
+position = Vector2(0, 400)
+
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ExitButton" index="1"]
+text = "Exit to menu"
+
+[node name="FadeOut" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("11_g3ka4")
 
 [node name="MusicManager" type="Node2D" parent="."]
 script = ExtResource("15_isqen")
@@ -853,33 +933,35 @@ stream = ExtResource("40_vsbyh")
 volume_db = -10.0
 parameters/looping = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(1592, 364)
-
 [connection signal="body_entered" from="BackgroundWIN/Exit" to="BackgroundWIN/Exit" method="_on_body_entered"]
 [connection signal="player_exited" from="BackgroundWIN/Exit" to="PlayerClippingMask/Player" method="_on_player_exited"]
-[connection signal="player_exited" from="BackgroundWIN/Exit" to="Camera2D/Transition" method="_on_player_exited"]
+[connection signal="player_exited" from="BackgroundWIN/Exit" to="Camera2D/Overlays/Transition" method="_on_player_exited"]
 [connection signal="boss_hit" from="PlayerClippingMask/Player" to="Boss" method="_on_player_boss_hit"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Boss" method="_on_game_over"]
-[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Instructions" method="_on_game_over"]
-[connection signal="game_over" from="PlayerClippingMask/Player" to="GameOverScreen" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/Instructions" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/GameOverScreen" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="MusicManager" method="_on_game_over"]
 [connection signal="attack_status_changed" from="Boss" to="MusicManager" method="_on_boss_attack_status_changed"]
-[connection signal="chance_missed" from="Boss" to="GameOverScreen" method="_on_chance_missed"]
+[connection signal="chance_missed" from="Boss" to="Camera2D/Overlays/GameOverScreen" method="_on_chance_missed"]
 [connection signal="defeated" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="ExplodingTomato" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="MusicManager" method="_on_boss_defeated"]
 [connection signal="destroy_obstacle" from="Boss" to="Obstacles" method="_on_destroy_obstacle"]
 [connection signal="player_hit" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_hit"]
 [connection signal="vulnerable_status_changed" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_vulnerable_status_changed"]
-[connection signal="vulnerable_status_changed" from="Boss" to="Camera2D/Instructions" method="_on_boss_vulnerable_status_changed"]
+[connection signal="vulnerable_status_changed" from="Boss" to="Camera2D/Overlays/Instructions" method="_on_boss_vulnerable_status_changed"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="Background" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN/Exit" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="PlayerClippingMask/Player" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="MusicManager" method="_on_boss_death_done"]
 [connection signal="animation_finished" from="ExplodingTomato/Tomato/AnimationPlayer" to="ExplodingTomato" method="_on_animation_finished"]
-[connection signal="intro_done" from="IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
-[connection signal="intro_done" from="IntroScreen" to="Boss" method="_on_intro_done"]
-[connection signal="intro_done" from="IntroScreen" to="MusicManager" method="_on_intro_done"]
-[connection signal="permit_movement" from="IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
+[connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
+[connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="Boss" method="_on_intro_done"]
+[connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="MusicManager" method="_on_intro_done"]
+[connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/Buttons/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/Buttons/ExitButton" to="Camera2D/Overlays/PauseScreen" method="_on_exit_button_clicked"]
+
+[editable path="Camera2D/Overlays/PauseScreen/Buttons/ContinueButton"]
+[editable path="Camera2D/Overlays/PauseScreen/Buttons/ExitButton"]

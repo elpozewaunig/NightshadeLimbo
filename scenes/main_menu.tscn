@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=33 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
 [ext_resource type="Texture2D" uid="uid://bsxiace5ji7vs" path="res://assets/sprites/HPtomato_outline_white.png" id="6_ngex0"]
 [ext_resource type="Script" path="res://scripts/MainMenuButtons.gd" id="6_swuh5"]
-[ext_resource type="Script" path="res://scripts/ButtonSelector.gd" id="7_eh7es"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
+[ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/reusable/button_selector.tscn" id="7_ls1if"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
 [ext_resource type="Script" path="res://scripts/CreditsView.gd" id="10_8l1x4"]
 [ext_resource type="Script" path="res://scripts/CreditsExitButton.gd" id="11_60r02"]
@@ -173,8 +173,7 @@ process_material = SubResource("ParticleProcessMaterial_fvk6i")
 [node name="MainMenuButtons" type="Node2D" parent="UI"]
 script = ExtResource("6_swuh5")
 
-[node name="ButtonSelector" type="Node2D" parent="UI/MainMenuButtons" node_paths=PackedStringArray("buttons")]
-script = ExtResource("7_eh7es")
+[node name="ButtonSelector" parent="UI/MainMenuButtons" node_paths=PackedStringArray("buttons") instance=ExtResource("7_ls1if")]
 buttons = [NodePath("../StartButton"), NodePath("../CreditsButton")]
 
 [node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]

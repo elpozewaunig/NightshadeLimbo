@@ -20,7 +20,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if ((mouse_inside and not highlight_active) or (ext_selected and highlight_active)) and not disabled:
+	if is_visible_in_tree() and ((mouse_inside and not highlight_active) or (ext_selected and highlight_active)) and not disabled:
 		modulate = Color("ff7070")
 		sprite.frame = 1
 		
@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_mouse_entered() -> void:
-	if not disabled:
+	if is_visible_in_tree() and not disabled:
 		mouse_inside = true
 		_on_selected()
 
@@ -51,7 +51,7 @@ func _on_selected() -> void:
 
 # Triggered by button selector through key/gamepad input
 func _on_ext_selected(btn_node):
-	if visible:
+	if is_visible_in_tree() and not disabled:
 		highlight_active = true
 		if btn_node == self:
 			ext_selected = true
@@ -61,7 +61,7 @@ func _on_ext_selected(btn_node):
 
 # Triggered by button selector when the current selection is replaced by mouse movement
 func _on_ext_cleared():
-	if highlight_active and mouse_inside and visible:
+	if highlight_active and mouse_inside and is_visible_in_tree() and not disabled:
 		_on_selected()
 	highlight_active = false
 	ext_selected = false
