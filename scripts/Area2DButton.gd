@@ -69,13 +69,13 @@ func _on_selected() -> void:
 # Triggered by button selector through key/gamepad input
 func _on_ext_selected(btn_node):
 	if not disabled:
-		highlight_active = true
 		if btn_node == self:
-			ext_selected = true
-			
-			# Only perform selection action when visible
-			if is_visible_in_tree():
+			# Only perform selection action when visible and not already selected
+			if is_visible_in_tree() and not ext_selected and not (mouse_inside and not highlight_active):
 				_on_selected()
+		
+			highlight_active = true
+			ext_selected = true
 		
 		else:
 			ext_selected = false
