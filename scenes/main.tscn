@@ -682,7 +682,7 @@ scale = Vector2(1.12188, 1.22037)
 texture = ExtResource("11_g3ka4")
 
 [node name="Player" parent="PlayerClippingMask" instance=ExtResource("5_r2yhf")]
-position = Vector2(-40.1115, 202.398)
+position = Vector2(-35, 230)
 scale = Vector2(0.891365, 0.819423)
 
 [node name="ArenaBounds" type="StaticBody2D" parent="."]
