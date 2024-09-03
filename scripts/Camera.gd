@@ -2,7 +2,7 @@ extends Camera2D
 
 @onready var overlays = $Overlays
 
-@export var shake_fps : int = 30
+@export var shake_fps : float = 30
 @export var max_shake : Vector2 = Vector2(50, 50)
 
 var shaking : bool = false
