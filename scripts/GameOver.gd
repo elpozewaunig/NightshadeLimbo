@@ -17,7 +17,7 @@ var messages = [
 	"Failure won't save you.",
 	"Over and over again.",
 	"Again.",
-	"The Nightshades know no mercy!",
+	"The Nightshades know no mercy.",
 	"You failed.",
 	"Keep failing - it is futile",
 	"You were doomed from the start."
