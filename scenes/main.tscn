@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/sprites/button1.png" id="36_ds7ou"]
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
 [ext_resource type="AudioStream" uid="uid://bhyls1aqibrla" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="40_vsbyh"]
+[ext_resource type="LabelSettings" uid="uid://s0qyqn44ctv7" path="res://assets/settings/labels/big_text_label.tres" id="42_80jy0"]
 [ext_resource type="Texture2D" uid="uid://cl3osl5ef14vx" path="res://assets/sprites/white_bg.svg" id="43_8p0wm"]
 [ext_resource type="Script" path="res://scripts/WinTransition.gd" id="44_pnwlx"]
 
@@ -590,10 +591,6 @@ _data = {
 font = ExtResource("13_moeav")
 font_size = 120
 
-[sub_resource type="LabelSettings" id="LabelSettings_ryhxr"]
-font = ExtResource("13_moeav")
-font_size = 100
-
 [node name="Main" type="Node2D"]
 
 [node name="Lights" type="Node2D" parent="."]
@@ -820,7 +817,7 @@ offset_bottom = 602.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Death messages go here."
-label_settings = SubResource("LabelSettings_ryhxr")
+label_settings = ExtResource("42_80jy0")
 horizontal_alignment = 1
 vertical_alignment = 1
 

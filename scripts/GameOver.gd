@@ -3,7 +3,6 @@ extends Node2D
 @onready var label = $Label
 
 var music = AmbienceMusic
-var game_scene = preload("res://scenes/main.tscn")
 
 var game_over = false
 var chance_missed = false
@@ -40,7 +39,7 @@ func _process(delta: float) -> void:
 			modulate.a = 1
 	
 	if time_elapsed > 5:
-		get_tree().change_scene_to_packed(game_scene)
+		SceneManager.change_scene(SceneManager.game_scene)
 
 
 func _on_game_over() -> void:

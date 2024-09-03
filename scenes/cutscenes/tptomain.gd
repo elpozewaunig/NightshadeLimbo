@@ -3,4 +3,4 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().change_scene_to_packed(SceneManager.menu_scene)
+	SceneManager.change_scene(SceneManager.menu_scene)

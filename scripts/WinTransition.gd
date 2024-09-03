@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		if modulate.a >= 1:
 			modulate.a = 1
 			transition = false
-			get_tree().change_scene_to_packed(SceneManager.endscene_scene)
+			SceneManager.change_scene(SceneManager.endscene_scene)
 		
 
 
