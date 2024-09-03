@@ -738,9 +738,16 @@ texture = ExtResource("9_tkm8o")
 script = ExtResource("28_ufeeg")
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(400, 830)
 
 [node name="Obstacle2" parent="Obstacles" instance=ExtResource("29_pypiw")]
-position = Vector2(1470, 700)
+position = Vector2(1520, 830)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(400, 250)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(1520, 250)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)

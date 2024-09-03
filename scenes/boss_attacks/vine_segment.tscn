@@ -20,6 +20,5 @@ region_enabled = true
 region_rect = Rect2(0, 0, 260, 100)
 
 [node name="GapFill" type="Sprite2D" parent="."]
-position = Vector2(11, 19)
-scale = Vector2(0.075, 0.075)
+scale = Vector2(0.11, 0.11)
 texture = ExtResource("3_cejyl")

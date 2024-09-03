@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/cutscenes/cutscenegruber.gd" id="1_krynl"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://scenes/cutscenes/cutscene1box.tres" id="2_epm3a"]
-[ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="3_4jbrq"]
+[ext_resource type="Texture2D" uid="uid://p0drhcc1knrj" path="res://assets/sprites/theend.png" id="3_oybb8"]
 [ext_resource type="Script" path="res://scenes/cutscenes/stop1.gd" id="4_5j4r4"]
 [ext_resource type="Script" path="res://scenes/cutscenes/typewriter.gd" id="5_1pd11"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="6_u5qox"]
@@ -52,11 +52,8 @@ theme_override_styles/panel = ExtResource("2_epm3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/HBoxContainer/VBoxContainer/Panel"]
 position = Vector2(570, 429)
-scale = Vector2(0.795, 0.795)
-texture = ExtResource("3_4jbrq")
-hframes = 5
-vframes = 2
-frame = 6
+scale = Vector2(0.265, 0.265)
+texture = ExtResource("3_oybb8")
 
 [node name="Panel2" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2

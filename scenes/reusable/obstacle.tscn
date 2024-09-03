@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpqmks55fi0m"]
+[gd_scene load_steps=7 format=3 uid="uid://cpqmks55fi0m"]
 
 [ext_resource type="Script" path="res://scripts/Obstacle.gd" id="1_wa1la"]
 [ext_resource type="Texture2D" uid="uid://cvl8je1ubaxb5" path="res://assets/sprites/obstacle_pillar.png" id="2_y1h5l"]
@@ -19,9 +19,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfb22"]
-size = Vector2(149, 23)
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kbkjc"]
 polygon = PackedVector2Array(-26, 57, -49, 8, -37, -22, 40, -23, 49, 13, 27, 57)
 
@@ -35,10 +32,8 @@ position = Vector2(5, 27)
 scale = Vector2(0.385, 0.385)
 sprite_frames = SubResource("SpriteFrames_h0872")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 55.5)
-scale = Vector2(0.425, 1)
-shape = SubResource("RectangleShape2D_lfb22")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-26, 57, -49, 8, -37, -22, 40, -23, 49, 13, 27, 57)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_kbkjc")
