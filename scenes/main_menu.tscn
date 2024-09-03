@@ -210,6 +210,9 @@ script = ExtResource("10_8l1x4")
 position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 
+[node name="ButtonSelector" parent="UI/Credits" node_paths=PackedStringArray("buttons") instance=ExtResource("7_ls1if")]
+buttons = [NodePath("../ExitButton")]
+
 [node name="ExitButton" parent="UI/Credits" instance=ExtResource("3_fx80t")]
 position = Vector2(1790, 110)
 script = ExtResource("11_60r02")
