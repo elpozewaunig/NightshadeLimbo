@@ -34,11 +34,13 @@ var intro_over = false
 var dead = false
 
 signal attack_status_changed(attack, status)
+signal destroy_obstacle(index)
+signal set_shake(active)
+
 signal vulnerable_status_changed(status)
 signal player_hit
 signal chance_missed
 signal defeated
-signal destroy_obstacle(index)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -194,8 +196,11 @@ func turn_vulnerable(duration: float = 5) -> void:
 	vulnerable = true
 	vulnerable_duration = duration
 
-func destroy(obstacle_index: int):
+func destroy(obstacle_index: int) -> void:
 	emit_signal("destroy_obstacle", obstacle_index)
+
+func camera_shake(active : bool = true) -> void:
+	emit_signal("set_shake", active)
 
 # Creates a projectile instance and fires it
 func _add_projectile(global_pos_to: Vector2) -> void:

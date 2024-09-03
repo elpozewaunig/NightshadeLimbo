@@ -955,6 +955,7 @@ parameters/looping = true
 [connection signal="defeated" from="Boss" to="MusicManager" method="_on_boss_defeated"]
 [connection signal="destroy_obstacle" from="Boss" to="Obstacles" method="_on_destroy_obstacle"]
 [connection signal="player_hit" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_hit"]
+[connection signal="set_shake" from="Boss" to="Camera2D" method="_on_set_shake"]
 [connection signal="vulnerable_status_changed" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_vulnerable_status_changed"]
 [connection signal="vulnerable_status_changed" from="Boss" to="Camera2D/Overlays/Instructions" method="_on_boss_vulnerable_status_changed"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="Background" method="_on_boss_death_done"]
