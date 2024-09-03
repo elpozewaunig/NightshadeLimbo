@@ -74,7 +74,7 @@ label_settings = ExtResource("2_bvnq6")
 
 [node name="Dots" type="Node2D" parent="Text"]
 script = ExtResource("3_8xd4m")
-speed = 2.0
+speed = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Text/Dots"]
 position = Vector2(1775, 1010)
