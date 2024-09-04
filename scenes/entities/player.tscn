@@ -209,6 +209,7 @@ libraries = {
 autoplay = "chibicycle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_stp6r")
 
 [node name="Weapon" type="Area2D" parent="."]

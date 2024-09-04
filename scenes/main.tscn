@@ -675,6 +675,21 @@ position = Vector2(-594.851, 114.203)
 rotation = -0.884882
 shape = SubResource("RectangleShape2D_w7mmn")
 
+[node name="Obstacles" type="Node2D" parent="."]
+script = ExtResource("28_ufeeg")
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(400, 830)
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(1520, 830)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(400, 250)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("29_pypiw")]
+position = Vector2(1520, 250)
+
 [node name="PlayerClippingMask" type="Sprite2D" parent="."]
 clip_children = 1
 position = Vector2(1005, 553)
@@ -733,21 +748,6 @@ scale = Vector2(0.468, 0.422)
 texture = ExtResource("9_tkm8o")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ExplodingTomato"]
-
-[node name="Obstacles" type="Node2D" parent="."]
-script = ExtResource("28_ufeeg")
-
-[node name="Obstacle" parent="Obstacles" instance=ExtResource("29_pypiw")]
-position = Vector2(400, 830)
-
-[node name="Obstacle2" parent="Obstacles" instance=ExtResource("29_pypiw")]
-position = Vector2(1520, 830)
-
-[node name="Obstacle3" parent="Obstacles" instance=ExtResource("29_pypiw")]
-position = Vector2(400, 250)
-
-[node name="Obstacle4" parent="Obstacles" instance=ExtResource("29_pypiw")]
-position = Vector2(1520, 250)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
