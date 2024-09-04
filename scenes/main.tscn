@@ -67,10 +67,10 @@ size = Vector2(118.723, 44.7217)
 size = Vector2(111.765, 39.7072)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c178f"]
-size = Vector2(20, 1080)
+size = Vector2(20, 986)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clw16"]
-size = Vector2(1920, 20)
+size = Vector2(1798, 20)
 
 [sub_resource type="Animation" id="Animation_iovjc"]
 length = 0.001
@@ -703,19 +703,19 @@ scale = Vector2(0.891365, 0.819423)
 [node name="ArenaBounds" type="StaticBody2D" parent="."]
 
 [node name="Left" type="CollisionShape2D" parent="ArenaBounds"]
-position = Vector2(39, 516)
+position = Vector2(40, 545)
 shape = SubResource("RectangleShape2D_c178f")
 
 [node name="Right" type="CollisionShape2D" parent="ArenaBounds"]
-position = Vector2(1858, 542)
+position = Vector2(1858, 545)
 shape = SubResource("RectangleShape2D_c178f")
 
 [node name="Top" type="CollisionShape2D" parent="ArenaBounds"]
-position = Vector2(954, 42)
+position = Vector2(949, 42)
 shape = SubResource("RectangleShape2D_clw16")
 
 [node name="Bottom" type="CollisionShape2D" parent="ArenaBounds"]
-position = Vector2(967, 1048)
+position = Vector2(949, 1048)
 shape = SubResource("RectangleShape2D_clw16")
 
 [node name="Boss" parent="." instance=ExtResource("6_ofatc")]
@@ -762,6 +762,7 @@ scale = Vector2(1.15, 1.15)
 texture = ExtResource("16_jxlxq")
 
 [node name="Instructions" type="Label" parent="Camera2D/Overlays"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

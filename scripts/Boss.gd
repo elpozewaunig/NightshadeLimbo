@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @onready var timeline = $AttackTimeline
-@onready var animation = $TOMATO/AnimationPlayer
+@onready var animation = $Tomato/AnimationPlayer
 @onready var dmg_zone = $DamageZone
 
 var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
