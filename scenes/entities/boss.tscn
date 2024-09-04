@@ -1970,7 +1970,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PostProcessing/Colorinvert:visible")
+tracks/0/path = NodePath("PostProcessing/ColorInvert:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2135,7 +2135,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("PostProcessing/Colorinvert:visible")
+tracks/10/path = NodePath("PostProcessing/ColorInvert:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -2392,12 +2392,12 @@ sprite_frames = SubResource("SpriteFrames_j3eyk")
 frame = 3
 script = ExtResource("19_cwyxu")
 
-[node name="Colorinvert" type="CanvasLayer" parent="PostProcessing"]
+[node name="ColorInvert" type="CanvasLayer" parent="PostProcessing"]
 visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 2.0
 
-[node name="Shader_ColorInvert" type="ColorRect" parent="PostProcessing/Colorinvert"]
+[node name="Shader_ColorInvert" type="ColorRect" parent="PostProcessing/ColorInvert"]
 material = SubResource("ShaderMaterial_5mocj")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2407,12 +2407,12 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="PostProcessing"]
+[node name="Mirage" type="CanvasLayer" parent="PostProcessing"]
 visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 2.0
 
-[node name="Shader_Mirage" type="ColorRect" parent="PostProcessing/CanvasLayer2"]
+[node name="Shader_Mirage" type="ColorRect" parent="PostProcessing/Mirage"]
 material = SubResource("ShaderMaterial_b2wim")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2423,12 +2423,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="PostProcessing"]
+[node name="Contrast" type="CanvasLayer" parent="PostProcessing"]
 visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 2.0
 
-[node name="Shader_Contrast" type="ColorRect" parent="PostProcessing/CanvasLayer3"]
+[node name="Shader_Contrast" type="ColorRect" parent="PostProcessing/Contrast"]
 material = SubResource("ShaderMaterial_8eng0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2438,12 +2438,12 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CanvasLayer4" type="CanvasLayer" parent="PostProcessing"]
+[node name="Normalized" type="CanvasLayer" parent="PostProcessing"]
 visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 2.0
 
-[node name="Shader_Normalized" type="ColorRect" parent="PostProcessing/CanvasLayer4"]
+[node name="Shader_Normalized" type="ColorRect" parent="PostProcessing/Normalized"]
 material = SubResource("ShaderMaterial_d1pg5")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2453,12 +2453,12 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CanvasLayer5" type="CanvasLayer" parent="PostProcessing"]
+[node name="Filmgrain" type="CanvasLayer" parent="PostProcessing"]
 visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 2.0
 
-[node name="Shader_Filmgrain" type="ColorRect" parent="PostProcessing/CanvasLayer5"]
+[node name="Shader_Filmgrain" type="ColorRect" parent="PostProcessing/Filmgrain"]
 material = SubResource("ShaderMaterial_r34jc")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2468,12 +2468,12 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CanvasLayer6" type="CanvasLayer" parent="PostProcessing"]
+[node name="Flashing" type="CanvasLayer" parent="PostProcessing"]
 visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 2.0
 
-[node name="Shader_Flashing" type="ColorRect" parent="PostProcessing/CanvasLayer6"]
+[node name="Shader_Flashing" type="ColorRect" parent="PostProcessing/Flashing"]
 material = SubResource("ShaderMaterial_rl8xq")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2482,6 +2482,16 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="ColorOverlay" type="CanvasLayer" parent="PostProcessing"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessing/ColorOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Thorns3" type="Sprite2D" parent="."]
 visible = false
