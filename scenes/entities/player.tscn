@@ -121,7 +121,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stp6r"]
-radius = 30.0
+radius = 40.0
 
 [sub_resource type="Animation" id="Animation_vdu7f"]
 length = 0.001
@@ -209,7 +209,7 @@ libraries = {
 autoplay = "chibicycle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_stp6r")
 
 [node name="Weapon" type="Area2D" parent="."]
