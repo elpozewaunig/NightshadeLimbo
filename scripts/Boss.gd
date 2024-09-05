@@ -158,11 +158,16 @@ func machine_gun(to_pos: Vector2, amount: int = 20, duration: float = 2) -> void
 
 # Creates a beam instance and fires it
 func beam(to_pos: Vector2, duration: float = 0.5) -> void:
+	moving_beam(to_pos, to_pos, duration, 0)
+
+func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float = 0.5, moving_duration: float = 0.5) -> void:
 	var new_beam = beam_scene.instantiate()
-	new_beam.target_pos = to_pos
-	new_beam.duration = duration
+	new_beam.init_target_pos = init_to_pos
+	new_beam.init_duration = init_duration
+	new_beam.end_target_pos = end_to_pos
+	new_beam.move_duration = moving_duration
 	add_child(new_beam)
-	beams.append(duration)
+	beams.append(init_duration + move_duration)
 	emit_signal("attack_status_changed", "beam", true)
 
 func vine(points: Array, duration: float = 2) -> void:
