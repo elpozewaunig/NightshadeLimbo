@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://cud1vqy4x0nn2"]
+
+[ext_resource type="PackedScene" uid="uid://di51kkc51cbhf" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_bwjam"]
+[ext_resource type="AudioStream" uid="uid://bklpbpee5btea" path="res://assets/music/BGM_HappyEndingPiano.ogg" id="2_6xdq2"]
+[ext_resource type="Script" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_up8y8"]
+[ext_resource type="AudioStream" uid="uid://cgpp06ctfm8xv" path="res://assets/music/BGM_BossHappyEnding.ogg" id="3_3acg3"]
+[ext_resource type="PackedScene" uid="uid://d0b5k5bag47l6" path="res://scenes/cutscenes/visualElements/daveThumbsUp.tscn" id="3_4f5uw"]
+[ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="3_8wusx"]
+[ext_resource type="PackedScene" uid="uid://ct0vljymnrd6y" path="res://scenes/cutscenes/visualElements/daveHatesTomatoes.tscn" id="6_bgy7c"]
+[ext_resource type="PackedScene" uid="uid://qpgj47ccpw50" path="res://scenes/cutscenes/visualElements/daveENDING.tscn" id="8_777ye"]
+
+[sub_resource type="Resource" id="Resource_fux4f"]
+script = ExtResource("2_up8y8")
+displayText = "After an what felt like an eternity...
+
+Dave finally reawakens from his delirium.
+Surrounded by paramedics, in the middle of the road.
+"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("3_8wusx")
+PlayMusic = true
+LoopMusic = true
+MusicChange = ExtResource("3_3acg3")
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_2jvhs"]
+script = ExtResource("2_up8y8")
+visualAssetScene = ExtResource("3_4f5uw")
+displayText = "Amidst the splattered goo of expired garbage-bag-tomatoes.
+Dave is now at peace.
+With himself. And with the way
+will continue to live his life."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("3_8wusx")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_cglp2"]
+script = ExtResource("2_up8y8")
+visualAssetScene = ExtResource("6_bgy7c")
+displayText = "(He tolerates tomatoes a bit more...)"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("3_8wusx")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_hcasq"]
+script = ExtResource("2_up8y8")
+visualAssetScene = ExtResource("8_777ye")
+displayText = "The End"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+PlayMusic = true
+LoopMusic = false
+MusicChange = ExtResource("2_6xdq2")
+overrideSkipTime = -1.0
+
+[node name="Cutscene" instance=ExtResource("1_bwjam")]
+cutscene_data = Array[ExtResource("2_up8y8")]([SubResource("Resource_fux4f"), SubResource("Resource_2jvhs"), SubResource("Resource_cglp2"), SubResource("Resource_hcasq")])
+loadOnSkip = "res://scenes/main_menu.tscn"
+loadingScreen = false

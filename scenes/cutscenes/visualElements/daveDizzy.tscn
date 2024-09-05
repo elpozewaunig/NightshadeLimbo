@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1widkgmld7nu"]
+
+[ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="1_u76ny"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oydp1"]
+atlas = ExtResource("1_u76ny")
+region = Rect2(899.841, -0.349625, 300.084, 271.449)
+
+[sub_resource type="Animation" id="Animation_sm0k2"]
+resource_name = "dizzy"
+length = 29.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 11.0333, 24.1667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.298039), Color(1, 1, 1, 0.129412), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 15.6333, 28.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.885, 1.885), Vector2(1.195, 1.195), Vector2(0.245, 0.245)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 15.6333, 26.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.284489, -0.0663225]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ac7tq"]
+_data = {
+"dizzy": SubResource("Animation_sm0k2")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 95.175
+offset_bottom = 95.175
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.885, 1.885)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.298039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_oydp1")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_ac7tq")
+}
+autoplay = "dizzy"

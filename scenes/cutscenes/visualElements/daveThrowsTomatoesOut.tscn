@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://15rartjip1d0"]
+
+[ext_resource type="Texture2D" uid="uid://ncx5jxh7lvo" path="res://assets/sprites/throwtomatooutintrash.jpg" id="1_timft"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -71.9
+offset_bottom = -71.9
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.77, 0.77)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_timft")
+stretch_mode = 5

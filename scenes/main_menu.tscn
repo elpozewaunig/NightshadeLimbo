@@ -148,8 +148,8 @@ libraries = {
 autoplay = "scaryfadeflicker"
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
-position = Vector2(701, -354)
-scale = Vector2(0.255, 0.205)
+position = Vector2(701, -383.345)
+scale = Vector2(0.65, 0.522)
 texture = ExtResource("6_ngex0")
 
 [node name="Label" type="Label" parent="UI"]

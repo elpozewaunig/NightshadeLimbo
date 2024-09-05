@@ -1,0 +1,423 @@
+[gd_scene load_steps=58 format=3 uid="uid://b3qedrob5swqh"]
+
+[ext_resource type="PackedScene" uid="uid://di51kkc51cbhf" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_sc146"]
+[ext_resource type="Script" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_sox31"]
+[ext_resource type="AudioStream" uid="uid://b604cqk27kjg8" path="res://assets/music/BGM_VinesSlowEXTRA.ogg" id="3_2wjhg"]
+[ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="4_64gbv"]
+[ext_resource type="PackedScene" uid="uid://q4naucpu14sd" path="res://scenes/cutscenes/visualElements/dave.tscn" id="5_clnog"]
+[ext_resource type="PackedScene" uid="uid://d0b5k5bag47l6" path="res://scenes/cutscenes/visualElements/daveThumbsUp.tscn" id="6_b2spl"]
+[ext_resource type="PackedScene" uid="uid://culgrmm8ucjoc" path="res://scenes/cutscenes/visualElements/daveIsAStoreClerk.tscn" id="7_al6eo"]
+[ext_resource type="PackedScene" uid="uid://ct0vljymnrd6y" path="res://scenes/cutscenes/visualElements/daveHatesTomatoes.tscn" id="8_kxrgd"]
+[ext_resource type="AudioStream" uid="uid://cflwtsmld20pl" path="res://assets/music/BGM_DrumsSlow.ogg" id="8_sjsew"]
+[ext_resource type="PackedScene" uid="uid://dqoyqpt7i56tr" path="res://scenes/cutscenes/visualElements/daveTomatoRant.tscn" id="10_ttaie"]
+[ext_resource type="PackedScene" uid="uid://15rartjip1d0" path="res://scenes/cutscenes/visualElements/daveThrowsTomatoesOut.tscn" id="11_6p8ld"]
+[ext_resource type="AudioStream" uid="uid://vupg8mu0pjmi" path="res://assets/sounds/IsekaiTruck.ogg" id="12_h2b68"]
+[ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="13_i0yne"]
+[ext_resource type="PackedScene" uid="uid://d1widkgmld7nu" path="res://scenes/cutscenes/visualElements/daveDizzy.tscn" id="13_r3a3d"]
+[ext_resource type="AudioStream" uid="uid://csptbfwwotli7" path="res://assets/sounds/typewritertalking/sfx_TomatoVoice.ogg" id="15_gro0h"]
+[ext_resource type="PackedScene" uid="uid://472jwjdnkqxw" path="res://scenes/cutscenes/visualElements/daveWelcome.tscn" id="16_dxx5f"]
+[ext_resource type="AudioStream" uid="uid://dstmtihkv5iwt" path="res://assets/sounds/typewritertalking/sfx_PlayerVoice.ogg" id="17_5qe7n"]
+[ext_resource type="PackedScene" uid="uid://5itys331ja3a" path="res://scenes/cutscenes/visualElements/daveHuh.tscn" id="18_o10r7"]
+[ext_resource type="PackedScene" uid="uid://ccdfb1r0me44w" path="res://scenes/cutscenes/visualElements/daveTomatoAURA.tscn" id="19_5ybc5"]
+[ext_resource type="PackedScene" uid="uid://dknwno8f20cox" path="res://scenes/cutscenes/visualElements/daveCry.tscn" id="20_qoubw"]
+[ext_resource type="PackedScene" uid="uid://uajdc3t5ccyv" path="res://scenes/cutscenes/visualElements/daveTomatoEvilFade.tscn" id="21_rb3bt"]
+[ext_resource type="PackedScene" uid="uid://bfqhwj1srv34p" path="res://scenes/cutscenes/visualElements/daveWait.tscn" id="22_kigd5"]
+[ext_resource type="PackedScene" uid="uid://dxu4hm2fx6pts" path="res://scenes/cutscenes/visualElements/daveSrsly.tscn" id="23_wgy8j"]
+[ext_resource type="PackedScene" uid="uid://4vcb7xsbre8e" path="res://scenes/cutscenes/visualElements/daveSrsly2.tscn" id="24_b5emb"]
+[ext_resource type="AudioStream" uid="uid://bmmmp71lry1gk" path="res://assets/music/BGM_BossIntro.ogg" id="25_hpy61"]
+[ext_resource type="PackedScene" uid="uid://pjkdh4p2ppq2" path="res://scenes/cutscenes/visualElements/davePUNISHMENTBEGINS.tscn" id="25_yq40j"]
+
+[sub_resource type="Resource" id="Resource_npgx1"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("5_clnog")
+displayText = "This is Dave."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+MusicChange = ExtResource("3_2wjhg")
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_ei8hn"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("6_b2spl")
+displayText = "Dave is a pretty regular guy."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_3tt23"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("7_al6eo")
+displayText = "He is a store clerk.
+And for the most part, he is pretty friendly.
+It's rarely the case that something grinds his gears."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_04jrd"]
+script = ExtResource("2_sox31")
+displayText = "With one exception."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_yjewf"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("8_kxrgd")
+displayText = "Dave HATES tomatoes."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+MusicChange = ExtResource("8_sjsew")
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_vmpud"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("10_ttaie")
+displayText = "Whenever he eats a salad,
+he is sure to discard any tomato-slices beforehand."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_yava2"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("10_ttaie")
+displayText = "Whenever he orders food, he proclaims to be allergic to tomatoes.
+Just to explicitly avoid them."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_usb75"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("11_6p8ld")
+displayText = "And even in his job...
+The very second the experiation date passes.
+He throws out any and all tomatoes he can."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_w1grl"]
+script = ExtResource("2_sox31")
+displayText = "Then, one night shift.
+
+As he was doing just that..."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_von4a"]
+script = ExtResource("2_sox31")
+displayText = "... he crossed the busy road too carelessly."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_jjjfq"]
+script = ExtResource("2_sox31")
+displayText = ""
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+PlayMusic = true
+LoopMusic = false
+MusicChange = ExtResource("12_h2b68")
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_x7t2i"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("13_r3a3d")
+displayText = "In the brief glimpses
+of consciousness that Dave has left, he can't help but wonder...
+
+What is he to expect?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+MusicChange = ExtResource("13_i0yne")
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_xtwed"]
+script = ExtResource("2_sox31")
+displayText = "A second chance?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_dw6rj"]
+script = ExtResource("2_sox31")
+displayText = "A prosperous afterlife in serenity?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_pfk3f"]
+script = ExtResource("2_sox31")
+displayText = "Ascension to a higher form of existence?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_m0nhk"]
+script = ExtResource("2_sox31")
+displayText = "Or perhaps even being reincarnated into a fantasy setting?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_rr0ww"]
+script = ExtResource("2_sox31")
+displayText = "As he keeps pondering which religion may have been correct..."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_jtfa4"]
+script = ExtResource("2_sox31")
+displayText = "... he encounters..
+No god, no soul of a passed relative.
+
+No divine entity or grim reaper."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_ts7gs"]
+script = ExtResource("2_sox31")
+displayText = "But a tomato"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.15
+TypewriterSound = ExtResource("4_64gbv")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_1laeo"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("16_dxx5f")
+displayText = "Welcome. Dave."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("15_gro0h")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_j8o7t"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("5_clnog")
+displayText = "... Hi?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("17_5qe7n")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_f3bge"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("16_dxx5f")
+displayText = "Welcome... to YOUR
+personal hell."
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("15_gro0h")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_0o2eg"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("18_o10r7")
+displayText = "Huh?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("17_5qe7n")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_3y300"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("19_5ybc5")
+displayText = "Your entire life you have desecrated 
+the nightshade family.
+Now you must atone for
+the countless sins you have commited."
+TypewriterPitch = 0.85
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.6
+TypewriterSound = ExtResource("15_gro0h")
+PlayMusic = true
+LoopMusic = true
+MusicChange = ExtResource("13_i0yne")
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_767vn"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("20_qoubw")
+displayText = "???"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.1
+TypewriterSound = ExtResource("17_5qe7n")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_6yosb"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("16_dxx5f")
+displayText = "YOUR FATE LIES IN ETERNAL TORMENT,
+PERISHING...
+
+OVER AND OVER AGAIN"
+TypewriterPitch = 0.8
+TypewriterPitchRange = 0.25
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("15_gro0h")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_ls1r6"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("21_rb3bt")
+displayText = "Accumulating sparse glimpses of
+insight from your recurrent failure.
+
+UNTIL YOU LEARN TO APPRECIATE TOMATOES!!!"
+TypewriterPitch = 0.85
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("15_gro0h")
+PlayMusic = true
+LoopMusic = true
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_kiams"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("22_kigd5")
+displayText = "wait"
+TypewriterPitch = 0.9
+TypewriterPitchRange = 0.0
+TypewriterSpeed = 0.25
+TypewriterSound = ExtResource("17_5qe7n")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_ixs2p"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("23_wgy8j")
+displayText = "This is about.. Tomatoes?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("17_5qe7n")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_wfml5"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("24_b5emb")
+displayText = "Seriously?"
+TypewriterPitch = 1.0
+TypewriterPitchRange = 0.05
+TypewriterSpeed = 0.3
+TypewriterSound = ExtResource("17_5qe7n")
+PlayMusic = false
+LoopMusic = false
+overrideSkipTime = -1.0
+
+[sub_resource type="Resource" id="Resource_edt0d"]
+script = ExtResource("2_sox31")
+visualAssetScene = ExtResource("25_yq40j")
+displayText = "Your punishment begins.
+
+NOW"
+TypewriterPitch = 0.75
+TypewriterPitchRange = 0.25
+TypewriterSpeed = 0.15
+TypewriterSound = ExtResource("15_gro0h")
+PlayMusic = true
+LoopMusic = false
+MusicChange = ExtResource("25_hpy61")
+overrideSkipTime = -1.0
+
+[node name="Cutscene" instance=ExtResource("1_sc146")]
+cutscene_data = Array[ExtResource("2_sox31")]([SubResource("Resource_npgx1"), SubResource("Resource_ei8hn"), SubResource("Resource_3tt23"), SubResource("Resource_04jrd"), SubResource("Resource_yjewf"), SubResource("Resource_vmpud"), SubResource("Resource_yava2"), SubResource("Resource_usb75"), SubResource("Resource_w1grl"), SubResource("Resource_von4a"), SubResource("Resource_jjjfq"), SubResource("Resource_x7t2i"), SubResource("Resource_xtwed"), SubResource("Resource_dw6rj"), SubResource("Resource_pfk3f"), SubResource("Resource_m0nhk"), SubResource("Resource_rr0ww"), SubResource("Resource_jtfa4"), SubResource("Resource_ts7gs"), SubResource("Resource_1laeo"), SubResource("Resource_j8o7t"), SubResource("Resource_f3bge"), SubResource("Resource_0o2eg"), SubResource("Resource_3y300"), SubResource("Resource_767vn"), SubResource("Resource_6yosb"), SubResource("Resource_ls1r6"), SubResource("Resource_kiams"), SubResource("Resource_ixs2p"), SubResource("Resource_wfml5"), SubResource("Resource_edt0d")])

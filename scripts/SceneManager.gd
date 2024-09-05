@@ -2,8 +2,8 @@ extends Node
 
 const game_scene = "res://scenes/main.tscn"
 const menu_scene = "res://scenes/main_menu.tscn"
-const cutscene_scene = "res://scenes/cutscenes/cutsceneMASTER.tscn"
-const endscene_scene = "res://scenes/cutscenes/cutsceneMASTERENDING.tscn"
+const cutscene_scene = "res://scenes/cutscenes/cutscene_scene.tscn"
+const endscene_scene = "res://scenes/cutscenes/endscene_scene.tscn"
 
 var switch_to
 const loading_scene = preload("res://scenes/loading_screen.tscn")
