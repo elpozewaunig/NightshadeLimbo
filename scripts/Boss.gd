@@ -187,7 +187,7 @@ func jump(to_pos: Vector2, duration: float = 3) -> void:
 	emit_signal("attack_status_changed", "jump", true)
 
 func dash(to_pos: Vector2, duration: float = 0.5) -> void:
-	animation.play("Walk")
+	#animation.play("Walk")
 	dashing = true
 	move_target = to_pos
 	move_duration = duration

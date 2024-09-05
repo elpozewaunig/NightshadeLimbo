@@ -1981,7 +1981,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_doasl"]
-resource_name = "salvos_1"
+resource_name = "oldsalvos"
 length = 120.0
 step = 0.1
 tracks/0/type = "method"
@@ -2166,7 +2166,7 @@ tracks/11/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_cyi4g"]
-resource_name = "phase2"
+resource_name = "salvos_1"
 length = 120.0
 step = 0.1
 tracks/0/type = "method"
@@ -2176,10 +2176,10 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.6),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), null, null], 2.0],
+"args": [[Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)], 2.0],
 "method": &"vine"
 }]
 }
@@ -2201,8 +2201,8 @@ tracks/2/path = NodePath("Tomato/AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": PackedStringArray("MockIntense1"),
-"times": PackedFloat32Array(0.2)
+"clips": PackedStringArray(),
+"times": PackedFloat32Array()
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -2288,10 +2288,10 @@ tracks/10/path = NodePath("PostProcessing/ColorInvert:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(16.5, 17, 17.5, 18),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false, true, false]
+"values": [false]
 }
 tracks/11/type = "method"
 tracks/11/imported = false
@@ -2300,34 +2300,16 @@ tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.3, 1),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [true],
-"method": &"camera_shake"
-}, {
-"args": [false],
-"method": &"camera_shake"
-}]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath(".:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
-"update": 0,
 "values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14rc6"]
 _data = {
 "RESET": SubResource("Animation_b7x2e"),
-"phase2": SubResource("Animation_cyi4g"),
-"salvos_1": SubResource("Animation_doasl")
+"oldsalvos": SubResource("Animation_doasl"),
+"salvos_1": SubResource("Animation_cyi4g")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33fff"]

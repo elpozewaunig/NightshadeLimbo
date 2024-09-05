@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		cutsceneSkipBar.value = holdskipcounter
 	else:
 		holdskipcounter = 0 #reset progress bar if let go prematurely
-	
+		cutsceneSkipBar.value = 0
 	# (He held to skip)
 	if(holdskipcounter>cutsceneSkipBar.max_value):
 		load_main()
