@@ -108,12 +108,12 @@ func _on_boss_hit() -> void:
 	set_game_over()
 
 
-func _on_intro_done() -> void:
-	reset_debuff = true
-
 func _on_intro_permit_movement() -> void:
 	permit_movement = true
 	speed_debuff = 450
+
+func _on_intro_done() -> void:
+	reset_debuff = true
 
 func _on_boss_vulnerable_status_changed(vulnerable: bool) -> void:
 	if vulnerable:
@@ -132,8 +132,12 @@ func _on_boss_defeated() -> void:
 	animation.play("win")
 	permit_movement = false
 
-func _on_boss_death_done() -> void:
+func _on_boss_death_permit_move() -> void:
 	permit_movement = true
+	speed_debuff = 450
+
+func _on_boss_death_done() -> void:
+	reset_debuff = true
 
 func _on_player_exited() -> void:
 	permit_movement = false

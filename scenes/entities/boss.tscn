@@ -27,9 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://btscq85drdvt0" path="res://assets/sprites/gloweyetomato.png" id="20_0q56x"]
 [ext_resource type="Shader" path="res://assets/shaders/contrasted.gdshader" id="20_50m7f"]
 [ext_resource type="AudioStream" uid="uid://d24xysr5nw0to" path="res://assets/sounds/attacks/sfx_TomatoHit.ogg" id="21_1pc22"]
-[ext_resource type="Script" path="res://scripts/OccluderMimic.gd" id="21_om2bk"]
 [ext_resource type="Shader" path="res://assets/shaders/normalized.gdshader" id="21_tuup4"]
 [ext_resource type="Shader" path="res://assets/shaders/old_film.gdshader" id="22_57xkm"]
+[ext_resource type="PackedScene" uid="uid://dybntfod3ak8q" path="res://scenes/reusable/occluder_mimic.tscn" id="22_hf5xq"]
 [ext_resource type="Texture2D" uid="uid://c35i00sbdkdnv" path="res://assets/sprites/thornsb.png" id="22_kub0s"]
 [ext_resource type="Texture2D" uid="uid://b5balmxe7ebn4" path="res://assets/shaders/shader_overlays/filmgrain.png" id="23_ldehw"]
 [ext_resource type="Texture2D" uid="uid://jkfe0jh7htj" path="res://assets/shaders/shader_overlays/vignette.png" id="24_wm84g"]
@@ -1953,16 +1953,16 @@ _data = {
 "Walk": SubResource("Animation_mptwy")
 }
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t2oit"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pnw1c"]
 polygon = PackedVector2Array(11, -190.5, 11, -188.2, 4.39999, -184, 2.70001, -184, -10, -156.6, -18.7, -159, -21.4, -159, -67, -142.4, -71.9, -143, -74.5, -143, -80.5, -140, -84.3, -140, -88.3, -143, -90.8, -143, -96, -137.8, -109.4, -131, -110.8, -131, -123, -118.8, -129.4, -116, -130.9, -116, -157.9, -87, -159.2, -87, -171.3, -65, -172.7, -65, -174, -57.2, -174, -54.3, -171.1, -50.5, -173.1, -47, -174.6, -47, -180.7, -19, -182.7, -19, -177.5, -1, -179, 9.79999, -179, 11.2, -176, 27.4, -176, 31.3, -155, 90.4, -155, 92.8, -142, 106.8, -142, 111.2, -136.5, 114, -134.9, 114, -111, 140.7, -111, 142.3, -100.4, 147, -97.8, 147, -89, 155.8, -89, 158, -82.4, 158, -81, 161.4, -81, 164, -69.7, 164, -63, 169.8, -63, 172, -48.5, 172, -36, 178.2, -36, 179.8, -9, 182.8, -9, 184.2, 24.7, 180.9, 26.4, 182, 31.4, 182, 55, 171.3, 65.2, 170, 66.7, 170, 94.7, 149, 96.8, 149, 114.9, 132, 118, 132, 118, 125.7, 129.9, 112, 131.3, 112, 132.4, 109.5, 131, 108.1, 146, 84.6, 146, 82.8, 156.8, 72, 160.2, 72, 157, 65.6, 162, 59, 163.7, 59, 167, 38.2, 167, 24.9, 160, -48.2, 160, -49.5, 136, -91.5, 136, -93.8, 123, -106.8, 123, -110.9, 95, -134, 95, -135.3, 92.5, -136.4, 90.2, -134.1, 84, -136.5, 84, -138, 68, -138, 68, -139.3, 52.7, -137, 51.5, -137, 35, -145.3, 35, -147, 14.9, -147, 25.4, -175, 27, -175, 27, -184.1, 24, -186.1, 24, -187.6)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_katgh"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3v6nc"]
 polygon = PackedVector2Array(20, -183, 15, -180, 13, -180, -10, -159, -10, -158, -25, -158, -26, -158, -32, -154, -36, -154, -65, -134, -65, -133, -75, -136, -77, -136, -107, -125, -111, -125, -131, -111, -132, -111, -164, -81, -165, -81, -164, -80, -164, -78, -172, -66, -173, -66, -176, -55, -177, -55, -179, -39, -180, -39, -181, -30, -181, -29, -174, 1, -174, 7, -181, 28, -182, 28, -183, 46, -184, 46, -176, 79, -176, 80, -152, 100, -152, 101, -150, 99, -149, 99, -108, 129, -108, 130, -106, 128, -103, 128, -73, 142, -73, 143, -67, 143, -66, 143, -51, 150, -51, 151, -30, 154, -30, 155, -27, 153, -27, 152, 18, 151, 21, 151, 27, 148, 27, 147, 29, 149, 30, 149, 32, 147, 32, 146, 68, 137, 72, 137, 98, 121, 98, 120, 113, 116, 116, 116, 144, 102, 145, 102, 149, 97, 150, 97, 162, 79, 163, 79, 174, 44, 175, 44, 175, 34, 175, 33, 172, 27, 171, 27, 165, -1, 164, -1, 167, -28, 167, -32, 163, -44, 163, -48, 144, -77, 143, -77, 141, -85, 141, -87, 111, -118, 111, -119, 78, -135, 78, -136, 75, -135, 72, -135, 64, -139, 64, -140, 56, -140, 54, -140, 48, -148, 48, -149, 37, -145, 29, -145, 19, -151, 15, -151, 28, -174, 29, -174, 26, -179, 26, -181, 20, -184)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1dist"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_26ud2"]
 polygon = PackedVector2Array(9, -183, -10, -158, -10, -157, -33, -156, -34, -156, -61, -139, -61, -138, -85, -138, -91, -138, -133, -112, -135, -112, -139, -106, -139, -105, -142, -105, -143, -105, -164, -83, -165, -83, -167, -80, -167, -79, -164, -77, -164, -74, -168, -66, -169, -66, -174, -30, -175, -30, -172, 6, -172, 18, -177, 35, -178, 35, -178, 49, -179, 49, -179, 55, -179, 56, -171, 74, -171, 77, -154, 96, -154, 97, -141, 104, -140, 104, -129, 114, -129, 115, -93, 135, -93, 136, -91, 135, -88, 135, -72, 144, -72, 145, -41, 150, -41, 151, -7, 153, 0, 153, 47, 147, 49, 147, 117, 118, 120, 118, 122, 116, 122, 114, 140, 104, 144, 104, 146, 99, 146, 98, 155, 93, 156, 93, 171, 57, 172, 57, 158, -49, 158, -51, 125, -101, 125, -102, 102, -124, 102, -125, 93, -129, 89, -129, 82, -135, 82, -136, 50, -137, 49, -137, 44, -141, 44, -142, 40, -139, 39, -139, 13, -148, 11, -148, 17, -168, 17, -169, 20, -171, 20, -172, 19, -172, 19, -179, 9, -184)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rwdaj"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3j4vf"]
 polygon = PackedVector2Array(10, -178, -7, -160, -7, -159, -9, -160, -16, -160, -36, -153, -39, -153, -62, -140, -62, -139, -90, -128, -94, -128, -108, -120, -111, -120, -136, -103, -136, -102, -139, -103, -140, -103, -152, -90, -153, -90, -166, -67, -167, -67, -175, -38, -176, -38, -178, -14, -179, -14, -176, -9, -175, -9, -177, -5, -177, 3, -171, 45, -171, 51, -155, 92, -154, 92, -154, 98, -154, 99, -145, 111, -144, 111, -145, 114, -145, 115, -126, 136, -126, 139, -103, 160, -102, 160, -100, 168, -100, 169, -95, 168, -94, 168, -93, 173, -93, 174, -87, 172, -86, 172, -57, 184, -57, 185, -51, 183, -49, 183, -51, 185, -51, 186, -48, 188, -48, 189, -38, 188, -32, 188, -17, 192, -17, 193, 11, 193, 12, 193, 60, 180, 63, 180, 91, 166, 93, 166, 101, 158, 103, 158, 125, 129, 126, 129, 129, 120, 129, 118, 134, 112, 135, 112, 152, 79, 153, 79, 152, 75, 152, 74, 159, 54, 160, 54, 167, 0, 168, 0, 164, -39, 164, -42, 158, -60, 158, -62, 148, -79, 147, -79, 148, -82, 148, -84, 145, -85, 143, -85, 135, -98, 135, -100, 122, -113, 122, -114, 88, -135, 88, -136, 86, -134, 85, -134, 75, -139, 75, -140, 54, -142, 43, -142, 29, -149, 29, -150, 19, -152, 17, -152, 15, -154, 15, -157, 23, -169, 23, -174, 20, -178, 20, -179, 10, -179)
 
 [sub_resource type="Animation" id="Animation_b7x2e"]
@@ -2172,7 +2172,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33fff"]
-size = Vector2(286.555, 107)
+size = Vector2(286.555, 147)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
 atlas = ExtResource("18_hjhdo")
@@ -2323,24 +2323,23 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Tomato"]
 max_polyphony = 10
 
-[node name="Occluders" type="Node2D" parent="." node_paths=PackedStringArray("mimic_src")]
-script = ExtResource("21_om2bk")
+[node name="OccluderMimic" parent="." node_paths=PackedStringArray("mimic_src") instance=ExtResource("22_hf5xq")]
 mimic_src = NodePath("../Tomato")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Occluders"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="OccluderMimic"]
 visible = false
-occluder = SubResource("OccluderPolygon2D_t2oit")
+occluder = SubResource("OccluderPolygon2D_pnw1c")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Occluders"]
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="OccluderMimic"]
 visible = false
-occluder = SubResource("OccluderPolygon2D_katgh")
+occluder = SubResource("OccluderPolygon2D_3v6nc")
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Occluders"]
-occluder = SubResource("OccluderPolygon2D_1dist")
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="OccluderMimic"]
+occluder = SubResource("OccluderPolygon2D_26ud2")
 
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Occluders"]
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="OccluderMimic"]
 visible = false
-occluder = SubResource("OccluderPolygon2D_rwdaj")
+occluder = SubResource("OccluderPolygon2D_3j4vf")
 
 [node name="AttackTimeline" type="AnimationPlayer" parent="."]
 libraries = {
@@ -2360,7 +2359,7 @@ scale = Vector2(0.468, 0.422)
 texture = ExtResource("22_kub0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 94.5)
+position = Vector2(-5, 114.5)
 scale = Vector2(1.19, 1)
 shape = SubResource("RectangleShape2D_33fff")
 
