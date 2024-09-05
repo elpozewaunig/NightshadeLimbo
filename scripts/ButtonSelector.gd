@@ -6,7 +6,7 @@ class_name ButtonSelector
 var highlight_active = false
 var highlight_index = 0
 
-signal set_key_mode
+signal set_key_mode(source)
 signal ext_selected(button)
 signal ext_cleared
 
@@ -38,14 +38,16 @@ func activate_or_move(move: String) -> void:
 			highlight_index += 1
 	
 	# Else, just enable the highlight but don't change the position
-	emit_signal("set_key_mode")
+	emit_signal("set_key_mode", self)
+	highlight_active = true
+	emit_signal("ext_selected", buttons[highlight_index])
 	
 	# Notify buttons of the currently highlighted button
 	emit_signal("ext_selected", buttons[highlight_index])
 
-func _on_key_mode_changed(active) -> void:
-	# Input through keyboard
-	if active:
+func _on_key_mode_changed(active, source) -> void:
+	# Input through keyboard, signal came from another button selector
+	if active and not source == self:
 		highlight_active = true
 		emit_signal("ext_selected", buttons[highlight_index])
 		
