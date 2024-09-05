@@ -78,6 +78,7 @@ func _on_ext_selected(btn_node):
 			ext_selected = true
 		
 		else:
+			highlight_active = true
 			ext_selected = false
 
 # Triggered by button selector when the current selection is replaced by mouse movement

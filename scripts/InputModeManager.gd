@@ -13,13 +13,12 @@ func _ready():
 		
 		# Connect self to selector highlight signal
 		selector.set_key_mode.connect(set_key_mode)
+		selector.set_mouse_mode.connect(set_mouse_mode)
 
 
-func _input(event):
-	# As soon as the mouse is moved, disable the highlight
-	if event is InputEventMouseMotion:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		emit_signal("key_mode_changed", false, self)
+func set_mouse_mode(source):
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	emit_signal("key_mode_changed", false, source)
 
 func set_key_mode(source):
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

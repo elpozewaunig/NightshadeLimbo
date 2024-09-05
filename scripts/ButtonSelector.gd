@@ -7,6 +7,7 @@ var highlight_active = false
 var highlight_index = 0
 
 signal set_key_mode(source)
+signal set_mouse_mode(source)
 signal ext_selected(button)
 signal ext_cleared
 
@@ -39,22 +40,24 @@ func activate_or_move(move: String) -> void:
 	
 	# Else, just enable the highlight but don't change the position
 	emit_signal("set_key_mode", self)
-	highlight_active = true
-	emit_signal("ext_selected", buttons[highlight_index])
-	
-	# Notify buttons of the currently highlighted button
-	emit_signal("ext_selected", buttons[highlight_index])
+	enable_highlight()
+
+func _input(event):
+	# As soon as the mouse is moved, disable the highlight if currently active
+	if event is InputEventMouseMotion and buttons[highlight_index].is_visible_in_tree():
+		emit_signal("set_mouse_mode", self)
+		disable_highlight()
 
 func _on_key_mode_changed(active, source) -> void:
-	# Input through keyboard, signal came from another button selector
-	if active and not source == self:
-		highlight_active = true
-		emit_signal("ext_selected", buttons[highlight_index])
+	# Only handle signal if it came from another button selector
+	if not source == self:
 		
-	# Input through mouse
-	else:
-		highlight_active = false
-		emit_signal("ext_cleared")
+		# Input through keyboard
+		if active:
+			enable_highlight()
+		# Input through mouse
+		else:
+			disable_highlight()
 
 # When a button reports that it has been selected, update the selection index
 func _on_btn_selected(button):
@@ -62,3 +65,12 @@ func _on_btn_selected(button):
 		for i in range(0, buttons.size()):
 			if buttons[i] == button:
 				highlight_index = i
+
+func enable_highlight():
+	highlight_active = true
+	# Notify buttons of the currently highlighted button
+	emit_signal("ext_selected", buttons[highlight_index])
+
+func disable_highlight():
+	highlight_active = false
+	emit_signal("ext_cleared")
