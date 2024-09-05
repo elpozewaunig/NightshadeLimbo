@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://s47feaqqdtgj"]
+[gd_scene load_steps=82 format=3 uid="uid://s47feaqqdtgj"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="1_3ifcl"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="2_4c6eb"]
@@ -1991,9 +1991,12 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 9.1, 13.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(3.9, 12.8, 20.9, 25.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [[], 2.0],
+"method": &"vine"
+}, {
 "args": [Vector2(0, 0), Vector2(0, 1080), 50, 1.0],
 "method": &"salvo"
 }, {
@@ -2011,7 +2014,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2, 18),
+"times": PackedFloat32Array(13.8, 24.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [Vector2(0, 1080), Vector2(1920, 1080), 50, 1.0],
@@ -2028,8 +2031,8 @@ tracks/2/path = NodePath("Tomato/AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": PackedStringArray("MockIntense1", "MockIntense3", "MockShort1", "MockIntense2", "MockIntense3", "MockIntense4"),
-"times": PackedFloat32Array(0.2, 2.7, 4.6, 5.7, 6.6, 11.6)
+"clips": PackedStringArray("MockIntense1", "MockShort1", "MockIntense2", "MockIntense3", "MockIntense3", "MockIntense4"),
+"times": PackedFloat32Array(0.2, 10.4, 11.3, 12.3, 13.8, 16.4)
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -2038,7 +2041,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(14.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(1920, 1080), Vector2(1920, 0), 50, 1.0],
@@ -2052,7 +2055,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(13.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [[Vector2(1570, 620), Vector2(1570, 790), Vector2(1440, 830), Vector2(1200, 700), Vector2(1480, 940), Vector2(1920, 1080), Vector2(1920, 0)], 2.0],
@@ -2066,7 +2069,7 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(5.2),
+"times": PackedFloat32Array(17),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [[Vector2(300, 630), Vector2(90, 815), Vector2(400, 1000), Vector2(870, 760), Vector2(0, 1080)], 2.0],
@@ -2080,7 +2083,7 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(4.8),
+"times": PackedFloat32Array(16.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(1920, 0), Vector2(1920, 1080), 50, 1.0],
@@ -2094,7 +2097,7 @@ tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(5.5),
+"times": PackedFloat32Array(17.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(1920, 1080), Vector2(0, 1080), 50, 1.0],
@@ -2108,7 +2111,7 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(6.4),
+"times": PackedFloat32Array(18.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(0, 1080), Vector2(0, 500), 50, 1.0],
@@ -2122,7 +2125,7 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(7.2, 21.7),
+"times": PackedFloat32Array(19, 25.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [Vector2(0, 100), 0.25],
@@ -2151,23 +2154,179 @@ tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.3, 1, 7.9),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
 "method": &"camera_shake"
 }, {
 "args": [false],
 "method": &"camera_shake"
-}, {
-"args": [Vector2(0, 250), 0.1],
-"method": &"beam"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_cyi4g"]
+resource_name = "phase2"
+length = 120.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), null, null], 2.0],
+"method": &"vine"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tomato/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("MockIntense1"),
+"times": PackedFloat32Array(0.2)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PostProcessing/ColorInvert:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(16.5, 17, 17.5, 18),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"camera_shake"
+}, {
+"args": [false],
+"method": &"camera_shake"
+}]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14rc6"]
 _data = {
 "RESET": SubResource("Animation_b7x2e"),
+"phase2": SubResource("Animation_cyi4g"),
 "salvos_1": SubResource("Animation_doasl")
 }
 
@@ -2286,7 +2445,7 @@ shader_parameter/grain = ExtResource("23_ldehw")
 shader_parameter/vignette = ExtResource("24_wm84g")
 
 [node name="Boss" type="StaticBody2D"]
-position = Vector2(960, 200)
+position = Vector2(960, 540)
 script = ExtResource("1_3ifcl")
 
 [node name="DamageZone" type="Area2D" parent="."]
@@ -2335,6 +2494,7 @@ visible = false
 occluder = SubResource("OccluderPolygon2D_3v6nc")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="OccluderMimic"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_26ud2")
 
 [node name="LightOccluder2D4" type="LightOccluder2D" parent="OccluderMimic"]

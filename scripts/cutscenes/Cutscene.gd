@@ -20,10 +20,12 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	next_cutscene()
 
-
+var nocutsceneflag = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if nocutsceneflag:
+		load_main()
 	# Hold to skip?
 	if Input.is_action_pressed("cutscene_skip"):
 		holdskipcounter += delta
@@ -55,10 +57,11 @@ func load_main():
 var i = 0	
 var prevmusic = false
 
+
 func next_cutscene():
 	
 	if i >= cutscene_data.size():
-		load_main()
+		nocutsceneflag = true
 		return
 		
 	for c in visualAssetParent.get_children():
