@@ -35,12 +35,16 @@ func _ready() -> void:
 	rotate_towards(init_target_pos)
 	
 	# Values for making beam reach initial target
+	assert(init_duration > 0)
 	distance_to_init = global_position.distance_to(init_target_pos)
 	speed_to_init = distance_to_init / init_duration
 	
 	# Values while beam moves from initial target to end target
 	distance_to_move = init_target_pos.distance_to(end_target_pos)
-	move_speed = distance_to_move / move_duration
+	if move_duration > 0:
+		move_speed = distance_to_move / move_duration
+	else:
+		move_speed = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

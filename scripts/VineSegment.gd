@@ -34,6 +34,7 @@ func _ready() -> void:
 	
 	offset = target_pos - from_pos
 	distance = global_position.distance_to(target_pos)
+	assert(distance > 0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

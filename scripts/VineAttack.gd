@@ -25,7 +25,10 @@ func _ready() -> void:
 	for point in points:
 		total_distance += last_point.distance_to(point)
 		last_point = point
-		
+	
+	assert(duration > 0)
+	assert(disappear_duration > 0)
+	
 	speed = total_distance / duration
 	reverse_speed = total_distance / disappear_duration
 	current_pos = global_position
