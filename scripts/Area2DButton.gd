@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 		sprite.frame = 1
 		
 		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_select") and not require_release:
-			emit_signal("clicked")
+			clicked.emit()
 			click_sfx.play()
 			
 	# Button is not selected
@@ -63,7 +63,7 @@ func _on_clicked() -> void:
 	pass
 	
 func _on_selected() -> void:
-	emit_signal("selected", self)
+	selected.emit(self)
 	select_sfx.play()
 
 # Triggered by button selector through key/gamepad input

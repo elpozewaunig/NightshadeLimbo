@@ -5,5 +5,5 @@ extends Area2DButton
 func _process(delta: float) -> void:
 	super._process(delta)
 	if Input.is_action_just_pressed("ui_cancel") and is_visible_in_tree():
-		emit_signal("clicked")
+		clicked.emit()
 		click_sfx.play()

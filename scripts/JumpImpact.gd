@@ -21,4 +21,4 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not body.dead:
 		player_hit.connect(body._on_impact_hit)
-		emit_signal("player_hit")
+		player_hit.emit()

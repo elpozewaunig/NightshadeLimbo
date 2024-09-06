@@ -18,8 +18,8 @@ func _ready():
 
 func set_mouse_mode(source):
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	emit_signal("key_mode_changed", false, source)
+	key_mode_changed.emit(false, source)
 
 func set_key_mode(source):
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	emit_signal("key_mode_changed", true, source)
+	key_mode_changed.emit(true, source)

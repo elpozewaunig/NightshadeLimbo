@@ -11,8 +11,10 @@ func _on_boss_defeated() -> void:
 	position = boss.position
 	animation.play("die")
 
+func _on_animation_permit_movement():
+	boss_death_permit_move.emit()
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "die":
-		emit_signal("boss_death_done")
+		boss_death_done.emit()
 		hide()
