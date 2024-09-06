@@ -2176,7 +2176,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5.4),
+"times": PackedFloat32Array(5.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [[Vector2(960, 540), Vector2(810, 540), Vector2(810, 390), Vector2(960, 390), Vector2(1110, 390), Vector2(1110, 540), Vector2(1110, 690), Vector2(960, 690), Vector2(810, 690), Vector2(660, 690), Vector2(660, 540), Vector2(660, 390), Vector2(660, 240), Vector2(810, 240), Vector2(960, 240), Vector2(1110, 240), Vector2(1260, 240), Vector2(1260, 390), Vector2(1260, 540), Vector2(1260, 690), Vector2(1260, 840), Vector2(1110, 840), Vector2(960, 840), Vector2(810, 840), Vector2(660, 840), Vector2(510, 840), Vector2(510, 690), Vector2(510, 540), Vector2(510, 390), Vector2(510, 240), Vector2(510, 90), Vector2(660, 90), Vector2(810, 90), Vector2(960, 90), Vector2(1110, 90), Vector2(1260, 90), Vector2(1410, 90), Vector2(1410, 240), Vector2(1410, 390), Vector2(1410, 540), Vector2(1410, 690), Vector2(1410, 840), Vector2(1410, 990), Vector2(1260, 990), Vector2(1110, 990), Vector2(960, 990), Vector2(810, 990), Vector2(660, 990), Vector2(510, 990), Vector2(360, 990), Vector2(360, 840), Vector2(360, 690), Vector2(360, 540), Vector2(360, 390), Vector2(360, 240)], 1.0],
@@ -2190,10 +2190,10 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(4.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [Vector2(1920, 1080), Vector2(0, 1080), 0.15, 10.0],
+"args": [Vector2(1920, 1250), Vector2(960, 1250), 0.15, 15.0],
 "method": &"moving_beam"
 }]
 }
@@ -2214,10 +2214,10 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(4.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [Vector2(0, 1080), Vector2(1920, 1080), 0.15, 10.0],
+"args": [Vector2(0, 1250), Vector2(960, 1250), 0.15, 15.0],
 "method": &"moving_beam"
 }]
 }
@@ -2228,9 +2228,12 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(480, 1250), Vector2(1440, 1250), 20, 4.0],
+"method": &"salvo"
+}]
 }
 tracks/5/type = "method"
 tracks/5/imported = false
@@ -2239,9 +2242,24 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.3, 0.4, 0.480502, 0.5, 0.545814),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [Vector2(480, 1250), Vector2(1440, 1250), 20, 4.0],
+"method": &"salvo"
+}, {
+"args": [Vector2(480, 1250), Vector2(1440, 1250), 20, 4.0],
+"method": &"salvo"
+}, {
+"args": [Vector2(480, 1250), Vector2(1440, 1250), 20, 4.0],
+"method": &"salvo"
+}, {
+"args": [Vector2(480, 1250), Vector2(1440, 1250), 20, 4.0],
+"method": &"salvo"
+}, {
+"args": [Vector2(480, 1250), Vector2(1440, 1250), 20, 4.0],
+"method": &"salvo"
+}]
 }
 tracks/6/type = "method"
 tracks/6/imported = false

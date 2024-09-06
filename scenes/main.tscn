@@ -755,6 +755,7 @@ position = Vector2(949, 1048)
 shape = SubResource("RectangleShape2D_clw16")
 
 [node name="Boss" parent="." instance=ExtResource("6_ofatc")]
+position = Vector2(960, 185)
 health = 1
 
 [node name="ExplodingTomato" type="StaticBody2D" parent="."]
