@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not body.dead:
 		player_hit.connect(body._on_projectile_hit)
-		emit_signal("player_hit")
+		player_hit.emit()
 	elif body.get_class() == "StaticBody2D" and not body.name == "Boss":
 		# Stop projectile by telling it it has reached its target
 		total_progress = 1

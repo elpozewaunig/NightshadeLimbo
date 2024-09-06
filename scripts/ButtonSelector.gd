@@ -39,13 +39,13 @@ func activate_or_move(move: String) -> void:
 			highlight_index += 1
 	
 	# Else, just enable the highlight but don't change the position
-	emit_signal("set_key_mode", self)
+	set_key_mode.emit(self)
 	enable_highlight()
 
 func _input(event):
 	# As soon as the mouse is moved, disable the highlight if currently active
 	if event is InputEventMouseMotion and buttons[highlight_index].is_visible_in_tree():
-		emit_signal("set_mouse_mode", self)
+		set_mouse_mode.emit(self)
 		disable_highlight()
 
 func _on_key_mode_changed(active, source) -> void:
@@ -69,8 +69,8 @@ func _on_btn_selected(button):
 func enable_highlight():
 	highlight_active = true
 	# Notify buttons of the currently highlighted button
-	emit_signal("ext_selected", buttons[highlight_index])
+	ext_selected.emit(buttons[highlight_index])
 
 func disable_highlight():
 	highlight_active = false
-	emit_signal("ext_cleared")
+	ext_cleared.emit()

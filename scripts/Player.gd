@@ -90,7 +90,7 @@ func set_game_over() -> void:
 		else:
 			animation.play("die2")
 			
-		emit_signal("game_over")
+		game_over.emit()
 
 func _on_projectile_hit() -> void:
 	set_game_over()
@@ -125,7 +125,7 @@ func _on_boss_vulnerable_status_changed(vulnerable: bool) -> void:
 
 func _on_weapon_hitbox_entered(body: Node2D) -> void:
 	if body.name == "Boss":
-		emit_signal("boss_hit")
+		boss_hit.emit()
 
 func _on_boss_defeated() -> void:
 	fight_back = false

@@ -31,12 +31,12 @@ func _process(delta: float) -> void:
 			if time_elapsed > 1:
 				black.hide()
 				light_sfx.play()
-				emit_signal("permit_movement")
+				permit_movement.emit()
 				advance_phase()
 		
 		"GAME_START":
 			if time_elapsed > 1:
-				emit_signal("intro_done")
+				intro_done.emit()
 				advance_phase()
 		
 		"FADE_OUT":

@@ -107,7 +107,7 @@ func _process(delta: float) -> void:
 				jump_end_anim = false
 				add_child(impact_scene.instantiate())
 				dmg_zone.monitoring = true
-				emit_signal("attack_status_changed", "jump", false)
+				attack_status_changed.emit("jump", false)
 		
 		# Handle dashing
 		if dashing:
@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 			if move_duration <= 0:
 				global_position = move_target
 				dashing = false
-				emit_signal("attack_status_changed", "dash", false)
+				attack_status_changed.emit("dash", false)
 		
 		# Handle vulnerability windows
 		if vulnerable:
@@ -128,19 +128,19 @@ func _process(delta: float) -> void:
 					animation.play("TakeDamageDONE")
 				else:
 					animation.play("Vulnerable_END")
-					emit_signal("chance_missed")
-					emit_signal("player_hit")
+					chance_missed.emit()
+					player_hit.emit()
 					
 				vulnerable_duration = 0
 				vulnerable = false
 				dmg_taken = false
 				dmg_zone.monitoring = true
-				emit_signal("vulnerable_status_changed", false)
+				vulnerable_status_changed.emit(false)
 		
 		# If boss was just mortally wounded
 		if health <= 0:
 			dead = true
-			emit_signal("defeated")
+			defeated.emit()
 			dmg_zone.monitoring = false
 			timeline.pause()
 			hide()
@@ -158,13 +158,13 @@ func _process(delta: float) -> void:
 	
 	# Emit status signals for attacks that have stopped 
 	if salvos.is_empty():
-		emit_signal("attack_status_changed","salvo", false)
+		attack_status_changed.emit("salvo", false)
 	
 	if beams.is_empty():
-		emit_signal("attack_status_changed", "beam", false)
+		attack_status_changed.emit("beam", false)
 	
 	if vines.is_empty():
-		emit_signal("attack_status_changed", "vine", false)
+		attack_status_changed.emit("vine", false)
 
 
 # Enqueues a salvo to fire
@@ -186,7 +186,7 @@ func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float
 	new_beam.move_duration = moving_duration
 	add_child(new_beam)
 	beams.append(init_duration + move_duration)
-	emit_signal("attack_status_changed", "beam", true)
+	attack_status_changed.emit("beam", true)
 
 func vine(points: Array, duration: float = 2) -> void:
 	var new_vine = vine_scene.instantiate()
@@ -194,7 +194,7 @@ func vine(points: Array, duration: float = 2) -> void:
 	new_vine.duration = duration
 	add_child(new_vine)
 	vines.append(duration)
-	emit_signal("attack_status_changed", "vine", true)
+	attack_status_changed.emit("vine", true)
 
 func jump(to_pos: Vector2, duration: float = 3) -> void:
 	animation.play("JumpAttack_START")
@@ -202,7 +202,7 @@ func jump(to_pos: Vector2, duration: float = 3) -> void:
 	jump_end_anim = false
 	move_target = to_pos
 	move_duration = duration
-	emit_signal("attack_status_changed", "jump", true)
+	attack_status_changed.emit("jump", true)
 
 func dash(to_pos: Vector2, duration: float = 0.5) -> void:
 	#animation.play("Walk")
@@ -210,20 +210,20 @@ func dash(to_pos: Vector2, duration: float = 0.5) -> void:
 	move_target = to_pos
 	move_duration = duration
 	move_speed = global_position.distance_to(to_pos) / duration
-	emit_signal("attack_status_changed", "dash", true)
+	attack_status_changed.emit("dash", true)
 
 func turn_vulnerable(duration: float = 5) -> void:
 	dmg_zone.monitoring = false
 	animation.play("Vulnerable_INITIATE")
-	emit_signal("vulnerable_status_changed", true)
+	vulnerable_status_changed.emit(true)
 	vulnerable = true
 	vulnerable_duration = duration
 
 func destroy(obstacle_index: int) -> void:
-	emit_signal("destroy_obstacle", obstacle_index)
+	destroy_obstacle.emit(obstacle_index)
 
 func camera_shake(active : bool = true) -> void:
-	emit_signal("set_shake", active)
+	set_shake.emit(active)
 
 # Creates a projectile instance and fires it
 func _add_projectile(global_pos_to: Vector2) -> void:
@@ -246,7 +246,7 @@ func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: fl
 	"interval": duration / amount,
 	"countdown": 0
 	})
-	emit_signal("attack_status_changed", "salvo", true)
+	attack_status_changed.emit("salvo", true)
 
 # Marks array elements for deletion. Useful so that they can be deleted during iteration
 func mark_for_deletion(array: Array, index: int) -> void:
@@ -271,13 +271,13 @@ func _on_intro_done() -> void:
 
 func _on_damage_zone_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		emit_signal("player_hit")
+		player_hit.emit()
 
 func _on_player_boss_hit() -> void:
 	if vulnerable and not dmg_taken:
 		dmg_taken = true
 		health -= 1
 		
-		emit_signal("vulnerable_status_changed", false)
+		vulnerable_status_changed.emit(false)
 		animation.play("RESET")
 		animation.play("TakeDamageINITIATE")
