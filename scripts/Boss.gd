@@ -21,6 +21,8 @@ var salvos = []
 var beams = []
 var vines = []
 
+var array_delete_queue = {}
+
 var jumping = false
 var jump_end_anim = false
 var dashing = false
@@ -73,27 +75,21 @@ func _process(delta: float) -> void:
 					next_salvos[i]["shot"] += 1
 			else:
 				# Delete salvo to free up ressources
-				salvos.remove_at(i)
-				if salvos.is_empty():
-					emit_signal("attack_status_changed","salvo", false)
+				mark_for_deletion(salvos, i)
 		
 		# Iterate through all beams and count down their remaining time
 		for i in range(0, beams.size()):
 			beams[i] -= delta
 			# Remove expired beams
 			if beams[i] <= 0:
-				beams.remove_at(i)
-				if beams.is_empty():
-					emit_signal("attack_status_changed", "beam", false)
+				mark_for_deletion(beams, i)
 		
 		# Iterate through all vines and count down their remaining time
 		for i in range(0, vines.size()):
 			vines[i] -= delta
 			# Remove expired beams
 			if vines[i] <= 0:
-				vines.remove_at(i)
-				if vines.is_empty():
-					emit_signal("attack_status_changed", "vine", false)
+				mark_for_deletion(vines, i)
 		
 		# Handle jumping
 		if jumping:
@@ -148,6 +144,28 @@ func _process(delta: float) -> void:
 			dmg_zone.monitoring = false
 			timeline.pause()
 			hide()
+		
+	# Delete all array entries that were marked for deletion
+	for array in array_delete_queue:
+		array_delete_queue[array].sort()
+		
+		var offset_counter = 0
+		for deletion_index in array_delete_queue[array]:
+			array.remove_at(deletion_index - offset_counter)
+			offset_counter += 1
+	
+	array_delete_queue.clear()
+	
+	# Emit status signals for attacks that have stopped 
+	if salvos.is_empty():
+		emit_signal("attack_status_changed","salvo", false)
+	
+	if beams.is_empty():
+		emit_signal("attack_status_changed", "beam", false)
+	
+	if vines.is_empty():
+		emit_signal("attack_status_changed", "vine", false)
+
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
@@ -229,6 +247,14 @@ func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: fl
 	"countdown": 0
 	})
 	emit_signal("attack_status_changed", "salvo", true)
+
+# Marks array elements for deletion. Useful so that they can be deleted during iteration
+func mark_for_deletion(array: Array, index: int) -> void:
+	# Fills the dictionary with the respective arrays as keys and an array of indexes as values
+	if not array_delete_queue.has(array):
+		array_delete_queue[array] = []
+		
+	array_delete_queue[array].append(index)
 
 
 func _on_game_over() -> void:
