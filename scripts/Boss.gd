@@ -18,10 +18,10 @@ var dmg_taken = false
 var salvos = []
 
 # Stores simple countdown for each attack to trigger actions upon completion
-var beams = []
-var vines = []
+var beams : Array[float] = []
+var vines : Array[float] = []
 
-var array_delete_queue = {}
+var array_delete_queue = []
 
 var jumping = false
 var jump_end_anim = false
@@ -146,14 +146,8 @@ func _process(delta: float) -> void:
 			hide()
 		
 	# Delete all array entries that were marked for deletion
-	for array in array_delete_queue:
-		array_delete_queue[array].sort()
-		
-		var offset_counter = 0
-		for deletion_index in array_delete_queue[array]:
-			array.remove_at(deletion_index - offset_counter)
-			offset_counter += 1
-	
+	for deletion in array_delete_queue:
+		deletion["array"].remove_at(deletion["index"])
 	array_delete_queue.clear()
 	
 	# Emit status signals for attacks that have stopped 
@@ -185,7 +179,7 @@ func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float
 	new_beam.end_target_pos = end_to_pos
 	new_beam.move_duration = moving_duration
 	add_child(new_beam)
-	beams.append(init_duration + move_duration)
+	beams.append(init_duration + moving_duration)
 	attack_status_changed.emit("beam", true)
 
 func vine(points: Array, duration: float = 2) -> void:
@@ -250,11 +244,17 @@ func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: fl
 
 # Marks array elements for deletion. Useful so that they can be deleted during iteration
 func mark_for_deletion(array: Array, index: int) -> void:
-	# Fills the dictionary with the respective arrays as keys and an array of indexes as values
-	if not array_delete_queue.has(array):
-		array_delete_queue[array] = []
+	var offset = 0
+	
+	# Examine all deletions that will occur before the current one
+	for i in range(0, array_delete_queue.size()):
+		var deletion = array_delete_queue[i]
 		
-	array_delete_queue[array].append(index)
+		# If a deletion in the same array would affect its index
+		if deletion["array"] == array and deletion["index"] < index:
+			offset -= 1
+			
+	array_delete_queue.append({"array": array, "index": index + offset})
 
 
 func _on_game_over() -> void:
