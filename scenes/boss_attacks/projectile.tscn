@@ -43,7 +43,7 @@ texture = ExtResource("2_qj00h")
 scale = Vector2(1.425, 0.86)
 shape = SubResource("CircleShape2D_6q1un")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hrpa6")
 volume_db = -5.012
 autoplay = true

@@ -2,7 +2,10 @@ extends Area2D
 
 signal player_hit
 
+@onready var sfx = $AudioStreamPlayer
+
 var target_pos : Vector2 = Vector2(0, 0)
+var silent : bool = false
 var speed : int = 800
 var offset : Vector2
 var length : float
@@ -15,6 +18,10 @@ func _ready() -> void:
 	
 	# Rotate projectile correctly
 	look_at(target_pos)
+	
+	if silent:
+		sfx.autoplay = false
+		sfx.stop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

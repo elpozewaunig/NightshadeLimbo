@@ -47,7 +47,7 @@ signal defeated
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Create singular bullet and play animation to combat first-time lag on web export
-	_add_projectile(global_position)
+	_add_projectile(global_position, true)
 	animation.play("RESET")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -221,9 +221,10 @@ func camera_shake(active : bool = true) -> void:
 	set_shake.emit(active)
 
 # Creates a projectile instance and fires it
-func _add_projectile(global_pos_to: Vector2) -> void:
+func _add_projectile(global_pos_to: Vector2, silent: bool = false) -> void:
 	var projectile = projectile_scene.instantiate()
 	projectile.target_pos = global_pos_to
+	projectile.silent = silent
 	add_child(projectile)
 
 # Adds a salvo to salvos array
