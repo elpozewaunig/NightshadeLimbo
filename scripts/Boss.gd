@@ -182,12 +182,13 @@ func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float
 	beams.append(init_duration + moving_duration)
 	attack_status_changed.emit("beam", true)
 
-func vine(points: Array, duration: float = 2) -> void:
+func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> void:
 	var new_vine = vine_scene.instantiate()
 	new_vine.points = points
 	new_vine.duration = duration
+	new_vine.disappear_duration = disappear_duration
 	add_child(new_vine)
-	vines.append(duration)
+	vines.append(duration + disappear_duration)
 	attack_status_changed.emit("vine", true)
 
 func jump(to_pos: Vector2, duration: float = 3) -> void:
