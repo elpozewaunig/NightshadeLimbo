@@ -4,7 +4,9 @@ extends CharacterBody2D
 @onready var weapon = $Weapon
 @onready var death_sfx = $DeathSFX
 
-const SPEED = 500.0
+const SPEED : float = 500.0
+const DECEL_TIME : float = 0.15
+
 var speed_debuff = 0
 var reset_debuff = false
 var permit_movement = false
@@ -49,13 +51,13 @@ func _physics_process(delta: float) -> void:
 		if normalized_input.x:
 			velocity.x = normalized_input.x * (SPEED - speed_debuff)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED / DECEL_TIME  * delta)
 		
 		# Handle y-axis movement/deceleration
 		if normalized_input.y:
 			velocity.y = normalized_input.y * (SPEED - speed_debuff)
 		else:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
+			velocity.y = move_toward(velocity.y, 0, SPEED / DECEL_TIME * delta)
 		
 		move_and_slide()
 		
@@ -80,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		global_position = global_position.move_toward(Vector2(-300, 540), delta * 200)
 
 func _input(event):
-	# After the mouse is moved, disable the highlight
+	# After the mouse is moved, make it visible
 	if event is InputEventMouseMotion:
 		time_mouse_idle = 0
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
