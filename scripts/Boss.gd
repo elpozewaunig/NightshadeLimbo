@@ -19,9 +19,11 @@ var dmg_taken = false
 var salvos = []
 
 # Stores simple countdown for each attack to trigger actions upon completion
-var beams : Array[float] = []
-var artillery : Array[float] = []
-var vines : Array[float] = []
+var attack_countdowns = {
+	"beams": [],
+	"artillery": [],
+	"vines": []
+}
 
 var array_delete_queue = []
 
@@ -79,26 +81,14 @@ func _process(delta: float) -> void:
 				# Delete salvo to free up ressources
 				mark_for_deletion(salvos, i)
 		
-		# Iterate through all beams and count down their remaining time
-		for i in range(0, beams.size()):
-			beams[i] -= delta
-			# Remove expired beams
-			if beams[i] <= 0:
-				mark_for_deletion(beams, i)
-		
-		# Iterate through all artillery projectiles and count down their remaining time
-		for i in range(0, artillery.size()):
-			artillery[i] -= delta
-			# Remove expired artillery projectiles
-			if artillery[i] <= 0:
-				mark_for_deletion(artillery, i)
-		
-		# Iterate through all vines and count down their remaining time
-		for i in range(0, vines.size()):
-			vines[i] -= delta
-			# Remove expired beams
-			if vines[i] <= 0:
-				mark_for_deletion(vines, i)
+		# Iterate through all attacks and count down their remaining time
+		for attack in attack_countdowns:
+			var current_attack = attack_countdowns[attack]
+			for i in range(0, current_attack.size()):
+				current_attack[i] -= delta
+				# Remove expired attacks
+				if current_attack[i] <= 0:
+					mark_for_deletion(current_attack, i)
 		
 		# Handle jumping
 		if jumping:
@@ -161,17 +151,11 @@ func _process(delta: float) -> void:
 	
 	# Emit status signals for attacks that have stopped 
 	if salvos.is_empty():
-		attack_status_changed.emit("salvo", false)
+		attack_status_changed.emit("salvos", false)
 	
-	if beams.is_empty():
-		attack_status_changed.emit("beam", false)
-	
-	if artillery.is_empty():
-		attack_status_changed.emit("artillery", false)
-	
-	if vines.is_empty():
-		attack_status_changed.emit("vine", false)
-
+	for attack in attack_countdowns:
+		if attack_countdowns[attack].is_empty():
+			attack_status_changed.emit(attack, false)
 
 # Enqueues a salvo to fire
 func salvo(from_pos: Vector2, to_pos: Vector2, amount: int = 20, duration: float = 4) -> void:
@@ -191,15 +175,15 @@ func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float
 	new_beam.end_target_pos = end_to_pos
 	new_beam.move_duration = moving_duration
 	add_child(new_beam)
-	beams.append(init_duration + moving_duration)
-	attack_status_changed.emit("beam", true)
+	attack_countdowns["beams"].append(init_duration + moving_duration)
+	attack_status_changed.emit("beams", true)
 
 func artillery_shot(to_pos: Vector2, duration: float = 2) -> void:
 	var new_artillery = artillery_scene.instantiate()
 	new_artillery.target_pos = to_pos
 	new_artillery.duration = duration
 	add_child(new_artillery)
-	artillery.append(duration)
+	attack_countdowns["artillery"].append(duration)
 	attack_status_changed.emit("artillery", true)
 
 func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> void:
@@ -208,8 +192,8 @@ func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> 
 	new_vine.duration = duration
 	new_vine.disappear_duration = disappear_duration
 	add_child(new_vine)
-	vines.append(duration + disappear_duration)
-	attack_status_changed.emit("vine", true)
+	attack_countdowns["vines"].append(duration + disappear_duration)
+	attack_status_changed.emit("vines", true)
 
 func jump(to_pos: Vector2, duration: float = 3) -> void:
 	animation.play("JumpAttack_START")
@@ -262,7 +246,7 @@ func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: fl
 	"interval": duration / amount,
 	"countdown": 0
 	})
-	attack_status_changed.emit("salvo", true)
+	attack_status_changed.emit("salvos", true)
 
 # Marks array elements for deletion. Useful so that they can be deleted during iteration
 func mark_for_deletion(array: Array, index: int) -> void:
