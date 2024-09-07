@@ -1,12 +1,12 @@
 extends Node2D
 
-var scene_to_load
+var scene_to_load : String
+
 var progress = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = false
-	scene_to_load = SceneManager.switch_to
 	ResourceLoader.load_threaded_request(scene_to_load)
 	
 	if scene_to_load == SceneManager.game_scene:
