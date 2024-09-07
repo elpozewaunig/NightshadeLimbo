@@ -6,6 +6,7 @@ extends StaticBody2D
 
 var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
 var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
+var artillery_scene = preload("res://scenes/boss_attacks/artillery_projectile.tscn")
 var vine_scene = preload("res://scenes/boss_attacks/vine_attack.tscn")
 var impact_scene = preload("res://scenes/boss_attacks/jump_impact.tscn")
 
@@ -19,6 +20,7 @@ var salvos = []
 
 # Stores simple countdown for each attack to trigger actions upon completion
 var beams : Array[float] = []
+var artillery : Array[float] = []
 var vines : Array[float] = []
 
 var array_delete_queue = []
@@ -83,6 +85,13 @@ func _process(delta: float) -> void:
 			# Remove expired beams
 			if beams[i] <= 0:
 				mark_for_deletion(beams, i)
+		
+		# Iterate through all artillery projectiles and count down their remaining time
+		for i in range(0, artillery.size()):
+			artillery[i] -= delta
+			# Remove expired artillery projectiles
+			if artillery[i] <= 0:
+				mark_for_deletion(artillery, i)
 		
 		# Iterate through all vines and count down their remaining time
 		for i in range(0, vines.size()):
@@ -157,6 +166,9 @@ func _process(delta: float) -> void:
 	if beams.is_empty():
 		attack_status_changed.emit("beam", false)
 	
+	if artillery.is_empty():
+		attack_status_changed.emit("artillery", false)
+	
 	if vines.is_empty():
 		attack_status_changed.emit("vine", false)
 
@@ -181,6 +193,14 @@ func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float
 	add_child(new_beam)
 	beams.append(init_duration + moving_duration)
 	attack_status_changed.emit("beam", true)
+
+func artillery_shot(to_pos: Vector2, duration: float = 2) -> void:
+	var new_artillery = artillery_scene.instantiate()
+	new_artillery.target_pos = to_pos
+	new_artillery.duration = duration
+	add_child(new_artillery)
+	artillery.append(duration)
+	attack_status_changed.emit("artillery", true)
 
 func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> void:
 	var new_vine = vine_scene.instantiate()

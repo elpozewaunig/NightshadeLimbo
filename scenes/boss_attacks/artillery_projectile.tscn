@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4nx06mcvy8ym"]
+
+[ext_resource type="Script" path="res://scripts/ArtilleryProjectile.gd" id="1_13j4v"]
+[ext_resource type="Texture2D" uid="uid://dpk77hai3qmsu" path="res://assets/sprites/projectile.png" id="1_bkl56"]
+[ext_resource type="Texture2D" uid="uid://dvl50ncbe28rx" path="res://assets/sprites/projectile_splatter.png" id="1_d018f"]
+[ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="2_1odop"]
+[ext_resource type="Texture2D" uid="uid://ca0n763mymfml" path="res://assets/sprites/crater.png" id="2_01tpg"]
+[ext_resource type="AudioStream" uid="uid://bpivj8wo5syvm" path="res://assets/sounds/attacks/sfxBoss_ArtilleryImpact.wav" id="6_bx74f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfgu7"]
+radius = 35.0
+height = 150.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ckfk3"]
+particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 2.0
+initial_velocity_min = 30.0
+initial_velocity_max = 90.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 200.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+scale_min = 0.04
+scale_max = 0.08
+
+[node name="ArtilleryProjectile" type="Area2D"]
+z_index = 2
+script = ExtResource("1_13j4v")
+
+[node name="ImpactSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 30)
+rotation = -1.5708
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_01tpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 30)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jfgu7")
+
+[node name="Projectile" type="Node2D" parent="."]
+
+[node name="GlobalParticles" type="GPUParticles2D" parent="Projectile"]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ckfk3")
+texture = ExtResource("1_d018f")
+lifetime = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Projectile"]
+position = Vector2(0, -50)
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_bkl56")
+
+[node name="ShootSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1odop")
+autoplay = true
+
+[node name="ImpactSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bx74f")

@@ -4,6 +4,7 @@ extends Node2D
 	"default": {"stream": $Background, "active": true},
 	"bullets": {"stream": $Bullets, "active": false},
 	"laser": {"stream": $Laser, "active": false},
+	"artillery": {"stream": $Bullets, "active": false},
 	"vines": {"stream": $Vines, "active": false},
 	"jump": {"stream": $Jump, "active": false},
 	"dash": {"stream": $Jump, "active": false},
@@ -47,6 +48,8 @@ func _on_boss_attack_status_changed(attack: String, status: bool) -> void:
 		tracks["bullets"]["active"] = status
 	elif attack == "beam":
 		tracks["laser"]["active"] = status
+	elif attack == "artillery":
+		tracks["artillery"]["active"] = status
 	elif attack == "vine":
 		tracks["vines"]["active"] = status
 	elif attack == "jump":
