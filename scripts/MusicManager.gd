@@ -30,22 +30,37 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var streams_handled = []
+	
 	for track_name in tracks:
-		var track = tracks[track_name]["stream"]
+		var stream = tracks[track_name]["stream"]
 		var active = tracks[track_name]["active"]
 		var target_volume = tracks[track_name]["volume"]
 		
 		# If track is disabled, reduce its volume continously until it falls silent
-		if not active and track.volume_db > silence_level:
-			track.volume_db -= delta * 100
-			if track.volume_db < silence_level:
-				track.volume_db = silence_level
+		if not stream_active_anywhere(track_name) and not streams_handled.has(stream) and stream.volume_db > silence_level:
+			stream.volume_db -= delta * 50
+			streams_handled.append(stream)
+			if stream.volume_db < silence_level:
+				stream.volume_db = silence_level
 		
-		# If track is enabled, reduce its volume up to zero db
-		elif active and track.volume_db < target_volume:
-			track.volume_db += delta * 100
-			if track.volume_db > target_volume:
-				track.volume_db = target_volume
+		# If track is enabled, increease its volume up to its target volume
+		elif active and not streams_handled.has(stream) and stream.volume_db < target_volume:
+			stream.volume_db += delta * 100
+			streams_handled.append(stream)
+			if stream.volume_db > target_volume:
+				stream.volume_db = target_volume
+
+func stream_active_anywhere(check_track_name) -> bool:
+	var stream = tracks[check_track_name]["stream"]
+	
+	for track_name in tracks:
+		var track = tracks[track_name]
+		# If track controls same stream and is active
+		if track["stream"] == stream and track["active"]:
+			return true
+			
+	return false
 
 
 func _on_boss_attack_status_changed(attack: int, status: bool) -> void:
