@@ -1,21 +1,26 @@
 extends Node2D
 
-@onready var tracks = {
-	"default": {"stream": $Background, "active": true},
-	"salvos": {"stream": $Bullets, "active": false},
-	"beams": {"stream": $Laser, "active": false},
-	"artillery": {"stream": $Bullets, "active": false},
-	"vines": {"stream": $Vines, "active": false},
-	"jump": {"stream": $Jump, "active": false},
-	"dash": {"stream": $Jump, "active": false},
-}
+# Must point to boss to configure own track dictionary with correct attacks
+@export var boss : Boss
 
 @export var silence_level : float = -100
 @export var change_speed : float = 300
 
+var tracks = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Set up tracks after boss attack data becomes avaiable
+	tracks = {
+		"default": {"stream": $Background, "active": true},
+		boss.Attacks.SALVO: {"stream": $Bullets, "active": false},
+		boss.Attacks.BEAM: {"stream": $Laser, "active": false},
+		boss.Attacks.ARTILLERY: {"stream": $Bullets, "active": false},
+		boss.Attacks.VINE: {"stream": $Vines, "active": false},
+		boss.Attacks.JUMP: {"stream": $Jump, "active": false},
+		boss.Attacks.DASH: {"stream": $Jump, "active": false}
+	}
+	
 	# Iterate through all tracks
 	# Store volume setting from editor to return to via code
 	for track_name in tracks:
@@ -43,7 +48,7 @@ func _process(delta: float) -> void:
 				track.volume_db = target_volume
 
 
-func _on_boss_attack_status_changed(attack: String, status: bool) -> void:
+func _on_boss_attack_status_changed(attack: int, status: bool) -> void:
 	tracks[attack]["active"] = status
 
 

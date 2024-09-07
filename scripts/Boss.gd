@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Boss
 
 @onready var timeline = $AttackTimeline
 @onready var animation = $Tomato/AnimationPlayer
@@ -15,14 +16,16 @@ var vulnerable = false
 var vulnerable_duration = 0
 var dmg_taken = false
 
+enum Attacks {SALVO, BEAM, ARTILLERY, VINE, JUMP, DASH}
+
 # Stores necessary data for firing bullets
 var salvos = []
 
 # Stores simple countdown for each attack to trigger actions upon completion
 var attack_countdowns = {
-	"beams": [],
-	"artillery": [],
-	"vines": []
+	Attacks.BEAM: [],
+	Attacks.ARTILLERY: [],
+	Attacks.VINE: []
 }
 
 var array_delete_queue = []
@@ -106,7 +109,7 @@ func _process(delta: float) -> void:
 				jump_end_anim = false
 				add_child(impact_scene.instantiate())
 				dmg_zone.monitoring = true
-				attack_status_changed.emit("jump", false)
+				attack_status_changed.emit(Attacks.JUMP, false)
 		
 		# Handle dashing
 		if dashing:
@@ -116,7 +119,7 @@ func _process(delta: float) -> void:
 			if move_duration <= 0:
 				global_position = move_target
 				dashing = false
-				attack_status_changed.emit("dash", false)
+				attack_status_changed.emit(Attacks.DASH, false)
 		
 		# Handle vulnerability windows
 		if vulnerable:
@@ -151,7 +154,7 @@ func _process(delta: float) -> void:
 	
 	# Emit status signals for attacks that have stopped 
 	if salvos.is_empty():
-		attack_status_changed.emit("salvos", false)
+		attack_status_changed.emit(Attacks.SALVO, false)
 	
 	for attack in attack_countdowns:
 		if attack_countdowns[attack].is_empty():
@@ -175,16 +178,16 @@ func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float
 	new_beam.end_target_pos = end_to_pos
 	new_beam.move_duration = moving_duration
 	add_child(new_beam)
-	attack_countdowns["beams"].append(init_duration + moving_duration)
-	attack_status_changed.emit("beams", true)
+	attack_countdowns[Attacks.BEAM].append(init_duration + moving_duration)
+	attack_status_changed.emit(Attacks.BEAM, true)
 
 func artillery_shot(to_pos: Vector2, duration: float = 2) -> void:
 	var new_artillery = artillery_scene.instantiate()
 	new_artillery.target_pos = to_pos
 	new_artillery.duration = duration
 	add_child(new_artillery)
-	attack_countdowns["artillery"].append(duration)
-	attack_status_changed.emit("artillery", true)
+	attack_countdowns[Attacks.ARTILLERY].append(duration)
+	attack_status_changed.emit(Attacks.ARTILLERY, true)
 
 func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> void:
 	var new_vine = vine_scene.instantiate()
@@ -192,8 +195,8 @@ func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> 
 	new_vine.duration = duration
 	new_vine.disappear_duration = disappear_duration
 	add_child(new_vine)
-	attack_countdowns["vines"].append(duration + disappear_duration)
-	attack_status_changed.emit("vines", true)
+	attack_countdowns[Attacks.VINE].append(duration + disappear_duration)
+	attack_status_changed.emit(Attacks.VINE, true)
 
 func jump(to_pos: Vector2, duration: float = 3) -> void:
 	animation.play("JumpAttack_START")
@@ -201,7 +204,7 @@ func jump(to_pos: Vector2, duration: float = 3) -> void:
 	jump_end_anim = false
 	move_target = to_pos
 	move_duration = duration
-	attack_status_changed.emit("jump", true)
+	attack_status_changed.emit(Attacks.JUMP, true)
 
 func dash(to_pos: Vector2, duration: float = 0.5) -> void:
 	#animation.play("Walk")
@@ -209,7 +212,7 @@ func dash(to_pos: Vector2, duration: float = 0.5) -> void:
 	move_target = to_pos
 	move_duration = duration
 	move_speed = global_position.distance_to(to_pos) / duration
-	attack_status_changed.emit("dash", true)
+	attack_status_changed.emit(Attacks.DASH, true)
 
 func turn_vulnerable(duration: float = 5) -> void:
 	dmg_zone.monitoring = false
@@ -246,7 +249,7 @@ func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: fl
 	"interval": duration / amount,
 	"countdown": 0
 	})
-	attack_status_changed.emit("salvos", true)
+	attack_status_changed.emit(Attacks.SALVO, true)
 
 # Marks array elements for deletion. Useful so that they can be deleted during iteration
 func mark_for_deletion(array: Array, index: int) -> void:
