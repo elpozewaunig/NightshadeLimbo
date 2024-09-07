@@ -37,17 +37,23 @@ func _physics_process(delta: float) -> void:
 			reset_debuff = false
 	
 	if permit_movement and not dead:
-		# Get the x-axis input direction and handle the movement/deceleration.
-		var x_movement := Input.get_axis("ui_left", "ui_right")
-		if x_movement:
-			velocity.x = x_movement * (SPEED - speed_debuff)
+		# Get axis input
+		var x_input := Input.get_axis("ui_left", "ui_right")
+		var y_input := Input.get_axis("ui_up", "ui_down")
+		
+		# When both directions are active, the player might exceed maximum speed
+		# To compensate for this, normalize the input vector
+		var normalized_input := Vector2(x_input, y_input).normalized()
+		
+		# Handle x-axis movement/deceleration
+		if normalized_input.x:
+			velocity.x = normalized_input.x * (SPEED - speed_debuff)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-		# Get the y-axis input direction and handle the movement/deceleration.
-		var y_movement := Input.get_axis("ui_up", "ui_down")
-		if y_movement:
-			velocity.y = y_movement * (SPEED - speed_debuff)
+		# Handle y-axis movement/deceleration
+		if normalized_input.y:
+			velocity.y = normalized_input.y * (SPEED - speed_debuff)
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
