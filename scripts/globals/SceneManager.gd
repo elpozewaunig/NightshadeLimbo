@@ -20,3 +20,6 @@ func change_scene(scene_name : String, loading_screen : bool = false) -> void:
 	
 	else:
 		get_tree().change_scene_to_packed(load(scene_name))
+
+func quit_game():
+	get_tree().quit()

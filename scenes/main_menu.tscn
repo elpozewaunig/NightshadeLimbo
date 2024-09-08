@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=35 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -105,7 +105,10 @@ emission_box_extents = Vector3(350, 1, 1)
 gravity = Vector3(0, 98, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4rsm"]
-size = Vector2(282, 119)
+size = Vector2(225, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chvwl"]
+size = Vector2(137, 82)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mriem"]
 font = ExtResource("2_hht2f")
@@ -179,26 +182,41 @@ selectors_to_sync = [NodePath("../MainMenuButtons/ButtonSelector"), NodePath("..
 script = ExtResource("6_swuh5")
 
 [node name="ButtonSelector" parent="UI/MainMenuButtons" node_paths=PackedStringArray("buttons") instance=ExtResource("7_ls1if")]
-buttons = [NodePath("../StartButton"), NodePath("../CreditsButton")]
+buttons = [NodePath("../StartButton"), NodePath("../CreditsButton"), NodePath("../QuitButton")]
 
 [node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
-position = Vector2(-722, 262)
+position = Vector2(-719, 331)
 
 [node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
 text = "Start journey"
 
 [node name="CreditsButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
-position = Vector2(-748, 413)
+position = Vector2(-803, 446)
+scale = Vector2(0.81, 0.81)
 
 [node name="AnimatedSprite2D" parent="UI/MainMenuButtons/CreditsButton" index="0"]
-scale = Vector2(1, 1)
+scale = Vector2(0.82, 0.85)
 
 [node name="Label" parent="UI/MainMenuButtons/CreditsButton" index="1"]
 text = "Credits"
 
 [node name="CollisionShape2D" parent="UI/MainMenuButtons/CreditsButton" index="2"]
-position = Vector2(0, -1.5)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_j4rsm")
+
+[node name="QuitButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
+position = Vector2(-626, 454)
+
+[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/QuitButton" index="0"]
+position = Vector2(0, -6.44)
+scale = Vector2(0.515, 0.7)
+
+[node name="Label" parent="UI/MainMenuButtons/QuitButton" index="1"]
+text = "Quit"
+
+[node name="CollisionShape2D" parent="UI/MainMenuButtons/QuitButton" index="2"]
+position = Vector2(-0.5, -7)
+shape = SubResource("RectangleShape2D_chvwl")
 
 [node name="Credits" type="ColorRect" parent="UI"]
 visible = false
@@ -515,7 +533,7 @@ texture = ExtResource("1_3me3h")
 script = ExtResource("19_6iilf")
 
 [node name="scawyspwite" type="Sprite2D" parent="SceneTransition"]
-self_modulate = Color(1, 1, 1, 0.0313726)
+self_modulate = Color(1, 1, 1, 0.0392157)
 position = Vector2(14, -50)
 scale = Vector2(1.615, 1.615)
 texture = ExtResource("3_5j4db")
@@ -532,9 +550,11 @@ script = ExtResource("21_otmm1")
 [connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="MenuMusic" method="_on_start_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
 [connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/QuitButton" to="SceneTransition" method="_on_quit_button_clicked"]
 [connection signal="clicked" from="UI/Credits/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
 [connection signal="clicked" from="UI/Credits/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
 
 [editable path="UI/MainMenuButtons/StartButton"]
 [editable path="UI/MainMenuButtons/CreditsButton"]
+[editable path="UI/MainMenuButtons/QuitButton"]
 [editable path="UI/Credits/ExitButton"]
