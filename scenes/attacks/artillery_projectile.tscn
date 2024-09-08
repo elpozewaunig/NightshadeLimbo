@@ -61,6 +61,8 @@ texture = ExtResource("1_bkl56")
 [node name="ShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_1odop")
 autoplay = true
+bus = &"SFX"
 
 [node name="ImpactSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_bx74f")
+bus = &"SFX"

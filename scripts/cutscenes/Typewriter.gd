@@ -11,8 +11,9 @@ func _ready() -> void:
 @export var TypeSpeed:float = 0.3
 
 @onready var label:Label = $Label
-@onready var audioplayer:AudioStreamPlayer2D = $TypewriterAudio
-@onready var effect = AudioServer.get_bus_effect(1,0) # 2nd bus, 1st effect
+@onready var audioplayer:AudioStreamPlayer = $TypewriterAudio
+@onready var bus_index = AudioServer.get_bus_index("TypewriterPitcher")
+@onready var effect = AudioServer.get_bus_effect(bus_index, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var vis_char = 0

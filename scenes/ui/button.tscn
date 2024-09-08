@@ -56,9 +56,11 @@ shape = SubResource("RectangleShape2D_xkhs4")
 [node name="ClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_orodj")
 volume_db = 2.0
+bus = &"SFX"
 
 [node name="SelectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_v51a6")
+bus = &"SFX"
 
 [connection signal="clicked" from="." to="." method="_on_clicked"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

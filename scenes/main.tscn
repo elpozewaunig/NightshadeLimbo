@@ -397,7 +397,7 @@ tracks/9/keys = {
 tracks/10/type = "audio"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../AudioStreamPlayer2D")
+tracks/10/path = NodePath("../AudioStreamPlayer")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -574,7 +574,7 @@ tracks/19/keys = {
 tracks/20/type = "audio"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../AudioStreamPlayer2D")
+tracks/20/path = NodePath("../AudioStreamPlayer")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -811,7 +811,8 @@ position = Vector2(-5, 107)
 scale = Vector2(0.468, 0.422)
 texture = ExtResource("9_tkm8o")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ExplodingTomato"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ExplodingTomato"]
+bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodingTomato"]
 position = Vector2(-5, 109.5)
@@ -989,30 +990,36 @@ boss = NodePath("../Boss")
 [node name="Background" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("14_fq2vf")
 volume_db = -10.0
+bus = &"Music"
 parameters/looping = true
 
 [node name="Bullets" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("16_blnxq")
 volume_db = -10.0
+bus = &"Music"
 parameters/looping = true
 
 [node name="Laser" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("17_elhki")
 volume_db = -10.0
+bus = &"Music"
 parameters/looping = true
 
 [node name="Vines" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("18_4dvss")
 volume_db = -10.0
+bus = &"Music"
 parameters/looping = true
 
 [node name="Jump" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("16_8p4fi")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="VictoryJingle" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("40_vsbyh")
 volume_db = -10.0
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="body_entered" from="BackgroundWIN/Exit" to="BackgroundWIN/Exit" method="_on_body_entered"]

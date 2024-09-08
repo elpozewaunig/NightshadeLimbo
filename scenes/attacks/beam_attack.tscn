@@ -49,4 +49,5 @@ local_coords = true
 stream = ExtResource("5_wt4tr")
 volume_db = -5.0
 autoplay = true
+bus = &"SFX"
 parameters/looping = true

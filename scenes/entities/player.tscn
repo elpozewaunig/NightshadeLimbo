@@ -239,5 +239,6 @@ occluder = SubResource("OccluderPolygon2D_jvu8b")
 
 [node name="DeathSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_t74wv")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Weapon" to="." method="_on_weapon_hitbox_entered"]

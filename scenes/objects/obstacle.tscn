@@ -42,3 +42,4 @@ occluder = SubResource("OccluderPolygon2D_kbkjc")
 [node name="BreakSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jsh6w")
 volume_db = -10.0
+bus = &"SFX"
