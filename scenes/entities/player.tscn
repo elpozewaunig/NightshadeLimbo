@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://v8w2nt3d8m03"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_lgxym"]
+[ext_resource type="Script" path="res://scripts/entities/Player.gd" id="1_lgxym"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="2_do7yw"]
 [ext_resource type="AudioStream" uid="uid://cs4w62hbh2cxq" path="res://assets/sounds/sfx_PlayerDeath.ogg" id="5_t74wv"]
 [ext_resource type="Texture2D" uid="uid://dvh83f7shqs4d" path="res://assets/sprites/broom.png" id="5_xcjhp"]

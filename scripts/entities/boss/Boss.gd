@@ -5,11 +5,11 @@ class_name Boss
 @onready var animation = $Tomato/AnimationPlayer
 @onready var dmg_zone = $DamageZone
 
-var projectile_scene = preload("res://scenes/boss_attacks/projectile.tscn")
-var beam_scene = preload("res://scenes/boss_attacks/beam_attack.tscn")
-var artillery_scene = preload("res://scenes/boss_attacks/artillery_projectile.tscn")
-var vine_scene = preload("res://scenes/boss_attacks/vine_attack.tscn")
-var impact_scene = preload("res://scenes/boss_attacks/jump_impact.tscn")
+var projectile_scene = preload("res://scenes/attacks/projectile.tscn")
+var beam_scene = preload("res://scenes/attacks/beam_attack.tscn")
+var artillery_scene = preload("res://scenes/attacks/artillery_projectile.tscn")
+var vine_scene = preload("res://scenes/attacks/vine_attack.tscn")
+var impact_scene = preload("res://scenes/attacks/jump_impact.tscn")
 
 @export var health : int = 3
 var vulnerable = false

@@ -1,6 +1,6 @@
 extends Area2D
 
-var segment = preload("res://scenes/boss_attacks/vine_segment.tscn")
+var segment = preload("res://scenes/attacks/vine_segment.tscn")
 var current_segments : Array[VineSegment] = []
 
 var points : Array = [Vector2(960, 540), Vector2(1200, 540), Vector2(1920, 540)]

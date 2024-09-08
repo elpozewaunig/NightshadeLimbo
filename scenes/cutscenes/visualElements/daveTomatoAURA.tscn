@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="1_perkc"]
 [ext_resource type="Texture2D" uid="uid://c5uk7355c1umy" path="res://assets/sprites/TomatoRagingAuroSpriteDownscale.png" id="2_cjjsw"]
-[ext_resource type="Script" path="res://scripts/AuraOverlay.gd" id="3_85fs1"]
+[ext_resource type="Script" path="res://scripts/entities/boss/AuraOverlay.gd" id="3_85fs1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
 atlas = ExtResource("2_cjjsw")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=82 format=3 uid="uid://s47feaqqdtgj"]
 
-[ext_resource type="Script" path="res://scripts/Boss.gd" id="1_3ifcl"]
+[ext_resource type="Script" path="res://scripts/entities/boss/Boss.gd" id="1_3ifcl"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="2_4c6eb"]
 [ext_resource type="Texture2D" uid="uid://ciibeq1sxy6bi" path="res://assets/sprites/tomato_sprite.png" id="3_1ef8q"]
 [ext_resource type="Texture2D" uid="uid://ccxoro3vp38iq" path="res://assets/sprites/thorns.png" id="3_5l0u7"]
@@ -23,7 +23,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/negative.gdshader" id="18_fhefg"]
 [ext_resource type="Texture2D" uid="uid://c5uk7355c1umy" path="res://assets/sprites/TomatoRagingAuroSpriteDownscale.png" id="18_hjhdo"]
 [ext_resource type="Shader" path="res://assets/shaders/mirage.gdshader" id="19_661uf"]
-[ext_resource type="Script" path="res://scripts/AuraOverlay.gd" id="19_cwyxu"]
+[ext_resource type="Script" path="res://scripts/entities/boss/AuraOverlay.gd" id="19_cwyxu"]
 [ext_resource type="Texture2D" uid="uid://btscq85drdvt0" path="res://assets/sprites/gloweyetomato.png" id="20_0q56x"]
 [ext_resource type="Shader" path="res://assets/shaders/contrasted.gdshader" id="20_50m7f"]
 [ext_resource type="AudioStream" uid="uid://d24xysr5nw0to" path="res://assets/sounds/attacks/sfx_TomatoHit.ogg" id="21_1pc22"]

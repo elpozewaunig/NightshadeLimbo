@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xcg3hg44u2n5"]
 
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="1_wqjxb"]
-[ext_resource type="Script" path="res://scripts/AmbienceMusic.gd" id="2_n4xin"]
+[ext_resource type="Script" path="res://scripts/globals/AmbienceMusic.gd" id="2_n4xin"]
 
 [node name="AmbienceMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_wqjxb")
