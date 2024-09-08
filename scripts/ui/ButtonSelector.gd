@@ -1,10 +1,13 @@
 extends Node2D
 class_name ButtonSelector
 
-@export var buttons : Array[Area2DButton] = []
+@export var button_rows : Array[ButtonRowConfig] = []
 
 var highlight_active = false
-var highlight_index = 0
+var highlight_row = 0
+var highlight_col = 0
+
+enum Direction {UP, DOWN, LEFT, RIGHT}
 
 signal set_key_mode(source)
 signal set_mouse_mode(source)
@@ -13,38 +16,61 @@ signal ext_cleared
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for button in buttons:
-		# Connect all buttons to the external selection signals
-		ext_selected.connect(button._on_ext_selected)
-		ext_cleared.connect(button._on_ext_cleared)
-		
-		# Connect self to button's select signal
-		button.selected.connect(_on_btn_selected)
+	# Get all buttons in all rows
+	for row in button_rows:
+		for button in row.buttons:
+			# Connect all buttons to the external selection signals
+			ext_selected.connect(button._on_ext_selected)
+			ext_cleared.connect(button._on_ext_cleared)
+			
+			# Connect self to button's select signal
+			button.selected.connect(_on_btn_selected)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if buttons[highlight_index].is_visible_in_tree() and not buttons[highlight_index].disabled:
-		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
-			activate_or_move("up")
-		if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
-			activate_or_move("down")
+	if get_current_button().is_visible_in_tree() and not get_current_button().disabled:
+		if Input.is_action_just_pressed("ui_up"):
+			activate_or_move(Direction.UP)
+		if Input.is_action_just_pressed("ui_down"):
+			activate_or_move(Direction.DOWN)
+		if Input.is_action_just_pressed("ui_left"):
+			activate_or_move(Direction.LEFT)
+		if Input.is_action_just_pressed("ui_right"):
+			activate_or_move(Direction.RIGHT)
 
-func activate_or_move(move: String) -> void:
+func activate_or_move(move: int) -> void:
 	# If a button is currently highlighted
-	if highlight_active or buttons[highlight_index].mouse_inside:
-		if (move == "up" and highlight_index > 0):
-			highlight_index -= 1
-		elif (move == "down" and highlight_index < buttons.size() - 1):
-			highlight_index += 1
+	if highlight_active or get_current_button().mouse_inside:
+		if (move == Direction.UP and highlight_row > 0):
+			highlight_row -= 1
+		elif (move == Direction.DOWN and highlight_row < button_rows.size() - 1):
+			highlight_row += 1
+		elif (move == Direction.LEFT and highlight_col > 0):
+			highlight_col -= 1
+		elif (move == Direction.RIGHT and highlight_col < current_row_buttons().size() - 1):
+			highlight_col += 1
+			
+		# If the row that is being switched to has fewer buttons jump to the closest button
+		if highlight_col > current_row_buttons().size() - 1:
+			highlight_col = current_row_buttons().size() - 1
 	
 	# Else, just enable the highlight but don't change the position
 	set_key_mode.emit(self)
 	enable_highlight()
 
+func current_row_buttons() -> Array[Area2DButton]:
+	return button_rows[highlight_row].buttons
+
+func get_button(row: int, col: int) -> Area2DButton:
+	return button_rows[row].buttons[col]
+
+func get_current_button() -> Area2DButton:
+	return get_button(highlight_row, highlight_col)
+
 func _input(event):
 	# As soon as the mouse is moved, disable the highlight if currently active
-	if event is InputEventMouseMotion and buttons[highlight_index].is_visible_in_tree():
+	if event is InputEventMouseMotion and get_current_button().is_visible_in_tree():
 		set_mouse_mode.emit(self)
 		disable_highlight()
 
@@ -62,14 +88,19 @@ func _on_key_mode_changed(active, source) -> void:
 # When a button reports that it has been selected, update the selection index
 func _on_btn_selected(button):
 	if not highlight_active:
-		for i in range(0, buttons.size()):
-			if buttons[i] == button:
-				highlight_index = i
+		
+		# Check all buttons to find the index of the selected one
+		for row_i in range(0, button_rows.size()):
+			for col_i in range(0, button_rows[row_i].buttons.size()):
+				var compare_btn = get_button(row_i, col_i)
+				if compare_btn == button:
+					highlight_row = row_i
+					highlight_col = col_i
 
 func enable_highlight():
 	highlight_active = true
 	# Notify buttons of the currently highlighted button
-	ext_selected.emit(buttons[highlight_index])
+	ext_selected.emit(get_current_button())
 
 func disable_highlight():
 	highlight_active = false

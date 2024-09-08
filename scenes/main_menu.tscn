@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=36 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="7_ls1if"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
+[ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="9_n4m28"]
 [ext_resource type="Script" path="res://scripts/ui/menu/CreditsView.gd" id="10_8l1x4"]
 [ext_resource type="Script" path="res://scripts/ui/menu/CreditsExitButton.gd" id="11_60r02"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
@@ -181,40 +182,46 @@ selectors_to_sync = [NodePath("../MainMenuButtons/ButtonSelector"), NodePath("..
 [node name="MainMenuButtons" type="Node2D" parent="UI"]
 script = ExtResource("6_swuh5")
 
-[node name="ButtonSelector" parent="UI/MainMenuButtons" node_paths=PackedStringArray("buttons") instance=ExtResource("7_ls1if")]
-buttons = [NodePath("../StartButton"), NodePath("../CreditsButton"), NodePath("../QuitButton")]
+[node name="ButtonSelector" parent="UI/MainMenuButtons" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
+button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
-[node name="StartButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
+[node name="ButtonRowConfig" parent="UI/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("StartButton")]
+
+[node name="StartButton" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
 position = Vector2(-719, 331)
 
-[node name="Label" parent="UI/MainMenuButtons/StartButton" index="1"]
+[node name="Label" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="1"]
 text = "Start journey"
 
-[node name="CreditsButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
+[node name="ButtonRowConfig2" parent="UI/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("CreditsButton"), NodePath("QuitButton")]
+
+[node name="CreditsButton" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("3_fx80t")]
 position = Vector2(-803, 446)
 scale = Vector2(0.81, 0.81)
 
-[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/CreditsButton" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" index="0"]
 scale = Vector2(0.82, 0.85)
 
-[node name="Label" parent="UI/MainMenuButtons/CreditsButton" index="1"]
+[node name="Label" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" index="1"]
 text = "Credits"
 
-[node name="CollisionShape2D" parent="UI/MainMenuButtons/CreditsButton" index="2"]
+[node name="CollisionShape2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" index="2"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_j4rsm")
 
-[node name="QuitButton" parent="UI/MainMenuButtons" instance=ExtResource("3_fx80t")]
+[node name="QuitButton" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("3_fx80t")]
 position = Vector2(-626, 454)
 
-[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/QuitButton" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" index="0"]
 position = Vector2(0, -6.44)
 scale = Vector2(0.515, 0.7)
 
-[node name="Label" parent="UI/MainMenuButtons/QuitButton" index="1"]
+[node name="Label" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" index="1"]
 text = "Quit"
 
-[node name="CollisionShape2D" parent="UI/MainMenuButtons/QuitButton" index="2"]
+[node name="CollisionShape2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" index="2"]
 position = Vector2(-0.5, -7)
 shape = SubResource("RectangleShape2D_chvwl")
 
@@ -232,18 +239,21 @@ script = ExtResource("10_8l1x4")
 position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 
-[node name="ButtonSelector" parent="UI/Credits" node_paths=PackedStringArray("buttons") instance=ExtResource("7_ls1if")]
-buttons = [NodePath("../ExitButton")]
+[node name="ButtonSelector" parent="UI/Credits" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
+button_rows = [NodePath("ButtonRowConfig")]
 
-[node name="ExitButton" parent="UI/Credits" instance=ExtResource("3_fx80t")]
+[node name="ButtonRowConfig" parent="UI/Credits/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("ExitButton")]
+
+[node name="ExitButton" parent="UI/Credits/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
 position = Vector2(1790, 110)
 script = ExtResource("11_60r02")
 
-[node name="AnimatedSprite2D" parent="UI/Credits/ExitButton" index="0"]
+[node name="AnimatedSprite2D" parent="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" index="0"]
 position = Vector2(0, -14)
 scale = Vector2(0.415, 0.945)
 
-[node name="Label" parent="UI/Credits/ExitButton" index="1"]
+[node name="Label" parent="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" index="1"]
 offset_left = -29.0
 offset_top = -74.0
 offset_right = 29.0
@@ -251,7 +261,7 @@ offset_bottom = 75.0
 text = "X"
 label_settings = SubResource("LabelSettings_mriem")
 
-[node name="CollisionShape2D" parent="UI/Credits/ExitButton" index="2"]
+[node name="CollisionShape2D" parent="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" index="2"]
 position = Vector2(0, -17.5)
 shape = SubResource("RectangleShape2D_u5pb1")
 
@@ -545,17 +555,17 @@ autoplay = true
 parameters/looping = true
 script = ExtResource("21_otmm1")
 
-[connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="UI/MainMenuButtons" method="_on_start_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="SceneTransition" method="_on_start_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/StartButton" to="MenuMusic" method="_on_start_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/QuitButton" to="SceneTransition" method="_on_quit_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/QuitButton" to="MenuMusic" method="_on_quit_button_clicked"]
-[connection signal="clicked" from="UI/Credits/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
-[connection signal="clicked" from="UI/Credits/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="UI/MainMenuButtons" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="SceneTransition" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="MenuMusic" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" to="SceneTransition" method="_on_quit_button_clicked"]
+[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" to="MenuMusic" method="_on_quit_button_clicked"]
+[connection signal="clicked" from="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
 
-[editable path="UI/MainMenuButtons/StartButton"]
-[editable path="UI/MainMenuButtons/CreditsButton"]
-[editable path="UI/MainMenuButtons/QuitButton"]
-[editable path="UI/Credits/ExitButton"]
+[editable path="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton"]
+[editable path="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton"]
+[editable path="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton"]
+[editable path="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton"]

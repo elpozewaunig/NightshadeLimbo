@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=75 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -54,6 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="43_j1v2b"]
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/ui/button.tscn" id="44_8ttwp"]
 [ext_resource type="Script" path="res://scripts/game/overlays/WinTransition.gd" id="44_pnwlx"]
+[ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="47_hsw4w"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -959,8 +960,11 @@ vertical_alignment = 1
 
 [node name="Buttons" type="Node2D" parent="Camera2D/Overlays/PauseScreen"]
 
-[node name="ButtonSelector" parent="Camera2D/Overlays/PauseScreen/Buttons" node_paths=PackedStringArray("buttons") instance=ExtResource("43_j1v2b")]
-buttons = [NodePath("../ContinueButton"), NodePath("../ExitButton")]
+[node name="ButtonSelector" parent="Camera2D/Overlays/PauseScreen/Buttons" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
+button_rows = [NodePath("ButtonRowConfig")]
+
+[node name="ButtonRowConfig" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+buttons = [NodePath("../../ContinueButton"), NodePath("../../ExitButton")]
 
 [node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/Buttons" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 260)
