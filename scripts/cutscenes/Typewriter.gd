@@ -18,16 +18,23 @@ func _ready() -> void:
 var vis_char = 0
 func _process(delta: float) -> void:
 	if label.visible_ratio < 1:
-		label.visible_ratio += TypeSpeed * delta
-
+		label.visible_ratio += (TypeSpeed * delta * 10) / label.text.length()
+	
 	if vis_char != label.visible_characters:
 		vis_char = label.visible_characters
-		
-		if audioplayer.stream != null:
+		if audioplayer.stream != null and currentNotWhiteSpace():
 			effect.pitch_scale = randf_range(Pitch-PitchRange,Pitch+PitchRange)
-			
 			audioplayer.play()
 
-func reset():
+func currentNotWhiteSpace() -> bool:
+	var regex = RegEx.new()
+	regex.compile(r"\s")
+	var currentvis = label.text.length()*label.visible_ratio -1
+	var result = regex.search(label.text[currentvis])
+	print(label.text[currentvis])
+	return result == null
+	
+
+func reset() -> void:
 	label.visible_ratio = 0
 	vis_char = 0
