@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 			if quit:
 				SceneManager.quit_game()
 			else:
+				Stats.reset_deaths()
 				SceneManager.change_scene(SceneManager.cutscene_scene)
 
 func _on_start_button_clicked() -> void:

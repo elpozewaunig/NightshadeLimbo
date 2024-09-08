@@ -101,6 +101,7 @@ func set_game_over() -> void:
 			animation.play("die2")
 			
 		game_over.emit()
+		Stats.add_death()
 
 func _on_projectile_hit() -> void:
 	set_game_over()
