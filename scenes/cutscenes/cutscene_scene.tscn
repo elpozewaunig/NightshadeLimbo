@@ -39,6 +39,7 @@ PlayMusic = true
 LoopMusic = true
 MusicChange = ExtResource("3_2wjhg")
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_ei8hn"]
 script = ExtResource("2_sox31")
@@ -51,6 +52,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_3tt23"]
 script = ExtResource("2_sox31")
@@ -65,6 +67,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_04jrd"]
 script = ExtResource("2_sox31")
@@ -76,6 +79,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_yjewf"]
 script = ExtResource("2_sox31")
@@ -89,6 +93,7 @@ PlayMusic = true
 LoopMusic = true
 MusicChange = ExtResource("8_sjsew")
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_vmpud"]
 script = ExtResource("2_sox31")
@@ -102,6 +107,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_yava2"]
 script = ExtResource("2_sox31")
@@ -115,6 +121,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_usb75"]
 script = ExtResource("2_sox31")
@@ -129,6 +136,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_w1grl"]
 script = ExtResource("2_sox31")
@@ -142,6 +150,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_von4a"]
 script = ExtResource("2_sox31")
@@ -153,6 +162,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_jjjfq"]
 script = ExtResource("2_sox31")
@@ -163,7 +173,8 @@ TypewriterSpeed = 0.3
 PlayMusic = true
 LoopMusic = false
 MusicChange = ExtResource("12_h2b68")
-overrideSkipTime = -1.0
+overrideSkipTime = 6.95
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_x7t2i"]
 script = ExtResource("2_sox31")
@@ -180,6 +191,7 @@ PlayMusic = true
 LoopMusic = true
 MusicChange = ExtResource("13_i0yne")
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_xtwed"]
 script = ExtResource("2_sox31")
@@ -191,6 +203,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_dw6rj"]
 script = ExtResource("2_sox31")
@@ -202,6 +215,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_pfk3f"]
 script = ExtResource("2_sox31")
@@ -213,6 +227,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_m0nhk"]
 script = ExtResource("2_sox31")
@@ -224,6 +239,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_rr0ww"]
 script = ExtResource("2_sox31")
@@ -235,6 +251,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_jtfa4"]
 script = ExtResource("2_sox31")
@@ -249,6 +266,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_ts7gs"]
 script = ExtResource("2_sox31")
@@ -260,6 +278,7 @@ TypewriterSound = ExtResource("4_64gbv")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_1laeo"]
 script = ExtResource("2_sox31")
@@ -272,6 +291,7 @@ TypewriterSound = ExtResource("15_gro0h")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_j8o7t"]
 script = ExtResource("2_sox31")
@@ -284,6 +304,7 @@ TypewriterSound = ExtResource("17_5qe7n")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_f3bge"]
 script = ExtResource("2_sox31")
@@ -297,6 +318,7 @@ TypewriterSound = ExtResource("15_gro0h")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_0o2eg"]
 script = ExtResource("2_sox31")
@@ -309,6 +331,7 @@ TypewriterSound = ExtResource("17_5qe7n")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_3y300"]
 script = ExtResource("2_sox31")
@@ -325,6 +348,7 @@ PlayMusic = true
 LoopMusic = true
 MusicChange = ExtResource("13_i0yne")
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_767vn"]
 script = ExtResource("2_sox31")
@@ -337,6 +361,7 @@ TypewriterSound = ExtResource("17_5qe7n")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_6yosb"]
 script = ExtResource("2_sox31")
@@ -352,6 +377,7 @@ TypewriterSound = ExtResource("15_gro0h")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_ls1r6"]
 script = ExtResource("2_sox31")
@@ -367,6 +393,7 @@ TypewriterSound = ExtResource("15_gro0h")
 PlayMusic = true
 LoopMusic = true
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_kiams"]
 script = ExtResource("2_sox31")
@@ -379,6 +406,7 @@ TypewriterSound = ExtResource("17_5qe7n")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_ixs2p"]
 script = ExtResource("2_sox31")
@@ -391,6 +419,7 @@ TypewriterSound = ExtResource("17_5qe7n")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_wfml5"]
 script = ExtResource("2_sox31")
@@ -403,6 +432,7 @@ TypewriterSound = ExtResource("17_5qe7n")
 PlayMusic = false
 LoopMusic = false
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_edt0d"]
 script = ExtResource("2_sox31")
@@ -418,6 +448,7 @@ PlayMusic = true
 LoopMusic = false
 MusicChange = ExtResource("25_hpy61")
 overrideSkipTime = -1.0
+fontSizeOverride = 35
 
 [node name="Cutscene" instance=ExtResource("1_sc146")]
 cutscene_data = Array[ExtResource("2_sox31")]([SubResource("Resource_npgx1"), SubResource("Resource_ei8hn"), SubResource("Resource_3tt23"), SubResource("Resource_04jrd"), SubResource("Resource_yjewf"), SubResource("Resource_vmpud"), SubResource("Resource_yava2"), SubResource("Resource_usb75"), SubResource("Resource_w1grl"), SubResource("Resource_von4a"), SubResource("Resource_jjjfq"), SubResource("Resource_x7t2i"), SubResource("Resource_xtwed"), SubResource("Resource_dw6rj"), SubResource("Resource_pfk3f"), SubResource("Resource_m0nhk"), SubResource("Resource_rr0ww"), SubResource("Resource_jtfa4"), SubResource("Resource_ts7gs"), SubResource("Resource_1laeo"), SubResource("Resource_j8o7t"), SubResource("Resource_f3bge"), SubResource("Resource_0o2eg"), SubResource("Resource_3y300"), SubResource("Resource_767vn"), SubResource("Resource_6yosb"), SubResource("Resource_ls1r6"), SubResource("Resource_kiams"), SubResource("Resource_ixs2p"), SubResource("Resource_wfml5"), SubResource("Resource_edt0d")])

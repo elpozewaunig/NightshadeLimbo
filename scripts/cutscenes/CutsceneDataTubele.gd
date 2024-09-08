@@ -10,8 +10,8 @@ class_name CutsceneDataTubele
 @export var PlayMusic: bool = true
 @export var LoopMusic: bool = true
 @export var MusicChange: AudioStream = null
-@export var overrideSkipTime: float = -1
-
+@export var overrideSkipTime: float = -1 #-1 for no forced-watch-cutscene
+@export var fontSizeOverride: int = 35
 # To leave music unchanged:
 # PlayMusic = true
 # MusicChange = null

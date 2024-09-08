@@ -26,6 +26,10 @@ var nocutsceneflag = false
 func _process(delta: float) -> void:
 	if nocutsceneflag:
 		load_main()
+	
+	if timesleepOverride > 0:
+		timesleepOverride -= delta
+		
 	# Hold to skip?
 	if Input.is_action_pressed("cutscene_skip"):
 		holdskipcounter += delta
@@ -40,12 +44,12 @@ func _process(delta: float) -> void:
 	# Player clicks
 	if Input.is_action_just_pressed("cutscene_click"):
 		# Typewriter is done, next slide please
-		if label.visible_ratio == 1:
+		if label.visible_ratio == 1 and timesleepOverride <= 0:
 			next_cutscene()
 		else: # Typewriter isn't done; Show full text without typewriter   
 			label.visible_ratio = 1
 	
-	if label.visible_ratio == 1:
+	if label.visible_ratio == 1 and timesleepOverride <= 0:
 		clickNextHintAnim.play("blink")
 		
 
@@ -56,7 +60,7 @@ func load_main():
 
 var i = 0	
 var prevmusic = false
-
+var timesleepOverride = -1
 
 func next_cutscene():
 	
@@ -74,6 +78,7 @@ func next_cutscene():
 		visualAssetParent.add_child(child)
 	
 	label.text = cutscene_data[i]["displayText"]
+	label.add_theme_font_size_override("font_size", cutscene_data[i]["fontSizeOverride"])
 	
 	typewriter.reset()
 	typewriter.TypeSpeed = cutscene_data[i]["TypewriterSpeed"]
@@ -94,5 +99,7 @@ func next_cutscene():
 	
 	
 	clickNextHintAnim.play("RESET")
+	
+	timesleepOverride = cutscene_data[i]["overrideSkipTime"]
 	
 	i += 1

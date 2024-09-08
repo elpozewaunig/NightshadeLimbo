@@ -31,7 +31,6 @@ func currentNotWhiteSpace() -> bool:
 	regex.compile(r"\s")
 	var currentvis = label.text.length()*label.visible_ratio -1
 	var result = regex.search(label.text[currentvis])
-	print(label.text[currentvis])
 	return result == null
 	
 
