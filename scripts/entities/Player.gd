@@ -75,7 +75,9 @@ func _physics_process(delta: float) -> void:
 				weapon.hide()
 		
 		if Input.is_action_just_pressed("game_attack"):
-			animation.play("attack")
+			if fight_back:
+				animation.play("attack")
+				animation.queue("chibicycle")
 		
 	# Player has touched exit
 	if escaped:
