@@ -11,6 +11,9 @@ extends Area2D
 var length = 0
 var distance_travelled = 0
 
+var length_override : bool = false
+var force_length : float
+
 var init_target_pos : Vector2 = Vector2(960, 1080)
 var init_duration : float = 1
 var end_target_pos : Vector2 = Vector2(1920, 1080)
@@ -25,11 +28,13 @@ var init_target_reached : bool = false
 var end_target_reached : bool = false
 var time_elapsed : float = 0
 
+var bodies_hit : Array[StaticBody2D] = []
+
 signal player_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Connect to boss mute beam signal
+	# Connect to signal from boss
 	get_parent().player_died.connect(_on_player_died)
 	
 	# Create new shape so that properties are independent
@@ -64,24 +69,37 @@ func _process(delta: float) -> void:
 			
 		time_elapsed = 0
 	
-	# Initial target reached
-	if length >= distance_to_init and not init_target_reached:
-		length = distance_to_init
-		init_target_reached = true
-	
-	elif not init_target_reached:
-		# Consistently increase length of beam
-		length += delta * speed_to_init
-	
+	# Beam is still moving towards initial target
+	if not init_target_reached:
+		
+		# If no obstacle is in the way
+		if not length_override:
+			# Consistently increase length of beam
+			length += delta * speed_to_init
+			if length >= distance_to_init:
+				length = distance_to_init
+				init_target_reached = true
+			
+		# Obstacle is in the way
+		else:
+			length = force_length
+			init_target_reached = true
+		
 	# Moving beam towards end target
 	elif not end_target_reached and distance_travelled < distance_to_move:
 		distance_travelled += delta * move_speed
 		
 		# Calculate current in-between point
 		var current_pos = init_target_pos.move_toward(end_target_pos, distance_travelled)
-		length = global_position.distance_to(current_pos)
+		
+		# If no obstacle is in the way
+		if not length_override:
+			length = global_position.distance_to(current_pos)
+		else:
+			length = force_length
+		
 		rotate_towards(current_pos)
-	
+		
 	# End target reached
 	elif not end_target_reached and distance_travelled >= distance_to_move:
 		length = global_position.distance_to(end_target_pos)
@@ -107,13 +125,27 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not body.dead:
 		player_hit.connect(body._on_beam_hit)
 		player_hit.emit()
-	
+		
 	# When an obstacle is hit
 	elif body.get_class() == "StaticBody2D" and not body.name == "Boss":
+		# Record that beam is currently colliding with body
+		bodies_hit.append(body)
+		
 		# If the beam only has one target, make it disappear
 		if move_duration == 0:
 			init_target_reached = true
 			end_target_reached = true
+		else:
+			length_override = true
+			force_length = global_position.distance_to(body.global_position)
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.get_class() == "StaticBody2D":
+		# Body is no longer colliding with this body
+		bodies_hit.erase(body)
+		
+		if bodies_hit.is_empty():
+			length_override = false
 
 # Turns towards target point, applies fix due to sprite orientation
 func rotate_towards(target : Vector2) -> void:
