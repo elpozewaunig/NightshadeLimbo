@@ -3,6 +3,7 @@ extends Area2D
 @onready var collider = $CollisionShape2D
 @onready var texture = $CollisionShape2D/Texture
 @onready var particles = $Particles
+@onready var sfx = $AudioStreamPlayer
 
 @export var width = 20
 @export var animation_fps = 10
@@ -28,6 +29,9 @@ signal player_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Connect to boss mute beam signal
+	get_parent().player_died.connect(_on_player_died)
+	
 	# Create new shape so that properties are independent
 	collider.shape = RectangleShape2D.new()
 	collider.shape.size.x = width
@@ -115,3 +119,6 @@ func _on_body_entered(body: Node2D) -> void:
 func rotate_towards(target : Vector2) -> void:
 	look_at(target)
 	rotation_degrees -= 90 # -90 since beam is pointing downwards
+
+func _on_player_died():
+	sfx.stop()

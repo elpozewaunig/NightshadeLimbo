@@ -48,6 +48,7 @@ signal set_shake(active)
 
 signal vulnerable_status_changed(status)
 signal player_hit
+signal player_died
 signal chance_missed
 signal defeated
 
@@ -271,6 +272,7 @@ func _on_game_over() -> void:
 	timeline.pause()
 	animation.clear_queue()
 	animation.play("PlayerHasDied")
+	player_died.emit()
 	
 
 func _on_intro_done() -> void:

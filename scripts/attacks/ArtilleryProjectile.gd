@@ -64,4 +64,3 @@ func _process(delta: float) -> void:
 			impact_sprite.modulate.a = 0
 			monitorable = false
 			queue_free()
-	
