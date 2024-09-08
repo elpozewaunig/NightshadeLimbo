@@ -1,7 +1,6 @@
-extends Area2D
+extends RayCast2D
 
-@onready var collider = $CollisionShape2D
-@onready var texture = $CollisionShape2D/Texture
+@onready var texture = $Texture
 @onready var particles = $Particles
 @onready var sfx = $AudioStreamPlayer
 
@@ -11,9 +10,6 @@ extends Area2D
 var length = 0
 var length_created = 0
 var distance_travelled = 0
-
-var length_override : bool = false
-var force_length : float
 
 var init_target_pos : Vector2 = Vector2(960, 1080)
 var init_duration : float = 1
@@ -26,11 +22,13 @@ var distance_to_init : float
 var move_speed : float
 var distance_to_move : float
 
+var current_target_pos : Vector2
 var init_target_reached : bool = false
 var end_target_reached : bool = false
 var time_elapsed : float = 0
 
-var bodies_hit : Array[StaticBody2D] = []
+var collision : bool = false
+var collision_point : Vector2
 
 signal player_hit
 
@@ -39,10 +37,7 @@ func _ready() -> void:
 	# Connect to signal from boss
 	get_parent().player_died.connect(_on_player_died)
 	
-	# Create new shape so that properties are independent
-	collider.shape = RectangleShape2D.new()
-	collider.shape.size.x = width
-	
+	current_target_pos = init_target_pos
 	rotate_towards(init_target_pos)
 	
 	# Values for making beam reach initial target
@@ -59,7 +54,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	# Change to next frame of texture when specified time has passed
 	time_elapsed += delta
@@ -74,23 +69,57 @@ func _process(delta: float) -> void:
 	
 	# Beam is still moving towards initial target
 	if not init_target_reached:
-		
 		# Consistently increase ideal length of beam
 		length_created += delta * speed_to_init
+		if length_created >= distance_to_init:
+			length_created = distance_to_init
+			init_target_reached = true
 		
-		# If no obstacle is in the way
-		if not length_override:
-			# Assume ideal length
-			length = length_created
-			if length >= distance_to_init:
-				length = distance_to_init
-				init_target_reached = true
+		current_target_pos = global_position.move_toward(init_target_pos, length_created)
+		
+	# Moving beam towards end target
+	elif not end_target_reached and distance_travelled < distance_to_move:
+		distance_travelled += delta * move_speed
+		if distance_travelled >= distance_to_move:
+			distance_travelled = distance_to_move
+			end_target_reached = true
 			
-		# Obstacle is in the way
+		current_target_pos = init_target_pos.move_toward(end_target_pos, distance_travelled)
+	
+	# Gradually make beam disappear while at end target
+	if end_target_reached:
+		modulate.a -= 2 * delta
+		if modulate.a <= 0:
+			hide()
+			queue_free()
+	
+	# Set length and raycast target to ideal length
+	length = global_position.distance_to(current_target_pos)
+	target_position = position.move_toward(current_target_pos - global_position, length)
+	force_raycast_update()
+	
+	# Handle collisions
+	var collision_object = get_collider()
+	if collision_object:
+		if collision_object.name == "Player" and not collision_object.dead:
+			update_collision_point()
+			player_hit.connect(collision_object._on_beam_hit)
+			player_hit.emit()
+		elif collision_object.is_in_group("Obstacles"):
+			update_collision_point()
+			
+		# Don't handle any other collision objects	
 		else:
-			# Assume length enforced by obstacle
-			length = force_length
-			
+			collision = false
+	
+	else:
+		collision = false
+	
+	# Correct visual beam length if a collision occurs
+	if collision:
+		length = global_position.distance_to(collision_point)
+		
+		if not init_target_reached:
 			# If the beam has a secondary target, immediately start movement
 			if move_duration > 0:
 				init_target_reached = true
@@ -98,72 +127,24 @@ func _process(delta: float) -> void:
 			# Else wait until the beam would have reached its initial target
 			elif length_created >= distance_to_init:
 				init_target_reached = true
-		
-	# Moving beam towards end target
-	elif not end_target_reached and distance_travelled < distance_to_move:
-		distance_travelled += delta * move_speed
-		
-		# Calculate current in-between point
-		var current_pos = init_target_pos.move_toward(end_target_pos, distance_travelled)
-		
-		# If no obstacle is in the way
-		if not length_override:
-			length = global_position.distance_to(current_pos)
-		else:
-			length = force_length
-		
-		rotate_towards(current_pos)
-		
-	# End target reached
-	elif not end_target_reached and distance_travelled >= distance_to_move:
-		length = global_position.distance_to(end_target_pos)
-		rotate_towards(end_target_pos)
-		end_target_reached = true
 	
-	# Gradually make beam disappear
-	if end_target_reached:
-		modulate.a -= 2 * delta
-		if modulate.a <= 0:
-			hide()
-			queue_free()
+	# Reposition particles according to length
+	particles.global_position = global_position.move_toward(current_target_pos, length)
 	
-	grow_to_length(length)
+	# Always make the texture match the specified dimensions and orientation
+	rotate_towards(current_target_pos)
+	texture.global_position = global_position.move_toward(current_target_pos, length/2)
+	texture.region_rect = Rect2(0, 0, 250, length / texture.scale.y)
 
-func grow_to_length(target_length: float) -> void:
-	# Reposition children according to length
-	collider.position.y = target_length/2
-	particles.position.y = target_length
-	
-	# Always make the texture and collider match the specified dimensions
-	texture.region_rect = Rect2(0, 0, 250, target_length / texture.scale.y)
-	collider.shape.size.y = target_length
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and not body.dead:
-		player_hit.connect(body._on_beam_hit)
-		player_hit.emit()
-		
-	# When an obstacle is hit
-	elif body.get_class() == "StaticBody2D" and body.is_in_group("Obstacles"):
-		# Record that beam is currently colliding with body
-		bodies_hit.append(body)
-		
-		length_override = true
-		force_length = global_position.distance_to(body.global_position)
-		grow_to_length(force_length)
-
-func _on_body_exited(body: Node2D) -> void:
-	if body.get_class() == "StaticBody2D" and body.is_in_group("Obstacles"):
-		# Body is no longer colliding with this body
-		bodies_hit.erase(body)
-		
-		if bodies_hit.is_empty():
-			length_override = false
+func update_collision_point() -> void:
+	collision = true
+	collision_point = get_collision_point()
 
 # Turns towards target point, applies fix due to sprite orientation
 func rotate_towards(target : Vector2) -> void:
-	look_at(target)
-	rotation_degrees -= 90 # -90 since beam is pointing downwards
+	texture.look_at(target)
+	texture.rotation_degrees -= 90 # -90 since beam is pointing downwards
 
 func _on_player_died():
 	sfx.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg8ie5l0qs2ju"]
+[gd_scene load_steps=6 format=3 uid="uid://cg8ie5l0qs2ju"]
 
 [ext_resource type="Script" path="res://scripts/attacks/BeamAttack.gd" id="1_ey2ax"]
 [ext_resource type="Texture2D" uid="uid://cqfkbd1tl6fic" path="res://assets/sprites/laserparticle.png" id="2_i2jbm"]
@@ -19,11 +19,16 @@ radial_accel_max = -2.23517e-06
 scale_min = 0.05
 scale_max = 0.1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieww2"]
-size = Vector2(20, 100)
-
-[node name="BeamAttack" type="Area2D"]
+[node name="BeamAttack" type="RayCast2D"]
 script = ExtResource("1_ey2ax")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_l4d8i")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 260, 100)
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -40,22 +45,8 @@ texture = ExtResource("2_i2jbm")
 lifetime = 5.0
 local_coords = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ieww2")
-
-[node name="Texture" type="Sprite2D" parent="CollisionShape2D"]
-texture_repeat = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_l4d8i")
-hframes = 3
-region_enabled = true
-region_rect = Rect2(0, 0, 260, 100)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wt4tr")
 volume_db = -5.0
 autoplay = true
 parameters/looping = true
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
