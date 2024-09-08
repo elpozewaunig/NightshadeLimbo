@@ -15,8 +15,6 @@ var escaped = false
 var dead = false
 var fight_back = false
 
-var time_mouse_idle = 0
-
 signal game_over
 signal boss_hit
 
@@ -24,12 +22,6 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	time_mouse_idle += delta
-	
-	# Hide mouse automatically if it isn't moved for a long time
-	if time_mouse_idle > 5:
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	
 	# If flag to reset the slowdown has been set
 	if reset_debuff:
 		# Gradually decrease debuff
@@ -82,12 +74,6 @@ func _physics_process(delta: float) -> void:
 	# Player has touched exit
 	if escaped:
 		global_position = global_position.move_toward(Vector2(-300, 540), delta * 200)
-
-func _input(event):
-	# After the mouse is moved, make it visible
-	if event is InputEventMouseMotion:
-		time_mouse_idle = 0
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func set_game_over() -> void:
 	if not dead:

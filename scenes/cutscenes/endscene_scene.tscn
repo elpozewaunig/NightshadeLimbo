@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cud1vqy4x0nn2"]
 
-[ext_resource type="PackedScene" uid="uid://di51kkc51cbhf" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_bwjam"]
+[ext_resource type="PackedScene" uid="uid://bgn5ighrttryb" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_bwjam"]
 [ext_resource type="AudioStream" uid="uid://bklpbpee5btea" path="res://assets/music/BGM_HappyEndingPiano.ogg" id="2_6xdq2"]
 [ext_resource type="Script" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_up8y8"]
 [ext_resource type="AudioStream" uid="uid://cgpp06ctfm8xv" path="res://assets/music/BGM_BossHappyEnding.ogg" id="3_3acg3"]

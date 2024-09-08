@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=76 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -40,7 +40,7 @@
 [ext_resource type="AudioStream" uid="uid://c8nd1nlotsdxj" path="res://assets/sounds/sfx_Click.ogg" id="24_6qan5"]
 [ext_resource type="Script" path="res://scripts/game/objects/ObstacleManager.gd" id="28_ufeeg"]
 [ext_resource type="PackedScene" uid="uid://cpqmks55fi0m" path="res://scenes/objects/obstacle.tscn" id="29_pypiw"]
-[ext_resource type="PackedScene" uid="uid://dybntfod3ak8q" path="res://scenes/objects/occluder_mimic.tscn" id="30_drmd2"]
+[ext_resource type="PackedScene" uid="uid://dybntfod3ak8q" path="res://scenes/utility/occluder_mimic.tscn" id="30_drmd2"]
 [ext_resource type="Script" path="res://scripts/game/Camera.gd" id="30_jje2y"]
 [ext_resource type="Script" path="res://scripts/game/overlays/instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/game/overlays/HealthIndicator.gd" id="35_6s6uf"]
@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/ui/button.tscn" id="44_8ttwp"]
 [ext_resource type="Script" path="res://scripts/game/overlays/WinTransition.gd" id="44_pnwlx"]
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="47_hsw4w"]
+[ext_resource type="PackedScene" uid="uid://dukyhdiq8iidn" path="res://scenes/utility/mouse_hider.tscn" id="50_ywsql"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -962,26 +963,32 @@ vertical_alignment = 1
 [node name="Buttons" type="Node2D" parent="Camera2D/Overlays/PauseScreen"]
 
 [node name="ButtonSelector" parent="Camera2D/Overlays/PauseScreen/Buttons" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
-button_rows = [NodePath("ButtonRowConfig")]
+button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
 [node name="ButtonRowConfig" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
-buttons = [NodePath("../../ContinueButton"), NodePath("../../ExitButton")]
+buttons = [NodePath("ContinueButton")]
 
-[node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/Buttons" instance=ExtResource("44_8ttwp")]
+[node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 260)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ContinueButton" index="1"]
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton" index="1"]
 text = "Continue"
 
-[node name="ExitButton" parent="Camera2D/Overlays/PauseScreen/Buttons" instance=ExtResource("44_8ttwp")]
-position = Vector2(0, 400)
+[node name="ButtonRowConfig2" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+position = Vector2(-960, -540)
+buttons = [NodePath("ExitButton")]
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ExitButton" index="1"]
+[node name="ExitButton" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
+position = Vector2(960, 940)
+
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig2/ExitButton" index="1"]
 text = "Exit to menu"
 
 [node name="FadeOut" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen"]
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("11_g3ka4")
+
+[node name="MouseHider" parent="." instance=ExtResource("50_ywsql")]
 
 [node name="MusicManager" type="Node2D" parent="." node_paths=PackedStringArray("boss")]
 script = ExtResource("15_isqen")
@@ -1051,8 +1058,8 @@ parameters/looping = true
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="Boss" method="_on_intro_done"]
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="MusicManager" method="_on_intro_done"]
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/Buttons/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/Buttons/ExitButton" to="Camera2D/Overlays/PauseScreen" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig2/ExitButton" to="Camera2D/Overlays/PauseScreen" method="_on_exit_button_clicked"]
 
-[editable path="Camera2D/Overlays/PauseScreen/Buttons/ContinueButton"]
-[editable path="Camera2D/Overlays/PauseScreen/Buttons/ExitButton"]
+[editable path="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton"]
+[editable path="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig2/ExitButton"]
