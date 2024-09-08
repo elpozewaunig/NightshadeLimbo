@@ -9,6 +9,7 @@ extends Area2D
 @export var animation_fps = 10
 
 var length = 0
+var length_created = 0
 var distance_travelled = 0
 
 var length_override : bool = false
@@ -21,6 +22,7 @@ var move_duration : float = 1
 
 var speed_to_init : float
 var distance_to_init : float
+
 var move_speed : float
 var distance_to_move : float
 
@@ -55,6 +57,7 @@ func _ready() -> void:
 	else:
 		move_speed = 0
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
@@ -72,18 +75,29 @@ func _process(delta: float) -> void:
 	# Beam is still moving towards initial target
 	if not init_target_reached:
 		
+		# Consistently increase ideal length of beam
+		length_created += delta * speed_to_init
+		
 		# If no obstacle is in the way
 		if not length_override:
-			# Consistently increase length of beam
-			length += delta * speed_to_init
+			# Assume ideal length
+			length = length_created
 			if length >= distance_to_init:
 				length = distance_to_init
 				init_target_reached = true
 			
 		# Obstacle is in the way
 		else:
+			# Assume length enforced by obstacle
 			length = force_length
-			init_target_reached = true
+			
+			# If the beam has a secondary target, immediately start movement
+			if move_duration > 0:
+				init_target_reached = true
+			
+			# Else wait until the beam would have reached its initial target
+			elif length_created >= distance_to_init:
+				init_target_reached = true
 		
 	# Moving beam towards end target
 	elif not end_target_reached and distance_travelled < distance_to_move:
@@ -112,11 +126,14 @@ func _process(delta: float) -> void:
 		if modulate.a <= 0:
 			hide()
 			queue_free()
-		
+	
+	grow_to_length(length)
+
+func grow_to_length(length: float) -> void:
 	# Reposition children according to length
 	collider.position.y = length/2
 	particles.position.y = length
-		
+	
 	# Always make the texture and collider match the specified dimensions
 	texture.region_rect = Rect2(0, 0, 250, length / texture.scale.y)
 	collider.shape.size.y = length
@@ -127,20 +144,16 @@ func _on_body_entered(body: Node2D) -> void:
 		player_hit.emit()
 		
 	# When an obstacle is hit
-	elif body.get_class() == "StaticBody2D" and not body.name == "Boss":
+	elif body.get_class() == "StaticBody2D" and body.is_in_group("Obstacles"):
 		# Record that beam is currently colliding with body
 		bodies_hit.append(body)
 		
-		# If the beam only has one target, make it disappear
-		if move_duration == 0:
-			init_target_reached = true
-			end_target_reached = true
-		else:
-			length_override = true
-			force_length = global_position.distance_to(body.global_position)
+		length_override = true
+		force_length = global_position.distance_to(body.global_position)
+		grow_to_length(force_length)
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.get_class() == "StaticBody2D":
+	if body.get_class() == "StaticBody2D" and body.is_in_group("Obstacles"):
 		# Body is no longer colliding with this body
 		bodies_hit.erase(body)
 		
