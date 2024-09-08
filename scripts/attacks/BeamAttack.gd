@@ -129,14 +129,14 @@ func _process(delta: float) -> void:
 	
 	grow_to_length(length)
 
-func grow_to_length(length: float) -> void:
+func grow_to_length(target_length: float) -> void:
 	# Reposition children according to length
-	collider.position.y = length/2
-	particles.position.y = length
+	collider.position.y = target_length/2
+	particles.position.y = target_length
 	
 	# Always make the texture and collider match the specified dimensions
-	texture.region_rect = Rect2(0, 0, 250, length / texture.scale.y)
-	collider.shape.size.y = length
+	texture.region_rect = Rect2(0, 0, 250, target_length / texture.scale.y)
+	collider.shape.size.y = target_length
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not body.dead:

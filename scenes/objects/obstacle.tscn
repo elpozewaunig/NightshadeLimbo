@@ -33,7 +33,7 @@ position = Vector2(5, 27)
 scale = Vector2(0.385, 0.385)
 sprite_frames = SubResource("SpriteFrames_h0872")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-26, 57, -49, 8, -37, -22, 40, -23, 49, 13, 27, 57)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

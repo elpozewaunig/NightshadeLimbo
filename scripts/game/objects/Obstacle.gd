@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @onready var sprite = $AnimatedSprite2D
-@onready var collider = $CollisionShape2D
+@onready var collider = $CollisionPolygon2D
 @onready var occluder = $LightOccluder2D
 @onready var break_sfx = $BreakSFX
 

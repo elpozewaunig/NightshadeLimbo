@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var death_sfx = $DeathSFX
 
 const SPEED : float = 500.0
-const DECEL_TIME : float = 0.15
+const DECEL_TIME : float = 0.1
 
 var speed_debuff = 0
 var reset_debuff = false
