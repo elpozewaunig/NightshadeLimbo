@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/ui/ButtonSelector.gd" id="1_tnjy4"]
 
-[node name="ButtonSelector" type="Node2D" node_paths=PackedStringArray("buttons")]
+[node name="ButtonSelector" type="Node2D"]
 script = ExtResource("1_tnjy4")
-buttons = [null, null]
