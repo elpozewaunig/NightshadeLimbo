@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			else:
 				SceneManager.change_scene(SceneManager.cutscene_scene)
 
-func _on_start_button_clicked():
+func _on_start_button_clicked() -> void:
 	transition = true
 	show()
 

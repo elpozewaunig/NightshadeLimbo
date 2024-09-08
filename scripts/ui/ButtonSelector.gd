@@ -25,9 +25,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if buttons[highlight_index].is_visible_in_tree() and not buttons[highlight_index].disabled:
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_left"):
 			activate_or_move("up")
-		if Input.is_action_just_pressed("ui_down"):
+		if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_right"):
 			activate_or_move("down")
 
 func activate_or_move(move: String) -> void:
