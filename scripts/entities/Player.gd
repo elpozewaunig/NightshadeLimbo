@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animation = $Sprite2D/AnimationPlayer
+@onready var sprite = $Sprite2D
 @onready var weapon = $Weapon
 @onready var death_sfx = $DeathSFX
 
@@ -43,6 +44,9 @@ func _physics_process(delta: float) -> void:
 		# Handle x-axis movement/deceleration
 		if normalized_input.x:
 			velocity.x = normalized_input.x * (SPEED - speed_debuff)
+			
+			# Flip sprite depending on movement to left or right
+			sprite.flip_h = normalized_input.x < 0
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED / DECEL_TIME  * delta)
 		
