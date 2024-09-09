@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 			speed_debuff = 0
 			reset_debuff = false
 	
+	# Movement script
 	if permit_movement and not dead:
 		# Get axis input
 		var x_input := Input.get_axis("ui_left", "ui_right")
@@ -53,24 +54,24 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		
-		# If the player is in a phase where he can attack
-		if fight_back:
-			weapon.show()
-			weapon.modulate.a += delta * 3
-			if weapon.modulate.a >= 1:
-				weapon.modulate.a = 1
-		
-		else:
-			weapon.modulate.a -= delta * 3
-			if weapon.modulate.a <= 0:
-				weapon.modulate.a = 0
-				weapon.hide()
-		
 		if Input.is_action_just_pressed("game_attack"):
 			if fight_back:
 				animation.play("attack")
 				animation.queue("chibicycle")
+	
+	# If the player is in a phase where he can attack
+	if fight_back:
+		weapon.show()
+		weapon.modulate.a += delta * 3
+		if weapon.modulate.a >= 1:
+			weapon.modulate.a = 1
 		
+	else:
+		weapon.modulate.a -= delta * 3
+		if weapon.modulate.a <= 0:
+			weapon.modulate.a = 0
+			weapon.hide()
+	
 	# Player has touched exit
 	if escaped:
 		global_position = global_position.move_toward(Vector2(-300, 540), delta * 200)

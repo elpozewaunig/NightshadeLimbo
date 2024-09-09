@@ -19,6 +19,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Weapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rj3dv"]
 resource_name = "attack"
@@ -216,6 +228,7 @@ shape = SubResource("CircleShape2D_stp6r")
 visible = false
 position = Vector2(60, 0)
 rotation = 1.5708
+monitoring = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon"]
 position = Vector2(-7, 5)
