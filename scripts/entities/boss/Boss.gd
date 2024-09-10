@@ -134,7 +134,7 @@ func _process(delta: float) -> void:
 				else:
 					animation.play("Vulnerable_END")
 					chance_missed.emit()
-					death_ray()
+					_death_ray()
 					player_hit.emit()
 					
 				vulnerable_duration = 0
@@ -175,12 +175,14 @@ func machine_gun(to_pos: Vector2, amount: int = 20, duration: float = 2) -> void
 func beam(to_pos: Vector2, duration: float = 0.5) -> void:
 	moving_beam(to_pos, to_pos, duration, 0)
 
+# Creates a beam instance that elongates towards an initial target, then moves to another target
 func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float = 0.5, moving_duration: float = 0.5) -> void:
 	var new_beam = _beam_instance(init_to_pos, end_to_pos, init_duration, moving_duration)
 	add_child(new_beam)
 	attack_countdowns[Attacks.BEAM].append(init_duration + moving_duration)
 	attack_status_changed.emit(Attacks.BEAM, true)
 
+# Fires a single bullet that will deal impact damage around a location
 func artillery_shot(to_pos: Vector2, duration: float = 2) -> void:
 	var new_artillery = artillery_scene.instantiate()
 	new_artillery.target_pos = to_pos
@@ -189,6 +191,7 @@ func artillery_shot(to_pos: Vector2, duration: float = 2) -> void:
 	attack_countdowns[Attacks.ARTILLERY].append(duration)
 	attack_status_changed.emit(Attacks.ARTILLERY, true)
 
+# Creates a vine that grows between specified points
 func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> void:
 	var new_vine = vine_scene.instantiate()
 	new_vine.points = points
@@ -198,6 +201,7 @@ func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> 
 	attack_countdowns[Attacks.VINE].append(duration + disappear_duration)
 	attack_status_changed.emit(Attacks.VINE, true)
 
+# Initiates boss jump attack towards position
 func jump(to_pos: Vector2, duration: float = 3) -> void:
 	animation.play("JumpAttack_START")
 	jumping = true
@@ -206,6 +210,7 @@ func jump(to_pos: Vector2, duration: float = 3) -> void:
 	move_duration = duration
 	attack_status_changed.emit(Attacks.JUMP, true)
 
+# Initiates boss dash attack towards position
 func dash(to_pos: Vector2, duration: float = 0.5) -> void:
 	#animation.play("Walk")
 	dashing = true
@@ -214,6 +219,7 @@ func dash(to_pos: Vector2, duration: float = 0.5) -> void:
 	move_speed = global_position.distance_to(to_pos) / duration
 	attack_status_changed.emit(Attacks.DASH, true)
 
+# Makes boss vulnerable for specified duration
 func turn_vulnerable(duration: float = 5) -> void:
 	dmg_zone.monitoring = false
 	animation.play("Vulnerable_INITIATE")
@@ -221,14 +227,16 @@ func turn_vulnerable(duration: float = 5) -> void:
 	vulnerable = true
 	vulnerable_duration = duration
 
+# Destroys obstacle with specified index
 func destroy(obstacle_index: int) -> void:
 	destroy_obstacle.emit(obstacle_index)
 
+# Starts/stops camera shake
 func camera_shake(active : bool = true) -> void:
 	set_shake.emit(active)
 
-# Creates a wider beam that directly aims at the player
-func death_ray() -> void:
+# Creates a wider beam that directly aims at the player. It is only visual but deals no damage
+func _death_ray() -> void:
 	var new_beam = _beam_instance(player.global_position, player.global_position, 0.01, 3)
 	add_child(new_beam)
 	new_beam.enabled = false
