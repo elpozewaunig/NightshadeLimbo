@@ -45,7 +45,7 @@ fontSizeOverride = 35
 [sub_resource type="Resource" id="Resource_cglp2"]
 script = ExtResource("2_up8y8")
 visualAssetScene = ExtResource("6_bgy7c")
-displayText = "(He tolerates tomatoes a bit more...)"
+displayText = "Maybe he can truly tolerate tomatoes a bit more from now on..."
 TypewriterPitch = 1.0
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
