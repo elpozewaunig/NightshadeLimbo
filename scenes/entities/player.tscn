@@ -226,6 +226,7 @@ shape = SubResource("CircleShape2D_stp6r")
 
 [node name="Weapon" type="Area2D" parent="."]
 visible = false
+z_index = 2
 position = Vector2(60, 0)
 rotation = 1.5708
 monitoring = false
