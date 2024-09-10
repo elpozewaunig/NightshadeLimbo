@@ -1038,6 +1038,7 @@ parameters/looping = true
 [connection signal="boss_hit" from="PlayerClippingMask/Player" to="Boss" method="_on_player_boss_hit"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Boss" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/Instructions" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/IntroScreen" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/GameOverScreen" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="MusicManager" method="_on_game_over"]
 [connection signal="attack_status_changed" from="Boss" to="MusicManager" method="_on_boss_attack_status_changed"]

@@ -5,6 +5,7 @@ extends Node2D
 @onready var light_sfx = $LightSFX
 
 var music = AmbienceMusic
+var game_over = false
 
 var phases = ["BLACK_SCREEN", "GAME_START", "FADE_OUT"]
 
@@ -45,9 +46,17 @@ func _process(delta: float) -> void:
 			if illumination.modulate.a <= 0:
 				illumination.modulate.a = 0
 				illumination.hide()
-				music.stop()
+				
+				# Player did not die during intro
+				if not game_over:
+					music.stop()
+					
 				queue_free()
 
 func advance_phase() -> void:
 	time_elapsed = 0
 	phase += 1
+
+
+func _on_game_over() -> void:
+	game_over = true
