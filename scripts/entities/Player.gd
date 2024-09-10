@@ -129,6 +129,9 @@ func _on_boss_vulnerable_status_changed(vulnerable: bool) -> void:
 		if not dead:
 			animation.play("chibicycle")
 
+func _on_chance_missed() -> void:
+	permit_movement = false
+
 func _on_weapon_hitbox_entered(body: Node2D) -> void:
 	if body.name == "Boss":
 		boss_hit.emit()
