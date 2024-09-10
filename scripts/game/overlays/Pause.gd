@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		fade_out.modulate.a += delta
 		if fade_out.modulate.a >= 1:
 			fade_out.modulate.a = 1
-			SceneManager.change_scene(SceneManager.menu_scene, true)
+			SceneManager.change_scene(SceneManager.menu_scene)
 
 func pause(target : bool) -> void:
 	get_tree().paused = target
