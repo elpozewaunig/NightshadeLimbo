@@ -1,5 +1,6 @@
-[gd_scene load_steps=76 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=77 format=3 uid="uid://muherruagjtj"]
 
+[ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="3_wra42"]
@@ -67,7 +68,7 @@ size = Vector2(70.0001, 123)
 size = Vector2(118.723, 44.7217)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7mmn"]
-size = Vector2(111.765, 39.7072)
+size = Vector2(111.537, 40.033)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c178f"]
 size = Vector2(20, 986)
@@ -645,6 +646,7 @@ font_color = Color(0.485703, 0.485704, 0.485703, 1)
 [node name="Main" type="Node2D"]
 
 [node name="Lights" type="Node2D" parent="."]
+script = ExtResource("1_4x8bi")
 
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
 position = Vector2(61, 533)
@@ -709,7 +711,7 @@ rotation = 1.01753
 shape = SubResource("RectangleShape2D_0fjuc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundWIN/DoorObstacle"]
-position = Vector2(-594.851, 114.203)
+position = Vector2(-594.797, 114.395)
 rotation = -0.884882
 shape = SubResource("RectangleShape2D_w7mmn")
 
@@ -1055,6 +1057,7 @@ parameters/looping = true
 [connection signal="boss_death_done" from="ExplodingTomato" to="MusicManager" method="_on_boss_death_done"]
 [connection signal="boss_death_permit_move" from="ExplodingTomato" to="PlayerClippingMask/Player" method="_on_boss_death_permit_move"]
 [connection signal="animation_finished" from="ExplodingTomato/Tomato/AnimationPlayer" to="ExplodingTomato" method="_on_animation_finished"]
+[connection signal="disable_lights" from="Camera2D/Overlays/Transition" to="Lights" method="_on_disable_lights"]
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="Boss" method="_on_intro_done"]
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="MusicManager" method="_on_intro_done"]
