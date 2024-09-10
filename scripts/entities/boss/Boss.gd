@@ -11,6 +11,8 @@ var artillery_scene = preload("res://scenes/attacks/artillery_projectile.tscn")
 var vine_scene = preload("res://scenes/attacks/vine_attack.tscn")
 var impact_scene = preload("res://scenes/attacks/jump_impact.tscn")
 
+@export var player : Player
+
 @export var health : int = 3
 var vulnerable = false
 var vulnerable_duration = 0
@@ -132,6 +134,7 @@ func _process(delta: float) -> void:
 				else:
 					animation.play("Vulnerable_END")
 					chance_missed.emit()
+					death_ray()
 					player_hit.emit()
 					
 				vulnerable_duration = 0
@@ -173,11 +176,7 @@ func beam(to_pos: Vector2, duration: float = 0.5) -> void:
 	moving_beam(to_pos, to_pos, duration, 0)
 
 func moving_beam(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float = 0.5, moving_duration: float = 0.5) -> void:
-	var new_beam = beam_scene.instantiate()
-	new_beam.init_target_pos = init_to_pos
-	new_beam.init_duration = init_duration
-	new_beam.end_target_pos = end_to_pos
-	new_beam.move_duration = moving_duration
+	var new_beam = _beam_instance(init_to_pos, end_to_pos, init_duration, moving_duration)
 	add_child(new_beam)
 	attack_countdowns[Attacks.BEAM].append(init_duration + moving_duration)
 	attack_status_changed.emit(Attacks.BEAM, true)
@@ -228,6 +227,13 @@ func destroy(obstacle_index: int) -> void:
 func camera_shake(active : bool = true) -> void:
 	set_shake.emit(active)
 
+# Creates a wider beam that directly aims at the player
+func death_ray() -> void:
+	var new_beam = _beam_instance(player.global_position, player.global_position, 0.01, 3)
+	add_child(new_beam)
+	new_beam.enabled = false
+	new_beam.texture.scale = Vector2(2, 2)
+
 # Creates a projectile instance and fires it
 func _add_projectile(global_pos_to: Vector2, silent: bool = false) -> void:
 	var projectile = projectile_scene.instantiate()
@@ -251,6 +257,15 @@ func _create_salvo(from_pos: Vector2, to_pos: Vector2, amount: int, duration: fl
 	"countdown": 0
 	})
 	attack_status_changed.emit(Attacks.SALVO, true)
+
+# Returns a pre-configured beam instance
+func _beam_instance(init_to_pos: Vector2, end_to_pos: Vector2, init_duration: float = 0.5, moving_duration: float = 0.5) -> BeamAttack:
+	var new_beam = beam_scene.instantiate()
+	new_beam.init_target_pos = init_to_pos
+	new_beam.init_duration = init_duration
+	new_beam.end_target_pos = end_to_pos
+	new_beam.move_duration = moving_duration
+	return new_beam
 
 # Marks array elements for deletion. Useful so that they can be deleted during iteration
 func mark_for_deletion(array: Array, index: int) -> void:

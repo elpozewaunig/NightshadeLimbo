@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animation = $Sprite2D/AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -83,7 +84,9 @@ func _physics_process(delta: float) -> void:
 func set_game_over() -> void:
 	if not dead:
 		dead = true
+		fight_back = false
 		death_sfx.play()
+		animation.clear_queue()
 		
 		# Play random death animation
 		if randi() % 2 == 0:
@@ -123,7 +126,8 @@ func _on_boss_vulnerable_status_changed(vulnerable: bool) -> void:
 		weapon.modulate.a = 0
 	else:
 		fight_back = false
-		animation.play("chibicycle")
+		if not dead:
+			animation.play("chibicycle")
 
 func _on_weapon_hitbox_entered(body: Node2D) -> void:
 	if body.name == "Boss":

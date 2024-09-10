@@ -1,10 +1,10 @@
 extends RayCast2D
+class_name BeamAttack
 
 @onready var texture = $Texture
 @onready var particles = $Particles
 @onready var sfx = $AudioStreamPlayer
 
-@export var width = 20
 @export var animation_fps = 10
 
 var length = 0
@@ -96,7 +96,8 @@ func _physics_process(delta: float) -> void:
 	# Set length and raycast target to ideal length
 	length = global_position.distance_to(current_target_pos)
 	target_position = position.move_toward(current_target_pos - global_position, length)
-	force_raycast_update()
+	if enabled:
+		force_raycast_update()
 	
 	# Handle collisions
 	var collision_object = get_collider()

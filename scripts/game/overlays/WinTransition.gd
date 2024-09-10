@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var duration : float = 2.0
+@export var duration : float = 3.0
 
 var transition = false
 

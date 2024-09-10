@@ -730,8 +730,8 @@ position = Vector2(1520, 250)
 
 [node name="PlayerClippingMask" type="Sprite2D" parent="."]
 clip_children = 1
-position = Vector2(1005, 553)
-scale = Vector2(1.12188, 1.22037)
+position = Vector2(998, 553)
+scale = Vector2(1.12969, 1.22037)
 texture = ExtResource("11_g3ka4")
 
 [node name="Player" parent="PlayerClippingMask" instance=ExtResource("5_r2yhf")]
@@ -756,8 +756,9 @@ shape = SubResource("RectangleShape2D_clw16")
 position = Vector2(949, 1048)
 shape = SubResource("RectangleShape2D_clw16")
 
-[node name="Boss" parent="." instance=ExtResource("6_ofatc")]
+[node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ofatc")]
 position = Vector2(960, 185)
+player = NodePath("../PlayerClippingMask/Player")
 health = 1
 
 [node name="ExplodingTomato" type="StaticBody2D" parent="."]
