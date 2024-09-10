@@ -99,7 +99,7 @@ fontSizeOverride = 35
 script = ExtResource("2_sox31")
 visualAssetScene = ExtResource("10_ttaie")
 displayText = "Whenever he eats a salad,
-he is sure to discard any tomato-slices beforehand."
+he makes sure to discard any tomato-slices beforehand."
 TypewriterPitch = 1.0
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
@@ -113,7 +113,7 @@ fontSizeOverride = 35
 script = ExtResource("2_sox31")
 visualAssetScene = ExtResource("10_ttaie")
 displayText = "Whenever he orders food, he proclaims to be allergic to tomatoes.
-Just to explicitly avoid them."
+Just to avoid them."
 TypewriterPitch = 1.0
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
@@ -127,8 +127,8 @@ fontSizeOverride = 35
 script = ExtResource("2_sox31")
 visualAssetScene = ExtResource("11_6p8ld")
 displayText = "And even in his job...
-The very second the experiation date passes.
-He throws out any and all tomatoes he can."
+The very second the expiration date passes,
+he throws out any and all tomatoes he can."
 TypewriterPitch = 1.0
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
@@ -140,7 +140,7 @@ fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_w1grl"]
 script = ExtResource("2_sox31")
-displayText = "Then, one night shift.
+displayText = "Then, one night shift...
 
 As he was doing just that..."
 TypewriterPitch = 1.0
@@ -231,7 +231,7 @@ fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_m0nhk"]
 script = ExtResource("2_sox31")
-displayText = "Or perhaps even being reincarnated into a fantasy setting?"
+displayText = "Or perhaps even reincarnation in a fantasy setting?"
 TypewriterPitch = 1.0
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
@@ -255,7 +255,7 @@ fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_jtfa4"]
 script = ExtResource("2_sox31")
-displayText = "... he encounters..
+displayText = "... he encounters...
 No god, no soul of a passed relative.
 
 No divine entity or grim reaper."
@@ -270,7 +270,7 @@ fontSizeOverride = 35
 
 [sub_resource type="Resource" id="Resource_ts7gs"]
 script = ExtResource("2_sox31")
-displayText = "But a tomato"
+displayText = "But a tomato."
 TypewriterPitch = 1.0
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.15
@@ -411,7 +411,7 @@ fontSizeOverride = 35
 [sub_resource type="Resource" id="Resource_ixs2p"]
 script = ExtResource("2_sox31")
 visualAssetScene = ExtResource("23_wgy8j")
-displayText = "This is about.. Tomatoes?"
+displayText = "This is about... Tomatoes?"
 TypewriterPitch = 1.0
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
@@ -437,9 +437,9 @@ fontSizeOverride = 35
 [sub_resource type="Resource" id="Resource_edt0d"]
 script = ExtResource("2_sox31")
 visualAssetScene = ExtResource("25_yq40j")
-displayText = "Your punishment begins.
+displayText = "Your punishment begins
 
-NOW"
+NOW."
 TypewriterPitch = 0.75
 TypewriterPitchRange = 0.25
 TypewriterSpeed = 0.15
