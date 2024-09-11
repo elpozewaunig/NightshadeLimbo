@@ -58,7 +58,7 @@ func load_main():
 	SceneManager.change_scene(loadOnSkip, loadingScreen)
 
 
-var i = 0	
+var i = 0
 var prevmusic = false
 var timesleepOverride = -1
 

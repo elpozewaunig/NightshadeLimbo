@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgn5ighrttryb"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Cutscene.gd" id="1_8yita"]
-[ext_resource type="StyleBox" path="res://scenes/cutscenes/cutsceneBoxTheme.tres" id="2_ommmk"]
+[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://scenes/cutscenes/cutsceneBoxTheme.tres" id="2_ommmk"]
 [ext_resource type="Script" path="res://scripts/cutscenes/Typewriter.gd" id="4_ld4jv"]
 [ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="4_q35s7"]
 
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_dfiw0"]
 resource_name = "blink"
-length = 1.3
+length = 2.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,7 +31,7 @@ tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.3),
+"times": PackedFloat32Array(0, 1.2, 2.46667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]

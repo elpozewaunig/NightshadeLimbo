@@ -191,7 +191,10 @@ button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePa
 buttons = [NodePath("StartButton")]
 
 [node name="StartButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
-position = Vector2(-719, 220)
+position = Vector2(-711.375, 220)
+
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="0"]
+scale = Vector2(1.275, 1)
 
 [node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="1"]
 text = "Start journey"
