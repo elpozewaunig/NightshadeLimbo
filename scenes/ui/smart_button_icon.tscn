@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://4i0aipnbtv4g"]
+
+[ext_resource type="Script" path="res://scripts/ui/SmartButtonIcon.gd" id="1_v56qw"]
+[ext_resource type="Texture2D" uid="uid://bp3f652d4cmsa" path="res://assets/sprites/buttons/keyboard/C.png" id="2_vm2vu"]
+[ext_resource type="Texture2D" uid="uid://d26dsqnaknsxq" path="res://assets/sprites/buttons/playstation/Triangle.png" id="3_cqrvk"]
+[ext_resource type="Texture2D" uid="uid://cg4ee6tilfcfj" path="res://assets/sprites/buttons/xbox/Y.png" id="4_acyh6"]
+[ext_resource type="Texture2D" uid="uid://cogegr4ofobmw" path="res://assets/sprites/buttons/nintendo/X.png" id="5_ujpi5"]
+
+[node name="SmartButtonIcon" type="Node2D"]
+script = ExtResource("1_v56qw")
+keyboard = ExtResource("2_vm2vu")
+playstation = ExtResource("3_cqrvk")
+xbox = ExtResource("4_acyh6")
+nintendo = ExtResource("5_ujpi5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_vm2vu")
