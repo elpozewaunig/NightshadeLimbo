@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=92 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
@@ -63,6 +63,7 @@
 [ext_resource type="PackedScene" uid="uid://bo5ct1aq1wmge" path="res://scenes/ui/input_mode_manager.tscn" id="47_d1mlr"]
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="47_hsw4w"]
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="48_cvxgy"]
+[ext_resource type="LabelSettings" uid="uid://s0qyqn44ctv7" path="res://assets/settings/labels/big_text_label.tres" id="49_fyk3k"]
 [ext_resource type="LabelSettings" uid="uid://dvgl0yeqhbjco" path="res://assets/settings/labels/menu_title_label_settingsl.tres" id="50_7acsy"]
 [ext_resource type="PackedScene" uid="uid://dukyhdiq8iidn" path="res://scenes/utility/mouse_hider.tscn" id="50_ywsql"]
 [ext_resource type="PackedScene" uid="uid://dhdhnq55pliab" path="res://scenes/ui/menus/settings_submenu.tscn" id="52_c1ie3"]
@@ -947,7 +948,7 @@ offset_bottom = 606.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Death messages go here."
-label_settings = ExtResource("50_7acsy")
+label_settings = ExtResource("49_fyk3k")
 horizontal_alignment = 1
 vertical_alignment = 1
 

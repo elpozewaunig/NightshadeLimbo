@@ -454,6 +454,3 @@ fontSizeOverride = 38
 
 [node name="Cutscene" instance=ExtResource("1_sc146")]
 cutscene_data = Array[ExtResource("2_sox31")]([SubResource("Resource_npgx1"), SubResource("Resource_ei8hn"), SubResource("Resource_3tt23"), SubResource("Resource_04jrd"), SubResource("Resource_yjewf"), SubResource("Resource_vmpud"), SubResource("Resource_yava2"), SubResource("Resource_usb75"), SubResource("Resource_w1grl"), SubResource("Resource_von4a"), SubResource("Resource_jjjfq"), SubResource("Resource_x7t2i"), SubResource("Resource_xtwed"), SubResource("Resource_dw6rj"), SubResource("Resource_pfk3f"), SubResource("Resource_m0nhk"), SubResource("Resource_rr0ww"), SubResource("Resource_jtfa4"), SubResource("Resource_ts7gs"), SubResource("Resource_1laeo"), SubResource("Resource_j8o7t"), SubResource("Resource_f3bge"), SubResource("Resource_0o2eg"), SubResource("Resource_3y300"), SubResource("Resource_767vn"), SubResource("Resource_6yosb"), SubResource("Resource_ls1r6"), SubResource("Resource_kiams"), SubResource("Resource_ixs2p"), SubResource("Resource_wfml5"), SubResource("Resource_edt0d")])
-
-[node name="SmartButtonIcon" parent="Control/HBoxContainer/RightRibbon/HoldToSkip" index="1"]
-modulate = Color(1, 1, 1, 0.580392)

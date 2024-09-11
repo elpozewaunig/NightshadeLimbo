@@ -161,7 +161,7 @@ max_value = 2.0
 show_percentage = false
 
 [node name="SmartInputIcon" parent="Control/HBoxContainer/RightRibbon/HoldToSkip" instance=ExtResource("5_cnvi6")]
-modulate = Color(1, 1, 1, 0.333333)
+modulate = Color(1, 1, 1, 0.564706)
 position = Vector2(166, 16)
 scale = Vector2(0.15, 0.15)
 
