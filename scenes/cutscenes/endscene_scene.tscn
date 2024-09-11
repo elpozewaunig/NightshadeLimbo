@@ -29,7 +29,7 @@ fontSizeOverride = 35
 [sub_resource type="Resource" id="Resource_2jvhs"]
 script = ExtResource("2_up8y8")
 visualAssetScene = ExtResource("3_4f5uw")
-displayText = "Amidst the splattered goo of expired garbage-bag-tomatoes,
+displayText = "Amidst the splattered goo of expired garbage bag tomatoes,
 Dave is now at peace.
 With himself. And with the way
 he will continue to live his life."

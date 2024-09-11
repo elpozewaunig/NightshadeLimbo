@@ -100,7 +100,7 @@ fontSizeOverride = 35
 script = ExtResource("2_sox31")
 visualAssetScene = ExtResource("10_ttaie")
 displayText = "Whenever he eats a salad,
-he makes sure to discard any tomato-slices beforehand."
+he makes sure to discard any tomato slices beforehand."
 TypewriterPitch = 0.95
 TypewriterPitchRange = 0.05
 TypewriterSpeed = 1.75
