@@ -68,22 +68,27 @@ func _process(delta: float) -> void:
 		
 		# Iterate through all current salvos
 		for i in range(0, next_salvos.size()):
+			
 			# Get salvo and associated progress
 			var salvo_targets = next_salvos[i]["targets"]
 			var shot_nr = next_salvos[i]["shot"]
-			# If the salvo isn't completed yet
-			if shot_nr < salvo_targets.size():
-				# Reduce the salvo's countdown until the next shot
-				next_salvos[i]["countdown"] -= delta
-				
-				if next_salvos[i]["countdown"] <= 0:
-					# Reset countdown for next projectile
-					next_salvos[i]["countdown"] = next_salvos[i]["interval"]
+			
+			# Reduce the salvo's countdown until the next shot
+			next_salvos[i]["countdown"] -= delta
+			
+			# If the salvo isn't completed yet and the next shot is due
+			while shot_nr < salvo_targets.size() and next_salvos[i]["countdown"] <= 0:
+					
+					# Reset countdown based on interval, += to compensate for delta overshoots
+					next_salvos[i]["countdown"] += next_salvos[i]["interval"]
 					
 					# Fire the next projectile in the salvo
 					_add_projectile(next_salvos[i]["targets"][shot_nr])
 					next_salvos[i]["shot"] += 1
-			else:
+					shot_nr = next_salvos[i]["shot"]
+			
+			# All shots in the salvo have been fired
+			if shot_nr >= salvo_targets.size():
 				# Delete salvo to free up ressources
 				mark_for_deletion(salvos, i)
 		
