@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gh1ggcgi0xnd"]
 
 [ext_resource type="PackedScene" uid="uid://iodcpklmqw1" path="res://scenes/ui/selectable_button_component.tscn" id="1_1vax2"]
-[ext_resource type="Script" path="res://scripts/ui/button_slider.gd" id="2_clylr"]
+[ext_resource type="Script" path="res://scripts/ui/SelectableSliderButton.gd" id="2_clylr"]
 [ext_resource type="Script" path="res://scripts/ui/SliderButtonSrc.gd" id="2_ehbuc"]
 
 [node name="ButtonSlider" instance=ExtResource("1_1vax2")]

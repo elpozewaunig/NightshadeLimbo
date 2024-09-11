@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=37 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
 [ext_resource type="PackedScene" uid="uid://bo5ct1aq1wmge" path="res://scenes/ui/input_mode_manager.tscn" id="6_bjcm3"]
 [ext_resource type="Texture2D" uid="uid://bsxiace5ji7vs" path="res://assets/sprites/HPtomato_outline_white.png" id="6_ngex0"]
-[ext_resource type="Script" path="res://scripts/ui/menu/MainMenuButtons.gd" id="6_swuh5"]
 [ext_resource type="Texture2D" uid="uid://dk216noj617hu" path="res://assets/sprites/minijamegam_logo.png" id="7_kq7md"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="7_ls1if"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
@@ -184,7 +183,6 @@ position = Vector2(460, -342)
 process_material = SubResource("ParticleProcessMaterial_fvk6i")
 
 [node name="MainMenuButtons" type="Node2D" parent="UI/MainSubMenu"]
-script = ExtResource("6_swuh5")
 
 [node name="ButtonSelector" parent="UI/MainSubMenu/MainMenuButtons" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3")]
@@ -674,7 +672,7 @@ bus = &"Music"
 parameters/looping = true
 script = ExtResource("21_otmm1")
 
-[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="UI/MainSubMenu/MainMenuButtons" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="UI/MainSubMenu/MainMenuButtons/ButtonSelector" method="disable"]
 [connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="UI/SceneTransition" method="_on_start_button_clicked"]
 [connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="MenuMusic" method="_on_start_button_clicked"]
 [connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" to="UI/SettingsSubMenu" method="_on_opened"]

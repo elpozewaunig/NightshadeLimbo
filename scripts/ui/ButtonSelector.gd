@@ -11,8 +11,10 @@ enum Direction {UP, DOWN, LEFT, RIGHT}
 
 signal set_key_mode(source)
 signal set_mouse_mode(source)
+
 signal ext_selected(button)
 signal ext_cleared
+signal disabled
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +24,7 @@ func _ready() -> void:
 			# Connect all buttons to the external selection signals
 			ext_selected.connect(button._on_ext_selected)
 			ext_cleared.connect(button._on_ext_cleared)
+			disabled.connect(button._on_disabled)
 			
 			# Connect self to button's select signal
 			button.selected.connect(_on_btn_selected)
@@ -105,3 +108,7 @@ func enable_highlight():
 func disable_highlight():
 	highlight_active = false
 	ext_cleared.emit()
+
+# Can be called to make all buttons unselectable
+func disable() -> void:
+	disabled.emit()

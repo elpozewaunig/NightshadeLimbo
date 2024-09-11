@@ -51,6 +51,9 @@ func _on_ext_cleared() -> void:
 func _on_clicked() -> void:
 	clicked.emit()
 
+func _on_disabled() -> void:
+	disabled = true
+
 
 func is_selected() -> bool:
 	return (ext_selected and highlight_active) or (mouse_inside and not highlight_active)
