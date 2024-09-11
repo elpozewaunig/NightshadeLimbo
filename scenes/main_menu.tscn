@@ -548,6 +548,9 @@ visible = false
 [node name="CloseMenuButton" parent="UI/SettingsSubmenu/BackgroundColor/ButtonSelector/ButtonRowConfig" index="0"]
 light_mask = 1
 
+[node name="MusicSlider" parent="UI/SettingsSubmenu/BackgroundColor/BusController" index="1"]
+acoustic_feedback = false
+
 [node name="SceneTransition" type="Sprite2D" parent="UI"]
 visible = false
 texture = ExtResource("1_3me3h")

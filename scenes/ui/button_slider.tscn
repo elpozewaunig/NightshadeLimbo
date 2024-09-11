@@ -8,6 +8,7 @@
 [node name="ButtonSlider" instance=ExtResource("1_1vax2")]
 light_mask = 0
 script = ExtResource("2_clylr")
+acoustic_feedback = true
 
 [node name="SliderButtonSrc" type="HSlider" parent="." index="1"]
 light_mask = 0
@@ -29,6 +30,7 @@ script = ExtResource("2_ehbuc")
 
 [node name="SliderSFX" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("4_eoapb")
+volume_db = 5.0
 
 [connection signal="mouse_entered" from="SliderButtonSrc" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SliderButtonSrc" to="." method="_on_mouse_exited"]
