@@ -7,7 +7,10 @@ const endscene_scene = "res://scenes/cutscenes/endscene_scene.tscn"
 
 const loading_scene = preload("res://scenes/loading_screen.tscn")
 
-func change_scene(scene_name : String, loading_screen : bool = false) -> void:
+func change_scene(scene_name: String, loading_screen: bool = false) -> void:
+	if scene_name != game_scene:
+		AmbienceMusic.stop()
+	
 	if loading_screen:
 		# Create loading scene and add it as a parallel scene
 		var loader = loading_scene.instantiate()
@@ -19,7 +22,11 @@ func change_scene(scene_name : String, loading_screen : bool = false) -> void:
 		get_tree().current_scene = loader
 	
 	else:
+		# Instantly load and change to scene
 		get_tree().change_scene_to_packed(load(scene_name))
+	
+	# Make sure game is unpaused after scene switch
+	get_tree().paused = false
 
 func quit_game():
 	get_tree().quit()

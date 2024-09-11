@@ -6,10 +6,10 @@ var progress = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().paused = false
 	ResourceLoader.load_threaded_request(scene_to_load)
 	
 	if scene_to_load == SceneManager.game_scene:
+		AmbienceMusic.reset_volume()
 		AmbienceMusic.play()
 	else:
 		AmbienceMusic.stop()
