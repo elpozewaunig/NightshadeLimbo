@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgn5ighrttryb"]
+[gd_scene load_steps=9 format=3 uid="uid://bgn5ighrttryb"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Cutscene.gd" id="1_8yita"]
-[ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://scenes/cutscenes/cutsceneBoxTheme.tres" id="2_ommmk"]
+[ext_resource type="StyleBox" path="res://scenes/cutscenes/cutsceneBoxTheme.tres" id="2_ommmk"]
 [ext_resource type="Script" path="res://scripts/cutscenes/Typewriter.gd" id="4_ld4jv"]
 [ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="4_q35s7"]
+[ext_resource type="PackedScene" uid="uid://dukyhdiq8iidn" path="res://scenes/utility/mouse_hider.tscn" id="5_p05me"]
 
 [sub_resource type="Animation" id="Animation_tv4xh"]
 length = 0.001
@@ -160,5 +161,7 @@ show_percentage = false
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="MouseHider" parent="." instance=ExtResource("5_p05me")]
 
 [node name="Camera2D" type="Camera2D" parent="."]

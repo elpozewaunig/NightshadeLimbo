@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var disappear_time : float = 5
+@export var disappear_time : float = 4
 
 var time_mouse_idle : float = 0
 
