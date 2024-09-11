@@ -144,8 +144,8 @@ offset_right = -15.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 26
-text = "Hold 'c' to Skip"
+theme_override_font_sizes/font_size = 22
+text = "▲ / Hold 'c' to Skip"
 horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/HBoxContainer/RightRibbon/HoldToSkip"]

@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://scripts/ui/menu/MenuSceneTransition.gd" id="19_6iilf"]
 [ext_resource type="Script" path="res://scripts/ui/menu/BusController.gd" id="20_7jtax"]
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/sub_menu.tscn" id="20_oquwj"]
-[ext_resource type="PackedScene" uid="uid://fa43g14vkkb" path="res://scenes/ui/selectable_slider.tscn" id="20_p62yo"]
+[ext_resource type="PackedScene" path="res://scenes/ui/selectable_slider.tscn" id="20_p62yo"]
 [ext_resource type="Script" path="res://scripts/ui/menu/MenuMusic.gd" id="21_otmm1"]
 
 [sub_resource type="Animation" id="Animation_17cl1"]
