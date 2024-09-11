@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0tiw3gb5k8yb"]
+[gd_scene load_steps=3 format=3 uid="uid://c0tiw3gb5k8yb"]
 
 [ext_resource type="Script" path="res://scripts/attacks/VineAttack.gd" id="1_h5pcb"]
+[ext_resource type="AudioStream" uid="uid://bjuwohal01xv3" path="res://assets/sounds/attacks/Boss_VineLoop.ogg" id="2_ijq8v"]
 
 [node name="VineAttack" type="Area2D"]
 script = ExtResource("1_h5pcb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ijq8v")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

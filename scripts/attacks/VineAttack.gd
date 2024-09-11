@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var sfx = $AudioStreamPlayer
+
 var segment = preload("res://scenes/attacks/vine_segment.tscn")
 var current_segments : Array[VineSegment] = []
 
@@ -61,6 +63,10 @@ func _process(delta: float) -> void:
 			
 			# The position that the next segment will start from is the current vine's target
 			current_pos = next_segment.target_pos
+			
+			# Play sound effect while growing
+			if not sfx.playing:
+				sfx.play()
 		
 		# Vine has fully expanded, retract
 		else:
@@ -68,6 +74,10 @@ func _process(delta: float) -> void:
 			stay_time += delta
 			if stay_time >= stay_duration:
 				retracting = true
+			
+			# Stop sound effect while idling
+			if sfx.playing:
+				sfx.stop()
 	
 	# Retracting phase
 	if retracting:
@@ -85,6 +95,11 @@ func _process(delta: float) -> void:
 				pre_delete_delta = delta
 				current_segments.remove_at(current_segments.size() - 1)
 				vine.queue_free()
+			
+			# Play sound effect while retracting
+			if not sfx.playing:
+				sfx.play()
+			
 		else:
 			queue_free()
 
