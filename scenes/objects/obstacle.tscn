@@ -33,7 +33,7 @@ scale = Vector2(0.385, 0.385)
 sprite_frames = SubResource("SpriteFrames_h0872")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-26, 57, -49, 8, -37, -22, 40, -23, 49, 13, 27, 57)
+polygon = PackedVector2Array(-26, 57, -49, 8, -37, -22, 38, -22.6667, 49, 13, 27, 57)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_kbkjc")
