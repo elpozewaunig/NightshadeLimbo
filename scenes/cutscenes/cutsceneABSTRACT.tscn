@@ -163,7 +163,7 @@ show_percentage = false
 [node name="SmartButtonIcon" parent="Control/HBoxContainer/RightRibbon/HoldToSkip" instance=ExtResource("5_cnvi6")]
 modulate = Color(1, 1, 1, 0.333333)
 position = Vector2(166, 16)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.15, 0.15)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

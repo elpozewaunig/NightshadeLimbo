@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=86 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
@@ -45,9 +45,14 @@
 [ext_resource type="Script" path="res://scripts/game/Camera.gd" id="30_jje2y"]
 [ext_resource type="Script" path="res://scripts/game/overlays/instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/game/overlays/HealthIndicator.gd" id="35_6s6uf"]
+[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_button_icon.tscn" id="36_4ffvj"]
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
 [ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/sprites/button1.png" id="36_ds7ou"]
+[ext_resource type="Texture2D" uid="uid://d22aow0vxn6o8" path="res://assets/sprites/buttons/keyboard/Space.png" id="37_83fk2"]
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
+[ext_resource type="Texture2D" uid="uid://6cwc881xqrrh" path="res://assets/sprites/buttons/playstation/Cross.png" id="38_jbba6"]
+[ext_resource type="Texture2D" uid="uid://pe1wvoqlax0c" path="res://assets/sprites/buttons/xbox/A.png" id="39_3pki5"]
+[ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="40_gg2ti"]
 [ext_resource type="AudioStream" uid="uid://ciw8tbxouv38f" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="40_vsbyh"]
 [ext_resource type="LabelSettings" uid="uid://s0qyqn44ctv7" path="res://assets/settings/labels/big_text_label.tres" id="42_80jy0"]
 [ext_resource type="Script" path="res://scripts/game/overlays/Pause.gd" id="43_8c0bu"]
@@ -857,11 +862,18 @@ offset_bottom = 536.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Now is my chance to strike!
-Press Space"
+Press           "
 label_settings = SubResource("LabelSettings_7bn66")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("33_rkonn")
+
+[node name="SmartButtonIcon" parent="Camera2D/Overlays/Instructions" instance=ExtResource("36_4ffvj")]
+position = Vector2(1090, 200)
+keyboard = ExtResource("37_83fk2")
+playstation = ExtResource("38_jbba6")
+xbox = ExtResource("39_3pki5")
+nintendo = ExtResource("40_gg2ti")
 
 [node name="HealthIndicator" type="Node2D" parent="Camera2D/Overlays" node_paths=PackedStringArray("src_node")]
 visible = false
