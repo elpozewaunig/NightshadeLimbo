@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gh1ggcgi0xnd"]
+[gd_scene load_steps=5 format=3 uid="uid://gh1ggcgi0xnd"]
 
 [ext_resource type="PackedScene" uid="uid://iodcpklmqw1" path="res://scenes/ui/selectable_button_component.tscn" id="1_1vax2"]
 [ext_resource type="Script" path="res://scripts/ui/SelectableSliderButton.gd" id="2_clylr"]
 [ext_resource type="Script" path="res://scripts/ui/SliderButtonSrc.gd" id="2_ehbuc"]
+[ext_resource type="AudioStream" uid="uid://djdb5f3iro1os" path="res://assets/sounds/sfx_UISliderChange.ogg" id="4_eoapb"]
 
 [node name="ButtonSlider" instance=ExtResource("1_1vax2")]
 light_mask = 0
@@ -25,6 +26,9 @@ min_value = -40.0
 max_value = 0.0
 step = 0.0
 script = ExtResource("2_ehbuc")
+
+[node name="SliderSFX" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_eoapb")
 
 [connection signal="mouse_entered" from="SliderButtonSrc" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SliderButtonSrc" to="." method="_on_mouse_exited"]

@@ -1141,3 +1141,6 @@ parameters/looping = true
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig2/SettingsButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig3/ExitButton"]
 [editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu"]
+[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider"]
+[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider"]
+[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider"]
