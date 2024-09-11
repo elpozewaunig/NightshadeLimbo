@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" path="res://scenes/cutscenes/cutsceneBoxTheme.tres" id="2_ommmk"]
 [ext_resource type="Script" path="res://scripts/cutscenes/Typewriter.gd" id="4_ld4jv"]
 [ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="4_q35s7"]
-[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_button_icon.tscn" id="5_cnvi6"]
+[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_input_icon.tscn" id="5_cnvi6"]
 [ext_resource type="PackedScene" uid="uid://dukyhdiq8iidn" path="res://scenes/utility/mouse_hider.tscn" id="5_p05me"]
 
 [sub_resource type="Animation" id="Animation_tv4xh"]
@@ -160,7 +160,7 @@ grow_vertical = 2
 max_value = 2.0
 show_percentage = false
 
-[node name="SmartButtonIcon" parent="Control/HBoxContainer/RightRibbon/HoldToSkip" instance=ExtResource("5_cnvi6")]
+[node name="SmartInputIcon" parent="Control/HBoxContainer/RightRibbon/HoldToSkip" instance=ExtResource("5_cnvi6")]
 modulate = Color(1, 1, 1, 0.333333)
 position = Vector2(166, 16)
 scale = Vector2(0.15, 0.15)
