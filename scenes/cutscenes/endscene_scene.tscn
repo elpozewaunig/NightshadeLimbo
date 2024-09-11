@@ -21,7 +21,7 @@ TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
 TypewriterSound = ExtResource("3_8wusx")
 PlayMusic = true
-LoopMusic = true
+LoopMusic = false
 MusicChange = ExtResource("3_3acg3")
 overrideSkipTime = -1.0
 fontSizeOverride = 35
@@ -38,7 +38,7 @@ TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
 TypewriterSound = ExtResource("3_8wusx")
 PlayMusic = true
-LoopMusic = true
+LoopMusic = false
 overrideSkipTime = -1.0
 fontSizeOverride = 35
 
@@ -51,7 +51,7 @@ TypewriterPitchRange = 0.05
 TypewriterSpeed = 0.3
 TypewriterSound = ExtResource("3_8wusx")
 PlayMusic = true
-LoopMusic = true
+LoopMusic = false
 overrideSkipTime = -1.0
 fontSizeOverride = 35
 
