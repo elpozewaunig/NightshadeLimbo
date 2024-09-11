@@ -5,9 +5,11 @@
 [ext_resource type="Script" path="res://scripts/ui/SliderButtonSrc.gd" id="2_ehbuc"]
 
 [node name="ButtonSlider" instance=ExtResource("1_1vax2")]
+light_mask = 0
 script = ExtResource("2_clylr")
 
 [node name="SliderButtonSrc" type="HSlider" parent="." index="1"]
+light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

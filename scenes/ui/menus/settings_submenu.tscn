@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhdhnq55pliab"]
+
+[ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_e5yrl"]
+[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_gnry3"]
+[ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="3_xdbc8"]
+[ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="4_x305k"]
+[ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="5_0e47a"]
+[ext_resource type="PackedScene" uid="uid://bgiknxfqahoy8" path="res://scenes/ui/button_area2D_close.tscn" id="6_qdxjt"]
+[ext_resource type="Script" path="res://scripts/ui/menu/BusController.gd" id="7_6jhtp"]
+[ext_resource type="PackedScene" uid="uid://gh1ggcgi0xnd" path="res://scenes/ui/button_slider.tscn" id="8_6vocn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhxhr"]
+font = ExtResource("2_gnry3")
+font_size = 120
+
+[node name="SettingsSubmenu" instance=ExtResource("1_e5yrl")]
+
+[node name="BackgroundColor" type="ColorRect" parent="." index="0"]
+light_mask = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="BackgroundColor" index="0"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 40.0
+offset_right = 157.0
+offset_bottom = 189.0
+grow_horizontal = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_mhxhr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalMix" type="Label" parent="BackgroundColor" index="1"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -240.0
+offset_right = 240.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Total Mix
+"
+label_settings = ExtResource("3_xdbc8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="BackgroundColor" index="2"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+label_settings = ExtResource("3_xdbc8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sfx" type="Label" parent="BackgroundColor" index="3"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 260.0
+offset_right = 240.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sound Effects"
+label_settings = ExtResource("3_xdbc8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonSelector" parent="BackgroundColor" index="4" node_paths=PackedStringArray("button_rows") instance=ExtResource("4_x305k")]
+button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3"), NodePath("ButtonRowConfig4")]
+
+[node name="ButtonRowConfig" parent="BackgroundColor/ButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+buttons = [NodePath("CloseMenuButton")]
+
+[node name="CloseMenuButton" parent="BackgroundColor/ButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("6_qdxjt")]
+position = Vector2(1790, 110)
+
+[node name="ButtonRowConfig2" parent="BackgroundColor/ButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+buttons = [NodePath("../../BusController/TotalMixSlider")]
+
+[node name="ButtonRowConfig3" parent="BackgroundColor/ButtonSelector" index="2" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+buttons = [NodePath("../../BusController/MusicSlider")]
+
+[node name="ButtonRowConfig4" parent="BackgroundColor/ButtonSelector" index="3" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+buttons = [NodePath("../../BusController/SfxSlider")]
+
+[node name="BusController" type="Node2D" parent="BackgroundColor" index="5"]
+script = ExtResource("7_6jhtp")
+
+[node name="TotalMixSlider" parent="BackgroundColor/BusController" index="0" instance=ExtResource("8_6vocn")]
+position = Vector2(960, 400)
+
+[node name="MusicSlider" parent="BackgroundColor/BusController" index="1" instance=ExtResource("8_6vocn")]
+position = Vector2(960, 650)
+
+[node name="SfxSlider" parent="BackgroundColor/BusController" index="2" instance=ExtResource("8_6vocn")]
+position = Vector2(960, 900)
+
+[connection signal="value_changed" from="BackgroundColor/BusController/TotalMixSlider" to="BackgroundColor/BusController" method="_on_slider_value_changed"]
+[connection signal="value_changed" from="BackgroundColor/BusController/MusicSlider" to="BackgroundColor/BusController" method="_on_slider_value_changed"]
+[connection signal="value_changed" from="BackgroundColor/BusController/SfxSlider" to="BackgroundColor/BusController" method="_on_slider_value_changed"]

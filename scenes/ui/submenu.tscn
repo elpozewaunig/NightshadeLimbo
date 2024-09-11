@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/ui/SubMenu.gd" id="1_c5ka4"]
 
-[node name="SubMenu" type="Node2D"]
+[node name="Submenu" type="Node2D"]
 script = ExtResource("1_c5ka4")

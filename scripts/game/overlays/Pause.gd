@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var fade_out = $FadeOut
-@onready var buttons = $Buttons
 
 var transition = false
 
@@ -36,7 +35,3 @@ func _on_continue_button_clicked() -> void:
 
 func _on_exit_button_clicked() -> void:
 	transition = true
-	
-	for child in buttons.get_children():
-		if child.get_class() == "Area2D":
-			child.disabled = true
