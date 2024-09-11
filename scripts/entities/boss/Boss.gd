@@ -192,13 +192,14 @@ func artillery_shot(to_pos: Vector2, duration: float = 2) -> void:
 	attack_status_changed.emit(Attacks.ARTILLERY, true)
 
 # Creates a vine that grows between specified points
-func vine(points: Array, duration: float = 2, disappear_duration: float = 1) -> void:
+func vine(points: Array, appear_duration: float = 2, stay_duration : float = 0, disappear_duration: float = 1) -> void:
 	var new_vine = vine_scene.instantiate()
 	new_vine.points = points
-	new_vine.duration = duration
+	new_vine.appear_duration = appear_duration
+	new_vine.stay_duration = stay_duration
 	new_vine.disappear_duration = disappear_duration
 	add_child(new_vine)
-	attack_countdowns[Attacks.VINE].append(duration + disappear_duration)
+	attack_countdowns[Attacks.VINE].append(appear_duration + stay_duration + disappear_duration)
 	attack_status_changed.emit(Attacks.VINE, true)
 
 # Initiates boss jump attack towards position

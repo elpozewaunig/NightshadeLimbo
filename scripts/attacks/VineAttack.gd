@@ -4,7 +4,8 @@ var segment = preload("res://scenes/attacks/vine_segment.tscn")
 var current_segments : Array[VineSegment] = []
 
 var points : Array = [Vector2(960, 540), Vector2(1200, 540), Vector2(1920, 540)]
-var duration: float = 2
+var appear_duration: float = 2
+var stay_duration: float = 0
 var disappear_duration: float = 1
 
 var current_pos : Vector2
@@ -14,6 +15,7 @@ var speed : float
 var reverse_speed : float
 var overshoot : float = 0
 var pre_delete_delta : float = 0
+var stay_time : float = 0
 var retracting : bool = false
 
 signal player_hit
@@ -26,10 +28,10 @@ func _ready() -> void:
 		total_distance += last_point.distance_to(point)
 		last_point = point
 	
-	assert(duration > 0)
+	assert(appear_duration > 0)
 	assert(disappear_duration > 0)
 	
-	speed = total_distance / duration
+	speed = total_distance / appear_duration
 	reverse_speed = total_distance / disappear_duration
 	current_pos = global_position
 
@@ -62,8 +64,10 @@ func _process(delta: float) -> void:
 		
 		# Vine has fully expanded, retract
 		else:
-			monitorable = false
-			retracting = true
+			# Wait for the specified stay duration, then start retracting
+			stay_time += delta
+			if stay_time >= stay_duration:
+				retracting = true
 	
 	# Retracting phase
 	if retracting:
