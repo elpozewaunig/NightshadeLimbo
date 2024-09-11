@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 	# Movement script
 	if permit_movement and not dead:
 		# Get axis input
-		var x_input := Input.get_axis("ui_left", "ui_right")
-		var y_input := Input.get_axis("ui_up", "ui_down")
+		var x_input := Input.get_axis("game_left", "game_right")
+		var y_input := Input.get_axis("game_up", "game_down")
 		
 		# When both directions are active, the player might exceed maximum speed
 		# To compensate for this, normalize the input vector
