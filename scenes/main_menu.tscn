@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
 [ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/sprites/bgtry1_blur.png" id="2_j6hu7"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
+[ext_resource type="PackedScene" uid="uid://d1diahg6or5y0" path="res://scenes/ui/sub_menu_manager.tscn" id="3_bmp7t"]
 [ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/ui/button.tscn" id="3_fx80t"]
 [ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/sprites/bg_flickeroverlay.png" id="3_qdwo1"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
@@ -14,13 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="7_ls1if"]
 [ext_resource type="Texture2D" uid="uid://cwxhpyxanfefn" path="res://assets/sprites/godot_logo_small_monochrome_dark.svg" id="8_khbxw"]
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="9_n4m28"]
-[ext_resource type="Script" path="res://scripts/ui/menu/CreditsView.gd" id="10_8l1x4"]
-[ext_resource type="Script" path="res://scripts/ui/menu/CreditsExitButton.gd" id="11_60r02"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
 [ext_resource type="Texture2D" uid="uid://cbqkw6ui74yhy" path="res://assets/sprites/heart.svg" id="13_1mg5u"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://assets/settings/labels/credits_subtitle_settings.tres" id="13_iih06"]
+[ext_resource type="PackedScene" uid="uid://bgiknxfqahoy8" path="res://scenes/ui/close_menu_button.tscn" id="13_jvtd0"]
 [ext_resource type="AudioStream" uid="uid://c8prdyktbfx3i" path="res://assets/music/BGM_MainMenuLoop.ogg" id="17_yrybt"]
 [ext_resource type="Script" path="res://scripts/ui/menu/MenuSceneTransition.gd" id="19_6iilf"]
+[ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/sub_menu.tscn" id="20_oquwj"]
 [ext_resource type="Script" path="res://scripts/ui/menu/MenuMusic.gd" id="21_otmm1"]
 
 [sub_resource type="Animation" id="Animation_17cl1"]
@@ -105,18 +106,14 @@ emission_shape = 3
 emission_box_extents = Vector3(350, 1, 1)
 gravity = Vector3(0, 98, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni6ko"]
+size = Vector2(351, 100)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4rsm"]
 size = Vector2(225, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chvwl"]
 size = Vector2(137, 82)
-
-[sub_resource type="LabelSettings" id="LabelSettings_mriem"]
-font = ExtResource("2_hht2f")
-font_size = 150
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5pb1"]
-size = Vector2(72, 85)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vlt60"]
 font = ExtResource("2_hht2f")
@@ -131,39 +128,47 @@ font_size = 30
 position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 
-[node name="BG" type="Sprite2D" parent="UI"]
+[node name="InputModeManager" parent="UI" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("6_bjcm3")]
+selectors_to_sync = [NodePath("../MainSubMenu/MainMenuButtons/ButtonSelector"), NodePath("../CreditsSubMenu/BackgroundColor/ButtonSelector"), NodePath("../SettingsSubMenu/BackgroundColor/ButtonSelector")]
+
+[node name="SubMenuManager" parent="UI" node_paths=PackedStringArray("submenus") instance=ExtResource("3_bmp7t")]
+submenus = [NodePath("../MainSubMenu"), NodePath("../CreditsSubMenu"), NodePath("../SettingsSubMenu")]
+
+[node name="MainSubMenu" parent="UI" instance=ExtResource("20_oquwj")]
+
+[node name="BG" type="Sprite2D" parent="UI/MainSubMenu"]
 self_modulate = Color(0.785334, 0.785334, 0.785334, 1)
 texture = ExtResource("2_j6hu7")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/BG"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainSubMenu/BG"]
 libraries = {
 "": SubResource("AnimationLibrary_vi0cq")
 }
 autoplay = "slowzoom"
 
-[node name="BGFlicker" type="Sprite2D" parent="UI/BG"]
+[node name="BGFlicker" type="Sprite2D" parent="UI/MainSubMenu/BG"]
 self_modulate = Color(1, 1, 1, 0.203922)
 texture = ExtResource("3_qdwo1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/BG/BGFlicker"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MainSubMenu/BG/BGFlicker"]
 libraries = {
 "": SubResource("AnimationLibrary_yrtdq")
 }
 autoplay = "scaryfadeflicker"
 
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainSubMenu"]
 position = Vector2(701, -383.345)
 scale = Vector2(0.65, 0.522)
 texture = ExtResource("6_ngex0")
 
-[node name="Label" type="Label" parent="UI"]
+[node name="Label" type="Label" parent="UI/MainSubMenu"]
 self_modulate = Color(1, 1, 1, 0.980392)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -858.0
+offset_left = 102.0
 offset_top = -442.0
-offset_right = 119.0
+offset_right = 1079.0
 offset_bottom = -195.0
 grow_horizontal = 2
 scale = Vector2(0.73813, 0.73813)
@@ -172,100 +177,97 @@ label_settings = SubResource("LabelSettings_0c7lh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="UI"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="UI/MainSubMenu"]
 position = Vector2(460, -342)
 process_material = SubResource("ParticleProcessMaterial_fvk6i")
 
-[node name="InputModeManager" parent="UI" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("6_bjcm3")]
-selectors_to_sync = [NodePath("../MainMenuButtons/ButtonSelector"), NodePath("../Credits/ButtonSelector")]
-
-[node name="MainMenuButtons" type="Node2D" parent="UI"]
+[node name="MainMenuButtons" type="Node2D" parent="UI/MainSubMenu"]
 script = ExtResource("6_swuh5")
 
-[node name="ButtonSelector" parent="UI/MainMenuButtons" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
-button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
+[node name="ButtonSelector" parent="UI/MainSubMenu/MainMenuButtons" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
+button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3")]
 
-[node name="ButtonRowConfig" parent="UI/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+[node name="ButtonRowConfig" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
 buttons = [NodePath("StartButton")]
 
-[node name="StartButton" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
-position = Vector2(-719, 331)
+[node name="StartButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
+position = Vector2(-719, 220)
 
-[node name="Label" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="1"]
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="1"]
 text = "Start journey"
 
-[node name="ButtonRowConfig2" parent="UI/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+[node name="ButtonRowConfig2" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("SettingsButton")]
+
+[node name="SettingsButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("3_fx80t")]
+position = Vector2(-719, 345)
+
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="0"]
+scale = Vector2(1.235, 0.8)
+
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="1"]
+text = "Settings"
+
+[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="2"]
+position = Vector2(-2.5, -3)
+shape = SubResource("RectangleShape2D_ni6ko")
+
+[node name="ButtonRowConfig3" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
 buttons = [NodePath("CreditsButton"), NodePath("QuitButton")]
 
-[node name="CreditsButton" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("3_fx80t")]
+[node name="CreditsButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3" instance=ExtResource("3_fx80t")]
 position = Vector2(-803, 446)
 scale = Vector2(0.81, 0.81)
 
-[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="0"]
 scale = Vector2(0.82, 0.85)
 
-[node name="Label" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" index="1"]
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="1"]
 text = "Credits"
 
-[node name="CollisionShape2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" index="2"]
+[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="2"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_j4rsm")
 
-[node name="QuitButton" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("3_fx80t")]
+[node name="QuitButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3" instance=ExtResource("3_fx80t")]
 position = Vector2(-626, 454)
 
-[node name="AnimatedSprite2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="0"]
 position = Vector2(0, -6.44)
 scale = Vector2(0.515, 0.7)
 
-[node name="Label" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" index="1"]
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="1"]
 text = "Quit"
 
-[node name="CollisionShape2D" parent="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" index="2"]
+[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="2"]
 position = Vector2(-0.5, -7)
 shape = SubResource("RectangleShape2D_chvwl")
 
-[node name="Credits" type="ColorRect" parent="UI"]
+[node name="CreditsSubMenu" parent="UI" instance=ExtResource("20_oquwj")]
 visible = false
+
+[node name="BackgroundColor" type="ColorRect" parent="UI/CreditsSubMenu"]
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("10_8l1x4")
 
-[node name="Background" type="Sprite2D" parent="UI/Credits"]
+[node name="Background" type="Sprite2D" parent="UI/CreditsSubMenu/BackgroundColor"]
 position = Vector2(960, 540)
 texture = ExtResource("1_3me3h")
 
-[node name="ButtonSelector" parent="UI/Credits" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
+[node name="ButtonSelector" parent="UI/CreditsSubMenu/BackgroundColor" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
 button_rows = [NodePath("ButtonRowConfig")]
 
-[node name="ButtonRowConfig" parent="UI/Credits/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
-buttons = [NodePath("ExitButton")]
+[node name="ButtonRowConfig" parent="UI/CreditsSubMenu/BackgroundColor/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("CloseMenuButton")]
 
-[node name="ExitButton" parent="UI/Credits/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
+[node name="CloseMenuButton" parent="UI/CreditsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig" instance=ExtResource("13_jvtd0")]
 position = Vector2(1790, 110)
-script = ExtResource("11_60r02")
 
-[node name="AnimatedSprite2D" parent="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" index="0"]
-position = Vector2(0, -14)
-scale = Vector2(0.415, 0.945)
-
-[node name="Label" parent="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" index="1"]
-offset_left = -29.0
-offset_top = -74.0
-offset_right = 29.0
-offset_bottom = 75.0
-text = "X"
-label_settings = SubResource("LabelSettings_mriem")
-
-[node name="CollisionShape2D" parent="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" index="2"]
-position = Vector2(0, -17.5)
-shape = SubResource("RectangleShape2D_u5pb1")
-
-[node name="Title" type="Label" parent="UI/Credits"]
+[node name="Title" type="Label" parent="UI/CreditsSubMenu/BackgroundColor"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -280,7 +282,7 @@ label_settings = SubResource("LabelSettings_vlt60")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="Label" parent="UI/Credits"]
+[node name="Subtitle" type="Label" parent="UI/CreditsSubMenu/BackgroundColor"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -299,7 +301,7 @@ label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="People" type="Control" parent="UI/Credits"]
+[node name="People" type="Control" parent="UI/CreditsSubMenu/BackgroundColor"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -312,7 +314,7 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Markus" type="Label" parent="UI/Credits/People"]
+[node name="Markus" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -331,7 +333,7 @@ label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="UI/Credits/People/Markus"]
+[node name="Label" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People/Markus"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -349,7 +351,7 @@ label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Laurenz" type="Label" parent="UI/Credits/People"]
+[node name="Laurenz" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -367,7 +369,7 @@ label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="UI/Credits/People/Laurenz"]
+[node name="Label" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People/Laurenz"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -385,7 +387,7 @@ label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Elias" type="Label" parent="UI/Credits/People"]
+[node name="Elias" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -403,7 +405,7 @@ label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="UI/Credits/People/Elias"]
+[node name="Label" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People/Elias"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -421,7 +423,7 @@ label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="David" type="Label" parent="UI/Credits/People"]
+[node name="David" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -440,7 +442,7 @@ label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="UI/Credits/People/David"]
+[node name="Label" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People/David"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -458,7 +460,7 @@ label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="dankefelix" type="Label" parent="UI/Credits/People"]
+[node name="dankefelix" type="Label" parent="UI/CreditsSubMenu/BackgroundColor/People"]
 self_modulate = Color(1, 1, 1, 0.152941)
 layout_mode = 1
 anchors_preset = 8
@@ -477,7 +479,7 @@ label_settings = ExtResource("13_iih06")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Engine" type="Label" parent="UI/Credits"]
+[node name="Engine" type="Label" parent="UI/CreditsSubMenu/BackgroundColor"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -495,54 +497,169 @@ label_settings = SubResource("LabelSettings_v2bji")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/Credits/Engine"]
+[node name="Sprite2D" type="Sprite2D" parent="UI/CreditsSubMenu/BackgroundColor/Engine"]
 position = Vector2(287, 36)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("13_1mg5u")
 
-[node name="Q1Sprite" type="Sprite2D" parent="UI/Credits"]
+[node name="Q1Sprite" type="Sprite2D" parent="UI/CreditsSubMenu/BackgroundColor"]
 position = Vector2(160, 920)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_2k0lu")
 
-[node name="LinkButton" type="LinkButton" parent="UI/Credits/Q1Sprite"]
+[node name="LinkButton" type="LinkButton" parent="UI/CreditsSubMenu/BackgroundColor/Q1Sprite"]
 offset_left = -120.0
 offset_top = -124.0
 offset_right = 124.0
 offset_bottom = 128.0
 uri = "https://q1studios.itch.io/"
 
-[node name="GodotSprite" type="Sprite2D" parent="UI/Credits"]
+[node name="GodotSprite" type="Sprite2D" parent="UI/CreditsSubMenu/BackgroundColor"]
 position = Vector2(960, 1010)
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("8_khbxw")
 
-[node name="LinkButton" type="LinkButton" parent="UI/Credits/GodotSprite"]
+[node name="LinkButton" type="LinkButton" parent="UI/CreditsSubMenu/BackgroundColor/GodotSprite"]
 offset_left = -453.0
 offset_top = -173.0
 offset_right = 476.0
 offset_bottom = 182.0
 uri = "https://godotengine.org/"
 
-[node name="MiniJameGamSprite" type="Sprite2D" parent="UI/Credits"]
+[node name="MiniJameGamSprite" type="Sprite2D" parent="UI/CreditsSubMenu/BackgroundColor"]
 position = Vector2(1760, 940)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_kq7md")
 
-[node name="LinkButton" type="LinkButton" parent="UI/Credits/MiniJameGamSprite"]
+[node name="LinkButton" type="LinkButton" parent="UI/CreditsSubMenu/BackgroundColor/MiniJameGamSprite"]
 offset_left = -232.0
 offset_top = -222.0
 offset_right = 240.0
 offset_bottom = 188.0
 uri = "https://itch.io/jam/mini-jame-gam-34"
 
-[node name="SceneTransition" type="Sprite2D" parent="."]
+[node name="SettingsSubMenu" parent="UI" instance=ExtResource("20_oquwj")]
 visible = false
-position = Vector2(960, 540)
+
+[node name="BackgroundColor" type="ColorRect" parent="UI/SettingsSubMenu"]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
+
+[node name="ButtonSelector" parent="UI/SettingsSubMenu/BackgroundColor" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
+button_rows = [NodePath("ButtonRowConfig")]
+
+[node name="ButtonRowConfig" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("CloseMenuButton")]
+
+[node name="CloseMenuButton" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig" instance=ExtResource("13_jvtd0")]
+position = Vector2(1790, 110)
+
+[node name="Title" type="Label" parent="UI/SettingsSubMenu/BackgroundColor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 40.0
+offset_right = 157.0
+offset_bottom = 189.0
+grow_horizontal = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_vlt60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalMix" type="Label" parent="UI/SettingsSubMenu/BackgroundColor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -240.0
+offset_right = 240.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Total Mix
+"
+label_settings = ExtResource("12_ry7vv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalMixSlider" type="HSlider" parent="UI/SettingsSubMenu/BackgroundColor"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 350.0
+offset_right = 1260.0
+offset_bottom = 450.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="Music" type="Label" parent="UI/SettingsSubMenu/BackgroundColor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+label_settings = ExtResource("12_ry7vv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="UI/SettingsSubMenu/BackgroundColor"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 600.0
+offset_right = 1260.0
+offset_bottom = 700.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="Sfx" type="Label" parent="UI/SettingsSubMenu/BackgroundColor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 260.0
+offset_right = 240.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sound Effects"
+label_settings = ExtResource("12_ry7vv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="UI/SettingsSubMenu/BackgroundColor"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 850.0
+offset_right = 1260.0
+offset_bottom = 950.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="SceneTransition" type="Sprite2D" parent="UI"]
+visible = false
 texture = ExtResource("1_3me3h")
 script = ExtResource("19_6iilf")
 
-[node name="scawyspwite" type="Sprite2D" parent="SceneTransition"]
+[node name="scawyspwite" type="Sprite2D" parent="UI/SceneTransition"]
 self_modulate = Color(1, 1, 1, 0.0392157)
 position = Vector2(14, -50)
 scale = Vector2(1.615, 1.615)
@@ -556,17 +673,17 @@ bus = &"Music"
 parameters/looping = true
 script = ExtResource("21_otmm1")
 
-[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="UI/MainMenuButtons" method="_on_start_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="SceneTransition" method="_on_start_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="MenuMusic" method="_on_start_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" to="UI/MainMenuButtons" method="_on_credits_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton" to="UI/Credits" method="_on_credits_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" to="SceneTransition" method="_on_quit_button_clicked"]
-[connection signal="clicked" from="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton" to="MenuMusic" method="_on_quit_button_clicked"]
-[connection signal="clicked" from="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" to="UI/MainMenuButtons" method="_on_exit_button_clicked"]
-[connection signal="clicked" from="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton" to="UI/Credits" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="UI/MainSubMenu/MainMenuButtons" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="UI/SceneTransition" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" to="MenuMusic" method="_on_start_button_clicked"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" to="UI/SettingsSubMenu" method="_on_opened"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" to="UI/CreditsSubMenu" method="_on_opened"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" to="UI/SceneTransition" method="_on_quit_button_clicked"]
+[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" to="MenuMusic" method="_on_quit_button_clicked"]
+[connection signal="clicked" from="UI/CreditsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/MainSubMenu" method="_on_opened"]
+[connection signal="clicked" from="UI/SettingsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/MainSubMenu" method="_on_opened"]
 
-[editable path="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton"]
-[editable path="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/CreditsButton"]
-[editable path="UI/MainMenuButtons/ButtonSelector/ButtonRowConfig2/QuitButton"]
-[editable path="UI/Credits/ButtonSelector/ButtonRowConfig/ExitButton"]
+[editable path="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton"]
+[editable path="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton"]
+[editable path="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton"]
+[editable path="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton"]

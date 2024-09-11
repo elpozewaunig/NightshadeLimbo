@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1diahg6or5y0"]
+
+[ext_resource type="Script" path="res://scripts/ui/SubMenuManager.gd" id="1_vl31o"]
+
+[node name="SubMenuManager" type="Node2D"]
+position = Vector2(-960, -540)
+script = ExtResource("1_vl31o")
