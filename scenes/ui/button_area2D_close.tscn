@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgiknxfqahoy8"]
+
+[ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="1_uyhbk"]
+[ext_resource type="Script" path="res://scripts/ui/CloseMenuButtonSrc.gd" id="2_vdd1d"]
+[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="3_m6whx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wawxh"]
+font = ExtResource("3_m6whx")
+font_size = 150
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m10n2"]
+size = Vector2(110, 110)
+
+[node name="ButtonArea2DClose" instance=ExtResource("1_uyhbk")]
+
+[node name="Area2DButtonSrc" parent="." index="1"]
+script = ExtResource("2_vdd1d")
+
+[node name="AnimatedSprite2D" parent="Area2DButtonSrc" index="0"]
+scale = Vector2(0.415, 0.945)
+
+[node name="Label" parent="Area2DButtonSrc" index="1"]
+offset_left = -33.5
+offset_top = -93.0
+offset_right = 33.5
+offset_bottom = 93.0
+text = "X"
+label_settings = SubResource("LabelSettings_wawxh")
+
+[node name="CollisionShape2D" parent="Area2DButtonSrc" index="2"]
+shape = SubResource("RectangleShape2D_m10n2")

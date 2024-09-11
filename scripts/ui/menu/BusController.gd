@@ -18,14 +18,15 @@ func _ready() -> void:
 	
 	# Connect controller to all slider value changed signals
 	for connection in slider_connections:
-		connection["slider"].value_changed.connect(_on_slider_value_changed)
+		pass
+		#connection["slider"].value_changed.connect(_on_slider_value_changed)
 
 func _on_slider_value_changed(value: float) -> void:
 	# Adjust all bus volumes according to current slider values
 	for connection in slider_connections:
 		var bus_idx = connection["bus"]
-		var slider_value = connection["slider"].value
-		var min_value = connection["slider"].min_value
+		var slider_value = connection["slider"].slider.value
+		var min_value = connection["slider"].slider.min_value
 		AudioServer.set_bus_volume_db(bus_idx, slider_value)
 		
 		if slider_value == min_value:

@@ -1,4 +1,4 @@
-extends Area2DButton
+extends Area2DButtonSrc
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/sprites/bgtry1_blur.png" id="2_j6hu7"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
 [ext_resource type="PackedScene" uid="uid://d1diahg6or5y0" path="res://scenes/ui/sub_menu_manager.tscn" id="3_bmp7t"]
-[ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/ui/button.tscn" id="3_fx80t"]
+[ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="3_fx80t"]
 [ext_resource type="Texture2D" uid="uid://8v25rlg60e86" path="res://assets/sprites/bg_flickeroverlay.png" id="3_qdwo1"]
 [ext_resource type="Texture2D" uid="uid://can1hdppkwnab" path="res://assets/sprites/q1_circle.png" id="6_2k0lu"]
 [ext_resource type="PackedScene" uid="uid://bo5ct1aq1wmge" path="res://scenes/ui/input_mode_manager.tscn" id="6_bjcm3"]
@@ -18,12 +18,12 @@
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="12_ry7vv"]
 [ext_resource type="Texture2D" uid="uid://cbqkw6ui74yhy" path="res://assets/sprites/heart.svg" id="13_1mg5u"]
 [ext_resource type="LabelSettings" uid="uid://126wbmhn8uag" path="res://assets/settings/labels/credits_subtitle_settings.tres" id="13_iih06"]
-[ext_resource type="PackedScene" uid="uid://bgiknxfqahoy8" path="res://scenes/ui/close_menu_button.tscn" id="13_jvtd0"]
+[ext_resource type="PackedScene" uid="uid://bgiknxfqahoy8" path="res://scenes/ui/button_area2D_close.tscn" id="13_jvtd0"]
 [ext_resource type="AudioStream" uid="uid://c8prdyktbfx3i" path="res://assets/music/BGM_MainMenuLoop.ogg" id="17_yrybt"]
 [ext_resource type="Script" path="res://scripts/ui/menu/MenuSceneTransition.gd" id="19_6iilf"]
 [ext_resource type="Script" path="res://scripts/ui/menu/BusController.gd" id="20_7jtax"]
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/sub_menu.tscn" id="20_oquwj"]
-[ext_resource type="PackedScene" path="res://scenes/ui/selectable_slider.tscn" id="20_p62yo"]
+[ext_resource type="PackedScene" uid="uid://gh1ggcgi0xnd" path="res://scenes/ui/button_slider.tscn" id="21_hk47m"]
 [ext_resource type="Script" path="res://scripts/ui/menu/MenuMusic.gd" id="21_otmm1"]
 
 [sub_resource type="Animation" id="Animation_17cl1"]
@@ -108,14 +108,14 @@ emission_shape = 3
 emission_box_extents = Vector3(350, 1, 1)
 gravity = Vector3(0, 98, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni6ko"]
-size = Vector2(351, 100)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8c6h"]
+size = Vector2(340, 97)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4rsm"]
-size = Vector2(225, 97)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxbn7"]
+size = Vector2(220, 100)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_chvwl"]
-size = Vector2(137, 82)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eaoji"]
+size = Vector2(160, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vlt60"]
 font = ExtResource("2_hht2f")
@@ -195,10 +195,10 @@ buttons = [NodePath("StartButton")]
 [node name="StartButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
 position = Vector2(-711.375, 220)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton/Area2DButtonSrc" index="0"]
 scale = Vector2(1.275, 1)
 
-[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="1"]
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton/Area2DButtonSrc" index="1"]
 text = "Start journey"
 
 [node name="ButtonRowConfig2" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
@@ -207,46 +207,47 @@ buttons = [NodePath("SettingsButton")]
 [node name="SettingsButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("3_fx80t")]
 position = Vector2(-719, 345)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton/Area2DButtonSrc" index="0"]
 scale = Vector2(1.235, 0.8)
 
-[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="1"]
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton/Area2DButtonSrc" index="1"]
 text = "Settings"
 
-[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="2"]
-position = Vector2(-2.5, -3)
-shape = SubResource("RectangleShape2D_ni6ko")
+[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton/Area2DButtonSrc" index="2"]
+shape = SubResource("RectangleShape2D_k8c6h")
 
 [node name="ButtonRowConfig3" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
 buttons = [NodePath("CreditsButton"), NodePath("QuitButton")]
 
 [node name="CreditsButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3" instance=ExtResource("3_fx80t")]
-position = Vector2(-803, 446)
-scale = Vector2(0.81, 0.81)
+position = Vector2(-805, 450)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="0"]
+[node name="Area2DButtonSrc" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="1"]
+scale = Vector2(0.8, 0.8)
+
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton/Area2DButtonSrc" index="0"]
 scale = Vector2(0.82, 0.85)
 
-[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="1"]
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton/Area2DButtonSrc" index="1"]
 text = "Credits"
 
-[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="2"]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_j4rsm")
+[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton/Area2DButtonSrc" index="2"]
+shape = SubResource("RectangleShape2D_oxbn7")
 
 [node name="QuitButton" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3" instance=ExtResource("3_fx80t")]
-position = Vector2(-626, 454)
+position = Vector2(-625, 450)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="0"]
-position = Vector2(0, -6.44)
-scale = Vector2(0.515, 0.7)
+[node name="Area2DButtonSrc" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="1"]
+scale = Vector2(0.8, 0.8)
 
-[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="1"]
+[node name="AnimatedSprite2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton/Area2DButtonSrc" index="0"]
+scale = Vector2(0.6, 0.85)
+
+[node name="Label" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton/Area2DButtonSrc" index="1"]
 text = "Quit"
 
-[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="2"]
-position = Vector2(-0.5, -7)
-shape = SubResource("RectangleShape2D_chvwl")
+[node name="CollisionShape2D" parent="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton/Area2DButtonSrc" index="2"]
+shape = SubResource("RectangleShape2D_eaoji")
 
 [node name="CreditsSubMenu" parent="UI" instance=ExtResource("20_oquwj")]
 visible = false
@@ -554,15 +555,6 @@ offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ButtonSelector" parent="UI/SettingsSubMenu/BackgroundColor" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
-button_rows = [NodePath("ButtonRowConfig")]
-
-[node name="ButtonRowConfig" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
-buttons = [NodePath("CloseMenuButton")]
-
-[node name="CloseMenuButton" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig" instance=ExtResource("13_jvtd0")]
-position = Vector2(1790, 110)
-
 [node name="Title" type="Label" parent="UI/SettingsSubMenu/BackgroundColor"]
 layout_mode = 1
 anchors_preset = 5
@@ -633,26 +625,35 @@ label_settings = ExtResource("12_ry7vv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ButtonSelector" parent="UI/SettingsSubMenu/BackgroundColor" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
+button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3"), NodePath("ButtonRowConfig4")]
+
+[node name="ButtonRowConfig" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("CloseMenuButton")]
+
+[node name="CloseMenuButton" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig" instance=ExtResource("13_jvtd0")]
+position = Vector2(1790, 110)
+
+[node name="ButtonRowConfig2" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("../../BusController/TotalMixSlider")]
+
+[node name="ButtonRowConfig3" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("../../BusController/MusicSlider")]
+
+[node name="ButtonRowConfig4" parent="UI/SettingsSubMenu/BackgroundColor/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
+buttons = [NodePath("../../BusController/SfxSlider")]
+
 [node name="BusController" type="Node2D" parent="UI/SettingsSubMenu/BackgroundColor"]
 script = ExtResource("20_7jtax")
 
-[node name="TotalMixSlider" parent="UI/SettingsSubMenu/BackgroundColor/BusController" instance=ExtResource("20_p62yo")]
-offset_left = 660.0
-offset_top = 350.0
-offset_right = 1260.0
-offset_bottom = 450.0
+[node name="TotalMixSlider" parent="UI/SettingsSubMenu/BackgroundColor/BusController" instance=ExtResource("21_hk47m")]
+position = Vector2(960, 400)
 
-[node name="MusicSlider" parent="UI/SettingsSubMenu/BackgroundColor/BusController" instance=ExtResource("20_p62yo")]
-offset_left = 660.0
-offset_top = 600.0
-offset_right = 1260.0
-offset_bottom = 700.0
+[node name="MusicSlider" parent="UI/SettingsSubMenu/BackgroundColor/BusController" instance=ExtResource("21_hk47m")]
+position = Vector2(960, 650)
 
-[node name="SfxSlider" parent="UI/SettingsSubMenu/BackgroundColor/BusController" instance=ExtResource("20_p62yo")]
-offset_left = 660.0
-offset_top = 850.0
-offset_right = 1260.0
-offset_bottom = 950.0
+[node name="SfxSlider" parent="UI/SettingsSubMenu/BackgroundColor/BusController" instance=ExtResource("21_hk47m")]
+position = Vector2(960, 900)
 
 [node name="SceneTransition" type="Sprite2D" parent="UI"]
 visible = false
@@ -679,9 +680,11 @@ script = ExtResource("21_otmm1")
 [connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" to="UI/SettingsSubMenu" method="_on_opened"]
 [connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" to="UI/CreditsSubMenu" method="_on_opened"]
 [connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" to="UI/SceneTransition" method="_on_quit_button_clicked"]
-[connection signal="clicked" from="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" to="MenuMusic" method="_on_quit_button_clicked"]
 [connection signal="clicked" from="UI/CreditsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/MainSubMenu" method="_on_opened"]
 [connection signal="clicked" from="UI/SettingsSubMenu/BackgroundColor/ButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/MainSubMenu" method="_on_opened"]
+[connection signal="value_changed" from="UI/SettingsSubMenu/BackgroundColor/BusController/TotalMixSlider" to="UI/SettingsSubMenu/BackgroundColor/BusController" method="_on_slider_value_changed"]
+[connection signal="value_changed" from="UI/SettingsSubMenu/BackgroundColor/BusController/MusicSlider" to="UI/SettingsSubMenu/BackgroundColor/BusController" method="_on_slider_value_changed"]
+[connection signal="value_changed" from="UI/SettingsSubMenu/BackgroundColor/BusController/SfxSlider" to="UI/SettingsSubMenu/BackgroundColor/BusController" method="_on_slider_value_changed"]
 
 [editable path="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton"]
 [editable path="UI/MainSubMenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton"]

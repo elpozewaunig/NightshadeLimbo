@@ -1,4 +1,4 @@
 extends Node2D
 class_name ButtonRowConfig
 
-@export var buttons : Array[Area2DButton] = []
+@export var buttons : Array[SelectableButton] = []

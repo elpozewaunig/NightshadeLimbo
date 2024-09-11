@@ -59,13 +59,13 @@ func activate_or_move(move: int) -> void:
 	set_key_mode.emit(self)
 	enable_highlight()
 
-func current_row_buttons() -> Array[Area2DButton]:
+func current_row_buttons() -> Array[SelectableButton]:
 	return button_rows[highlight_row].buttons
 
-func get_button(row: int, col: int) -> Area2DButton:
+func get_button(row: int, col: int) -> SelectableButton:
 	return button_rows[row].buttons[col]
 
-func get_current_button() -> Area2DButton:
+func get_current_button() -> SelectableButton:
 	return get_button(highlight_row, highlight_col)
 
 func _input(event):

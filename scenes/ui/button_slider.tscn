@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://gh1ggcgi0xnd"]
+
+[ext_resource type="PackedScene" uid="uid://iodcpklmqw1" path="res://scenes/ui/selectable_button_component.tscn" id="1_1vax2"]
+[ext_resource type="Script" path="res://scripts/ui/button_slider.gd" id="2_clylr"]
+[ext_resource type="Script" path="res://scripts/ui/SliderButtonSrc.gd" id="2_ehbuc"]
+
+[node name="ButtonSlider" instance=ExtResource("1_1vax2")]
+script = ExtResource("2_clylr")
+
+[node name="SliderButtonSrc" type="HSlider" parent="." index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -8.0
+offset_right = 208.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -40.0
+max_value = 0.0
+step = 0.0
+script = ExtResource("2_ehbuc")
+
+[connection signal="mouse_entered" from="SliderButtonSrc" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SliderButtonSrc" to="." method="_on_mouse_exited"]
+[connection signal="value_changed" from="SliderButtonSrc" to="." method="_on_slider_value_changed"]

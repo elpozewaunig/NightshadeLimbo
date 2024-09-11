@@ -53,7 +53,7 @@
 [ext_resource type="Script" path="res://scripts/game/overlays/Pause.gd" id="43_8c0bu"]
 [ext_resource type="Texture2D" uid="uid://cl3osl5ef14vx" path="res://assets/sprites/white_bg.svg" id="43_8p0wm"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="43_j1v2b"]
-[ext_resource type="PackedScene" uid="uid://u3fwqvgrct4r" path="res://scenes/ui/button.tscn" id="44_8ttwp"]
+[ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="44_8ttwp"]
 [ext_resource type="Script" path="res://scripts/game/overlays/WinTransition.gd" id="44_pnwlx"]
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="47_hsw4w"]
 [ext_resource type="PackedScene" uid="uid://dukyhdiq8iidn" path="res://scenes/utility/mouse_hider.tscn" id="50_ywsql"]
@@ -974,7 +974,7 @@ buttons = [NodePath("ContinueButton")]
 [node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 260)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton" index="1"]
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton/Area2DButtonSrc" index="1"]
 text = "Continue"
 
 [node name="ButtonRowConfig2" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
@@ -984,7 +984,7 @@ buttons = [NodePath("ExitButton")]
 [node name="ExitButton" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
 position = Vector2(960, 940)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig2/ExitButton" index="1"]
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/Buttons/ButtonSelector/ButtonRowConfig2/ExitButton/Area2DButtonSrc" index="1"]
 text = "Exit to menu"
 
 [node name="FadeOut" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen"]
