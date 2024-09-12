@@ -29,14 +29,17 @@ func _ready() -> void:
 			
 			# Connect self to button's select signal
 			button.selected.connect(_on_btn_selected)
-			
+	
 	if default_active:
-		set_key_mode.emit(self)
 		enable_highlight()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	# Notify input manager of mode when active by default, cannot be done in _ready
+	if default_active:
+		set_key_mode.emit(self)
+		default_active = false
+	
 	if get_current_button().is_visible_in_tree() and not get_current_button().disabled:
 		if Input.is_action_just_pressed("ui_up"):
 			activate_or_move(Direction.UP)
