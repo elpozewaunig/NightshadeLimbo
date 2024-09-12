@@ -14,8 +14,13 @@ var ascending : bool = true
 var descending : bool = false
 var target_reached : bool = false
 
+var mute : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Connect to signal from boss
+	get_parent().player_died.connect(_on_player_died)
+	
 	rotation_degrees = 180
 	impact_sprite.hide()
 	monitorable = false
@@ -49,7 +54,10 @@ func _process(delta: float) -> void:
 		global_position = target_pos
 		monitorable = true
 		impact_sprite.show()
-		impact_sfx.play()
+		
+		if not mute:
+			impact_sfx.play()
+			
 		target_reached = true
 		
 	if target_reached:
@@ -64,3 +72,6 @@ func _process(delta: float) -> void:
 			impact_sprite.modulate.a = 0
 			monitorable = false
 			queue_free()
+
+func _on_player_died() -> void:
+	mute = true
