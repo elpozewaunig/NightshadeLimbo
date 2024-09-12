@@ -19,10 +19,10 @@ trigger_through_cancel = true
 scale = Vector2(0.415, 0.945)
 
 [node name="Label" parent="Area2DButtonSrc" index="1"]
-offset_left = -33.5
-offset_top = -93.0
-offset_right = 33.5
-offset_bottom = 93.0
+offset_left = -33.0
+offset_top = -80.0
+offset_right = 34.0
+offset_bottom = 106.0
 text = "X"
 label_settings = SubResource("LabelSettings_wawxh")
 

@@ -1,37 +1,84 @@
-[gd_scene load_steps=5 format=3 uid="uid://gh1ggcgi0xnd"]
+[gd_scene load_steps=10 format=3 uid="uid://gh1ggcgi0xnd"]
 
 [ext_resource type="PackedScene" uid="uid://iodcpklmqw1" path="res://scenes/ui/selectable_button_component.tscn" id="1_1vax2"]
 [ext_resource type="Script" path="res://scripts/ui/SelectableSliderButton.gd" id="2_clylr"]
 [ext_resource type="Script" path="res://scripts/ui/SliderButtonSrc.gd" id="2_ehbuc"]
 [ext_resource type="AudioStream" uid="uid://djdb5f3iro1os" path="res://assets/sounds/sfx_UISliderChange.ogg" id="4_eoapb"]
+[ext_resource type="Texture2D" uid="uid://cto60btvc2ql6" path="res://assets/sprites/uislider_box.png" id="5_8lwcg"]
+[ext_resource type="Script" path="res://scripts/ui/SliderReskinClipMaskHighlight.gd" id="6_fjejf"]
+[ext_resource type="Script" path="res://scripts/ui/SliderReskinClipMask.gd" id="6_lhjrf"]
+[ext_resource type="Texture2D" uid="uid://wlp58meo5v5u" path="res://assets/sprites/uislider_ticks.png" id="7_we3eu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trhxa"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="ButtonSlider" instance=ExtResource("1_1vax2")]
 light_mask = 0
 script = ExtResource("2_clylr")
 acoustic_feedback = true
 
-[node name="SliderButtonSrc" type="HSlider" parent="." index="1"]
+[node name="Box" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("5_8lwcg")
+
+[node name="White" type="Panel" parent="." index="1"]
+clip_children = 1
+offset_left = -193.0
+offset_top = -45.0
+offset_right = 191.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_trhxa")
+script = ExtResource("6_lhjrf")
+
+[node name="Ticks" type="Sprite2D" parent="White" index="0"]
+position = Vector2(193, 45)
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("7_we3eu")
+
+[node name="White2" type="Panel" parent="." index="2"]
+self_modulate = Color(1, 0.439216, 0.439216, 1)
+clip_children = 1
+offset_left = 193.0
+offset_top = -45.0
+offset_right = 219.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_trhxa")
+script = ExtResource("6_fjejf")
+
+[node name="Ticks" type="Sprite2D" parent="White2" index="0"]
+self_modulate = Color(1, 0.439216, 0.439216, 1)
+position = Vector2(-193, 45)
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("7_we3eu")
+
+[node name="SliderButtonSrc" type="HSlider" parent="." index="4"]
+self_modulate = Color(1, 1, 1, 0)
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -8.0
-offset_right = 208.0
-offset_bottom = 8.0
+offset_left = -195.0
+offset_top = -43.0
+offset_right = 195.515
+offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 5.48)
 min_value = -40.0
 max_value = 0.0
-step = 0.0
+step = 2.667
 script = ExtResource("2_ehbuc")
 
-[node name="SliderSFX" type="AudioStreamPlayer" parent="." index="2"]
+[node name="SliderSFX" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("4_eoapb")
 volume_db = 5.0
 
 [connection signal="mouse_entered" from="SliderButtonSrc" to="." method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="SliderButtonSrc" to="White2" method="_on_slider_button_src_mouse_entered"]
 [connection signal="mouse_exited" from="SliderButtonSrc" to="." method="_on_mouse_exited"]
+[connection signal="mouse_exited" from="SliderButtonSrc" to="White2" method="_on_slider_button_src_mouse_exited"]
 [connection signal="value_changed" from="SliderButtonSrc" to="." method="_on_slider_value_changed"]
+[connection signal="value_changed" from="SliderButtonSrc" to="White" method="_on_slider_button_src_value_changed"]
+[connection signal="value_changed" from="SliderButtonSrc" to="White2" method="_on_slider_button_src_value_changed"]

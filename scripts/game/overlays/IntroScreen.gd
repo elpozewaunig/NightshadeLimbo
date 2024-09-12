@@ -8,7 +8,7 @@ extends Node2D
 var music = AmbienceMusic
 var game_over = false
 
-var phases = ["TUTORIAL", "BLACK_SCREEN", "GAME_START", "FADE_OUT"]
+var phases = ["BLACK_SCREEN", "GAME_START", "FADE_OUT"] #["TUTORIAL", "BLACK_SCREEN", "GAME_START", "FADE_OUT"]
 var time_elapsed = 0
 var phase = 0
 

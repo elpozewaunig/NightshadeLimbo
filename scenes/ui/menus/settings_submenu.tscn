@@ -116,18 +116,18 @@ buttons = [NodePath("../../BusController/SfxSlider")]
 script = ExtResource("7_6jhtp")
 
 [node name="TotalMixSlider" parent="BackgroundColor/BusController" index="0" instance=ExtResource("8_6vocn")]
-position = Vector2(960, 400)
+position = Vector2(960, 428)
 
 [node name="MusicSlider" parent="BackgroundColor/BusController" index="1" instance=ExtResource("8_6vocn")]
-position = Vector2(960, 650)
+position = Vector2(960, 678)
 
-[node name="SliderSFX" parent="BackgroundColor/BusController/MusicSlider" index="2"]
+[node name="SliderSFX" parent="BackgroundColor/BusController/MusicSlider" index="5"]
 bus = &"Music"
 
 [node name="SfxSlider" parent="BackgroundColor/BusController" index="2" instance=ExtResource("8_6vocn")]
-position = Vector2(960, 900)
+position = Vector2(960, 928)
 
-[node name="SliderSFX" parent="BackgroundColor/BusController/SfxSlider" index="2"]
+[node name="SliderSFX" parent="BackgroundColor/BusController/SfxSlider" index="5"]
 bus = &"SFX"
 
 [connection signal="value_changed" from="BackgroundColor/BusController/TotalMixSlider" to="BackgroundColor/BusController" method="_on_slider_value_changed"]
