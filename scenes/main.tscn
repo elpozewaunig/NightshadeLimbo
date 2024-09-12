@@ -842,7 +842,7 @@ z_index = 5
 
 [node name="InputModeManager" parent="Camera2D/Overlays" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("47_d1mlr")]
 light_mask = 0
-selectors_to_sync = [NodePath("../PauseScreen/PauseMenu/ButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/ButtonSelector"), NodePath("../PauseScreen/SettingsSubmenu/BackgroundColor/ButtonSelector"), NodePath("../IntroScreen/TutorialSubmenu/ButtonSelector")]
+selectors_to_sync = [NodePath("../IntroScreen/TutorialSubmenu/ButtonSelector"), NodePath("../PauseScreen/PauseMenu/ButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/ButtonSelector"), NodePath("../PauseScreen/SettingsSubmenu/BackgroundColor/ButtonSelector")]
 
 [node name="Vignette" type="Sprite2D" parent="Camera2D/Overlays"]
 light_mask = 0
@@ -977,6 +977,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu"]
