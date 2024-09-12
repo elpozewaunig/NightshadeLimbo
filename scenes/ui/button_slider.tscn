@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://gh1ggcgi0xnd"]
+[gd_scene load_steps=9 format=3 uid="uid://gh1ggcgi0xnd"]
 
 [ext_resource type="PackedScene" uid="uid://iodcpklmqw1" path="res://scenes/ui/selectable_button_component.tscn" id="1_1vax2"]
 [ext_resource type="Script" path="res://scripts/ui/SelectableSliderButton.gd" id="2_clylr"]
-[ext_resource type="Script" path="res://scripts/ui/SliderButtonSrc.gd" id="2_ehbuc"]
 [ext_resource type="AudioStream" uid="uid://djdb5f3iro1os" path="res://assets/sounds/sfx_UISliderChange.ogg" id="4_eoapb"]
 [ext_resource type="Texture2D" uid="uid://cto60btvc2ql6" path="res://assets/sprites/uislider_box.png" id="5_8lwcg"]
 [ext_resource type="Script" path="res://scripts/ui/SliderReskinClipMaskHighlight.gd" id="6_fjejf"]
@@ -68,8 +67,7 @@ grow_vertical = 2
 scale = Vector2(1, 5.48)
 min_value = -40.0
 max_value = 0.0
-step = 2.667
-script = ExtResource("2_ehbuc")
+step = 0.0
 
 [node name="SliderSFX" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("4_eoapb")

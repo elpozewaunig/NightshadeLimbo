@@ -4,7 +4,7 @@ var boxsize = 0
 var maxv = 0
 var minv = 0
 
-@onready var slider: SliderButtonSrc = $"../SliderButtonSrc"
+@onready var slider: HSlider = $"../SliderButtonSrc"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	boxsize = size.x
