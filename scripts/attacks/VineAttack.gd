@@ -20,10 +20,15 @@ var pre_delete_delta : float = 0
 var stay_time : float = 0
 var retracting : bool = false
 
+var mute : bool = false
+
 signal player_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Connect to signal from boss
+	get_parent().player_died.connect(_on_player_died)
+	
 	var last_point = global_position
 	# Calculate the total distance between segments
 	for point in points:
@@ -97,7 +102,7 @@ func _process(delta: float) -> void:
 				vine.queue_free()
 			
 			# Play sound effect while retracting
-			if not sfx.playing:
+			if not sfx.playing and not mute:
 				sfx.play()
 			
 		else:
@@ -107,3 +112,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not body.dead:
 		player_hit.connect(body._on_vine_hit)
 		player_hit.emit()
+
+func _on_player_died() -> void:
+	sfx.stop()
+	mute = true
