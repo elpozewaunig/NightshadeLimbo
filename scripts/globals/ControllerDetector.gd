@@ -6,6 +6,11 @@ var last_type : Type
 
 signal input_method_changed(type_index)
 
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# Always run detector in background, even when paused
+	process_mode = PROCESS_MODE_ALWAYS
+
 func _input(event: InputEvent) -> void:
 	# Keyboard is used
 	if event is InputEventKey:
