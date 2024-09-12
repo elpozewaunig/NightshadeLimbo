@@ -923,6 +923,7 @@ texture = ExtResource("11_g3ka4")
 [node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
 stream = ExtResource("24_6qan5")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="GameOverScreen" type="Node2D" parent="Camera2D/Overlays"]
 visible = false
@@ -1085,6 +1086,51 @@ light_mask = 0
 light_mask = 0
 
 [node name="BusController" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor" index="5"]
+light_mask = 0
+
+[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider" index="0"]
+light_mask = 0
+
+[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider" index="1"]
+light_mask = 0
+
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider/White" index="0"]
+light_mask = 0
+
+[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider" index="2"]
+light_mask = 0
+
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider/White2" index="0"]
+light_mask = 0
+
+[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider" index="0"]
+light_mask = 0
+
+[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider" index="1"]
+light_mask = 0
+
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider/White" index="0"]
+light_mask = 0
+
+[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider" index="2"]
+light_mask = 0
+
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider/White2" index="0"]
+light_mask = 0
+
+[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider" index="0"]
+light_mask = 0
+
+[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider" index="1"]
+light_mask = 0
+
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider/White" index="0"]
+light_mask = 0
+
+[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider" index="2"]
+light_mask = 0
+
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider/White2" index="0"]
 light_mask = 0
 
 [node name="FadeOut" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen"]
