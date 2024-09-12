@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccdfb1r0me44w"]
+[gd_scene load_steps=14 format=3 uid="uid://ccdfb1r0me44w"]
 
 [ext_resource type="Texture2D" uid="uid://djdkq5m8hjrmr" path="res://assets/sprites/tomato_icon.png" id="1_perkc"]
 [ext_resource type="Texture2D" uid="uid://c5uk7355c1umy" path="res://assets/sprites/TomatoRagingAuroSpriteDownscale.png" id="2_cjjsw"]
-[ext_resource type="Script" path="res://scripts/entities/boss/AuraOverlay.gd" id="3_85fs1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
 atlas = ExtResource("2_cjjsw")
@@ -117,11 +116,11 @@ self_modulate = Color(1, 1, 1, 0.521569)
 position = Vector2(566.8, 421.28)
 scale = Vector2(1.9, 1.59)
 sprite_frames = SubResource("SpriteFrames_gs0o6")
-script = ExtResource("3_85fs1")
+autoplay = "default"
 
 [node name="AuraOverlay2" type="AnimatedSprite2D" parent="TextureRect/Control"]
 self_modulate = Color(1, 1, 1, 0.568627)
 position = Vector2(566.8, 421.28)
 scale = Vector2(1.9, 1.59)
 sprite_frames = SubResource("SpriteFrames_gs0o6")
-script = ExtResource("3_85fs1")
+autoplay = "default"
