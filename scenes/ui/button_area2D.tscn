@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bm3cidpku330i"]
 
 [ext_resource type="LabelSettings" uid="uid://d0ngxbsvkqk2n" path="res://assets/settings/labels/button_label_settings.tres" id="1_gem6f"]
-[ext_resource type="Script" path="res://scripts/ui/Area2DButtonSrc.gd" id="1_hdsiu"]
+[ext_resource type="Script" path="res://scripts/ui/SelectableArea2DButton.gd" id="2_qnlvd"]
 [ext_resource type="Texture2D" uid="uid://5l2kdjigrbec" path="res://assets/sprites/button1.png" id="2_tmm5c"]
 [ext_resource type="Texture2D" uid="uid://sbbpntgnpmqu" path="res://assets/sprites/button2.png" id="3_11m13"]
 [ext_resource type="AudioStream" uid="uid://ceiadu76lnhq4" path="res://assets/sounds/sfx_UIClick.ogg" id="5_orodj"]
@@ -26,17 +26,15 @@ size = Vector2(340, 120)
 
 [node name="ButtonArea2D" instance=ExtResource("7_4g5or")]
 light_mask = 0
+script = ExtResource("2_qnlvd")
+trigger_through_cancel = false
 
-[node name="Area2DButtonSrc" type="Area2D" parent="." index="1"]
-light_mask = 0
-script = ExtResource("1_hdsiu")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2DButtonSrc" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
 light_mask = 0
 scale = Vector2(1.235, 1)
 sprite_frames = SubResource("SpriteFrames_m6dyt")
 
-[node name="Label" type="Label" parent="Area2DButtonSrc" index="1"]
+[node name="Label" type="Label" parent="." index="2"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,15 +53,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DButtonSrc" index="2"]
-light_mask = 0
-shape = SubResource("RectangleShape2D_xkhs4")
-
-[node name="ClickSFX" type="AudioStreamPlayer" parent="Area2DButtonSrc" index="3"]
+[node name="ClickSFX" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("5_orodj")
 volume_db = 2.0
 bus = &"SFX"
 
-[connection signal="clicked" from="Area2DButtonSrc" to="." method="_on_clicked"]
+[node name="Area2DButtonSrc" type="Area2D" parent="." index="4"]
+light_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
+light_mask = 0
+shape = SubResource("RectangleShape2D_xkhs4")
+
 [connection signal="mouse_entered" from="Area2DButtonSrc" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2DButtonSrc" to="." method="_on_mouse_exited"]

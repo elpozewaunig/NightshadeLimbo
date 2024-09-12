@@ -192,10 +192,10 @@ buttons = [NodePath("StartButton")]
 [node name="StartButton" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig" instance=ExtResource("3_fx80t")]
 position = Vector2(-711.375, 220)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton/Area2DButtonSrc" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="0"]
 scale = Vector2(1.275, 1)
 
-[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig/StartButton" index="1"]
 text = "Start journey"
 
 [node name="ButtonRowConfig2" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
@@ -204,10 +204,10 @@ buttons = [NodePath("SettingsButton")]
 [node name="SettingsButton" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("3_fx80t")]
 position = Vector2(-719, 345)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton/Area2DButtonSrc" index="0"]
+[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="0"]
 scale = Vector2(1.235, 0.8)
 
-[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton" index="1"]
 text = "Settings"
 
 [node name="CollisionShape2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig2/SettingsButton/Area2DButtonSrc" index="2"]
@@ -218,14 +218,14 @@ buttons = [NodePath("CreditsButton"), NodePath("QuitButton")]
 
 [node name="CreditsButton" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3" instance=ExtResource("3_fx80t")]
 position = Vector2(-805, 450)
-
-[node name="Area2DButtonSrc" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="1"]
 scale = Vector2(0.8, 0.8)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton/Area2DButtonSrc" index="0"]
+[node name="Area2DButtonSrc" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="1"]
+
+[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="0"]
 scale = Vector2(0.82, 0.85)
 
-[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton" index="1"]
 text = "Credits"
 
 [node name="CollisionShape2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton/Area2DButtonSrc" index="2"]
@@ -233,14 +233,14 @@ shape = SubResource("RectangleShape2D_oxbn7")
 
 [node name="QuitButton" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3" instance=ExtResource("3_fx80t")]
 position = Vector2(-625, 450)
-
-[node name="Area2DButtonSrc" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="1"]
 scale = Vector2(0.8, 0.8)
 
-[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton/Area2DButtonSrc" index="0"]
+[node name="Area2DButtonSrc" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="1"]
+
+[node name="AnimatedSprite2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="0"]
 scale = Vector2(0.6, 0.85)
 
-[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton" index="1"]
 text = "Quit"
 
 [node name="CollisionShape2D" parent="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton/Area2DButtonSrc" index="2"]

@@ -11,14 +11,12 @@ font_size = 150
 size = Vector2(110, 110)
 
 [node name="ButtonArea2DClose" instance=ExtResource("1_uyhbk")]
-
-[node name="Area2DButtonSrc" parent="." index="1"]
 trigger_through_cancel = true
 
-[node name="AnimatedSprite2D" parent="Area2DButtonSrc" index="0"]
+[node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.415, 0.945)
 
-[node name="Label" parent="Area2DButtonSrc" index="1"]
+[node name="Label" parent="." index="2"]
 offset_left = -33.0
 offset_top = -80.0
 offset_right = 34.0
@@ -26,5 +24,5 @@ offset_bottom = 106.0
 text = "X"
 label_settings = SubResource("LabelSettings_wawxh")
 
-[node name="CollisionShape2D" parent="Area2DButtonSrc" index="2"]
+[node name="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
 shape = SubResource("RectangleShape2D_m10n2")

@@ -9,7 +9,6 @@ var highlight_active = false
 var ext_selected = false
 
 signal selected(selectable)
-signal clicked
 
 func _on_mouse_entered() -> void:
 	if is_visible_in_tree() and not disabled:
@@ -47,9 +46,6 @@ func _on_ext_cleared() -> void:
 		_on_selected()
 	highlight_active = false
 	ext_selected = false
-
-func _on_clicked() -> void:
-	clicked.emit()
 
 func _on_disabled() -> void:
 	disabled = true

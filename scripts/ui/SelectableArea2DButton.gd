@@ -1,9 +1,6 @@
-extends Area2D
-class_name Area2DButtonSrc
+extends SelectableButton
 
 @export var trigger_through_cancel = false
-
-@onready var selector : SelectableButton = get_parent()
 
 @onready var sprite = $AnimatedSprite2D
 @onready var label = $Label
@@ -27,13 +24,13 @@ func _process(_delta: float) -> void:
 		prev_visible = is_visible_in_tree()
 	
 	# If the button is selected (either through the mouse or key input)
-	if is_visible_in_tree() and selector.is_selected() and not selector.disabled:
+	if is_visible_in_tree() and is_selected() and not disabled:
 		modulate = Color("ff7070")
 		sprite.frame = 1
 		
-		if (Input.is_action_just_pressed("ui_click") and selector.is_mouse_selected()) or Input.is_action_just_pressed("ui_select") and not require_release:
+		if (Input.is_action_just_pressed("ui_click") and is_mouse_selected()) or Input.is_action_just_pressed("ui_select") and not require_release:
 			click_action()
-			
+		
 	# Button is not selected
 	else:
 		modulate = Color("ffffff")
@@ -44,7 +41,7 @@ func _process(_delta: float) -> void:
 		require_release = false
 		
 	# If button is triggerable through a "cancel" action and cancel occurs
-	if trigger_through_cancel and Input.is_action_just_pressed("ui_cancel") and is_visible_in_tree() and not selector.disabled:
+	if trigger_through_cancel and Input.is_action_just_pressed("ui_cancel") and is_visible_in_tree() and not disabled:
 		click_action()
 
 func click_action():
