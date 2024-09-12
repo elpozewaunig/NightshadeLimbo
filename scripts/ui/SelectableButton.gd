@@ -57,3 +57,6 @@ func _on_disabled() -> void:
 
 func is_selected() -> bool:
 	return (ext_selected and highlight_active) or (mouse_inside and not highlight_active)
+
+func is_mouse_selected() -> bool:
+	return mouse_inside and not highlight_active

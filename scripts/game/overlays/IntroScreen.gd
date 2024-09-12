@@ -9,9 +9,10 @@ var music = AmbienceMusic
 var game_over = false
 
 var phases = ["TUTORIAL", "BLACK_SCREEN", "GAME_START", "FADE_OUT"]
-
 var time_elapsed = 0
 var phase = 0
+
+var tutorial_init = false
 
 signal intro_done
 signal permit_movement
@@ -31,8 +32,17 @@ func _process(delta: float) -> void:
 	match phases[phase]:
 		"TUTORIAL":
 			if not Data.tutorial_seen:
-				tutorial.show()
+				if not tutorial_init:
+					tutorial.show()
+					light_sfx.play()
+					tutorial_init = true
+				
+				black.modulate.a -= delta
+				if black.modulate.a <= 0:
+					black.modulate.a = 0
+				
 			else:
+				black.modulate.a = 1
 				tutorial.hide()
 				advance_phase()
 		

@@ -3,7 +3,7 @@ class_name Area2DButtonSrc
 
 @export var trigger_through_cancel = false
 
-@onready var selector = get_parent()
+@onready var selector : SelectableButton = get_parent()
 
 @onready var sprite = $AnimatedSprite2D
 @onready var label = $Label
@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 		modulate = Color("ff7070")
 		sprite.frame = 1
 		
-		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_select") and not require_release:
+		if (Input.is_action_just_pressed("ui_click") and selector.is_mouse_selected()) or Input.is_action_just_pressed("ui_select") and not require_release:
 			click_action()
 			
 	# Button is not selected

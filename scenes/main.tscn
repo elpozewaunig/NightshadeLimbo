@@ -904,12 +904,6 @@ position = Vector2(960, 521.765)
 scale = Vector2(1.24, 1.373)
 texture = ExtResource("10_roquk")
 
-[node name="Black" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
-light_mask = 0
-position = Vector2(960, 540)
-scale = Vector2(1.28, 1.28)
-texture = ExtResource("11_g3ka4")
-
 [node name="TutorialSubmenu" parent="Camera2D/Overlays/IntroScreen" instance=ExtResource("57_rmgxc")]
 visible = false
 position = Vector2(960, 540)
@@ -919,6 +913,12 @@ default_active = true
 
 [node name="Area2DButtonSrc" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/ButtonSelector/ButtonRowConfig/CloseButton" index="1"]
 trigger_through_cancel = false
+
+[node name="Black" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
+light_mask = 0
+position = Vector2(960, 540)
+scale = Vector2(1.28, 1.28)
+texture = ExtResource("11_g3ka4")
 
 [node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
 stream = ExtResource("24_6qan5")
