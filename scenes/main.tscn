@@ -917,6 +917,9 @@ position = Vector2(960, 540)
 [node name="ButtonSelector" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu" index="8"]
 default_active = true
 
+[node name="Area2DButtonSrc" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/ButtonSelector/ButtonRowConfig/CloseButton" index="1"]
+trigger_through_cancel = false
+
 [node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
 stream = ExtResource("24_6qan5")
 volume_db = -10.0
@@ -1179,6 +1182,7 @@ parameters/looping = true
 [connection signal="disable_lights" from="Camera2D/Overlays/Transition" to="Lights" method="_on_disable_lights"]
 
 [editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu"]
+[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/ButtonSelector/ButtonRowConfig/CloseButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig/ContinueButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig2/TutorialButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig3/SettingsButton"]

@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="12_0cgsy"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="13_5sat5"]
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="14_k0sss"]
-[ext_resource type="PackedScene" uid="uid://bgiknxfqahoy8" path="res://scenes/ui/button_area2D_close.tscn" id="15_7orun"]
+[ext_resource type="PackedScene" uid="uid://di3o5lslj817b" path="res://scenes/ui/button_area2D_close.tscn" id="15_7orun"]
 [ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shaders/shader_overlays/screenvignette.png" id="16_avy2b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6dig"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgiknxfqahoy8"]
+[gd_scene load_steps=5 format=3 uid="uid://di3o5lslj817b"]
 
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="1_uyhbk"]
-[ext_resource type="Script" path="res://scripts/ui/CloseMenuButtonSrc.gd" id="2_vdd1d"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="3_m6whx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wawxh"]
@@ -14,7 +13,7 @@ size = Vector2(110, 110)
 [node name="ButtonArea2DClose" instance=ExtResource("1_uyhbk")]
 
 [node name="Area2DButtonSrc" parent="." index="1"]
-script = ExtResource("2_vdd1d")
+trigger_through_cancel = true
 
 [node name="AnimatedSprite2D" parent="Area2DButtonSrc" index="0"]
 scale = Vector2(0.415, 0.945)

@@ -1,6 +1,8 @@
 extends Area2D
 class_name Area2DButtonSrc
 
+@export var trigger_through_cancel = false
+
 @onready var selector = get_parent()
 
 @onready var sprite = $AnimatedSprite2D
@@ -30,8 +32,7 @@ func _process(_delta: float) -> void:
 		sprite.frame = 1
 		
 		if Input.is_action_just_pressed("ui_click") or Input.is_action_just_pressed("ui_select") and not require_release:
-			clicked.emit()
-			click_sfx.play()
+			click_action()
 			
 	# Button is not selected
 	else:
@@ -41,3 +42,11 @@ func _process(_delta: float) -> void:
 	# If no button click input is pressed, a release has been performed
 	if not Input.is_action_pressed("ui_click") and not Input.is_action_pressed("ui_select"):
 		require_release = false
+		
+	# If button is triggerable through a "cancel" action and cancel occurs
+	if trigger_through_cancel and Input.is_action_just_pressed("ui_cancel") and is_visible_in_tree() and not selector.disabled:
+		click_action()
+
+func click_action():
+	clicked.emit()
+	click_sfx.play()
