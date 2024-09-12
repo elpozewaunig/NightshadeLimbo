@@ -1,0 +1,163 @@
+[gd_scene load_steps=18 format=3 uid="uid://cs5d1e1oq65hf"]
+
+[ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
+[ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
+[ext_resource type="LabelSettings" uid="uid://dvgl0yeqhbjco" path="res://assets/settings/labels/menu_title_label_settingsl.tres" id="3_pals6"]
+[ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="4_x6hhj"]
+[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_input_icon.tscn" id="5_csx0y"]
+[ext_resource type="Texture2D" uid="uid://fp6oxi3puhv8" path="res://assets/sprites/buttons/keyboard/WASD.png" id="6_l5rbf"]
+[ext_resource type="Texture2D" uid="uid://rfpgtv3memol" path="res://assets/sprites/buttons/generic/LStick.png" id="7_q7xag"]
+[ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="8_ib0yt"]
+[ext_resource type="Texture2D" uid="uid://d22aow0vxn6o8" path="res://assets/sprites/buttons/keyboard/Space.png" id="9_5k76c"]
+[ext_resource type="Texture2D" uid="uid://6cwc881xqrrh" path="res://assets/sprites/buttons/playstation/Cross.png" id="10_n4thr"]
+[ext_resource type="Texture2D" uid="uid://pe1wvoqlax0c" path="res://assets/sprites/buttons/xbox/A.png" id="11_wjk5g"]
+[ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="12_0cgsy"]
+[ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="13_5sat5"]
+[ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="14_k0sss"]
+[ext_resource type="PackedScene" uid="uid://bgiknxfqahoy8" path="res://scenes/ui/button_area2D_close.tscn" id="15_7orun"]
+[ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shaders/shader_overlays/screenvignette.png" id="16_avy2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k6dig"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+
+[node name="TutorialSubmenu" instance=ExtResource("1_426du")]
+
+[node name="Background" type="Sprite2D" parent="." index="0"]
+light_mask = 0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_ho7xl")
+
+[node name="Vignette" type="Sprite2D" parent="." index="1"]
+light_mask = 0
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("16_avy2b")
+
+[node name="Title" type="Label" parent="." index="2"]
+light_mask = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -450.0
+offset_right = 161.5
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tutorial"
+label_settings = ExtResource("3_pals6")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+light_mask = 0
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_x6hhj")
+hframes = 5
+vframes = 2
+frame = 8
+
+[node name="SmartInputIcon" parent="." index="4" instance=ExtResource("5_csx0y")]
+position = Vector2(-500, 100)
+keyboard = ExtResource("6_l5rbf")
+playstation = ExtResource("7_q7xag")
+xbox = ExtResource("7_q7xag")
+nintendo = ExtResource("7_q7xag")
+
+[node name="Label" type="Label" parent="SmartInputIcon" index="1"]
+light_mask = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -250.0
+offset_right = 197.5
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Move around to dodge attacks with"
+label_settings = ExtResource("8_ib0yt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="SmartInputIcon2" parent="." index="5" instance=ExtResource("5_csx0y")]
+position = Vector2(500, 100)
+keyboard = ExtResource("9_5k76c")
+playstation = ExtResource("10_n4thr")
+xbox = ExtResource("11_wjk5g")
+nintendo = ExtResource("12_0cgsy")
+
+[node name="Label" type="Label" parent="SmartInputIcon2" index="1"]
+light_mask = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -250.0
+offset_right = 259.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sometimes, you'll have a chance to strike back with"
+label_settings = ExtResource("8_ib0yt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextWhite" type="Label" parent="." index="6"]
+light_mask = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = 300.0
+offset_right = 198.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Learn the patterns.
+Embrace failure."
+label_settings = ExtResource("8_ib0yt")
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextRed" type="Label" parent="." index="7"]
+light_mask = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = 420.0
+offset_right = 198.0
+offset_bottom = 495.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try not to perish."
+label_settings = SubResource("LabelSettings_k6dig")
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelector" parent="." index="8" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
+button_rows = [NodePath("ButtonRowConfig")]
+
+[node name="ButtonRowConfig" parent="ButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+buttons = [NodePath("CloseButton")]
+
+[node name="CloseButton" parent="ButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
+position = Vector2(860, -440)

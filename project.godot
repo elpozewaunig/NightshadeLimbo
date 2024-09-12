@@ -26,7 +26,7 @@ buses/default_bus_layout="res://assets/settings/audio/default_bus_layout.tres"
 
 AmbienceMusic="*res://scenes/globals/ambience_music_autoload.tscn"
 SceneManager="*res://scripts/globals/SceneManager.gd"
-Stats="*res://scripts/globals/Stats.gd"
+Data="*res://scripts/globals/Data.gd"
 ControllerDetector="*res://scripts/globals/ControllerDetector.gd"
 
 [display]

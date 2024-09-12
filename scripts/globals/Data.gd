@@ -1,5 +1,7 @@
 extends Node
 
+var tutorial_seen : bool = false
+
 var total_deaths : int = 0
 var run_deaths : int = 0
 

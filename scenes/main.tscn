@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=87 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
@@ -67,11 +67,7 @@
 [ext_resource type="LabelSettings" uid="uid://dvgl0yeqhbjco" path="res://assets/settings/labels/menu_title_label_settingsl.tres" id="50_7acsy"]
 [ext_resource type="PackedScene" uid="uid://dukyhdiq8iidn" path="res://scenes/utility/mouse_hider.tscn" id="50_ywsql"]
 [ext_resource type="PackedScene" uid="uid://dhdhnq55pliab" path="res://scenes/ui/menus/settings_submenu.tscn" id="52_c1ie3"]
-[ext_resource type="Texture2D" uid="uid://fp6oxi3puhv8" path="res://assets/sprites/buttons/keyboard/WASD.png" id="59_88jll"]
-[ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="59_ib0g4"]
-[ext_resource type="Texture2D" uid="uid://rfpgtv3memol" path="res://assets/sprites/buttons/generic/LStick.png" id="60_6134r"]
-[ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="61_b3bcu"]
-[ext_resource type="PackedScene" uid="uid://bgiknxfqahoy8" path="res://scenes/ui/button_area2D_close.tscn" id="63_m7lpo"]
+[ext_resource type="PackedScene" uid="uid://cs5d1e1oq65hf" path="res://scenes/ui/menus/tutorial_submenu.tscn" id="57_rmgxc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -654,10 +650,6 @@ font = ExtResource("13_moeav")
 font_size = 60
 font_color = Color(0.485703, 0.485704, 0.485703, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_alawb"]
-font_size = 40
-font_color = Color(1, 0, 0, 1)
-
 [node name="Main" type="Node2D"]
 
 [node name="Lights" type="Node2D" parent="."]
@@ -850,7 +842,7 @@ z_index = 5
 
 [node name="InputModeManager" parent="Camera2D/Overlays" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("47_d1mlr")]
 light_mask = 0
-selectors_to_sync = [NodePath("../PauseScreen/PauseMenu/Buttons/ButtonSelector"), NodePath("../PauseScreen/SettingsSubmenu/BackgroundColor/ButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/ButtonSelector")]
+selectors_to_sync = [NodePath("../PauseScreen/PauseMenu/ButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/ButtonSelector"), NodePath("../PauseScreen/SettingsSubmenu/BackgroundColor/ButtonSelector"), NodePath("../IntroScreen/TutorialSubmenu/ButtonSelector")]
 
 [node name="Vignette" type="Sprite2D" parent="Camera2D/Overlays"]
 light_mask = 0
@@ -917,6 +909,13 @@ light_mask = 0
 position = Vector2(960, 540)
 scale = Vector2(1.28, 1.28)
 texture = ExtResource("11_g3ka4")
+
+[node name="TutorialSubmenu" parent="Camera2D/Overlays/IntroScreen" instance=ExtResource("57_rmgxc")]
+visible = false
+position = Vector2(960, 540)
+
+[node name="ButtonSelector" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu" index="8"]
+default_active = true
 
 [node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
 stream = ExtResource("24_6qan5")
@@ -1016,188 +1015,51 @@ label_settings = SubResource("LabelSettings_vpns3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttons" type="Node2D" parent="Camera2D/Overlays/PauseScreen/PauseMenu"]
-light_mask = 0
-
-[node name="ButtonSelector" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
+[node name="ButtonSelector" parent="Camera2D/Overlays/PauseScreen/PauseMenu" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
 light_mask = 0
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3"), NodePath("ButtonRowConfig4")]
 
-[node name="ButtonRowConfig" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("ContinueButton")]
 
-[node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
+[node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, -100)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig/ContinueButton/Area2DButtonSrc" index="1"]
 text = "Continue"
 
-[node name="ButtonRowConfig2" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig2" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 buttons = [NodePath("TutorialButton")]
 
-[node name="TutorialButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
+[node name="TutorialButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 50)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig2/TutorialButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig2/TutorialButton/Area2DButtonSrc" index="1"]
 text = "Tutorial"
 
-[node name="ButtonRowConfig3" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig3" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("SettingsButton")]
 
-[node name="SettingsButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig3" instance=ExtResource("44_8ttwp")]
+[node name="SettingsButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig3" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 200)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig3/SettingsButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig3/SettingsButton/Area2DButtonSrc" index="1"]
 text = "Settings"
 
-[node name="ButtonRowConfig4" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig4" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("ExitButton")]
 
-[node name="ExitButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig4" instance=ExtResource("44_8ttwp")]
+[node name="ExitButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig4" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 350)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig4/ExitButton/Area2DButtonSrc" index="1"]
+[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig4/ExitButton/Area2DButtonSrc" index="1"]
 text = "Exit to menu"
 
-[node name="TutorialSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("48_cvxgy")]
+[node name="TutorialSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("57_rmgxc")]
 visible = false
-
-[node name="Background" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
-light_mask = 0
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_wra42")
-
-[node name="Title" type="Label" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
-light_mask = 0
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -161.5
-offset_top = -450.0
-offset_right = 161.5
-offset_bottom = -264.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Tutorial"
-label_settings = ExtResource("50_7acsy")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
-light_mask = 0
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("59_ib0g4")
-hframes = 5
-vframes = 2
-frame = 8
-
-[node name="SmartInputIcon" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu" instance=ExtResource("36_4ffvj")]
-position = Vector2(-500, 100)
-keyboard = ExtResource("59_88jll")
-playstation = ExtResource("60_6134r")
-xbox = ExtResource("60_6134r")
-nintendo = ExtResource("60_6134r")
-
-[node name="Label" type="Label" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/SmartInputIcon"]
-light_mask = 0
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -197.5
-offset_top = -250.0
-offset_right = 197.5
-offset_bottom = -87.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Move around to dodge attacks with"
-label_settings = ExtResource("61_b3bcu")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="SmartInputIcon2" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu" instance=ExtResource("36_4ffvj")]
-position = Vector2(500, 100)
-keyboard = ExtResource("37_83fk2")
-playstation = ExtResource("38_jbba6")
-xbox = ExtResource("39_3pki5")
-nintendo = ExtResource("40_gg2ti")
-
-[node name="Label" type="Label" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/SmartInputIcon2"]
-light_mask = 0
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -259.0
-offset_top = -250.0
-offset_right = 259.0
-offset_bottom = -79.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Sometimes, you'll have a chance to strike back with"
-label_settings = ExtResource("61_b3bcu")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="TextWhite" type="Label" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
-light_mask = 0
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -197.0
-offset_top = 300.0
-offset_right = 198.0
-offset_bottom = 413.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Learn the patterns.
-Embrace failure."
-label_settings = ExtResource("61_b3bcu")
-horizontal_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="TextRed" type="Label" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
-light_mask = 0
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -197.0
-offset_top = 420.0
-offset_right = 198.0
-offset_bottom = 495.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Try not to perish."
-label_settings = SubResource("LabelSettings_alawb")
-horizontal_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="ButtonSelector" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
-button_rows = [NodePath("ButtonRowConfig")]
-
-[node name="ButtonRowConfig" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/ButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
-buttons = [NodePath("CloseButton")]
-
-[node name="CloseButton" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/ButtonSelector/ButtonRowConfig" instance=ExtResource("63_m7lpo")]
-position = Vector2(860, -440)
 
 [node name="SettingsSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("52_c1ie3")]
 visible = false
@@ -1305,19 +1167,22 @@ parameters/looping = true
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="Boss" method="_on_intro_done"]
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="MusicManager" method="_on_intro_done"]
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu" method="_on_opened"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/PauseScreen/SettingsSubmenu" method="_on_opened"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen" method="_on_exit_button_clicked"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector" method="disable"]
+[connection signal="clicked" from="Camera2D/Overlays/IntroScreen/TutorialSubmenu/ButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/IntroScreen" method="_on_tutorial_close_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu" method="_on_opened"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/PauseScreen/SettingsSubmenu" method="_on_opened"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector" method="disable"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu/ButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/ButtonSelector/ButtonRowConfig/CloseMenuButton" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
 [connection signal="disable_lights" from="Camera2D/Overlays/Transition" to="Lights" method="_on_disable_lights"]
 
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig/ContinueButton"]
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig2/TutorialButton"]
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig3/SettingsButton"]
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/Buttons/ButtonSelector/ButtonRowConfig4/ExitButton"]
+[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu"]
+[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig/ContinueButton"]
+[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig2/TutorialButton"]
+[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig3/SettingsButton"]
+[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig4/ExitButton"]
+[editable path="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
 [editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu"]
 [editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider"]
 [editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider"]
