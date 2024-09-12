@@ -130,10 +130,6 @@ position = Vector2(960, 928)
 [node name="SliderSFX" parent="BackgroundColor/BusController/SfxSlider" index="5"]
 bus = &"SFX"
 
-[connection signal="value_changed" from="BackgroundColor/BusController/TotalMixSlider" to="BackgroundColor/BusController" method="_on_slider_value_changed"]
-[connection signal="value_changed" from="BackgroundColor/BusController/MusicSlider" to="BackgroundColor/BusController" method="_on_slider_value_changed"]
-[connection signal="value_changed" from="BackgroundColor/BusController/SfxSlider" to="BackgroundColor/BusController" method="_on_slider_value_changed"]
-
 [editable path="BackgroundColor/BusController/TotalMixSlider"]
 [editable path="BackgroundColor/BusController/MusicSlider"]
 [editable path="BackgroundColor/BusController/SfxSlider"]
