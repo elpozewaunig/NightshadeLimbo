@@ -102,10 +102,14 @@ func _physics_process(delta: float) -> void:
 	# Handle collisions
 	var collision_object = get_collider()
 	if collision_object:
-		if collision_object.name == "Player" and not collision_object.dead:
+		if collision_object.name == "Player":
 			update_collision_point()
-			player_hit.connect(collision_object._on_beam_hit)
-			player_hit.emit()
+			
+			# Only emit hit signals if player isn't already dead
+			if not collision_object.dead:
+				player_hit.connect(collision_object._on_beam_hit)
+				player_hit.emit()
+				
 		elif collision_object.is_in_group("Obstacles"):
 			update_collision_point()
 			
