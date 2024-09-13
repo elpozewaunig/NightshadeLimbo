@@ -1,21 +1,24 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var animation = $Sprite2D/AnimationPlayer
-@onready var sprite = $Sprite2D
-@onready var weapon = $Weapon
-@onready var death_sfx = $DeathSFX
+@onready var animation : AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var sprite : Sprite2D = $Sprite2D
+@onready var weapon : Area2D = $Weapon
+@onready var death_sfx : AudioStreamPlayer = $DeathSFX
 
 const SPEED : float = 500.0
 const DECEL_TIME : float = 0.1
 
-var speed_debuff = 0
-var reset_debuff = false
-var permit_movement = false
-var escaped = false
+var speed_debuff : float = 0
+var reset_debuff : bool = false
+var permit_movement : bool = false
+var boss_defeated : bool = false
+var escaped : bool = false
 
-var dead = false
-var fight_back = false
+var dead : bool = false
+var fight_back : bool = false
+
+var ghost_data : Array[Dictionary] = []
 
 signal game_over
 signal boss_hit
@@ -34,6 +37,10 @@ func _physics_process(delta: float) -> void:
 	
 	# Movement script
 	if permit_movement and not dead:
+		# Record current position and delta for ghost playback
+		if not boss_defeated:
+			ghost_data.append({"position": global_position, "delta": delta})
+		
 		# Get axis input
 		var x_input := Input.get_axis("game_left", "game_right")
 		var y_input := Input.get_axis("game_up", "game_down")
@@ -87,6 +94,7 @@ func set_game_over() -> void:
 		fight_back = false
 		death_sfx.play()
 		animation.clear_queue()
+		Data.ghost_data = ghost_data
 		
 		# Play random death animation
 		if randi() % 2 == 0:
@@ -140,6 +148,7 @@ func _on_boss_defeated() -> void:
 	fight_back = false
 	animation.play("win")
 	permit_movement = false
+	boss_defeated = true
 
 func _on_boss_death_permit_move() -> void:
 	permit_movement = true

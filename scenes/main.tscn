@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=88 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://bgljw5wi0so7k" path="res://assets/sounds/voice/Boss_heheo.ogg" id="11_mxx5q"]
 [ext_resource type="AudioStream" uid="uid://dv2kt0auq8qgg" path="res://assets/sounds/voice/Boss_HoeHaha.ogg" id="12_lhg36"]
 [ext_resource type="Script" path="res://scripts/game/overlays/GameOver.gd" id="12_qyr5r"]
+[ext_resource type="PackedScene" uid="uid://rwl76vd53mg2" path="res://scenes/entities/ghost_playback.tscn" id="12_wh4xr"]
 [ext_resource type="AudioStream" uid="uid://bocaey3bkjw2r" path="res://assets/sounds/voice/Boss_IIAA.ogg" id="13_ehw6n"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="13_moeav"]
 [ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fq2vf"]
@@ -737,6 +738,11 @@ position = Vector2(400, 250)
 [node name="Obstacle4" parent="Obstacles" groups=["Obstacles"] instance=ExtResource("29_pypiw")]
 position = Vector2(1520, 250)
 
+[node name="GhostPlayback" parent="." instance=ExtResource("12_wh4xr")]
+visible = false
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(0.3, 0.3)
+
 [node name="PlayerClippingMask" type="Sprite2D" parent="."]
 clip_children = 1
 position = Vector2(998, 553)
@@ -1190,6 +1196,7 @@ parameters/looping = true
 [connection signal="player_exited" from="BackgroundWIN/Exit" to="PlayerClippingMask/Player" method="_on_player_exited"]
 [connection signal="player_exited" from="BackgroundWIN/Exit" to="Camera2D/Overlays/Transition" method="_on_player_exited"]
 [connection signal="boss_hit" from="PlayerClippingMask/Player" to="Boss" method="_on_player_boss_hit"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="GhostPlayback" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Boss" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/Instructions" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/IntroScreen" method="_on_game_over"]
@@ -1216,6 +1223,7 @@ parameters/looping = true
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="Boss" method="_on_intro_done"]
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="MusicManager" method="_on_intro_done"]
+[connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="GhostPlayback" method="_on_permit_movement"]
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
 [connection signal="clicked" from="Camera2D/Overlays/IntroScreen/TutorialSubmenu/ButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/IntroScreen" method="_on_tutorial_close_button_clicked"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
