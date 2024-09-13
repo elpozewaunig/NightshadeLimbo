@@ -9,6 +9,9 @@ var highlight_row = 0
 var highlight_col = 0
 
 enum Direction {UP, DOWN, LEFT, RIGHT}
+var hold_time : float = 0
+var hold_init_threshold : float = 0.2
+var hold_threshold : float = 0.2
 
 signal set_key_mode(source)
 signal set_mouse_mode(source)
@@ -34,21 +37,28 @@ func _ready() -> void:
 		enable_highlight()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	# Notify input manager of mode when active by default, cannot be done in _ready
 	if default_active:
 		set_key_mode.emit(self)
 		default_active = false
 	
 	if get_current_button().is_visible_in_tree() and not get_current_button().disabled:
-		if Input.is_action_just_pressed("ui_up"):
-			activate_or_move(Direction.UP)
-		if Input.is_action_just_pressed("ui_down"):
-			activate_or_move(Direction.DOWN)
-		if Input.is_action_just_pressed("ui_left"):
-			activate_or_move(Direction.LEFT)
-		if Input.is_action_just_pressed("ui_right"):
-			activate_or_move(Direction.RIGHT)
+		var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		if input:
+			hold_time += delta
+		
+			if Input.is_action_just_pressed("ui_up") or (input.y < 0 and input_held_enough()):
+				activate_or_move(Direction.UP)
+			if Input.is_action_just_pressed("ui_down") or (input.y > 0 and input_held_enough()):
+				activate_or_move(Direction.DOWN)
+			if Input.is_action_just_pressed("ui_left") or (input.x < 0 and input_held_enough()):
+				activate_or_move(Direction.LEFT)
+			if Input.is_action_just_pressed("ui_right") or (input.y > 0 and input_held_enough()):
+				activate_or_move(Direction.RIGHT)
+				
+		else:
+			hold_time = 0
 
 func activate_or_move(move: int) -> void:
 	# If a button is currently highlighted
@@ -67,8 +77,12 @@ func activate_or_move(move: int) -> void:
 			highlight_col = current_row_buttons().size() - 1
 	
 	# Else, just enable the highlight but don't change the position
+	hold_time -= hold_threshold
 	set_key_mode.emit(self)
 	enable_highlight()
+
+func input_held_enough() -> bool:
+	return hold_time > hold_init_threshold + hold_threshold
 
 func current_row_buttons() -> Array[SelectableButton]:
 	return button_rows[highlight_row].buttons
