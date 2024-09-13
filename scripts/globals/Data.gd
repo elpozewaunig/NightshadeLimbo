@@ -1,6 +1,7 @@
 extends Node
 
 var tutorial_seen : bool = false
+var ghost_active : bool = false
 var ghost_data : Array[Dictionary] = []
 
 var total_deaths : int = 0
@@ -18,6 +19,7 @@ func submit_ghost_data(new_data: Array[Dictionary]) -> void:
 
 func reset_run():
 	run_deaths = 0
+	ghost_active = false
 	ghost_data = []
 
 func _get_ghost_data_duration(data: Array[Dictionary]) -> float:

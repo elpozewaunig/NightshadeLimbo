@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=30 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
@@ -22,7 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bogdpw0iwj2bl" path="res://scenes/ui/button_area2d_toggle.tscn" id="19_snqau"]
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="21_n3rsh"]
 [ext_resource type="AudioStream" uid="uid://b88wk672acn4u" path="res://assets/sounds/sfx_RemnantActivated.ogg" id="21_uctbs"]
-[ext_resource type="Script" path="res://scripts/game/VisibilityBasedAudioPlayer.gd" id="22_4nqm7"]
+[ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantButton.gd" id="21_wk34c"]
+[ext_resource type="Script" path="res://scripts/utility/VisibilityBasedAudioPlayer.gd" id="22_4nqm7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6dig"]
 font_size = 40
@@ -300,6 +301,7 @@ buttons = [NodePath("ConjureToggle")]
 [node name="ConjureToggle" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("19_snqau")]
 position = Vector2(0, 350)
 scale = Vector2(1.5, 1.5)
+script = ExtResource("21_wk34c")
 
 [node name="AnimatedSprite2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="1"]
 scale = Vector2(1.65, 1)
@@ -332,6 +334,7 @@ script = ExtResource("22_4nqm7")
 
 [connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" to="RemnantSubmenu" method="_on_opened"]
 [connection signal="clicked" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/CloseButton" to="MainSubmenu" method="_on_opened"]
+[connection signal="toggled" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" to="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" method="_on_toggled"]
 
 [editable path="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
 [editable path="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]

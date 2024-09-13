@@ -5,7 +5,7 @@ var playback_data : Array[Dictionary]
 
 var stored_alpha : float
 
-var enabled : bool = false
+var enabled : bool = Data.ghost_active
 var playback_active : bool = false
 var time_elapsed : float = 0
 var dead : bool = false
