@@ -94,7 +94,7 @@ func set_game_over() -> void:
 		fight_back = false
 		death_sfx.play()
 		animation.clear_queue()
-		Data.ghost_data = ghost_data
+		Data.submit_ghost_data(ghost_data)
 		
 		# Play random death animation
 		if randi() % 2 == 0:
