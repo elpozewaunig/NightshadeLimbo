@@ -32,6 +32,11 @@ func _process(delta: float) -> void:
 				time_elapsed -= playback_data[current]["delta"]
 				global_position = playback_data[current]["position"]
 				current += 1
+			
+			# There is another recording point, which isn't covered by the current time elapsed yet
+			if current + 1 < playback_data.size():
+				# Interpolate towards the next point using the elapsed time
+				global_position = lerp(global_position, playback_data[current + 1]["position"], time_elapsed / playback_data[current + 1]["delta"])
 	
 	# Playback finished or player died
 	else:
