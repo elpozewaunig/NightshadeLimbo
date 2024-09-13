@@ -3,12 +3,23 @@ class_name SelectableButton
 
 @onready var select_sfx : AudioStreamPlayer = $SelectSFX
 
+@export var selected_color: Color = Color("ff7070")
+@export var default_color: Color = Color("ffffff")
+
 var mouse_inside = false
 var disabled = false
 var highlight_active = false
 var ext_selected = false
 
 signal selected(selectable)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	# If the button is selected (either through the mouse or key input)
+	if is_visible_in_tree() and is_selected() and not disabled:
+		selection_behavior(delta)
+	else:
+		default_behavior(delta)
 
 func _on_mouse_entered() -> void:
 	if is_visible_in_tree() and not disabled:
@@ -50,6 +61,15 @@ func _on_ext_cleared() -> void:
 func _on_disabled() -> void:
 	disabled = true
 
+# Triggered every frame when the button is selected
+func selection_behavior(_delta: float) -> void:
+	# To be implemented by inheriting classes
+	pass
+
+# Triggered every frame when the button is not selected
+func default_behavior(_delta: float) -> void:
+	# To be implemented by inheriting classes
+	pass
 
 func is_selected() -> bool:
 	return (ext_selected and highlight_active) or (mouse_inside and not highlight_active)
