@@ -7,7 +7,6 @@ var minv = 0
 var posrange = 0
 var offset = 0
 @export var zeropos:float = -193
-@export var stepsize:float = 2.667
 @onready var slider: HSlider = $"../SliderButtonSrc"
 @onready var childt: Node2D = $Ticks
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +29,7 @@ func _process(_delta: float) -> void:
 
 func _on_slider_button_src_value_changed(value: float) -> void:
 	
-	var snorm = 1 - ((floor(value / stepsize) * stepsize - offset + slider.min_value * -1) / maxv)
+	var snorm = 1 - ((value - offset + slider.min_value * -1) / maxv)
 	
 	position.x = posx - snorm*posrange
 	childt.position.x = childposx + snorm*posrange
