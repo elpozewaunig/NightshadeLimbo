@@ -23,7 +23,10 @@ func selection_behavior(delta: float) -> void:
 		# Require keeping the action pressed for some time before making a fixed-step adjustment
 		time_held += delta
 		if just_pressed or time_held > 1 / slider_speed * slider.step:
-			slider.value += slider.step * sign(input)
+			if slider.step > 0:
+				slider.value += slider.step * sign(input)
+			else:
+				slider.value += delta * slider_speed * sign(input)
 			time_held = 0
 	else:
 		time_held = 0
