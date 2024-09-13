@@ -580,6 +580,6 @@ script = ExtResource("21_otmm1")
 [editable path="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/CreditsButton"]
 [editable path="UI/MainSubmenu/MainMenuButtons/ButtonSelector/ButtonRowConfig3/QuitButton"]
 [editable path="UI/SettingsSubmenu"]
-[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider"]
+[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider"]
 [editable path="UI/SettingsSubmenu/BackgroundColor/BusController/MusicSlider"]
 [editable path="UI/SettingsSubmenu/BackgroundColor/BusController/SfxSlider"]

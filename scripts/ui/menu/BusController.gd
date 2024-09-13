@@ -11,7 +11,7 @@ var slider_connections : Array[Dictionary]
 func _ready() -> void:
 	# Configure which bus sliders affect
 	slider_connections = [
-		{"slider": $TotalMixSlider, "bus": master_bus},
+		{"slider": $TotalVolumeSlider, "bus": master_bus},
 		{"slider": $MusicSlider, "bus": music_bus},
 		{"slider": $SfxSlider, "bus": sfx_bus}
 	]

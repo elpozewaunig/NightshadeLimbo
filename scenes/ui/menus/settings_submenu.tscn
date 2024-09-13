@@ -36,7 +36,7 @@ label_settings = ExtResource("2_x463n")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TotalMix" type="Label" parent="BackgroundColor" index="1"]
+[node name="TotalVolume" type="Label" parent="BackgroundColor" index="1"]
 light_mask = 0
 layout_mode = 1
 anchors_preset = 8
@@ -50,7 +50,7 @@ offset_right = 240.0
 offset_bottom = -171.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Total Mix
+text = "Total Volume
 "
 label_settings = ExtResource("3_xdbc8")
 horizontal_alignment = 1
@@ -70,7 +70,7 @@ offset_right = 240.0
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Music"
+text = "Music Volume"
 label_settings = ExtResource("3_xdbc8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -89,7 +89,7 @@ offset_right = 240.0
 offset_bottom = 329.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Sound Effects"
+text = "Sound Effect Volume"
 label_settings = ExtResource("3_xdbc8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -104,7 +104,7 @@ buttons = [NodePath("CloseMenuButton")]
 position = Vector2(1790, 110)
 
 [node name="ButtonRowConfig2" parent="BackgroundColor/ButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
-buttons = [NodePath("../../BusController/TotalMixSlider")]
+buttons = [NodePath("../../BusController/TotalVolumeSlider")]
 
 [node name="ButtonRowConfig3" parent="BackgroundColor/ButtonSelector" index="2" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
 buttons = [NodePath("../../BusController/MusicSlider")]
@@ -115,21 +115,21 @@ buttons = [NodePath("../../BusController/SfxSlider")]
 [node name="BusController" type="Node2D" parent="BackgroundColor" index="5"]
 script = ExtResource("7_6jhtp")
 
-[node name="TotalMixSlider" parent="BackgroundColor/BusController" index="0" instance=ExtResource("8_6vocn")]
-position = Vector2(960, 428)
+[node name="TotalVolumeSlider" parent="BackgroundColor/BusController" index="0" instance=ExtResource("8_6vocn")]
+position = Vector2(960, 430)
 
 [node name="MusicSlider" parent="BackgroundColor/BusController" index="1" instance=ExtResource("8_6vocn")]
-position = Vector2(960, 678)
+position = Vector2(960, 680)
 
 [node name="SliderSFX" parent="BackgroundColor/BusController/MusicSlider" index="5"]
 bus = &"Music"
 
 [node name="SfxSlider" parent="BackgroundColor/BusController" index="2" instance=ExtResource("8_6vocn")]
-position = Vector2(960, 928)
+position = Vector2(960, 930)
 
 [node name="SliderSFX" parent="BackgroundColor/BusController/SfxSlider" index="5"]
 bus = &"SFX"
 
-[editable path="BackgroundColor/BusController/TotalMixSlider"]
+[editable path="BackgroundColor/BusController/TotalVolumeSlider"]
 [editable path="BackgroundColor/BusController/MusicSlider"]
 [editable path="BackgroundColor/BusController/SfxSlider"]

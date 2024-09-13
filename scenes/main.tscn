@@ -1094,19 +1094,19 @@ light_mask = 0
 [node name="BusController" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor" index="5"]
 light_mask = 0
 
-[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider" index="0"]
+[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider" index="0"]
 light_mask = 0
 
-[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider" index="1"]
+[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider" index="1"]
 light_mask = 0
 
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider/White" index="0"]
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider/White" index="0"]
 light_mask = 0
 
-[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider" index="2"]
+[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider" index="2"]
 light_mask = 0
 
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider/White2" index="0"]
+[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider/White2" index="0"]
 light_mask = 0
 
 [node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider" index="0"]
@@ -1242,6 +1242,6 @@ parameters/looping = true
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/ButtonSelector/ButtonRowConfig4/ExitButton"]
 [editable path="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
 [editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu"]
-[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalMixSlider"]
+[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider"]
 [editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider"]
 [editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider"]
