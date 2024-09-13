@@ -1,5 +1,5 @@
 extends Node2D
-class_name SubMenu
+class_name Submenu
 
 signal opened(submenu)
 

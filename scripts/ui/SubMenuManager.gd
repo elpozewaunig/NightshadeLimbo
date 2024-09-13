@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var submenus : Array[SubMenu] = []
+@export var submenus : Array[Submenu] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,7 +8,7 @@ func _ready() -> void:
 	for submenu in submenus:
 		submenu.opened.connect(_on_submenu_opened)
 
-func _on_submenu_opened(menu_opened: SubMenu) -> void:
+func _on_submenu_opened(menu_opened: Submenu) -> void:
 	# Hide all other menus when one is opened
 	for submenu in submenus:
 		if submenu == menu_opened:

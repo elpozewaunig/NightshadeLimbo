@@ -5,6 +5,7 @@ var playback_data : Array[Dictionary]
 
 var stored_alpha : float
 
+var enabled : bool = false
 var playback_active : bool = false
 var time_elapsed : float = 0
 var dead : bool = false
@@ -26,6 +27,12 @@ func _process(delta: float) -> void:
 		
 		if playback_active:
 			time_elapsed += delta
+			
+			# Update visibility based on ghost setting
+			if enabled:
+				show()
+			else:
+				hide()
 			
 			# Advance through frames while they are covered by the current time elapsed
 			while current < playback_data.size() and time_elapsed >= playback_data[current]["delta"]:
@@ -50,7 +57,10 @@ func _on_permit_movement() -> void:
 	# Start playback as soon as the player is allowed to move.
 	# This is equal to the point in time when the player begins recording.
 	playback_active = true
-	show()
 
 func _on_game_over() -> void:
 	dead = true
+
+
+func _on_ghost_playback_toggled(active: bool) -> void:
+	enabled = active

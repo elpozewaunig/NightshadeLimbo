@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=29 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
+[ext_resource type="PackedScene" uid="uid://d1diahg6or5y0" path="res://scenes/ui/submenu_manager.tscn" id="2_qcur6"]
 [ext_resource type="LabelSettings" uid="uid://dvgl0yeqhbjco" path="res://assets/settings/labels/menu_title_label_settingsl.tres" id="3_pals6"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="4_x6hhj"]
 [ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_input_icon.tscn" id="5_csx0y"]
@@ -16,24 +17,56 @@
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="14_k0sss"]
 [ext_resource type="PackedScene" uid="uid://di3o5lslj817b" path="res://scenes/ui/button_area2D_close.tscn" id="15_7orun"]
 [ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shaders/shader_overlays/screenvignette.png" id="16_avy2b"]
+[ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="17_bgwk8"]
+[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="18_gddlt"]
+[ext_resource type="PackedScene" uid="uid://bogdpw0iwj2bl" path="res://scenes/ui/button_area2d_toggle.tscn" id="19_snqau"]
+[ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="21_n3rsh"]
+[ext_resource type="AudioStream" uid="uid://b88wk672acn4u" path="res://assets/sounds/sfx_RemnantActivated.ogg" id="21_uctbs"]
+[ext_resource type="Script" path="res://scripts/game/VisibilityBasedAudioPlayer.gd" id="22_4nqm7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6dig"]
 font_size = 40
 font_color = Color(1, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hax5p"]
+size = Vector2(360, 120)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dhwb4"]
+font = ExtResource("18_gddlt")
+font_size = 80
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lrin"]
+size = Vector2(460, 120)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ftdt"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 50, 1)
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+
 [node name="TutorialSubmenu" instance=ExtResource("1_426du")]
 
-[node name="Background" type="Sprite2D" parent="." index="0"]
+[node name="SubmenuManager" parent="." index="0" node_paths=PackedStringArray("submenus") instance=ExtResource("2_qcur6")]
+submenus = [NodePath("../MainSubmenu"), NodePath("../RemnantSubmenu")]
+
+[node name="MainSubmenu" parent="." index="1" instance=ExtResource("1_426du")]
+
+[node name="Background" type="Sprite2D" parent="MainSubmenu" index="0"]
 light_mask = 0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_ho7xl")
 
-[node name="Vignette" type="Sprite2D" parent="." index="1"]
+[node name="Vignette" type="Sprite2D" parent="MainSubmenu" index="1"]
 light_mask = 0
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("16_avy2b")
 
-[node name="Title" type="Label" parent="." index="2"]
+[node name="Title" type="Label" parent="MainSubmenu" index="2"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -52,7 +85,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" type="Sprite2D" parent="MainSubmenu" index="3"]
 light_mask = 0
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("4_x6hhj")
@@ -60,14 +93,14 @@ hframes = 5
 vframes = 2
 frame = 8
 
-[node name="SmartInputIcon" parent="." index="4" instance=ExtResource("5_csx0y")]
+[node name="SmartInputIcon" parent="MainSubmenu" index="4" instance=ExtResource("5_csx0y")]
 position = Vector2(-500, 100)
 keyboard = ExtResource("6_l5rbf")
 playstation = ExtResource("7_q7xag")
 xbox = ExtResource("7_q7xag")
 nintendo = ExtResource("7_q7xag")
 
-[node name="Label" type="Label" parent="SmartInputIcon" index="1"]
+[node name="Label" type="Label" parent="MainSubmenu/SmartInputIcon" index="1"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,14 +120,14 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SmartInputIcon2" parent="." index="5" instance=ExtResource("5_csx0y")]
+[node name="SmartInputIcon2" parent="MainSubmenu" index="5" instance=ExtResource("5_csx0y")]
 position = Vector2(500, 100)
 keyboard = ExtResource("9_5k76c")
 playstation = ExtResource("10_n4thr")
 xbox = ExtResource("11_wjk5g")
 nintendo = ExtResource("12_0cgsy")
 
-[node name="Label" type="Label" parent="SmartInputIcon2" index="1"]
+[node name="Label" type="Label" parent="MainSubmenu/SmartInputIcon2" index="1"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,7 +147,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="TextWhite" type="Label" parent="." index="6"]
+[node name="TextWhite" type="Label" parent="MainSubmenu" index="6"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,7 +167,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="TextRed" type="Label" parent="." index="7"]
+[node name="TextRed" type="Label" parent="MainSubmenu" index="7"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,11 +186,152 @@ horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonSelector" parent="." index="8" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
-button_rows = [NodePath("ButtonRowConfig")]
+[node name="TutorialButtonSelector" parent="MainSubmenu" index="8" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
+button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
-[node name="ButtonRowConfig" parent="ButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+[node name="ButtonRowConfig" parent="MainSubmenu/TutorialButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
 buttons = [NodePath("CloseButton")]
 
-[node name="CloseButton" parent="ButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
+[node name="CloseButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
 position = Vector2(860, -440)
+
+[node name="ButtonRowConfig2" parent="MainSubmenu/TutorialButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+buttons = [NodePath("TooHardButton")]
+
+[node name="TooHardButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("17_bgwk8")]
+position = Vector2(800, 450)
+scale = Vector2(0.65, 0.65)
+
+[node name="AnimatedSprite2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" index="1"]
+scale = Vector2(1.325, 1)
+
+[node name="Label" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" index="2"]
+text = "Still too hard?"
+
+[node name="CollisionShape2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton/Area2DButtonSrc" index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_hax5p")
+
+[node name="RemnantSubmenu" parent="." index="2" instance=ExtResource("1_426du")]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="RemnantSubmenu" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="RemnantSubmenu" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -400.0
+offset_right = 349.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Remnant Mode"
+label_settings = ExtResource("3_pals6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="RemnantSubmenu" index="2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.5
+offset_top = -230.0
+offset_right = 511.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Force a long-dead version of your soul
+to relive its eternal torment.
+
+Maybe there is some wisdom to be learned.
+Maybe you will doom both of you to endless suffering"
+label_settings = ExtResource("8_ib0yt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sure" type="Label" parent="RemnantSubmenu" index="3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.5
+offset_top = 100.0
+offset_right = 297.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you sure about this?"
+label_settings = SubResource("LabelSettings_dhwb4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemnantButtonSelector" parent="RemnantSubmenu" index="4" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
+button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
+
+[node name="ButtonRowConfig" parent="RemnantSubmenu/RemnantButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+buttons = [NodePath("CloseButton")]
+
+[node name="CloseButton" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
+position = Vector2(860, -440)
+
+[node name="ButtonRowConfig2" parent="RemnantSubmenu/RemnantButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+buttons = [NodePath("ConjureToggle")]
+
+[node name="ConjureToggle" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("19_snqau")]
+position = Vector2(0, 350)
+scale = Vector2(1.5, 1.5)
+
+[node name="AnimatedSprite2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="1"]
+scale = Vector2(1.65, 1)
+
+[node name="Label" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="2"]
+offset_left = -203.0
+offset_right = 203.0
+text = "Conjure remnant"
+
+[node name="ClickSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="3"]
+stream = ExtResource("21_uctbs")
+
+[node name="CollisionShape2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle/Area2DButtonSrc" index="0"]
+position = Vector2(-0.666664, 0)
+shape = SubResource("RectangleShape2D_2lrin")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="5"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-1.33333, -2.66667)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_0ftdt")
+lifetime = 2.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="RemnantSubmenu/RemnantButtonSelector" index="2"]
+stream = ExtResource("21_n3rsh")
+pitch_scale = 0.6
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("22_4nqm7")
+
+[connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" to="RemnantSubmenu" method="_on_opened"]
+[connection signal="clicked" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/CloseButton" to="MainSubmenu" method="_on_opened"]
+
+[editable path="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
+[editable path="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]

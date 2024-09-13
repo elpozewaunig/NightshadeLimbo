@@ -94,22 +94,22 @@ label_settings = ExtResource("3_xdbc8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonSelector" parent="BackgroundColor" index="4" node_paths=PackedStringArray("button_rows") instance=ExtResource("4_x305k")]
+[node name="SettingsButtonSelector" parent="BackgroundColor" index="4" node_paths=PackedStringArray("button_rows") instance=ExtResource("4_x305k")]
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3"), NodePath("ButtonRowConfig4")]
 
-[node name="ButtonRowConfig" parent="BackgroundColor/ButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+[node name="ButtonRowConfig" parent="BackgroundColor/SettingsButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
 buttons = [NodePath("CloseMenuButton")]
 
-[node name="CloseMenuButton" parent="BackgroundColor/ButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("6_qdxjt")]
+[node name="CloseMenuButton" parent="BackgroundColor/SettingsButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("6_qdxjt")]
 position = Vector2(1790, 110)
 
-[node name="ButtonRowConfig2" parent="BackgroundColor/ButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+[node name="ButtonRowConfig2" parent="BackgroundColor/SettingsButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
 buttons = [NodePath("../../BusController/TotalVolumeSlider")]
 
-[node name="ButtonRowConfig3" parent="BackgroundColor/ButtonSelector" index="2" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+[node name="ButtonRowConfig3" parent="BackgroundColor/SettingsButtonSelector" index="2" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
 buttons = [NodePath("../../BusController/MusicSlider")]
 
-[node name="ButtonRowConfig4" parent="BackgroundColor/ButtonSelector" index="3" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+[node name="ButtonRowConfig4" parent="BackgroundColor/SettingsButtonSelector" index="3" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
 buttons = [NodePath("../../BusController/SfxSlider")]
 
 [node name="BusController" type="Node2D" parent="BackgroundColor" index="5"]
