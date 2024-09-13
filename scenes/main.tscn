@@ -913,6 +913,9 @@ texture = ExtResource("10_roquk")
 visible = false
 position = Vector2(960, 540)
 
+[node name="ConjureToggle" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0"]
+toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
+
 [node name="Black" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
 light_mask = 0
 position = Vector2(960, 540)
@@ -1064,6 +1067,12 @@ text = "Exit to menu"
 
 [node name="TutorialSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("57_rmgxc")]
 visible = false
+
+[node name="Eyes" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantEnabledLayer" index="0"]
+visible = true
+
+[node name="ConjureToggle" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0"]
+toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
 
 [node name="SettingsSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("52_c1ie3")]
 visible = false

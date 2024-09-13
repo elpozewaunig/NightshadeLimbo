@@ -1,9 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bogdpw0iwj2bl"]
+[gd_scene load_steps=6 format=3 uid="uid://bogdpw0iwj2bl"]
 
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="1_8w01u"]
 [ext_resource type="Script" path="res://scripts/ui/SelectableArea2DToggleButton.gd" id="2_u3sjc"]
+[ext_resource type="Texture2D" uid="uid://clc6244ko687t" path="res://assets/sprites/button1_filled.png" id="3_pwbli"]
+[ext_resource type="Texture2D" uid="uid://c7yemcctd0ikq" path="res://assets/sprites/button2_filled.png" id="4_pwa1a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yiur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pwbli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pwa1a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ButtonArea2DToggle" instance=ExtResource("1_8w01u")]
 script = ExtResource("2_u3sjc")
-selected_toggled_color = Color(0.921569, 0, 0.2, 1)
-default_toggled_color = Color(1, 0.286275, 0.32549, 1)
+toggled_fill_color = Color(0.621199, 0, 0.121537, 1)
+
+[node name="FillTexture" type="AnimatedSprite2D" parent="." index="1"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_3yiur")
+
+[node name="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
+visible = false

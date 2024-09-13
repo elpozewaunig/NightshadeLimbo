@@ -13,6 +13,7 @@ var ext_selected = false
 
 signal selected(selectable)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# If the button is selected (either through the mouse or key input)

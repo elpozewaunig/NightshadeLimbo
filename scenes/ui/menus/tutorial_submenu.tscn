@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=35 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
@@ -19,11 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shaders/shader_overlays/screenvignette.png" id="16_avy2b"]
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="17_bgwk8"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="18_gddlt"]
+[ext_resource type="Texture2D" uid="uid://cof07gc1h0uoo" path="res://assets/sprites/eyes_bg.png" id="19_chnp1"]
+[ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantEnabledLayer.gd" id="19_r8ekq"]
 [ext_resource type="PackedScene" uid="uid://bogdpw0iwj2bl" path="res://scenes/ui/button_area2d_toggle.tscn" id="19_snqau"]
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="21_n3rsh"]
 [ext_resource type="AudioStream" uid="uid://b88wk672acn4u" path="res://assets/sounds/sfx_RemnantActivated.ogg" id="21_uctbs"]
 [ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantButton.gd" id="21_wk34c"]
 [ext_resource type="Script" path="res://scripts/utility/VisibilityBasedAudioPlayer.gd" id="22_4nqm7"]
+[ext_resource type="Texture2D" uid="uid://dqgtxqllyr530" path="res://assets/sprites/ominous_particle.png" id="23_4ycvk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6dig"]
 font_size = 40
@@ -37,18 +40,30 @@ font = ExtResource("18_gddlt")
 font_size = 80
 font_color = Color(1, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lrin"]
-size = Vector2(460, 120)
+[sub_resource type="Curve" id="Curve_sordb"]
+_data = [Vector2(0.55298, 0.992651), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2tkpk"]
+curve = SubResource("Curve_sordb")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ftdt"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(200, 50, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
 direction = Vector3(1, 1, 0)
 spread = 180.0
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.05
+alpha_curve = SubResource("CurveTexture_2tkpk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lrin"]
+size = Vector2(460, 120)
 
 [node name="TutorialSubmenu" instance=ExtResource("1_426du")]
 
@@ -231,7 +246,14 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Title" type="Label" parent="RemnantSubmenu" index="1"]
+[node name="RemnantEnabledLayer" type="Node2D" parent="RemnantSubmenu" index="1"]
+script = ExtResource("19_r8ekq")
+
+[node name="Eyes" type="Sprite2D" parent="RemnantSubmenu/RemnantEnabledLayer" index="0"]
+visible = false
+texture = ExtResource("19_chnp1")
+
+[node name="Title" type="Label" parent="RemnantSubmenu" index="2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -248,7 +270,7 @@ label_settings = ExtResource("3_pals6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text" type="Label" parent="RemnantSubmenu" index="2"]
+[node name="Text" type="Label" parent="RemnantSubmenu" index="3"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -269,7 +291,7 @@ label_settings = ExtResource("8_ib0yt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sure" type="Label" parent="RemnantSubmenu" index="3"]
+[node name="Sure" type="Label" parent="RemnantSubmenu" index="4"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -286,7 +308,7 @@ label_settings = SubResource("LabelSettings_dhwb4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RemnantButtonSelector" parent="RemnantSubmenu" index="4" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
+[node name="RemnantButtonSelector" parent="RemnantSubmenu" index="5" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
 [node name="ButtonRowConfig" parent="RemnantSubmenu/RemnantButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
@@ -303,27 +325,28 @@ position = Vector2(0, 350)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("21_wk34c")
 
-[node name="AnimatedSprite2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="1"]
+[node name="AnimatedSprite2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="2"]
 scale = Vector2(1.65, 1)
 
-[node name="Label" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="2"]
+[node name="Label" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="3"]
 offset_left = -203.0
 offset_right = 203.0
 text = "Conjure remnant"
 
-[node name="ClickSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="3"]
+[node name="ClickSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="4"]
 stream = ExtResource("21_uctbs")
-
-[node name="CollisionShape2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle/Area2DButtonSrc" index="0"]
-position = Vector2(-0.666664, 0)
-shape = SubResource("RectangleShape2D_2lrin")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="5"]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(-1.33333, -2.66667)
-amount = 20
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_0ftdt")
+texture = ExtResource("23_4ycvk")
 lifetime = 2.0
+
+[node name="CollisionShape2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle/Area2DButtonSrc" index="0"]
+position = Vector2(-0.666664, 0)
+shape = SubResource("RectangleShape2D_2lrin")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="RemnantSubmenu/RemnantButtonSelector" index="2"]
 stream = ExtResource("21_n3rsh")
