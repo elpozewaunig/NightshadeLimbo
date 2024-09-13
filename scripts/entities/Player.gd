@@ -19,6 +19,8 @@ var dead : bool = false
 var fight_back : bool = false
 
 var ghost_data : Array[Dictionary] = []
+var timer_active : bool = false
+var time_spent : float = 0
 
 signal game_over
 signal boss_hit
@@ -27,6 +29,10 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	# If timer has started for stat recording
+	if timer_active:
+		time_spent += delta
+	
 	# If flag to reset the slowdown has been set
 	if reset_debuff:
 		# Gradually decrease debuff
@@ -94,6 +100,7 @@ func set_game_over() -> void:
 		fight_back = false
 		death_sfx.play()
 		animation.clear_queue()
+		submit_time()
 		Data.submit_ghost_data(ghost_data)
 		
 		# Play random death animation
@@ -104,6 +111,11 @@ func set_game_over() -> void:
 			
 		game_over.emit()
 		Data.add_death()
+
+func submit_time() -> void:
+	timer_active = false
+	Data.add_time(time_spent)
+
 
 func _on_projectile_hit() -> void:
 	set_game_over()
@@ -123,6 +135,7 @@ func _on_boss_hit() -> void:
 
 func _on_intro_permit_movement() -> void:
 	permit_movement = true
+	timer_active = true
 	speed_debuff = 450
 
 func _on_intro_done() -> void:
@@ -159,4 +172,5 @@ func _on_boss_death_done() -> void:
 
 func _on_player_exited() -> void:
 	permit_movement = false
+	submit_time()
 	escaped = true
