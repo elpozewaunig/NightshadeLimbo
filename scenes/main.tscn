@@ -42,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://cpqmks55fi0m" path="res://scenes/objects/obstacle.tscn" id="29_pypiw"]
 [ext_resource type="PackedScene" uid="uid://dybntfod3ak8q" path="res://scenes/utility/occluder_mimic.tscn" id="30_drmd2"]
 [ext_resource type="Script" path="res://scripts/game/Camera.gd" id="30_jje2y"]
-[ext_resource type="Script" path="res://scripts/game/overlays/instructions.gd" id="33_rkonn"]
+[ext_resource type="Script" path="res://scripts/game/overlays/Instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/game/overlays/HealthIndicator.gd" id="35_6s6uf"]
 [ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_input_icon.tscn" id="36_4ffvj"]
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
