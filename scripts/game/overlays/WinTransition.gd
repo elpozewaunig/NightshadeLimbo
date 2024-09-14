@@ -8,8 +8,6 @@ var fade_to_black : bool = false
 
 var ftb_time_elapsed : float = 0
 
-signal disable_lights
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,7 +23,6 @@ func _process(delta: float) -> void:
 			if color.a >= 1:
 				color.a = 1
 				fade_to_black = true
-				disable_lights.emit()
 		
 		# Gradually change white to black through modulate
 		if fade_to_black:

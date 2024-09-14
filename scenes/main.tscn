@@ -1,6 +1,5 @@
-[gd_scene load_steps=87 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=86 format=3 uid="uid://muherruagjtj"]
 
-[ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="3_wra42"]
@@ -655,7 +654,6 @@ font_color = Color(0.485703, 0.485704, 0.485703, 1)
 [node name="Main" type="Node2D"]
 
 [node name="Lights" type="Node2D" parent="."]
-script = ExtResource("1_4x8bi")
 
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
 position = Vector2(61, 533)
@@ -1250,7 +1248,6 @@ parameters/looping = true
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="RemnantPlayback" method="_on_permit_movement"]
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
 [connection signal="clicked" from="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/IntroScreen" method="_on_tutorial_close_button_clicked"]
-[connection signal="disable_lights" from="Camera2D/Overlays/Transition" to="Lights" method="_on_disable_lights"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu" method="_on_opened"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/PauseScreen/SettingsSubmenu" method="_on_opened"]
