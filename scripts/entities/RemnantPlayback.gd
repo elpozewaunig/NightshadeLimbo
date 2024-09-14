@@ -5,14 +5,14 @@ var playback_data : Array[Dictionary]
 
 var stored_alpha : float
 
-var enabled : bool = Data.ghost_active
+var enabled : bool = Data.remnant_active
 var playback_active : bool = false
 var time_elapsed : float = 0
 var dead : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	playback_data = Data.ghost_data
+	playback_data = Data.remnant_data
 	if not playback_data.is_empty():
 		global_position = playback_data[0]["position"]
 	
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		if playback_active:
 			time_elapsed += delta
 			
-			# Update visibility based on ghost setting
+			# Update visibility based on remnant setting
 			if enabled:
 				show()
 			else:
@@ -62,5 +62,5 @@ func _on_game_over() -> void:
 	dead = true
 
 
-func _on_ghost_playback_toggled(active: bool) -> void:
+func _on_remnant_playback_toggled(active: bool) -> void:
 	enabled = active

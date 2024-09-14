@@ -18,7 +18,7 @@ var escaped : bool = false
 var dead : bool = false
 var fight_back : bool = false
 
-var ghost_data : Array[Dictionary] = []
+var remnant_data : Array[Dictionary] = []
 var timer_active : bool = false
 var time_spent : float = 0
 
@@ -43,9 +43,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Movement script
 	if permit_movement and not dead:
-		# Record current position and delta for ghost playback
+		# Record current position and delta for remnant playback
 		if not boss_defeated:
-			ghost_data.append({"position": global_position, "delta": delta})
+			remnant_data.append({"position": global_position, "delta": delta})
 		
 		# Get axis input
 		var x_input := Input.get_axis("game_left", "game_right")
@@ -101,7 +101,7 @@ func set_game_over() -> void:
 		death_sfx.play()
 		animation.clear_queue()
 		submit_time()
-		Data.submit_ghost_data(ghost_data)
+		Data.submit_remnant_data(remnant_data)
 		
 		# Play random death animation
 		if randi() % 2 == 0:

@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://rwl76vd53mg2"]
 
-[ext_resource type="Script" path="res://scripts/entities/GhostPlayback.gd" id="1_ifvvj"]
+[ext_resource type="Script" path="res://scripts/entities/RemnantPlayback.gd" id="1_ifvvj"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="1_ijb7r"]
 
-[node name="GhostPlayback" type="Sprite2D"]
+[node name="RemnantPlayback" type="Sprite2D"]
 modulate = Color(0.341176, 1, 1, 0.352941)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_ijb7r")

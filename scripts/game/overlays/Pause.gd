@@ -31,6 +31,7 @@ func pause(target : bool) -> void:
 
 func _on_continue_button_clicked() -> void:
 	pause(false)
+	Data.refresh_run_mode()
 
 
 func _on_exit_button_clicked() -> void:
