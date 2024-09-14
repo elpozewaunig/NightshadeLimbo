@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var fade_out = $FadeOut
+@onready var menu = $PauseMenu
 
 var transition = false
 
@@ -16,8 +17,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("game_pause") and not transition:
 		if not paused:
 			pause(true)
-		else:
-			pause(false)
+			
+		# No submenu is active, so the player sees the "main" pause menu
+		elif menu.visible:
+			_on_continue_button_clicked()
 	
 	if transition:
 		fade_out.modulate.a += delta
