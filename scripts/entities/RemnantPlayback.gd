@@ -12,6 +12,9 @@ var dead : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# By default, the current run is no remnant attempt.
+	Data.remnant_attempt = false
+	
 	playback_data = Data.remnant_data
 	if not playback_data.is_empty():
 		global_position = playback_data[0]["position"]
@@ -30,6 +33,8 @@ func _process(delta: float) -> void:
 			
 			# Update visibility based on remnant setting
 			if enabled:
+				# Flag attempt as remnant attempt
+				Data.remnant_attempt = true
 				show()
 			else:
 				hide()
