@@ -749,6 +749,7 @@ offset_left = -90.0
 offset_top = -110.0
 offset_right = 2080.0
 offset_bottom = 1210.0
+mouse_filter = 2
 
 [node name="Player" parent="PlayerClippingMask" instance=ExtResource("5_r2yhf")]
 position = Vector2(1030, 940)
@@ -941,6 +942,7 @@ script = ExtResource("12_qyr5r")
 light_mask = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Camera2D/Overlays/GameOverScreen/Background"]
@@ -1157,6 +1159,7 @@ offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Transition" type="ColorRect" parent="Camera2D/Overlays"]
