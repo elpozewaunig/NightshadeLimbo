@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var sfx = $AudioStreamPlayer
 
-var segment = preload("res://scenes/attacks/vine_segment.tscn")
+@export var segment_scene : PackedScene
 var current_segments : Array[VineSegment] = []
 
 var points : Array = [Vector2(960, 540), Vector2(1200, 540), Vector2(1920, 540)]
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		if current_segments.size() < points.size():
 			
 			# Set up next segment
-			var next_segment = segment.instantiate()
+			var next_segment = segment_scene.instantiate()
 			next_segment.from_pos = current_pos
 			next_segment.target_pos = points[current_segments.size()]
 			next_segment.speed = speed

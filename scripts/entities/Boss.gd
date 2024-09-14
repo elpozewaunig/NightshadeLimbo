@@ -5,15 +5,17 @@ class_name Boss
 @onready var animation = $Tomato/AnimationPlayer
 @onready var dmg_zone = $DamageZone
 
-var projectile_scene = preload("res://scenes/attacks/projectile.tscn")
-var beam_scene = preload("res://scenes/attacks/beam_attack.tscn")
-var artillery_scene = preload("res://scenes/attacks/artillery_projectile.tscn")
-var vine_scene = preload("res://scenes/attacks/vine_attack.tscn")
-var impact_scene = preload("res://scenes/attacks/jump_impact.tscn")
-
 @export var player : Player
 
 @export var health : int = 3
+
+@export_group("Attack Scenes")
+@export var projectile_scene : PackedScene
+@export var beam_scene : PackedScene
+@export var artillery_scene : PackedScene
+@export var vine_scene : PackedScene
+@export var impact_scene : PackedScene
+
 var vulnerable = false
 var vulnerable_duration = 0
 var dmg_taken = false
