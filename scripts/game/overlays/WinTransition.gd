@@ -1,4 +1,4 @@
-extends Sprite2D
+extends ColorRect
 
 @export var duration : float = 3.0
 @export var ftb_duration : float = 1.0
@@ -21,24 +21,24 @@ func _process(delta: float) -> void:
 		
 		# Fade white screen in
 		if not fade_to_black:
-			modulate.a += delta / duration
-			if modulate.a >= 1:
-				modulate.a = 1
+			color.a += delta / duration
+			if color.a >= 1:
+				color.a = 1
 				fade_to_black = true
 				disable_lights.emit()
 		
 		# Gradually change white to black through modulate
 		if fade_to_black:
 			ftb_time_elapsed += delta
-			modulate = Color("ffffff").lerp(Color("000000"), ftb_time_elapsed / ftb_duration)
+			color = Color("ffffff").lerp(Color("000000"), ftb_time_elapsed / ftb_duration)
 			
 			if ftb_time_elapsed >= ftb_duration:
-				modulate = Color("000000")
+				color = Color("000000")
 				transition = false
 				SceneManager.change_scene(SceneManager.endscene_scene)
 
 
 func _on_player_exited() -> void:
 	transition = true
-	modulate.a = 0
+	color.a = 0
 	show()

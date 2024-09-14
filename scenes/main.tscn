@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=87 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
@@ -54,7 +54,6 @@
 [ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="40_gg2ti"]
 [ext_resource type="AudioStream" uid="uid://ciw8tbxouv38f" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="40_vsbyh"]
 [ext_resource type="Script" path="res://scripts/game/overlays/Pause.gd" id="43_8c0bu"]
-[ext_resource type="Texture2D" uid="uid://cl3osl5ef14vx" path="res://assets/sprites/white_bg.svg" id="43_8p0wm"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="43_j1v2b"]
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="44_8ttwp"]
 [ext_resource type="Script" path="res://scripts/game/overlays/WinTransition.gd" id="44_pnwlx"]
@@ -1160,11 +1159,14 @@ offset_right = 960.0
 offset_bottom = 540.0
 color = Color(0, 0, 0, 1)
 
-[node name="Transition" type="Sprite2D" parent="Camera2D/Overlays"]
+[node name="Transition" type="ColorRect" parent="Camera2D/Overlays"]
 visible = false
 light_mask = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 scale = Vector2(1.15, 1.15)
-texture = ExtResource("43_8p0wm")
 script = ExtResource("44_pnwlx")
 
 [node name="MouseHider" parent="." instance=ExtResource("50_ywsql")]

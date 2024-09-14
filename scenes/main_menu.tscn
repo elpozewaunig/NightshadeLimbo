@@ -1,6 +1,5 @@
-[gd_scene load_steps=36 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=35 format=3 uid="uid://dtxu2sk0uugbs"]
 
-[ext_resource type="Texture2D" uid="uid://co47u5th5skjb" path="res://assets/sprites/black_bg.svg" id="1_3me3h"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
 [ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/sprites/bgtry1_blur.png" id="2_j6hu7"]
 [ext_resource type="Texture2D" uid="uid://by7sp5ronuisv" path="res://assets/sprites/tomatohorror.png" id="3_5j4db"]
@@ -124,9 +123,13 @@ font_size = 30
 
 [node name="MainMenu" type="Node2D"]
 
-[node name="UI" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("1_3me3h")
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
 
 [node name="InputModeManager" parent="UI" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("6_bjcm3")]
 selectors_to_sync = [NodePath("../MainSubmenu/MainMenuButtons/MainMenuButtonSelector"), NodePath("../CreditsSubmenu/BackgroundColor/CreditsButtonSelector"), NodePath("../SettingsSubmenu/BackgroundColor/SettingsButtonSelector")]
@@ -252,10 +255,6 @@ offset_right = 960.0
 offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[node name="Background" type="Sprite2D" parent="UI/CreditsSubmenu/BackgroundColor"]
-position = Vector2(960, 540)
-texture = ExtResource("1_3me3h")
 
 [node name="CreditsButtonSelector" parent="UI/CreditsSubmenu/BackgroundColor" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
 button_rows = [NodePath("ButtonRowConfig")]
@@ -544,14 +543,18 @@ visible = false
 [node name="MusicSlider" parent="UI/SettingsSubmenu/BackgroundColor/BusController" index="1"]
 acoustic_feedback = false
 
-[node name="SceneTransition" type="Sprite2D" parent="UI"]
+[node name="SceneTransition" type="ColorRect" parent="UI"]
 visible = false
-texture = ExtResource("1_3me3h")
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
 script = ExtResource("19_6iilf")
 
 [node name="scawyspwite" type="Sprite2D" parent="UI/SceneTransition"]
 self_modulate = Color(1, 1, 1, 0.0392157)
-position = Vector2(14, -50)
+position = Vector2(974, 490)
 scale = Vector2(1.615, 1.615)
 texture = ExtResource("3_5j4db")
 
