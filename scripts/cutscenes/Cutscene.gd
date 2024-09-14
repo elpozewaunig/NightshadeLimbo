@@ -13,7 +13,7 @@ extends Node2D
 @onready var clickNextHint = $Control/HBoxContainer/LeftRibbon/ClickNextHint
 @onready var clickNextHintAnim = $Control/HBoxContainer/LeftRibbon/ClickNextHint/AnimationPlayer
 
-@export var loadOnSkip = SceneManager.game_scene
+@export var loadOnSkip : PackedScene
 @export var loadingScreen = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

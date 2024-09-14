@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgn5ighrttryb"]
+[gd_scene load_steps=11 format=3 uid="uid://bgn5ighrttryb"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Cutscene.gd" id="1_8yita"]
+[ext_resource type="PackedScene" uid="uid://muherruagjtj" path="res://scenes/main.tscn" id="2_nmqqy"]
 [ext_resource type="StyleBox" uid="uid://b8iynxcxxrgmq" path="res://assets/uiThemes/cutsceneBoxTheme.tres" id="2_ommmk"]
 [ext_resource type="Script" path="res://scripts/cutscenes/Typewriter.gd" id="4_ld4jv"]
 [ext_resource type="Texture2D" uid="uid://cxv52dq4jai7b" path="res://assets/sprites/clickweiterHint.png" id="4_q35s7"]
@@ -47,6 +48,7 @@ _data = {
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_8yita")
+loadOnSkip = ExtResource("2_nmqqy")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

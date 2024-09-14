@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cud1vqy4x0nn2"]
+[gd_scene load_steps=14 format=3 uid="uid://cud1vqy4x0nn2"]
 
 [ext_resource type="PackedScene" uid="uid://bgn5ighrttryb" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_bwjam"]
 [ext_resource type="AudioStream" uid="uid://bklpbpee5btea" path="res://assets/music/BGM_HappyEndingPiano.ogg" id="2_6xdq2"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="3_8wusx"]
 [ext_resource type="PackedScene" uid="uid://ct0vljymnrd6y" path="res://scenes/cutscenes/visualElements/daveHatesTomatoes.tscn" id="6_bgy7c"]
 [ext_resource type="PackedScene" uid="uid://qpgj47ccpw50" path="res://scenes/cutscenes/visualElements/daveENDING.tscn" id="8_777ye"]
+[ext_resource type="PackedScene" uid="uid://dtxu2sk0uugbs" path="res://scenes/main_menu.tscn" id="9_y74p8"]
 
 [sub_resource type="Resource" id="Resource_fux4f"]
 script = ExtResource("2_up8y8")
@@ -70,5 +71,5 @@ fontSizeOverride = 35
 
 [node name="Cutscene" instance=ExtResource("1_bwjam")]
 cutscene_data = Array[ExtResource("2_up8y8")]([SubResource("Resource_fux4f"), SubResource("Resource_2jvhs"), SubResource("Resource_cglp2"), SubResource("Resource_hcasq")])
-loadOnSkip = "res://scenes/main_menu.tscn"
+loadOnSkip = ExtResource("9_y74p8")
 loadingScreen = false

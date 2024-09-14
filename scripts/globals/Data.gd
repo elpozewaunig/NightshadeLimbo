@@ -8,6 +8,7 @@ var run_deaths : int = 0
 var run_time : float = 0
 var remnant_attempt : bool = false
 
+
 func add_death():
 	run_deaths += 1
 

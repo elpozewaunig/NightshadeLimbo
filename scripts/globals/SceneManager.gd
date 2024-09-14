@@ -1,20 +1,23 @@
 extends Node
 
-const game_scene = "res://scenes/main.tscn"
-const menu_scene = "res://scenes/main_menu.tscn"
-const cutscene_scene = "res://scenes/cutscenes/cutscene_scene.tscn"
-const endscene_scene = "res://scenes/cutscenes/endscene_scene.tscn"
+@export_group("Scenes")
+@export var game_scene : PackedScene
+@export var menu_scene : PackedScene
+@export var cutscene_scene : PackedScene
+@export var endscene_scene : PackedScene
 
-const loading_scene = preload("res://scenes/loading_screen.tscn")
+@export_group("Loading Screen")
+@export var loading_scene : PackedScene
 
-func change_scene(scene_name: String, loading_screen: bool = false) -> void:
-	if scene_name != game_scene:
+
+func change_scene(scene: PackedScene, loading_screen: bool = false) -> void:
+	if scene != game_scene:
 		AmbienceMusic.stop()
 	
 	if loading_screen:
 		# Create loading scene and add it as a parallel scene
 		var loader = loading_scene.instantiate()
-		loader.scene_to_load = scene_name
+		loader.scene_path = scene.resource_path
 		get_tree().root.add_child(loader)
 		
 		# Delete current main scene at the end of the frame
@@ -23,7 +26,7 @@ func change_scene(scene_name: String, loading_screen: bool = false) -> void:
 	
 	else:
 		# Instantly load and change to scene
-		get_tree().change_scene_to_packed(load(scene_name))
+		get_tree().change_scene_to_packed(scene)
 	
 	# Make sure game is unpaused after scene switch
 	get_tree().paused = false

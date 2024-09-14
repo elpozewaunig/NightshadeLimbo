@@ -545,6 +545,7 @@ acoustic_feedback = false
 
 [node name="SceneTransition" type="ColorRect" parent="UI"]
 visible = false
+layout_mode = 0
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
