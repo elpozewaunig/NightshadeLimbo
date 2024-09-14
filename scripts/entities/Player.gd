@@ -41,15 +41,20 @@ func _physics_process(delta: float) -> void:
 			speed_debuff = 0
 			reset_debuff = false
 	
+	# Get axis input
+	var x_input := Input.get_axis("game_left", "game_right")
+	var y_input := Input.get_axis("game_up", "game_down")
+	
+	# Allow player to turn even when not allowing movement
+	if x_input and not dead:
+		# Flip sprite depending on input to left or right
+		sprite.flip_h = x_input < 0
+	
 	# Movement script
 	if permit_movement and not dead:
 		# Record current position and delta for remnant playback
 		if not boss_defeated:
 			remnant_data.append({"position": global_position, "delta": delta})
-		
-		# Get axis input
-		var x_input := Input.get_axis("game_left", "game_right")
-		var y_input := Input.get_axis("game_up", "game_down")
 		
 		# When both directions are active, the player might exceed maximum speed
 		# To compensate for this, normalize the input vector
@@ -58,9 +63,6 @@ func _physics_process(delta: float) -> void:
 		# Handle x-axis movement/deceleration
 		if normalized_input.x:
 			velocity.x = normalized_input.x * (SPEED - speed_debuff)
-			
-			# Flip sprite depending on movement to left or right
-			sprite.flip_h = normalized_input.x < 0
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED / DECEL_TIME  * delta)
 		
