@@ -925,6 +925,7 @@ toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
 light_mask = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
@@ -982,6 +983,17 @@ text = "Something in the depths of the tutorial might be able to help you..."
 label_settings = SubResource("LabelSettings_e7hxg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Transition" type="ColorRect" parent="Camera2D/Overlays"]
+visible = false
+light_mask = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+scale = Vector2(1.15, 1.15)
+mouse_filter = 2
+script = ExtResource("44_pnwlx")
 
 [node name="PauseScreen" type="Node2D" parent="Camera2D/Overlays"]
 process_mode = 3
@@ -1162,16 +1174,6 @@ offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Transition" type="ColorRect" parent="Camera2D/Overlays"]
-visible = false
-light_mask = 0
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
-scale = Vector2(1.15, 1.15)
-script = ExtResource("44_pnwlx")
-
 [node name="MouseHider" parent="." instance=ExtResource("50_ywsql")]
 
 [node name="MusicManager" type="Node2D" parent="." node_paths=PackedStringArray("boss")]
@@ -1248,6 +1250,7 @@ parameters/looping = true
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="RemnantPlayback" method="_on_permit_movement"]
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
 [connection signal="clicked" from="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/IntroScreen" method="_on_tutorial_close_button_clicked"]
+[connection signal="disable_lights" from="Camera2D/Overlays/Transition" to="Lights" method="_on_disable_lights"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu" method="_on_opened"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/PauseScreen/SettingsSubmenu" method="_on_opened"]
@@ -1256,7 +1259,6 @@ parameters/looping = true
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
 [connection signal="toggled" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" to="RemnantPlayback" method="_on_remnant_playback_toggled"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/SettingsButtonSelector/ButtonRowConfig/CloseMenuButton" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
-[connection signal="disable_lights" from="Camera2D/Overlays/Transition" to="Lights" method="_on_disable_lights"]
 
 [editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu"]
 [editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
