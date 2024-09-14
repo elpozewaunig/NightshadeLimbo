@@ -913,6 +913,9 @@ texture = ExtResource("10_roquk")
 visible = false
 position = Vector2(960, 540)
 
+[node name="TooHardButton" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0"]
+visible = false
+
 [node name="ConjureToggle" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0"]
 toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
 
@@ -1194,6 +1197,7 @@ parameters/looping = true
 [connection signal="chance_missed" from="Boss" to="Camera2D/Overlays/GameOverScreen" method="_on_chance_missed"]
 [connection signal="defeated" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="ExplodingTomato" method="_on_boss_defeated"]
+[connection signal="defeated" from="Boss" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="MusicManager" method="_on_boss_defeated"]
 [connection signal="destroy_obstacle" from="Boss" to="Obstacles" method="_on_destroy_obstacle"]
 [connection signal="player_hit" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_hit"]

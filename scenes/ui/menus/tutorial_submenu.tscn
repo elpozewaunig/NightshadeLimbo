@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=37 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cof07gc1h0uoo" path="res://assets/sprites/eyes_bg.png" id="19_chnp1"]
 [ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantEnabledLayer.gd" id="19_r8ekq"]
 [ext_resource type="PackedScene" uid="uid://bogdpw0iwj2bl" path="res://scenes/ui/button_area2d_toggle.tscn" id="19_snqau"]
+[ext_resource type="Script" path="res://scripts/ui/tutorial/TooHardButton.gd" id="19_w1ycx"]
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="21_n3rsh"]
 [ext_resource type="AudioStream" uid="uid://b88wk672acn4u" path="res://assets/sounds/sfx_RemnantActivated.ogg" id="21_uctbs"]
 [ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantButton.gd" id="21_wk34c"]
@@ -218,6 +219,7 @@ buttons = [NodePath("TooHardButton")]
 [node name="TooHardButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("17_bgwk8")]
 position = Vector2(800, 450)
 scale = Vector2(0.65, 0.65)
+script = ExtResource("19_w1ycx")
 
 [node name="AnimatedSprite2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" index="1"]
 scale = Vector2(1.325, 1)

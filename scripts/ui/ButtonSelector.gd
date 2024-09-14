@@ -61,6 +61,9 @@ func _process(delta: float) -> void:
 			hold_time = 0
 
 func activate_or_move(move: int) -> void:
+	var prev_row = highlight_row
+	var prev_col = highlight_col
+	
 	# If a button is currently highlighted
 	if highlight_active or get_current_button().mouse_inside:
 		if (move == Direction.UP and highlight_row > 0):
@@ -75,6 +78,11 @@ func activate_or_move(move: int) -> void:
 		# If the row that is being switched to has fewer buttons jump to the closest button
 		if highlight_col > current_row_buttons().size() - 1:
 			highlight_col = current_row_buttons().size() - 1
+		
+		# If the target button is not visible, do not move the selection
+		if not get_current_button().visible:
+			highlight_row = prev_row
+			highlight_col = prev_col
 	
 	# Else, just enable the highlight but don't change the position
 	hold_time -= hold_threshold
