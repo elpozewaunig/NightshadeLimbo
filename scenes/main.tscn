@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=89 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Script" path="res://scripts/game/Lights.gd" id="1_4x8bi"]
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
@@ -646,6 +646,9 @@ size = Vector2(286.555, 137)
 font = ExtResource("13_moeav")
 font_size = 120
 
+[sub_resource type="LabelSettings" id="LabelSettings_e7hxg"]
+font_size = 40
+
 [sub_resource type="LabelSettings" id="LabelSettings_vpns3"]
 font = ExtResource("13_moeav")
 font_size = 60
@@ -919,11 +922,11 @@ visible = false
 [node name="ConjureToggle" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0"]
 toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
 
-[node name="Black" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
+[node name="Black" type="ColorRect" parent="Camera2D/Overlays/IntroScreen"]
 light_mask = 0
-position = Vector2(960, 540)
-scale = Vector2(1.28, 1.28)
-texture = ExtResource("11_g3ka4")
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
 [node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
 stream = ExtResource("24_6qan5")
@@ -936,27 +939,47 @@ light_mask = 0
 position = Vector2(-960, -540)
 script = ExtResource("12_qyr5r")
 
-[node name="Background" type="Sprite2D" parent="Camera2D/Overlays/GameOverScreen"]
+[node name="Background" type="ColorRect" parent="Camera2D/Overlays/GameOverScreen"]
 light_mask = 0
-position = Vector2(960, 540)
-scale = Vector2(1.195, 1.236)
-texture = ExtResource("11_g3ka4")
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="Camera2D/Overlays/GameOverScreen"]
+[node name="Label" type="Label" parent="Camera2D/Overlays/GameOverScreen/Background"]
 light_mask = 0
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 541.0
-offset_top = 482.0
-offset_right = 1365.0
-offset_bottom = 606.0
+offset_left = -412.0
+offset_top = -62.0
+offset_right = 412.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Death messages go here."
 label_settings = ExtResource("49_fyk3k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hint" type="Label" parent="Camera2D/Overlays/GameOverScreen/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -643.0
+offset_top = -80.0
+offset_right = 643.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Something in the depths of the tutorial might be able to help you..."
+label_settings = SubResource("LabelSettings_e7hxg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1129,10 +1152,14 @@ light_mask = 0
 [node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider/White2" index="0"]
 light_mask = 0
 
-[node name="FadeOut" type="Sprite2D" parent="Camera2D/Overlays/PauseScreen"]
+[node name="FadeOut" type="ColorRect" parent="Camera2D/Overlays/PauseScreen"]
 modulate = Color(1, 1, 1, 0)
 light_mask = 0
-texture = ExtResource("11_g3ka4")
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
 
 [node name="Transition" type="Sprite2D" parent="Camera2D/Overlays"]
 visible = false

@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var label = $Label
+@onready var label = $Background/Label
+@onready var hint = $Background/Hint
 
 var music = AmbienceMusic
 
@@ -77,10 +78,17 @@ func _on_game_over() -> void:
 	game_over = true
 	music.reset_volume()
 	music.play()
+	
 	if chance_missed:
 		label.text = "You missed your chance."
 	else:
 		label.text = messages[randi() % messages.size()]
+	
+	# Show remnant mode hint on 10th death
+	if Data.run_deaths == 10 and not Data.remnant_active:
+		hint.show()
+	else:
+		hint.hide()
 
 func _on_chance_missed() -> void:
 	chance_missed = true
