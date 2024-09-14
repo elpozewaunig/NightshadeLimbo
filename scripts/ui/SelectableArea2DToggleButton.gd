@@ -2,6 +2,7 @@ extends SelectableArea2DButton
 class_name SelectableArea2DToggleButton
 
 @onready var fill_texture : AnimatedSprite2D = $FillTexture
+@onready var off_sfx : AudioStreamPlayer = $ClickOffSFX
 
 @export var toggled_fill_color : Color = Color("9e001f")
 
@@ -28,6 +29,10 @@ func default_behavior(delta: float) -> void:
 
 
 func click_action() -> void:
-	super.click_action()
 	active = not active
+	clicked.emit()
 	toggled.emit(active)
+	if active:
+		click_sfx.play()
+	else:
+		off_sfx.play()

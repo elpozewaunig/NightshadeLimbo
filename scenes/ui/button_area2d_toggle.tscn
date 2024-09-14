@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bogdpw0iwj2bl"]
+[gd_scene load_steps=7 format=3 uid="uid://bogdpw0iwj2bl"]
 
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="1_8w01u"]
 [ext_resource type="Script" path="res://scripts/ui/SelectableArea2DToggleButton.gd" id="2_u3sjc"]
 [ext_resource type="Texture2D" uid="uid://clc6244ko687t" path="res://assets/sprites/button1_filled.png" id="3_pwbli"]
 [ext_resource type="Texture2D" uid="uid://c7yemcctd0ikq" path="res://assets/sprites/button2_filled.png" id="4_pwa1a"]
+[ext_resource type="AudioStream" uid="uid://ceiadu76lnhq4" path="res://assets/sounds/sfx_UIClick.ogg" id="5_suk5v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3yiur"]
 animations = [{
@@ -26,6 +27,10 @@ toggled_fill_color = Color(0.621199, 0, 0.121537, 1)
 [node name="FillTexture" type="AnimatedSprite2D" parent="." index="1"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_3yiur")
+
+[node name="ClickOffSFX" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("5_suk5v")
+bus = &"SFX"
 
 [node name="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
 visible = false

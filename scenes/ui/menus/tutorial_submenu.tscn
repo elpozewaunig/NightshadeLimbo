@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=36 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantButton.gd" id="21_wk34c"]
 [ext_resource type="Script" path="res://scripts/utility/VisibilityBasedAudioPlayer.gd" id="22_4nqm7"]
 [ext_resource type="Texture2D" uid="uid://dqgtxqllyr530" path="res://assets/sprites/ominous_particle.png" id="23_4ycvk"]
+[ext_resource type="AudioStream" uid="uid://cpurve4i8sl6b" path="res://assets/sounds/sfx_RemnantDisabled.ogg" id="26_hxbkm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6dig"]
 font_size = 40
@@ -335,6 +336,7 @@ text = "Conjure remnant"
 
 [node name="ClickSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="4"]
 stream = ExtResource("21_uctbs")
+volume_db = -5.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="5"]
 modulate = Color(1, 0, 0, 1)
@@ -343,6 +345,10 @@ amount = 30
 process_material = SubResource("ParticleProcessMaterial_0ftdt")
 texture = ExtResource("23_4ycvk")
 lifetime = 2.0
+
+[node name="ClickOffSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="6"]
+stream = ExtResource("26_hxbkm")
+volume_db = -5.0
 
 [node name="CollisionShape2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle/Area2DButtonSrc" index="0"]
 position = Vector2(-0.666664, 0)
