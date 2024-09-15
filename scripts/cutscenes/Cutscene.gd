@@ -15,6 +15,7 @@ extends Node2D
 
 @export var load_on_skip : PackedScene
 @export var loading_screen = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	next_cutscene()
@@ -72,33 +73,33 @@ func next_cutscene():
 
 		
 	
-	if cutscene_data[i]["visual_asset_scene"] != null:
-		var child = cutscene_data[i]["visual_asset_scene"].instantiate()
+	if cutscene_data[i].visual_asset_scene != null:
+		var child = cutscene_data[i].visual_asset_scene.instantiate()
 		visual_asset_parent.add_child(child)
 	
-	label.text = cutscene_data[i]["display_text"]
-	label.add_theme_font_size_override("font_size", cutscene_data[i]["font_size_override"])
+	label.text = cutscene_data[i].display_text
+	label.add_theme_font_size_override("font_size", cutscene_data[i].font_size_override)
 	
 	typewriter.reset()
-	typewriter.type_speed = cutscene_data[i]["typewriter_speed"]
+	typewriter.type_speed = cutscene_data[i].typewriter_speed
 	
-	typewriter.pitch = cutscene_data[i]["typewriter_pitch"]
-	typewriter.pitch_range = cutscene_data[i]["typewriter_pitch_range"]
-	typewriteraudio.stream = cutscene_data[i]["typewriter_sound"]
+	typewriter.pitch = cutscene_data[i].typewriter_pitch
+	typewriter.pitch_range = cutscene_data[i].typewriter_pitch_range
+	typewriteraudio.stream = cutscene_data[i].typewriter_sound
 	
-	if cutscene_data[i]["music_change"] != null:
-		musicplayer.stream = cutscene_data[i]["music_change"]
-		musicplayer.playing = cutscene_data[i]["play_music"]
+	if cutscene_data[i].music_change != null:
+		musicplayer.stream = cutscene_data[i].music_change
+		musicplayer.playing = cutscene_data[i].play_music
 		
-	if not cutscene_data[i]["play_music"]:
+	if not cutscene_data[i].play_music:
 		musicplayer.playing = false
 	
 	if musicplayer.stream != null:
-		musicplayer.stream.loop = cutscene_data[i]["loop_music"]
+		musicplayer.stream.loop = cutscene_data[i].loop_music
 	
 	
 	click_next_hint_anim.play("RESET")
 	
-	timesleep_override = cutscene_data[i]["override_skip_time"]
+	timesleep_override = cutscene_data[i].override_skip_time
 	
 	i += 1
