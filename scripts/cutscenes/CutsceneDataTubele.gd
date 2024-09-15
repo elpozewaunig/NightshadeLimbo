@@ -1,24 +1,25 @@
 extends Resource
 class_name CutsceneDataTubele
 
-@export var visualAssetScene: PackedScene = null
-@export_multiline var displayText: String = ""
-@export var typewriterPitch: float = 1
-@export var typewriterPitchRange: float = 0.05
-@export var typewriterSpeed: float = 0.3
-@export var typewriterSound: AudioStream = null
-@export var playMusic: bool = true
-@export var loopMusic: bool = true
-@export var musicChange: AudioStream = null
-@export var overrideSkipTime: float = -1 #-1 for no forced-watch-cutscene
-@export var fontSizeOverride: int = 35
+@export var visual_asset_scene: PackedScene = null
+@export_multiline var display_text: String = ""
+@export var typewriter_pitch: float = 1
+@export var typewriter_pitch_range: float = 0.05
+@export var typewriter_speed: float = 0.3
+@export var typewriter_sound: AudioStream = null
+@export var play_music: bool = true
+@export var loop_music: bool = true
+@export var music_change: AudioStream = null
+@export var override_skip_time: float = -1 #-1 for no forced-watch-cutscene
+@export var font_size_override: int = 35
+
 # To leave music unchanged:
-# playMusic = true
-# musicChange = null
+# play_music = true
+# music_change = null
 
 # To stop music:
-# playMusic = false
+# play_music = false
 
 # To change music:
-# playMusic = true
-# mcusicChange = ../resource
+# play_music = true
+# music_change = ../resource

@@ -48,7 +48,7 @@ _data = {
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_8yita")
-loadOnSkip = ExtResource("2_nmqqy")
+load_on_skip = ExtResource("2_nmqqy")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

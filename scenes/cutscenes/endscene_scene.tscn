@@ -12,64 +12,64 @@
 
 [sub_resource type="Resource" id="Resource_fux4f"]
 script = ExtResource("2_up8y8")
-displayText = "After what felt like an eternity...
+display_text = "After what felt like an eternity...
 
 Dave finally reawakens from his delirium,
 surrounded by paramedics, in the middle of the road.
 "
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.75
-typewriterSound = ExtResource("3_8wusx")
-playMusic = true
-loopMusic = false
-musicChange = ExtResource("3_3acg3")
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.75
+typewriter_sound = ExtResource("3_8wusx")
+play_music = true
+loop_music = false
+music_change = ExtResource("3_3acg3")
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_2jvhs"]
 script = ExtResource("2_up8y8")
-visualAssetScene = ExtResource("3_4f5uw")
-displayText = "Amidst the splattered goo of expired garbage bag tomatoes,
+visual_asset_scene = ExtResource("3_4f5uw")
+display_text = "Amidst the splattered goo of expired garbage bag tomatoes,
 Dave is now at peace.
 With himself. And with the way
 he will continue to live his life."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.75
-typewriterSound = ExtResource("3_8wusx")
-playMusic = true
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.75
+typewriter_sound = ExtResource("3_8wusx")
+play_music = true
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_cglp2"]
 script = ExtResource("2_up8y8")
-visualAssetScene = ExtResource("6_bgy7c")
-displayText = "Perhaps he may even tolerate tomatoes a bit more from now on..."
-typewriterPitch = 1.0
-typewriterPitchRange = 0.05
-typewriterSpeed = 2.0
-typewriterSound = ExtResource("3_8wusx")
-playMusic = true
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 30
+visual_asset_scene = ExtResource("6_bgy7c")
+display_text = "Perhaps he may even tolerate tomatoes a bit more from now on..."
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.05
+typewriter_speed = 2.0
+typewriter_sound = ExtResource("3_8wusx")
+play_music = true
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 30
 
 [sub_resource type="Resource" id="Resource_hcasq"]
 script = ExtResource("2_up8y8")
-visualAssetScene = ExtResource("8_777ye")
-displayText = "The End"
-typewriterPitch = 1.0
-typewriterPitchRange = 0.05
-typewriterSpeed = 0.3
-playMusic = true
-loopMusic = false
-musicChange = ExtResource("2_6xdq2")
-overrideSkipTime = 7.5
-fontSizeOverride = 35
+visual_asset_scene = ExtResource("8_777ye")
+display_text = "The End"
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.05
+typewriter_speed = 0.3
+play_music = true
+loop_music = false
+music_change = ExtResource("2_6xdq2")
+override_skip_time = 7.5
+font_size_override = 35
 
 [node name="Cutscene" instance=ExtResource("1_bwjam")]
 cutscene_data = Array[ExtResource("2_up8y8")]([SubResource("Resource_fux4f"), SubResource("Resource_2jvhs"), SubResource("Resource_cglp2"), SubResource("Resource_hcasq")])
-loadOnSkip = ExtResource("9_y74p8")
-loadingScreen = false
+load_on_skip = ExtResource("9_y74p8")
+loading_screen = false

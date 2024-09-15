@@ -29,428 +29,428 @@
 
 [sub_resource type="Resource" id="Resource_npgx1"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("5_clnog")
-displayText = "This is Dave."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.0
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-musicChange = ExtResource("3_2wjhg")
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+visual_asset_scene = ExtResource("5_clnog")
+display_text = "This is Dave."
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.0
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+music_change = ExtResource("3_2wjhg")
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_ei8hn"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("6_b2spl")
-displayText = "Dave is a pretty regular guy."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.0
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+visual_asset_scene = ExtResource("6_b2spl")
+display_text = "Dave is a pretty regular guy."
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.0
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_3tt23"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("7_al6eo")
-displayText = "He is a store clerk.
+visual_asset_scene = ExtResource("7_al6eo")
+display_text = "He is a store clerk.
 And for the most part, he is pretty friendly.
 
 It's rarely the case that something grinds his gears."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.25
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.25
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_04jrd"]
 script = ExtResource("2_sox31")
-displayText = "With one exception."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.25
-typewriterSound = ExtResource("4_64gbv")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "With one exception."
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.25
+typewriter_sound = ExtResource("4_64gbv")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_yjewf"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("8_kxrgd")
-displayText = "Dave HATES tomatoes."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.15
-typewriterSpeed = 1.0
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-musicChange = ExtResource("8_sjsew")
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+visual_asset_scene = ExtResource("8_kxrgd")
+display_text = "Dave HATES tomatoes."
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.15
+typewriter_speed = 1.0
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+music_change = ExtResource("8_sjsew")
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_vmpud"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("10_ttaie")
-displayText = "Whenever he eats a salad,
+visual_asset_scene = ExtResource("10_ttaie")
+display_text = "Whenever he eats a salad,
 he makes sure to discard any tomato slices beforehand."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.75
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.75
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_yava2"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("10_ttaie")
-displayText = "Whenever he orders food, he proclaims to be allergic to tomatoes.
+visual_asset_scene = ExtResource("10_ttaie")
+display_text = "Whenever he orders food, he proclaims to be allergic to tomatoes.
 Just to avoid them."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.75
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.75
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_usb75"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("11_6p8ld")
-displayText = "And even in his job...
+visual_asset_scene = ExtResource("11_6p8ld")
+display_text = "And even in his job...
 The very second the expiration date passes,
 he throws out any and all tomatoes he can."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.75
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.75
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_w1grl"]
 script = ExtResource("2_sox31")
-displayText = "Then, one night shift...
+display_text = "Then, one night shift...
 
 As he was doing just that..."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.5
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.5
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_von4a"]
 script = ExtResource("2_sox31")
-displayText = "... he crossed the busy road too carelessly."
-typewriterPitch = 0.95
-typewriterPitchRange = 0.15
-typewriterSpeed = 1.25
-typewriterSound = ExtResource("4_64gbv")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "... he crossed the busy road too carelessly."
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.15
+typewriter_speed = 1.25
+typewriter_sound = ExtResource("4_64gbv")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_jjjfq"]
 script = ExtResource("2_sox31")
-displayText = ""
-typewriterPitch = 1.0
-typewriterPitchRange = 0.05
-typewriterSpeed = 0.3
-playMusic = true
-loopMusic = false
-musicChange = ExtResource("12_h2b68")
-overrideSkipTime = 6.95
-fontSizeOverride = 35
+display_text = ""
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.05
+typewriter_speed = 0.3
+play_music = true
+loop_music = false
+music_change = ExtResource("12_h2b68")
+override_skip_time = 6.95
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_x7t2i"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("13_r3a3d")
-displayText = "In the brief glimpses
+visual_asset_scene = ExtResource("13_r3a3d")
+display_text = "In the brief glimpses
 of consciousness that Dave has left, he can't help but wonder...
 
 What is he to expect?"
-typewriterPitch = 0.85
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.5
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-musicChange = ExtResource("13_i0yne")
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.5
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+music_change = ExtResource("13_i0yne")
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_xtwed"]
 script = ExtResource("2_sox31")
-displayText = "A second chance?"
-typewriterPitch = 0.85
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.5
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "A second chance?"
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.5
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_dw6rj"]
 script = ExtResource("2_sox31")
-displayText = "A prosperous afterlife in serenity?"
-typewriterPitch = 0.85
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.5
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "A prosperous afterlife in serenity?"
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.5
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_pfk3f"]
 script = ExtResource("2_sox31")
-displayText = "Ascension to a higher form of existence?"
-typewriterPitch = 0.85
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.5
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "Ascension to a higher form of existence?"
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.5
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_m0nhk"]
 script = ExtResource("2_sox31")
-displayText = "Or perhaps even reincarnation in a fantasy setting?"
-typewriterPitch = 0.85
-typewriterPitchRange = 0.05
-typewriterSpeed = 2.0
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "Or perhaps even reincarnation in a fantasy setting?"
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.05
+typewriter_speed = 2.0
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_rr0ww"]
 script = ExtResource("2_sox31")
-displayText = "As he keeps pondering which religion may have been correct..."
-typewriterPitch = 0.85
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.25
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "As he keeps pondering which religion may have been correct..."
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.25
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_jtfa4"]
 script = ExtResource("2_sox31")
-displayText = "... he encounters...
+display_text = "... he encounters...
 No god, no soul of a passed relative.
 
 No divine entity or grim reaper."
-typewriterPitch = 0.85
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.5
-typewriterSound = ExtResource("4_64gbv")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.5
+typewriter_sound = ExtResource("4_64gbv")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_ts7gs"]
 script = ExtResource("2_sox31")
-displayText = "But a tomato."
-typewriterPitch = 0.85
-typewriterPitchRange = 0.15
-typewriterSpeed = 0.85
-typewriterSound = ExtResource("4_64gbv")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+display_text = "But a tomato."
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.15
+typewriter_speed = 0.85
+typewriter_sound = ExtResource("4_64gbv")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_1laeo"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("16_dxx5f")
-displayText = "Welcome. Dave."
-typewriterPitch = 1.0
-typewriterPitchRange = 0.1
-typewriterSpeed = 0.7
-typewriterSound = ExtResource("15_gro0h")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 38
+visual_asset_scene = ExtResource("16_dxx5f")
+display_text = "Welcome. Dave."
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.1
+typewriter_speed = 0.7
+typewriter_sound = ExtResource("15_gro0h")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 38
 
 [sub_resource type="Resource" id="Resource_j8o7t"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("5_clnog")
-displayText = "... Hi?"
-typewriterPitch = 1.05
-typewriterPitchRange = 0.05
-typewriterSpeed = 0.25
-typewriterSound = ExtResource("17_5qe7n")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 33
+visual_asset_scene = ExtResource("5_clnog")
+display_text = "... Hi?"
+typewriter_pitch = 1.05
+typewriter_pitch_range = 0.05
+typewriter_speed = 0.25
+typewriter_sound = ExtResource("17_5qe7n")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 33
 
 [sub_resource type="Resource" id="Resource_f3bge"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("16_dxx5f")
-displayText = "Welcome... to YOUR
+visual_asset_scene = ExtResource("16_dxx5f")
+display_text = "Welcome... to YOUR
 personal hell."
-typewriterPitch = 1.0
-typewriterPitchRange = 0.01
-typewriterSpeed = 1.0
-typewriterSound = ExtResource("15_gro0h")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 38
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.01
+typewriter_speed = 1.0
+typewriter_sound = ExtResource("15_gro0h")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 38
 
 [sub_resource type="Resource" id="Resource_0o2eg"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("18_o10r7")
-displayText = "Huh?"
-typewriterPitch = 1.0
-typewriterPitchRange = 0.05
-typewriterSpeed = 0.5
-typewriterSound = ExtResource("17_5qe7n")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+visual_asset_scene = ExtResource("18_o10r7")
+display_text = "Huh?"
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.05
+typewriter_speed = 0.5
+typewriter_sound = ExtResource("17_5qe7n")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_3y300"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("19_5ybc5")
-displayText = "Your entire life you have desecrated 
+visual_asset_scene = ExtResource("19_5ybc5")
+display_text = "Your entire life you have desecrated 
 the nightshade family.
 Now you must atone for
 the countless sins you have commited."
-typewriterPitch = 1.0
-typewriterPitchRange = 0.05
-typewriterSpeed = 2.75
-typewriterSound = ExtResource("15_gro0h")
-playMusic = true
-loopMusic = true
-musicChange = ExtResource("13_i0yne")
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.05
+typewriter_speed = 2.75
+typewriter_sound = ExtResource("15_gro0h")
+play_music = true
+loop_music = true
+music_change = ExtResource("13_i0yne")
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_767vn"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("20_qoubw")
-displayText = "???"
-typewriterPitch = 1.0
-typewriterPitchRange = 0.05
-typewriterSpeed = 0.15
-typewriterSound = ExtResource("17_5qe7n")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 30
+visual_asset_scene = ExtResource("20_qoubw")
+display_text = "???"
+typewriter_pitch = 1.0
+typewriter_pitch_range = 0.05
+typewriter_speed = 0.15
+typewriter_sound = ExtResource("17_5qe7n")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 30
 
 [sub_resource type="Resource" id="Resource_6yosb"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("16_dxx5f")
-displayText = "YOUR FATE LIES IN ETERNAL TORMENT,
+visual_asset_scene = ExtResource("16_dxx5f")
+display_text = "YOUR FATE LIES IN ETERNAL TORMENT,
 PERISHING...
 
 OVER AND OVER AGAIN"
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 2.75
-typewriterSound = ExtResource("15_gro0h")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 2.75
+typewriter_sound = ExtResource("15_gro0h")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_ls1r6"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("21_rb3bt")
-displayText = "Accumulating sparse glimpses of
+visual_asset_scene = ExtResource("21_rb3bt")
+display_text = "Accumulating sparse glimpses of
 insight from your recurrent failure.
 
 UNTIL YOU LEARN TO APPRECIATE TOMATOES!!!"
-typewriterPitch = 0.9
-typewriterPitchRange = 0.15
-typewriterSpeed = 1.5
-typewriterSound = ExtResource("15_gro0h")
-playMusic = true
-loopMusic = true
-overrideSkipTime = -1.0
-fontSizeOverride = 36
+typewriter_pitch = 0.9
+typewriter_pitch_range = 0.15
+typewriter_speed = 1.5
+typewriter_sound = ExtResource("15_gro0h")
+play_music = true
+loop_music = true
+override_skip_time = -1.0
+font_size_override = 36
 
 [sub_resource type="Resource" id="Resource_kiams"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("22_kigd5")
-displayText = "wait"
-typewriterPitch = 0.9
-typewriterPitchRange = 0.0
-typewriterSpeed = 1.0
-typewriterSound = ExtResource("17_5qe7n")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 40
+visual_asset_scene = ExtResource("22_kigd5")
+display_text = "wait"
+typewriter_pitch = 0.9
+typewriter_pitch_range = 0.0
+typewriter_speed = 1.0
+typewriter_sound = ExtResource("17_5qe7n")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 40
 
 [sub_resource type="Resource" id="Resource_ixs2p"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("23_wgy8j")
-displayText = "This is about... Tomatoes?"
-typewriterPitch = 1.1
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.25
-typewriterSound = ExtResource("17_5qe7n")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 35
+visual_asset_scene = ExtResource("23_wgy8j")
+display_text = "This is about... Tomatoes?"
+typewriter_pitch = 1.1
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.25
+typewriter_sound = ExtResource("17_5qe7n")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 35
 
 [sub_resource type="Resource" id="Resource_wfml5"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("24_b5emb")
-displayText = "Seriously?"
-typewriterPitch = 0.95
-typewriterPitchRange = 0.05
-typewriterSpeed = 1.0
-typewriterSound = ExtResource("17_5qe7n")
-playMusic = false
-loopMusic = false
-overrideSkipTime = -1.0
-fontSizeOverride = 30
+visual_asset_scene = ExtResource("24_b5emb")
+display_text = "Seriously?"
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.0
+typewriter_sound = ExtResource("17_5qe7n")
+play_music = false
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 30
 
 [sub_resource type="Resource" id="Resource_edt0d"]
 script = ExtResource("2_sox31")
-visualAssetScene = ExtResource("25_yq40j")
-displayText = "Your punishment 
+visual_asset_scene = ExtResource("25_yq40j")
+display_text = "Your punishment 
 shall begin
 
 N  O  W"
-typewriterPitch = 0.85
-typewriterPitchRange = 0.25
-typewriterSpeed = 0.35
-typewriterSound = ExtResource("15_gro0h")
-playMusic = true
-loopMusic = false
-musicChange = ExtResource("25_hpy61")
-overrideSkipTime = -1.0
-fontSizeOverride = 38
+typewriter_pitch = 0.85
+typewriter_pitch_range = 0.25
+typewriter_speed = 0.35
+typewriter_sound = ExtResource("15_gro0h")
+play_music = true
+loop_music = false
+music_change = ExtResource("25_hpy61")
+override_skip_time = -1.0
+font_size_override = 38
 
 [node name="Cutscene" instance=ExtResource("1_sc146")]
 cutscene_data = Array[ExtResource("2_sox31")]([SubResource("Resource_npgx1"), SubResource("Resource_ei8hn"), SubResource("Resource_3tt23"), SubResource("Resource_04jrd"), SubResource("Resource_yjewf"), SubResource("Resource_vmpud"), SubResource("Resource_yava2"), SubResource("Resource_usb75"), SubResource("Resource_w1grl"), SubResource("Resource_von4a"), SubResource("Resource_jjjfq"), SubResource("Resource_x7t2i"), SubResource("Resource_xtwed"), SubResource("Resource_dw6rj"), SubResource("Resource_pfk3f"), SubResource("Resource_m0nhk"), SubResource("Resource_rr0ww"), SubResource("Resource_jtfa4"), SubResource("Resource_ts7gs"), SubResource("Resource_1laeo"), SubResource("Resource_j8o7t"), SubResource("Resource_f3bge"), SubResource("Resource_0o2eg"), SubResource("Resource_3y300"), SubResource("Resource_767vn"), SubResource("Resource_6yosb"), SubResource("Resource_ls1r6"), SubResource("Resource_kiams"), SubResource("Resource_ixs2p"), SubResource("Resource_wfml5"), SubResource("Resource_edt0d")])
