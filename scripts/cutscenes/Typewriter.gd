@@ -6,9 +6,9 @@ func _ready() -> void:
 	pass
 
 
-@export var Pitch:float = 1.00
-@export var PitchRange:float = 0.05
-@export var TypeSpeed:float = 0.3
+@export var pitch:float = 1.00
+@export var pitchRange:float = 0.05
+@export var typeSpeed:float = 0.3
 
 @onready var label:Label = $Label
 @onready var audioplayer:AudioStreamPlayer = $TypewriterAudio
@@ -19,12 +19,12 @@ func _ready() -> void:
 var vis_char = 0
 func _process(delta: float) -> void:
 	if label.visible_ratio < 1:
-		label.visible_ratio += (TypeSpeed * delta * 10) / label.text.length()
+		label.visible_ratio += (typeSpeed * delta * 10) / label.text.length()
 	
 	if vis_char != label.visible_characters:
 		vis_char = label.visible_characters
 		if audioplayer.stream != null and currentNotWhiteSpace():
-			effect.pitch_scale = randf_range(Pitch-PitchRange,Pitch+PitchRange)
+			effect.pitch_scale = randf_range(pitch-pitchRange,pitch+pitchRange)
 			audioplayer.play()
 
 func currentNotWhiteSpace() -> bool:

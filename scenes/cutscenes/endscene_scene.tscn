@@ -17,13 +17,13 @@ displayText = "After what felt like an eternity...
 Dave finally reawakens from his delirium,
 surrounded by paramedics, in the middle of the road.
 "
-TypewriterPitch = 0.95
-TypewriterPitchRange = 0.05
-TypewriterSpeed = 1.75
-TypewriterSound = ExtResource("3_8wusx")
-PlayMusic = true
-LoopMusic = false
-MusicChange = ExtResource("3_3acg3")
+typewriterPitch = 0.95
+typewriterPitchRange = 0.05
+typewriterSpeed = 1.75
+typewriterSound = ExtResource("3_8wusx")
+playMusic = true
+loopMusic = false
+musicChange = ExtResource("3_3acg3")
 overrideSkipTime = -1.0
 fontSizeOverride = 35
 
@@ -34,12 +34,12 @@ displayText = "Amidst the splattered goo of expired garbage bag tomatoes,
 Dave is now at peace.
 With himself. And with the way
 he will continue to live his life."
-TypewriterPitch = 0.95
-TypewriterPitchRange = 0.05
-TypewriterSpeed = 1.75
-TypewriterSound = ExtResource("3_8wusx")
-PlayMusic = true
-LoopMusic = false
+typewriterPitch = 0.95
+typewriterPitchRange = 0.05
+typewriterSpeed = 1.75
+typewriterSound = ExtResource("3_8wusx")
+playMusic = true
+loopMusic = false
 overrideSkipTime = -1.0
 fontSizeOverride = 35
 
@@ -47,12 +47,12 @@ fontSizeOverride = 35
 script = ExtResource("2_up8y8")
 visualAssetScene = ExtResource("6_bgy7c")
 displayText = "Perhaps he may even tolerate tomatoes a bit more from now on..."
-TypewriterPitch = 1.0
-TypewriterPitchRange = 0.05
-TypewriterSpeed = 2.0
-TypewriterSound = ExtResource("3_8wusx")
-PlayMusic = true
-LoopMusic = false
+typewriterPitch = 1.0
+typewriterPitchRange = 0.05
+typewriterSpeed = 2.0
+typewriterSound = ExtResource("3_8wusx")
+playMusic = true
+loopMusic = false
 overrideSkipTime = -1.0
 fontSizeOverride = 30
 
@@ -60,12 +60,12 @@ fontSizeOverride = 30
 script = ExtResource("2_up8y8")
 visualAssetScene = ExtResource("8_777ye")
 displayText = "The End"
-TypewriterPitch = 1.0
-TypewriterPitchRange = 0.05
-TypewriterSpeed = 0.3
-PlayMusic = true
-LoopMusic = false
-MusicChange = ExtResource("2_6xdq2")
+typewriterPitch = 1.0
+typewriterPitchRange = 0.05
+typewriterSpeed = 0.3
+playMusic = true
+loopMusic = false
+musicChange = ExtResource("2_6xdq2")
 overrideSkipTime = 7.5
 fontSizeOverride = 35
 

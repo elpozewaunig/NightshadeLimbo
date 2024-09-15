@@ -80,21 +80,21 @@ func next_cutscene():
 	label.add_theme_font_size_override("font_size", cutscene_data[i]["fontSizeOverride"])
 	
 	typewriter.reset()
-	typewriter.TypeSpeed = cutscene_data[i]["TypewriterSpeed"]
+	typewriter.typeSpeed = cutscene_data[i]["typewriterSpeed"]
 	
-	typewriter.Pitch = cutscene_data[i]["TypewriterPitch"]
-	typewriter.PitchRange = cutscene_data[i]["TypewriterPitchRange"]
-	typewriteraudio.stream = cutscene_data[i]["TypewriterSound"]
+	typewriter.pitch = cutscene_data[i]["typewriterPitch"]
+	typewriter.pitchRange = cutscene_data[i]["typewriterPitchRange"]
+	typewriteraudio.stream = cutscene_data[i]["typewriterSound"]
 	
-	if cutscene_data[i]["MusicChange"] != null:
-		musicplayer.stream = cutscene_data[i]["MusicChange"]
-		musicplayer.playing = cutscene_data[i]["PlayMusic"]
+	if cutscene_data[i]["musicChange"] != null:
+		musicplayer.stream = cutscene_data[i]["musicChange"]
+		musicplayer.playing = cutscene_data[i]["playMusic"]
 		
-	if not cutscene_data[i]["PlayMusic"]:
+	if not cutscene_data[i]["playMusic"]:
 		musicplayer.playing = false
 	
 	if musicplayer.stream != null:
-		musicplayer.stream.loop = cutscene_data[i]["LoopMusic"]
+		musicplayer.stream.loop = cutscene_data[i]["loopMusic"]
 	
 	
 	clickNextHintAnim.play("RESET")
