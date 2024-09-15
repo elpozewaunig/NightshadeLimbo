@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://mod0vs1w0owv"
-path="res://.godot/imported/adrip1.ttf-5e29d6410f00211d0c1b3db7b48821e2.fontdata"
+uid="uid://b8vve6gl4ppbi"
+path="res://.godot/imported/OpenSans-Regular.ttf-f1a47963f56982f49f7a951c7c7cd35f.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/adrip1.ttf"
-dest_files=["res://.godot/imported/adrip1.ttf-5e29d6410f00211d0c1b3db7b48821e2.fontdata"]
+source_file="res://assets/fonts/OpenSans-Regular.ttf"
+dest_files=["res://.godot/imported/OpenSans-Regular.ttf-f1a47963f56982f49f7a951c7c7cd35f.fontdata"]
 
 [params]
 
@@ -25,15 +25,10 @@ hinting=1
 subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("res://assets/fonts/OpenSans-Regular.ttf")]
+fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}
