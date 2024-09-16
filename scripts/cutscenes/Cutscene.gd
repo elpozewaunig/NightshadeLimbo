@@ -14,7 +14,7 @@ extends Node2D
 @onready var click_next_hint_anim = $Control/HBoxContainer/LeftRibbon/ClickNextHint/AnimationPlayer
 
 @export var load_on_skip : PackedScene
-@export var loading_screen = true
+@export var loading_screen : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
