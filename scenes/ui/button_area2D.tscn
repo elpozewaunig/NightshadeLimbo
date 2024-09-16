@@ -21,8 +21,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkhs4"]
-size = Vector2(340, 120)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ycp"]
 
 [node name="ButtonArea2D" instance=ExtResource("7_4g5or")]
 light_mask = 0
@@ -60,12 +59,12 @@ volume_db = 2.0
 bus = &"SFX"
 
 [node name="Area2DButtonSrc" type="Area2D" parent="." index="4"]
-visible = false
 light_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
+visible = false
 light_mask = 0
-shape = SubResource("RectangleShape2D_xkhs4")
+shape = SubResource("RectangleShape2D_g0ycp")
 
 [connection signal="mouse_entered" from="Area2DButtonSrc" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2DButtonSrc" to="." method="_on_mouse_exited"]

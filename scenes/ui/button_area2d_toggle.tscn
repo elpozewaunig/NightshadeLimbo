@@ -31,6 +31,3 @@ sprite_frames = SubResource("SpriteFrames_3yiur")
 [node name="ClickOffSFX" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("5_suk5v")
 bus = &"SFX"
-
-[node name="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
-visible = false

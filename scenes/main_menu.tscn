@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dtxu2sk0uugbs"]
+[gd_scene load_steps=32 format=3 uid="uid://dtxu2sk0uugbs"]
 
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="2_hht2f"]
 [ext_resource type="Texture2D" uid="uid://cjjh5vhxcvrl5" path="res://assets/sprites/bgtry1_blur.png" id="2_j6hu7"]
@@ -105,15 +105,6 @@ emission_shape = 3
 emission_box_extents = Vector3(350, 1, 1)
 gravity = Vector3(0, 98, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8c6h"]
-size = Vector2(340, 97)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxbn7"]
-size = Vector2(220, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eaoji"]
-size = Vector2(160, 100)
-
 [sub_resource type="LabelSettings" id="LabelSettings_vlt60"]
 font = ExtResource("2_hht2f")
 font_size = 120
@@ -213,9 +204,6 @@ scale = Vector2(1.235, 0.8)
 [node name="Label" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig2/SettingsButton" index="2"]
 text = "Settings"
 
-[node name="CollisionShape2D" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig2/SettingsButton/Area2DButtonSrc" index="0"]
-shape = SubResource("RectangleShape2D_k8c6h")
-
 [node name="ButtonRowConfig3" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
 buttons = [NodePath("CreditsButton"), NodePath("QuitButton")]
 
@@ -229,9 +217,6 @@ scale = Vector2(0.82, 0.85)
 [node name="Label" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/CreditsButton" index="2"]
 text = "Credits"
 
-[node name="CollisionShape2D" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/CreditsButton/Area2DButtonSrc" index="0"]
-shape = SubResource("RectangleShape2D_oxbn7")
-
 [node name="QuitButton" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3" instance=ExtResource("3_fx80t")]
 position = Vector2(-625, 450)
 scale = Vector2(0.8, 0.8)
@@ -241,9 +226,6 @@ scale = Vector2(0.6, 0.85)
 
 [node name="Label" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/QuitButton" index="2"]
 text = "Quit"
-
-[node name="CollisionShape2D" parent="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/QuitButton/Area2DButtonSrc" index="0"]
-shape = SubResource("RectangleShape2D_eaoji")
 
 [node name="CreditsSubmenu" parent="UI" instance=ExtResource("20_oquwj")]
 visible = false

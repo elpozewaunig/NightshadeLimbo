@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=35 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
@@ -34,9 +34,6 @@
 font_size = 40
 font_color = Color(1, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hax5p"]
-size = Vector2(360, 120)
-
 [sub_resource type="LabelSettings" id="LabelSettings_dhwb4"]
 font = ExtResource("18_gddlt")
 font_size = 80
@@ -63,9 +60,6 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.02
 scale_max = 0.05
 alpha_curve = SubResource("CurveTexture_2tkpk")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lrin"]
-size = Vector2(460, 120)
 
 [node name="TutorialSubmenu" instance=ExtResource("1_426du")]
 
@@ -229,7 +223,6 @@ text = "Still too hard?"
 
 [node name="CollisionShape2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton/Area2DButtonSrc" index="0"]
 position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_hax5p")
 
 [node name="RemnantSubmenu" parent="." index="2" instance=ExtResource("1_426du")]
 visible = false
@@ -354,7 +347,6 @@ volume_db = -5.0
 
 [node name="CollisionShape2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle/Area2DButtonSrc" index="0"]
 position = Vector2(-0.666664, 0)
-shape = SubResource("RectangleShape2D_2lrin")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="RemnantSubmenu/RemnantButtonSelector" index="2"]
 stream = ExtResource("21_n3rsh")

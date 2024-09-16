@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://di3o5lslj817b"]
+[gd_scene load_steps=4 format=3 uid="uid://di3o5lslj817b"]
 
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="1_uyhbk"]
 [ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="3_m6whx"]
@@ -6,9 +6,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_wawxh"]
 font = ExtResource("3_m6whx")
 font_size = 150
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m10n2"]
-size = Vector2(110, 110)
 
 [node name="ButtonArea2DClose" instance=ExtResource("1_uyhbk")]
 trigger_through_cancel = true
@@ -23,6 +20,3 @@ offset_right = 34.0
 offset_bottom = 106.0
 text = "X"
 label_settings = SubResource("LabelSettings_wawxh")
-
-[node name="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
-shape = SubResource("RectangleShape2D_m10n2")
