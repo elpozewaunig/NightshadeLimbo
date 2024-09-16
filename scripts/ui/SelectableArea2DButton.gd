@@ -1,17 +1,25 @@
 extends SelectableButton
 class_name SelectableArea2DButton
 
-@export var trigger_through_cancel = false
+@export var auto_collider : bool = true
+@export var trigger_through_cancel : bool = false
 
 @onready var sprite = $AnimatedSprite2D
 @onready var label = $Label
 @onready var click_sfx = $ClickSFX
+@onready var collider = $Area2DButtonSrc/CollisionShape2D
 
 var prev_visible = false
 var require_release = true
 
 signal clicked
 
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if auto_collider:
+		collider.shape = RectangleShape2D.new()
+		collider.shape.size = sprite.sprite_frames.get_frame_texture("default", 0).get_size() * sprite.scale
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

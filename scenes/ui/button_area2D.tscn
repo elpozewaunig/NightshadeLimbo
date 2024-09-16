@@ -27,6 +27,7 @@ size = Vector2(340, 120)
 [node name="ButtonArea2D" instance=ExtResource("7_4g5or")]
 light_mask = 0
 script = ExtResource("2_qnlvd")
+auto_collider = true
 trigger_through_cancel = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
@@ -59,6 +60,7 @@ volume_db = 2.0
 bus = &"SFX"
 
 [node name="Area2DButtonSrc" type="Area2D" parent="." index="4"]
+visible = false
 light_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DButtonSrc" index="0"]
