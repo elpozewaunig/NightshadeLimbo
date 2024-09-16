@@ -913,6 +913,9 @@ texture = ExtResource("10_roquk")
 visible = false
 position = Vector2(960, 540)
 
+[node name="TooHardButton" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0"]
+visible = false
+
 [node name="Black" type="ColorRect" parent="Camera2D/Overlays/IntroScreen"]
 light_mask = 0
 offset_right = 1920.0
@@ -1195,6 +1198,9 @@ parameters/looping = true
 [connection signal="closed" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
 [connection signal="closed" from="Camera2D/Overlays/PauseScreen/SettingsSubmenu" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
 
+[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu"]
+[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
+[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton"]

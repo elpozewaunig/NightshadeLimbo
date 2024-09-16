@@ -556,7 +556,7 @@ script = ExtResource("21_otmm1")
 [connection signal="clicked" from="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/CreditsButton" to="UI/CreditsSubmenu" method="_on_opened"]
 [connection signal="clicked" from="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/QuitButton" to="UI/SceneTransition" method="_on_quit_button_clicked"]
 [connection signal="closed" from="UI/CreditsSubmenu" to="UI/MainSubmenu" method="_on_opened"]
-[connection signal="clicked" from="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/MainSubmenu" method="_on_opened"]
+[connection signal="clicked" from="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/CreditsSubmenu" method="_on_closed"]
 [connection signal="closed" from="UI/SettingsSubmenu" to="UI/MainSubmenu" method="_on_opened"]
 
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig/StartButton"]

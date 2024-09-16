@@ -377,7 +377,8 @@ script = ExtResource("22_4nqm7")
 
 [connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="." method="_on_closed"]
 [connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" to="RemnantSubmenu" method="_on_opened"]
-[connection signal="clicked" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/CloseButton" to="MainSubmenu" method="_on_opened"]
+[connection signal="closed" from="RemnantSubmenu" to="MainSubmenu" method="_on_opened"]
+[connection signal="clicked" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/CloseButton" to="RemnantSubmenu" method="_on_closed"]
 [connection signal="toggled" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" to="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" method="_on_toggled"]
 
 [editable path="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
