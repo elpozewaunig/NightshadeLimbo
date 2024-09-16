@@ -20,6 +20,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="BackgroundColor" index="0"]
 light_mask = 0
@@ -36,6 +37,7 @@ text = "Settings"
 label_settings = ExtResource("2_x463n")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TotalVolume" type="Label" parent="BackgroundColor" index="1"]
 light_mask = 0
@@ -56,6 +58,7 @@ text = "Total Volume
 label_settings = ExtResource("3_xdbc8")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Music" type="Label" parent="BackgroundColor" index="2"]
 light_mask = 0
@@ -75,6 +78,7 @@ text = "Music Volume"
 label_settings = ExtResource("3_xdbc8")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Sfx" type="Label" parent="BackgroundColor" index="3"]
 light_mask = 0
@@ -94,6 +98,7 @@ text = "Sound Effect Volume"
 label_settings = ExtResource("3_xdbc8")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SettingsButtonSelector" parent="BackgroundColor" index="4" node_paths=PackedStringArray("button_rows") instance=ExtResource("4_x305k")]
 light_mask = 0
@@ -130,15 +135,20 @@ light_mask = 0
 
 [node name="White" parent="BackgroundColor/BusController/TotalVolumeSlider" index="1"]
 light_mask = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Ticks" parent="BackgroundColor/BusController/TotalVolumeSlider/White" index="0"]
 light_mask = 0
 
 [node name="White2" parent="BackgroundColor/BusController/TotalVolumeSlider" index="2"]
 light_mask = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Ticks" parent="BackgroundColor/BusController/TotalVolumeSlider/White2" index="0"]
 light_mask = 0
+
+[node name="SliderButtonSrc" parent="BackgroundColor/BusController/TotalVolumeSlider" index="4"]
+metadata/_edit_use_anchors_ = true
 
 [node name="MusicSlider" parent="BackgroundColor/BusController" index="1" instance=ExtResource("8_6vocn")]
 position = Vector2(960, 680)
@@ -148,15 +158,20 @@ light_mask = 0
 
 [node name="White" parent="BackgroundColor/BusController/MusicSlider" index="1"]
 light_mask = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Ticks" parent="BackgroundColor/BusController/MusicSlider/White" index="0"]
 light_mask = 0
 
 [node name="White2" parent="BackgroundColor/BusController/MusicSlider" index="2"]
 light_mask = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Ticks" parent="BackgroundColor/BusController/MusicSlider/White2" index="0"]
 light_mask = 0
+
+[node name="SliderButtonSrc" parent="BackgroundColor/BusController/MusicSlider" index="4"]
+metadata/_edit_use_anchors_ = true
 
 [node name="SliderSFX" parent="BackgroundColor/BusController/MusicSlider" index="5"]
 bus = &"Music"
@@ -169,15 +184,20 @@ light_mask = 0
 
 [node name="White" parent="BackgroundColor/BusController/SfxSlider" index="1"]
 light_mask = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Ticks" parent="BackgroundColor/BusController/SfxSlider/White" index="0"]
 light_mask = 0
 
 [node name="White2" parent="BackgroundColor/BusController/SfxSlider" index="2"]
 light_mask = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Ticks" parent="BackgroundColor/BusController/SfxSlider/White2" index="0"]
 light_mask = 0
+
+[node name="SliderButtonSrc" parent="BackgroundColor/BusController/SfxSlider" index="4"]
+metadata/_edit_use_anchors_ = true
 
 [node name="SliderSFX" parent="BackgroundColor/BusController/SfxSlider" index="5"]
 bus = &"SFX"
