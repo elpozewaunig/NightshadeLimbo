@@ -1100,7 +1100,6 @@ visible = false
 
 [node name="SettingsSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("52_c1ie3")]
 visible = false
-light_mask = 0
 
 [node name="FadeOut" type="ColorRect" parent="Camera2D/Overlays/PauseScreen"]
 modulate = Color(1, 1, 1, 0)

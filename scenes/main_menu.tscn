@@ -522,6 +522,9 @@ uri = "https://itch.io/jam/mini-jame-gam-34"
 [node name="SettingsSubmenu" parent="UI" instance=ExtResource("19_dh2sc")]
 visible = false
 
+[node name="MusicSlider" parent="UI/SettingsSubmenu/BackgroundColor/BusController" index="1"]
+acoustic_feedback = false
+
 [node name="SceneTransition" type="ColorRect" parent="UI"]
 visible = false
 layout_mode = 0
@@ -560,3 +563,7 @@ script = ExtResource("21_otmm1")
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig2/SettingsButton"]
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/CreditsButton"]
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/QuitButton"]
+[editable path="UI/SettingsSubmenu"]
+[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider"]
+[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/MusicSlider"]
+[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/SfxSlider"]
