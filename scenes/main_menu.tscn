@@ -522,9 +522,6 @@ uri = "https://itch.io/jam/mini-jame-gam-34"
 [node name="SettingsSubmenu" parent="UI" instance=ExtResource("19_dh2sc")]
 visible = false
 
-[node name="MusicSlider" parent="UI/SettingsSubmenu/BackgroundColor/BusController" index="1"]
-acoustic_feedback = false
-
 [node name="SceneTransition" type="ColorRect" parent="UI"]
 visible = false
 layout_mode = 0
@@ -555,14 +552,11 @@ script = ExtResource("21_otmm1")
 [connection signal="clicked" from="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig2/SettingsButton" to="UI/SettingsSubmenu" method="_on_opened"]
 [connection signal="clicked" from="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/CreditsButton" to="UI/CreditsSubmenu" method="_on_opened"]
 [connection signal="clicked" from="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/QuitButton" to="UI/SceneTransition" method="_on_quit_button_clicked"]
+[connection signal="closed" from="UI/CreditsSubmenu" to="UI/MainSubmenu" method="_on_opened"]
 [connection signal="clicked" from="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/MainSubmenu" method="_on_opened"]
-[connection signal="clicked" from="UI/SettingsSubmenu/BackgroundColor/SettingsButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/MainSubmenu" method="_on_opened"]
+[connection signal="closed" from="UI/SettingsSubmenu" to="UI/MainSubmenu" method="_on_opened"]
 
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig/StartButton"]
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig2/SettingsButton"]
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/CreditsButton"]
 [editable path="UI/MainSubmenu/MainMenuButtons/MainMenuButtonSelector/ButtonRowConfig3/QuitButton"]
-[editable path="UI/SettingsSubmenu"]
-[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider"]
-[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/MusicSlider"]
-[editable path="UI/SettingsSubmenu/BackgroundColor/BusController/SfxSlider"]

@@ -913,12 +913,6 @@ texture = ExtResource("10_roquk")
 visible = false
 position = Vector2(960, 540)
 
-[node name="TooHardButton" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0"]
-visible = false
-
-[node name="ConjureToggle" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0"]
-toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
-
 [node name="Black" type="ColorRect" parent="Camera2D/Overlays/IntroScreen"]
 light_mask = 0
 offset_right = 1920.0
@@ -1104,62 +1098,8 @@ text = "Exit to menu"
 [node name="TutorialSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("57_rmgxc")]
 visible = false
 
-[node name="Eyes" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantEnabledLayer" index="0"]
-visible = true
-
-[node name="ConjureToggle" parent="Camera2D/Overlays/PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0"]
-toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
-
 [node name="SettingsSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("52_c1ie3")]
 visible = false
-light_mask = 0
-
-[node name="BusController" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor" index="5"]
-light_mask = 0
-
-[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider" index="0"]
-light_mask = 0
-
-[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider" index="1"]
-light_mask = 0
-
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider/White" index="0"]
-light_mask = 0
-
-[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider" index="2"]
-light_mask = 0
-
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider/White2" index="0"]
-light_mask = 0
-
-[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider" index="0"]
-light_mask = 0
-
-[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider" index="1"]
-light_mask = 0
-
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider/White" index="0"]
-light_mask = 0
-
-[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider" index="2"]
-light_mask = 0
-
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider/White2" index="0"]
-light_mask = 0
-
-[node name="Box" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider" index="0"]
-light_mask = 0
-
-[node name="White" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider" index="1"]
-light_mask = 0
-
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider/White" index="0"]
-light_mask = 0
-
-[node name="White2" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider" index="2"]
-light_mask = 0
-
-[node name="Ticks" parent="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider/White2" index="0"]
 light_mask = 0
 
 [node name="FadeOut" type="ColorRect" parent="Camera2D/Overlays/PauseScreen"]
@@ -1247,27 +1187,16 @@ parameters/looping = true
 [connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="MusicManager" method="_on_intro_done"]
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="RemnantPlayback" method="_on_permit_movement"]
 [connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
-[connection signal="clicked" from="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/IntroScreen" method="_on_tutorial_close_button_clicked"]
+[connection signal="closed" from="Camera2D/Overlays/IntroScreen/TutorialSubmenu" to="Camera2D/Overlays/IntroScreen" method="_on_tutorial_closed"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu" method="_on_opened"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/PauseScreen/SettingsSubmenu" method="_on_opened"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen" method="_on_exit_button_clicked"]
 [connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector" method="disable"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
-[connection signal="toggled" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" to="RemnantPlayback" method="_on_remnant_playback_toggled"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/SettingsButtonSelector/ButtonRowConfig/CloseMenuButton" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
+[connection signal="closed" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
+[connection signal="closed" from="Camera2D/Overlays/PauseScreen/SettingsSubmenu" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
 
-[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu"]
-[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
-[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton"]
 [editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton"]
-[editable path="Camera2D/Overlays/PauseScreen/TutorialSubmenu"]
-[editable path="Camera2D/Overlays/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
-[editable path="Camera2D/Overlays/PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]
-[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu"]
-[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/TotalVolumeSlider"]
-[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/MusicSlider"]
-[editable path="Camera2D/Overlays/PauseScreen/SettingsSubmenu/BackgroundColor/BusController/SfxSlider"]

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://gh1ggcgi0xnd" path="res://scenes/ui/button_slider.tscn" id="8_6vocn"]
 
 [node name="SettingsSubmenu" instance=ExtResource("1_e5yrl")]
+light_mask = 0
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="0"]
 light_mask = 0
@@ -95,31 +96,67 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsButtonSelector" parent="BackgroundColor" index="4" node_paths=PackedStringArray("button_rows") instance=ExtResource("4_x305k")]
+light_mask = 0
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3"), NodePath("ButtonRowConfig4")]
 
 [node name="ButtonRowConfig" parent="BackgroundColor/SettingsButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+light_mask = 0
 buttons = [NodePath("CloseMenuButton")]
 
 [node name="CloseMenuButton" parent="BackgroundColor/SettingsButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("6_qdxjt")]
 position = Vector2(1790, 110)
 
 [node name="ButtonRowConfig2" parent="BackgroundColor/SettingsButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+light_mask = 0
 buttons = [NodePath("../../BusController/TotalVolumeSlider")]
 
 [node name="ButtonRowConfig3" parent="BackgroundColor/SettingsButtonSelector" index="2" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+light_mask = 0
 buttons = [NodePath("../../BusController/MusicSlider")]
 
 [node name="ButtonRowConfig4" parent="BackgroundColor/SettingsButtonSelector" index="3" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
+light_mask = 0
 buttons = [NodePath("../../BusController/SfxSlider")]
 
 [node name="BusController" type="Node2D" parent="BackgroundColor" index="5"]
+light_mask = 0
 script = ExtResource("7_6jhtp")
 
 [node name="TotalVolumeSlider" parent="BackgroundColor/BusController" index="0" instance=ExtResource("8_6vocn")]
 position = Vector2(960, 430)
 
+[node name="Box" parent="BackgroundColor/BusController/TotalVolumeSlider" index="0"]
+light_mask = 0
+
+[node name="White" parent="BackgroundColor/BusController/TotalVolumeSlider" index="1"]
+light_mask = 0
+
+[node name="Ticks" parent="BackgroundColor/BusController/TotalVolumeSlider/White" index="0"]
+light_mask = 0
+
+[node name="White2" parent="BackgroundColor/BusController/TotalVolumeSlider" index="2"]
+light_mask = 0
+
+[node name="Ticks" parent="BackgroundColor/BusController/TotalVolumeSlider/White2" index="0"]
+light_mask = 0
+
 [node name="MusicSlider" parent="BackgroundColor/BusController" index="1" instance=ExtResource("8_6vocn")]
 position = Vector2(960, 680)
+
+[node name="Box" parent="BackgroundColor/BusController/MusicSlider" index="0"]
+light_mask = 0
+
+[node name="White" parent="BackgroundColor/BusController/MusicSlider" index="1"]
+light_mask = 0
+
+[node name="Ticks" parent="BackgroundColor/BusController/MusicSlider/White" index="0"]
+light_mask = 0
+
+[node name="White2" parent="BackgroundColor/BusController/MusicSlider" index="2"]
+light_mask = 0
+
+[node name="Ticks" parent="BackgroundColor/BusController/MusicSlider/White2" index="0"]
+light_mask = 0
 
 [node name="SliderSFX" parent="BackgroundColor/BusController/MusicSlider" index="5"]
 bus = &"Music"
@@ -127,8 +164,25 @@ bus = &"Music"
 [node name="SfxSlider" parent="BackgroundColor/BusController" index="2" instance=ExtResource("8_6vocn")]
 position = Vector2(960, 930)
 
+[node name="Box" parent="BackgroundColor/BusController/SfxSlider" index="0"]
+light_mask = 0
+
+[node name="White" parent="BackgroundColor/BusController/SfxSlider" index="1"]
+light_mask = 0
+
+[node name="Ticks" parent="BackgroundColor/BusController/SfxSlider/White" index="0"]
+light_mask = 0
+
+[node name="White2" parent="BackgroundColor/BusController/SfxSlider" index="2"]
+light_mask = 0
+
+[node name="Ticks" parent="BackgroundColor/BusController/SfxSlider/White2" index="0"]
+light_mask = 0
+
 [node name="SliderSFX" parent="BackgroundColor/BusController/SfxSlider" index="5"]
 bus = &"SFX"
+
+[connection signal="clicked" from="BackgroundColor/SettingsButtonSelector/ButtonRowConfig/CloseMenuButton" to="." method="_on_closed"]
 
 [editable path="BackgroundColor/BusController/TotalVolumeSlider"]
 [editable path="BackgroundColor/BusController/MusicSlider"]

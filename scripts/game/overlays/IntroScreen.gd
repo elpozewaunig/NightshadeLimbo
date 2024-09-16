@@ -80,5 +80,5 @@ func _on_game_over() -> void:
 	game_over = true
 
 
-func _on_tutorial_close_button_clicked() -> void:
+func _on_tutorial_closed() -> void:
 	Data.tutorial_seen = true

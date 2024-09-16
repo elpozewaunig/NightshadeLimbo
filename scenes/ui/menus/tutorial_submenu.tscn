@@ -62,11 +62,14 @@ scale_max = 0.05
 alpha_curve = SubResource("CurveTexture_2tkpk")
 
 [node name="TutorialSubmenu" instance=ExtResource("1_426du")]
+light_mask = 0
 
 [node name="SubmenuManager" parent="." index="0" node_paths=PackedStringArray("submenus") instance=ExtResource("2_qcur6")]
+light_mask = 0
 submenus = [NodePath("../MainSubmenu"), NodePath("../RemnantSubmenu")]
 
 [node name="MainSubmenu" parent="." index="1" instance=ExtResource("1_426du")]
+light_mask = 0
 
 [node name="Background" type="Sprite2D" parent="MainSubmenu" index="0"]
 light_mask = 0
@@ -199,15 +202,18 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="TutorialButtonSelector" parent="MainSubmenu" index="8" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
+light_mask = 0
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
 [node name="ButtonRowConfig" parent="MainSubmenu/TutorialButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+light_mask = 0
 buttons = [NodePath("CloseButton")]
 
 [node name="CloseButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
 position = Vector2(860, -440)
 
 [node name="ButtonRowConfig2" parent="MainSubmenu/TutorialButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+light_mask = 0
 buttons = [NodePath("TooHardButton")]
 
 [node name="TooHardButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("17_bgwk8")]
@@ -226,8 +232,10 @@ position = Vector2(0.5, 0)
 
 [node name="RemnantSubmenu" parent="." index="2" instance=ExtResource("1_426du")]
 visible = false
+light_mask = 0
 
 [node name="ColorRect" type="ColorRect" parent="RemnantSubmenu" index="0"]
+light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -243,13 +251,16 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="RemnantEnabledLayer" type="Node2D" parent="RemnantSubmenu" index="1"]
+visible = false
+light_mask = 0
 script = ExtResource("19_r8ekq")
 
 [node name="Eyes" type="Sprite2D" parent="RemnantSubmenu/RemnantEnabledLayer" index="0"]
-visible = false
+light_mask = 0
 texture = ExtResource("19_chnp1")
 
 [node name="Title" type="Label" parent="RemnantSubmenu" index="2"]
+light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -267,6 +278,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Text" type="Label" parent="RemnantSubmenu" index="3"]
+light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -288,6 +300,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sure" type="Label" parent="RemnantSubmenu" index="4"]
+light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -305,21 +318,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemnantButtonSelector" parent="RemnantSubmenu" index="5" node_paths=PackedStringArray("button_rows") instance=ExtResource("13_5sat5")]
+light_mask = 0
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
 [node name="ButtonRowConfig" parent="RemnantSubmenu/RemnantButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+light_mask = 0
 buttons = [NodePath("CloseButton")]
 
 [node name="CloseButton" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
 position = Vector2(860, -440)
 
 [node name="ButtonRowConfig2" parent="RemnantSubmenu/RemnantButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
+light_mask = 0
 buttons = [NodePath("ConjureToggle")]
 
 [node name="ConjureToggle" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("19_snqau")]
 position = Vector2(0, 350)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("21_wk34c")
+
+[node name="FillTexture" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="1"]
+light_mask = 0
 
 [node name="AnimatedSprite2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="2"]
 scale = Vector2(1.65, 1)
@@ -335,6 +354,7 @@ volume_db = -5.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="5"]
 modulate = Color(1, 0, 0, 1)
+light_mask = 0
 position = Vector2(-1.33333, -2.66667)
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_0ftdt")
@@ -355,6 +375,7 @@ bus = &"Music"
 parameters/looping = true
 script = ExtResource("22_4nqm7")
 
+[connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="." method="_on_closed"]
 [connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" to="RemnantSubmenu" method="_on_opened"]
 [connection signal="clicked" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/CloseButton" to="MainSubmenu" method="_on_opened"]
 [connection signal="toggled" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" to="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" method="_on_toggled"]
