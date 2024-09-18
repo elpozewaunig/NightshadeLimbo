@@ -33,7 +33,7 @@ Dave is perplexed.
 Struck with discontent and uncertainty."
 typewriter_pitch = 0.95
 typewriter_pitch_range = 0.05
-typewriter_speed = 1.75
+typewriter_speed = 1.5
 typewriter_sound = ExtResource("4_22gs2")
 play_music = true
 loop_music = false

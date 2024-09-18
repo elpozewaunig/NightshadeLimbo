@@ -91,10 +91,10 @@ texture = ExtResource("3_0gmsv")
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect/Label"]
 layout_mode = 0
-offset_left = 256.647
-offset_top = -1.15605
-offset_right = 656.647
-offset_bottom = 398.844
+offset_left = 254.335
+offset_top = -4.49146
+offset_right = 654.335
+offset_bottom = 395.509
 scale = Vector2(0.165, 0.165)
 texture = ExtResource("4_8u4ew")
 
