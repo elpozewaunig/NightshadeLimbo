@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://scripts/game/overlays/GameOver.gd" id="12_qyr5r"]
 [ext_resource type="PackedScene" uid="uid://rwl76vd53mg2" path="res://scenes/entities/remnant_playback.tscn" id="12_wh4xr"]
 [ext_resource type="AudioStream" uid="uid://bocaey3bkjw2r" path="res://assets/sounds/voice/Boss_IIAA.ogg" id="13_ehw6n"]
-[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="13_moeav"]
+[ext_resource type="FontFile" uid="uid://f00e528g8awo" path="res://assets/fonts/adrip1.ttf" id="13_moeav"]
 [ext_resource type="AudioStream" uid="uid://d1f2nnu8pls31" path="res://assets/music/BGM_BossMain.ogg" id="14_fq2vf"]
 [ext_resource type="AudioStream" uid="uid://s3qop203ehjv" path="res://assets/sounds/voice/Boss_LachenWUOO.ogg" id="14_hsfl7"]
 [ext_resource type="AudioStream" uid="uid://c0bij2uvssivx" path="res://assets/sounds/voice/Boss_HoHahaa.ogg" id="15_ajtbv"]
@@ -905,7 +905,7 @@ script = ExtResource("9_gl7br")
 
 [node name="Illumination" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
 light_mask = 0
-position = Vector2(960, 521.765)
+position = Vector2(940, 521.765)
 scale = Vector2(1.24, 1.373)
 texture = ExtResource("10_roquk")
 
@@ -915,6 +915,9 @@ position = Vector2(960, 540)
 
 [node name="TooHardButton" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0"]
 visible = false
+
+[node name="ClickOffSFX" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="6"]
+stream = null
 
 [node name="Black" type="ColorRect" parent="Camera2D/Overlays/IntroScreen"]
 light_mask = 0

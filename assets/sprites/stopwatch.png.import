@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dethhekpqofps"
-path="res://.godot/imported/C.png-7c70786664765e7917fd61f147905058.ctex"
+uid="uid://c0f5ehb4ovpc4"
+path="res://.godot/imported/stopwatch.png-d049b741912d6e95c986610c5d3acce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buttons/keyboard/C.png"
-dest_files=["res://.godot/imported/C.png-7c70786664765e7917fd61f147905058.ctex"]
+source_file="res://assets/sprites/stopwatch.png"
+dest_files=["res://.godot/imported/stopwatch.png-d049b741912d6e95c986610c5d3acce5.ctex"]
 
 [params]
 

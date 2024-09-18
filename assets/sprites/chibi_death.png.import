@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dethhekpqofps"
-path="res://.godot/imported/C.png-7c70786664765e7917fd61f147905058.ctex"
+uid="uid://bxv7bi6uwht5r"
+path="res://.godot/imported/chibi_death.png-8d85213ef3a011e13529bf258431cef5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buttons/keyboard/C.png"
-dest_files=["res://.godot/imported/C.png-7c70786664765e7917fd61f147905058.ctex"]
+source_file="res://assets/sprites/chibi_death.png"
+dest_files=["res://.godot/imported/chibi_death.png-8d85213ef3a011e13529bf258431cef5.ctex"]
 
 [params]
 

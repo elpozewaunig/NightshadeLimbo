@@ -59,7 +59,7 @@ font_size_override = 30
 [sub_resource type="Resource" id="Resource_hcasq"]
 script = ExtResource("2_up8y8")
 visual_asset_scene = ExtResource("8_777ye")
-display_text = "The End"
+display_text = "The End."
 typewriter_pitch = 1.0
 typewriter_pitch_range = 0.05
 typewriter_speed = 0.3
@@ -73,3 +73,12 @@ font_size_override = 35
 cutscene_data = Array[ExtResource("2_up8y8")]([SubResource("Resource_fux4f"), SubResource("Resource_2jvhs"), SubResource("Resource_cglp2"), SubResource("Resource_hcasq")])
 load_on_skip = ExtResource("9_y74p8")
 loading_screen = false
+
+[node name="VBoxContainer" parent="Control/HBoxContainer" index="1"]
+z_index = 1
+
+[node name="Picture" parent="Control/HBoxContainer/VBoxContainer" index="0"]
+z_index = 3
+
+[node name="HoldToSkip" parent="Control/HBoxContainer/RightRibbon" index="0"]
+visible = false

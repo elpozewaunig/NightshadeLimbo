@@ -5,6 +5,7 @@ extends Node
 @export var menu_scene : PackedScene
 @export var cutscene_scene : PackedScene
 @export var endscene_scene : PackedScene
+@export var endscene_scene_remnant : PackedScene
 
 @export_group("Loading Screen")
 @export var loading_scene : PackedScene

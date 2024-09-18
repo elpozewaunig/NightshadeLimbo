@@ -143,13 +143,13 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
+offset_left = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 22
-text = "Hold 'c' to Skip"
+text = "Hold        to Skip"
 horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/HBoxContainer/RightRibbon/HoldToSkip"]
@@ -163,9 +163,9 @@ max_value = 2.0
 show_percentage = false
 
 [node name="SmartInputIcon" parent="Control/HBoxContainer/RightRibbon/HoldToSkip" instance=ExtResource("5_cnvi6")]
-modulate = Color(1, 1, 1, 0.564706)
-position = Vector2(166, 16)
-scale = Vector2(0.15, 0.15)
+modulate = Color(1, 1, 1, 0.288)
+position = Vector2(169.985, 16)
+scale = Vector2(0.135, 0.135)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

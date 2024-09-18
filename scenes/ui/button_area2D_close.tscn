@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://di3o5lslj817b"]
 
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="1_uyhbk"]
-[ext_resource type="FontFile" uid="uid://mod0vs1w0owv" path="res://assets/fonts/adrip1.ttf" id="3_m6whx"]
+[ext_resource type="FontFile" uid="uid://f00e528g8awo" path="res://assets/fonts/adrip1.ttf" id="3_m6whx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wawxh"]
 font = ExtResource("3_m6whx")

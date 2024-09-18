@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://crimjtannrtp8"]
+
+[ext_resource type="PackedScene" uid="uid://bgn5ighrttryb" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_dwso8"]
+[ext_resource type="Script" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_b10p6"]
+[ext_resource type="AudioStream" uid="uid://b604cqk27kjg8" path="res://assets/music/BGM_VinesSlowEXTRA.ogg" id="3_jxv7m"]
+[ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="4_22gs2"]
+[ext_resource type="PackedScene" uid="uid://d0b5k5bag47l6" path="res://scenes/cutscenes/visualElements/daveThumbsUp.tscn" id="5_04t72"]
+[ext_resource type="PackedScene" uid="uid://ce7sss47x3rsp" path="res://scenes/cutscenes/visualElements/daveENDINGremnant.tscn" id="6_x0ogw"]
+[ext_resource type="PackedScene" uid="uid://dtxu2sk0uugbs" path="res://scenes/main_menu.tscn" id="9_viu17"]
+
+[sub_resource type="Resource" id="Resource_fux4f"]
+script = ExtResource("2_b10p6")
+display_text = "After what felt like an eternity...
+
+Dave finally reawakens from his delirium,
+surrounded by paramedics, in the middle of the road.
+"
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.75
+typewriter_sound = ExtResource("4_22gs2")
+play_music = true
+loop_music = false
+music_change = ExtResource("3_jxv7m")
+override_skip_time = -1.0
+font_size_override = 35
+
+[sub_resource type="Resource" id="Resource_2jvhs"]
+script = ExtResource("2_b10p6")
+visual_asset_scene = ExtResource("5_04t72")
+display_text = "Amidst the splattered goo of expired garbage bag tomatoes,
+Dave is perplexed.
+Struck with discontent and uncertainty."
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 1.75
+typewriter_sound = ExtResource("4_22gs2")
+play_music = true
+loop_music = false
+override_skip_time = -1.0
+font_size_override = 35
+
+[sub_resource type="Resource" id="Resource_hcasq"]
+script = ExtResource("2_b10p6")
+visual_asset_scene = ExtResource("6_x0ogw")
+display_text = "The End?"
+typewriter_pitch = 0.95
+typewriter_pitch_range = 0.05
+typewriter_speed = 0.85
+typewriter_sound = ExtResource("4_22gs2")
+play_music = false
+loop_music = false
+override_skip_time = 7.5
+font_size_override = 35
+
+[node name="Cutscene" instance=ExtResource("1_dwso8")]
+cutscene_data = Array[ExtResource("2_b10p6")]([SubResource("Resource_fux4f"), SubResource("Resource_2jvhs"), SubResource("Resource_hcasq")])
+load_on_skip = ExtResource("9_viu17")
+loading_screen = false
+
+[node name="VBoxContainer" parent="Control/HBoxContainer" index="1"]
+z_index = 1
+
+[node name="Picture" parent="Control/HBoxContainer/VBoxContainer" index="0"]
+z_index = 3
+
+[node name="HoldToSkip" parent="Control/HBoxContainer/RightRibbon" index="0"]
+visible = false
