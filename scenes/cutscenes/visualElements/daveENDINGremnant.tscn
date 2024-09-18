@@ -6,6 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://c0f5ehb4ovpc4" path="res://assets/sprites/stopwatch.png" id="4_8u4ew"]
 [ext_resource type="Texture2D" uid="uid://cof07gc1h0uoo" path="res://assets/sprites/eyes_bg.png" id="5_sptox"]
 
+[sub_resource type="Animation" id="Animation_y36rq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.561)]
+}
+
 [sub_resource type="Animation" id="Animation_4bt6c"]
 resource_name = "fadein"
 length = 20.0
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.561)]
-}
-
-[sub_resource type="Animation" id="Animation_y36rq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.561)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aou53"]
@@ -100,6 +100,7 @@ texture = ExtResource("4_8u4ew")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.561)
+layout_mode = 0
 offset_left = -1082.08
 offset_top = -547.977
 offset_right = 1111.92
