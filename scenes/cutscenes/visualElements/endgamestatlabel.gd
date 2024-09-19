@@ -19,7 +19,7 @@ func time_string():
 	return s
 	
 func death_string():
-	if Data.run_deaths == 0 and Data.remnant_active == false:
+	if Data.run_deaths == 0 and Data.remnant_attempt == false:
 		add_theme_color_override("font_color",Color.GOLD)
 		$TextureRect.self_modulate = Color.GOLD
 		$TextureRect2.self_modulate = Color.GOLD

@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 			if ftb_time_elapsed >= ftb_duration:
 				color = Color("000000")
 				transition = false
-				if Data.remnant_active:
+				if Data.remnant_attempt:
 					SceneManager.change_scene(SceneManager.endscene_scene_remnant)
 				else:
 					SceneManager.change_scene(SceneManager.endscene_scene)
