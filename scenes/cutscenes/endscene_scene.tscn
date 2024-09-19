@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bgn5ighrttryb" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_bwjam"]
 [ext_resource type="AudioStream" uid="uid://bklpbpee5btea" path="res://assets/music/BGM_HappyEndingPiano.ogg" id="2_6xdq2"]
 [ext_resource type="Script" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_up8y8"]
-[ext_resource type="AudioStream" uid="uid://cgpp06ctfm8xv" path="res://assets/music/BGM_BossHappyEnding.ogg" id="3_3acg3"]
 [ext_resource type="PackedScene" uid="uid://d0b5k5bag47l6" path="res://scenes/cutscenes/visualElements/daveThumbsUp.tscn" id="3_4f5uw"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="3_8wusx"]
+[ext_resource type="AudioStream" uid="uid://bu5ide6lvks3x" path="res://assets/music/BGM_BossEndingLoop.ogg" id="3_13d54"]
 [ext_resource type="PackedScene" uid="uid://ct0vljymnrd6y" path="res://scenes/cutscenes/visualElements/daveHatesTomatoes.tscn" id="6_bgy7c"]
 [ext_resource type="PackedScene" uid="uid://qpgj47ccpw50" path="res://scenes/cutscenes/visualElements/daveENDING.tscn" id="8_777ye"]
 [ext_resource type="PackedScene" uid="uid://dtxu2sk0uugbs" path="res://scenes/main_menu.tscn" id="9_y74p8"]
@@ -22,8 +22,8 @@ typewriter_pitch_range = 0.05
 typewriter_speed = 1.75
 typewriter_sound = ExtResource("3_8wusx")
 play_music = true
-loop_music = false
-music_change = ExtResource("3_3acg3")
+loop_music = true
+music_change = ExtResource("3_13d54")
 override_skip_time = -1.0
 font_size_override = 35
 
@@ -39,7 +39,7 @@ typewriter_pitch_range = 0.05
 typewriter_speed = 1.75
 typewriter_sound = ExtResource("3_8wusx")
 play_music = true
-loop_music = false
+loop_music = true
 override_skip_time = -1.0
 font_size_override = 35
 

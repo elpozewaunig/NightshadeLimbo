@@ -439,5 +439,5 @@ func _on_remnant_playback_toggled(active: bool) -> void:
 self_modulate = Color(1, 1, 1, 0.579)
 sprite_frames = SubResource("SpriteFrames_qsbqb")
 autoplay = "default"
-frame_progress = 0.783977
+frame_progress = 0.155752
 script = SubResource("GDScript_vahvs")
