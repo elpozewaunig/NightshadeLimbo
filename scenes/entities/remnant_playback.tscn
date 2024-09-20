@@ -437,7 +437,8 @@ func _on_remnant_playback_toggled(active: bool) -> void:
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 self_modulate = Color(1, 1, 1, 0.579)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsbqb")
 autoplay = "default"
-frame_progress = 0.155752
+frame_progress = 0.396511
 script = SubResource("GDScript_vahvs")

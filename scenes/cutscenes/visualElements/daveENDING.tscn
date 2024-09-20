@@ -41,6 +41,7 @@ horizontal_alignment = 2
 script = ExtResource("2_3oe6g")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect/Label"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 268.208
 offset_top = 56.6474
@@ -51,6 +52,7 @@ scale = Vector2(0.165, 0.165)
 texture = ExtResource("3_3gv2c")
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect/Label"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 254.335
 offset_top = -4.491
