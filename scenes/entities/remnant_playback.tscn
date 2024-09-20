@@ -440,5 +440,5 @@ self_modulate = Color(1, 1, 1, 0.579)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsbqb")
 autoplay = "default"
-frame_progress = 0.396511
+frame_progress = 0.272502
 script = SubResource("GDScript_vahvs")
