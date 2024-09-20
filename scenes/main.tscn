@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=189 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -66,6 +66,7 @@
 [ext_resource type="PackedScene" uid="uid://dukyhdiq8iidn" path="res://scenes/utility/mouse_hider.tscn" id="50_ywsql"]
 [ext_resource type="PackedScene" uid="uid://dhdhnq55pliab" path="res://scenes/ui/menus/settings_submenu.tscn" id="52_c1ie3"]
 [ext_resource type="PackedScene" uid="uid://cs5d1e1oq65hf" path="res://scenes/ui/menus/tutorial_submenu.tscn" id="57_rmgxc"]
+[ext_resource type="Texture2D" uid="uid://bcv7gwmef58wi" path="res://assets/sprites/fog.png" id="59_fo3r4"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -651,6 +652,725 @@ font = ExtResource("13_moeav")
 font_size = 60
 font_color = Color(0.485703, 0.485704, 0.485703, 1)
 
+[sub_resource type="GDScript" id="GDScript_hbwsw"]
+resource_name = "remnantfogtoggler"
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if Data.remnant_active:
+		show()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bhwv"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 0, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yg7m"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 0, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rf7q"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 0, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cqtb"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 0, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6groq"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 0, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jci3x"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 324, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bynd"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 324, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejcr2"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 324, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yngsv"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 324, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_godkr"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 324, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq4nj"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 648, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itdwu"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 648, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63mls"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 648, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sfo8"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 648, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1i2i"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 648, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2em7x"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 972, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tglfg"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 972, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i4tr"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 972, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry6xr"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 972, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7kta"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 972, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j6br"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 1296, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mochv"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 1296, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxvc5"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 1296, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6j5b"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 1296, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry4hd"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 1296, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4r8f"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 1620, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb5vg"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 1620, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ifyc"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 1620, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w6se"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 1620, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5jey"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 1620, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en0iq"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 1944, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifyh7"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 1944, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dp00"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 1944, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1h0g"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 1944, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xb02"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 1944, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyklo"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 2268, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bbsn"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 2268, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4oou"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 2268, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kqkj"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 2268, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4hdr"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 2268, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_terrh"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 2592, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykqem"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 2592, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fivmq"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 2592, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rigk0"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 2592, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13wn6"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 2592, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p37m8"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 2916, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxr4j"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 2916, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q104w"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 2916, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh83j"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 2916, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_606wf"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 2916, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn1qq"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 3240, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apb86"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 3240, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grqel"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 3240, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydjjr"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 3240, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er2fs"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 3240, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu4jt"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 3564, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkv8a"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 3564, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n01cw"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 3564, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05sv6"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 3564, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkwt5"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 3564, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbfot"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 3888, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34l8v"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 3888, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yayf1"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 3888, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2x7l"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 3888, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g41iq"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 3888, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k48b"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 4212, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d3ss"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 4212, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s151"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 4212, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blroy"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 4212, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edwds"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 4212, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1fiw"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 4536, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x5dr"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 4536, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwc62"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 4536, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7gud"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 4536, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7yqi"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 4536, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8s5y"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 4860, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj217"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 4860, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtttq"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 4860, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bscjx"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 4860, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5ki8"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 4860, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biqyv"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 5184, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6li7"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 5184, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3tin"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 5184, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ve1"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 5184, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikpq8"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 5184, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6weem"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 5508, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeobw"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 5508, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpxfe"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 5508, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgb6v"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 5508, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsp3e"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 5508, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fatvc"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 5832, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tke4"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 5832, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk0op"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 5832, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syfir"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 5832, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nq6l"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 5832, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwftt"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(0, 6156, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmchw"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(576, 6156, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4au4p"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1152, 6156, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm1jk"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(1728, 6156, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qurgu"]
+atlas = ExtResource("59_fo3r4")
+region = Rect2(2304, 6156, 576, 324)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aelwn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bhwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yg7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rf7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cqtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6groq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jci3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bynd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejcr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yngsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_godkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq4nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itdwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63mls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sfo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1i2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2em7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tglfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i4tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry6xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7kta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j6br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mochv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxvc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6j5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry4hd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4r8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb5vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ifyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w6se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5jey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en0iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifyh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dp00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1h0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xb02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyklo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bbsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4oou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kqkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4hdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_terrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykqem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fivmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rigk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13wn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p37m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxr4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q104w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh83j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_606wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn1qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apb86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grqel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydjjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er2fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu4jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkv8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n01cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05sv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkwt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbfot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34l8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yayf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2x7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g41iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k48b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d3ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s151")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blroy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edwds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1fiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x5dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwc62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7gud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7yqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8s5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj217")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtttq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bscjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5ki8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_biqyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6li7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3tin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ve1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikpq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6weem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeobw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpxfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgb6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsp3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fatvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tke4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk0op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syfir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nq6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwftt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmchw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4au4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm1jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qurgu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main" type="Node2D"]
 
 [node name="Lights" type="Node2D" parent="."]
@@ -843,18 +1563,23 @@ script = ExtResource("30_jje2y")
 
 [node name="Overlays" type="Node2D" parent="Camera2D"]
 light_mask = 0
-z_index = 5
+z_index = 10
 
-[node name="InputModeManager" parent="Camera2D/Overlays" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("47_d1mlr")]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/Overlays"]
+layer = 3
+
+[node name="InputModeManager" parent="Camera2D/Overlays/CanvasLayer" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("47_d1mlr")]
 light_mask = 0
+position = Vector2(0, 0)
 selectors_to_sync = [NodePath("../IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector"), NodePath("../IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector"), NodePath("../PauseScreen/PauseMenu/PauseMenuButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector"), NodePath("../PauseScreen/SettingsSubmenu/BackgroundColor/SettingsButtonSelector")]
 
-[node name="Vignette" type="Sprite2D" parent="Camera2D/Overlays"]
+[node name="Vignette" type="Sprite2D" parent="Camera2D/Overlays/CanvasLayer"]
 light_mask = 0
+position = Vector2(960, 540)
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("16_jxlxq")
 
-[node name="Instructions" type="Label" parent="Camera2D/Overlays"]
+[node name="Instructions" type="Label" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
 light_mask = 0
 anchors_preset = 8
@@ -875,76 +1600,74 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("33_rkonn")
 
-[node name="SmartInputIcon" parent="Camera2D/Overlays/Instructions" instance=ExtResource("36_4ffvj")]
+[node name="SmartInputIcon" parent="Camera2D/Overlays/CanvasLayer/Instructions" instance=ExtResource("36_4ffvj")]
 position = Vector2(1090, 200)
 keyboard = ExtResource("37_83fk2")
 playstation = ExtResource("38_jbba6")
 xbox = ExtResource("39_3pki5")
 nintendo = ExtResource("40_gg2ti")
 
-[node name="HealthIndicator" type="Node2D" parent="Camera2D/Overlays" node_paths=PackedStringArray("src_node")]
+[node name="HealthIndicator" type="Node2D" parent="Camera2D/Overlays/CanvasLayer" node_paths=PackedStringArray("src_node")]
 visible = false
 light_mask = 0
-position = Vector2(790, 455)
+position = Vector2(1750, 995)
 script = ExtResource("35_6s6uf")
-src_node = NodePath("../../../Boss")
+src_node = NodePath("../../../../Boss")
 heart_texture = ExtResource("36_bymvh")
 no_heart_texture = ExtResource("37_lc3i1")
 heart_scale = 0.1
 spacing = 120
 
-[node name="Box" type="Sprite2D" parent="Camera2D/Overlays/HealthIndicator"]
+[node name="Box" type="Sprite2D" parent="Camera2D/Overlays/CanvasLayer/HealthIndicator"]
 light_mask = 0
 texture = ExtResource("46_5x3ig")
 
-[node name="IntroScreen" type="Node2D" parent="Camera2D/Overlays"]
+[node name="IntroScreen" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
 light_mask = 0
-position = Vector2(-960, -540)
 script = ExtResource("9_gl7br")
 
-[node name="Illumination" type="Sprite2D" parent="Camera2D/Overlays/IntroScreen"]
+[node name="Illumination" type="Sprite2D" parent="Camera2D/Overlays/CanvasLayer/IntroScreen"]
 light_mask = 0
 position = Vector2(940, 521.765)
 scale = Vector2(1.24, 1.373)
 texture = ExtResource("10_roquk")
 
-[node name="TutorialSubmenu" parent="Camera2D/Overlays/IntroScreen" instance=ExtResource("57_rmgxc")]
+[node name="TutorialSubmenu" parent="Camera2D/Overlays/CanvasLayer/IntroScreen" instance=ExtResource("57_rmgxc")]
 visible = false
 position = Vector2(960, 540)
 
-[node name="TooHardButton" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0"]
+[node name="TooHardButton" parent="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0"]
 visible = false
 
-[node name="ClickOffSFX" parent="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="6"]
+[node name="ClickOffSFX" parent="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="6"]
 stream = null
 
-[node name="Black" type="ColorRect" parent="Camera2D/Overlays/IntroScreen"]
+[node name="Black" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer/IntroScreen"]
 light_mask = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/IntroScreen"]
+[node name="LightSFX" type="AudioStreamPlayer" parent="Camera2D/Overlays/CanvasLayer/IntroScreen"]
 stream = ExtResource("24_6qan5")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="GameOverScreen" type="Node2D" parent="Camera2D/Overlays"]
+[node name="GameOverScreen" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
 light_mask = 0
-position = Vector2(-960, -540)
 script = ExtResource("12_qyr5r")
 
-[node name="Background" type="ColorRect" parent="Camera2D/Overlays/GameOverScreen"]
+[node name="Background" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer/GameOverScreen"]
 light_mask = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="Camera2D/Overlays/GameOverScreen/Background"]
+[node name="Label" type="Label" parent="Camera2D/Overlays/CanvasLayer/GameOverScreen/Background"]
 light_mask = 0
 layout_mode = 1
 anchors_preset = 8
@@ -963,7 +1686,7 @@ label_settings = ExtResource("49_fyk3k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hint" type="Label" parent="Camera2D/Overlays/GameOverScreen/Background"]
+[node name="Hint" type="Label" parent="Camera2D/Overlays/CanvasLayer/GameOverScreen/Background"]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -982,31 +1705,30 @@ label_settings = SubResource("LabelSettings_e7hxg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Transition" type="ColorRect" parent="Camera2D/Overlays"]
+[node name="Transition" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
 light_mask = 0
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 scale = Vector2(1.15, 1.15)
 mouse_filter = 2
 script = ExtResource("44_pnwlx")
 
-[node name="PauseScreen" type="Node2D" parent="Camera2D/Overlays"]
+[node name="PauseScreen" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
 process_mode = 3
 visible = false
 light_mask = 0
+position = Vector2(960, 540)
 script = ExtResource("43_8c0bu")
 
-[node name="SubmenuManager" parent="Camera2D/Overlays/PauseScreen" node_paths=PackedStringArray("submenus") instance=ExtResource("47_0ifgw")]
+[node name="SubmenuManager" parent="Camera2D/Overlays/CanvasLayer/PauseScreen" node_paths=PackedStringArray("submenus") instance=ExtResource("47_0ifgw")]
 light_mask = 0
 submenus = [NodePath("../PauseMenu"), NodePath("../TutorialSubmenu"), NodePath("../SettingsSubmenu")]
 
-[node name="PauseMenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("48_cvxgy")]
+[node name="PauseMenu" parent="Camera2D/Overlays/CanvasLayer/PauseScreen" instance=ExtResource("48_cvxgy")]
 light_mask = 0
 
-[node name="Background" type="ColorRect" parent="Camera2D/Overlays/PauseScreen/PauseMenu"]
+[node name="Background" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -1022,7 +1744,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Title" type="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu"]
+[node name="Title" type="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -1040,7 +1762,7 @@ label_settings = ExtResource("50_7acsy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Scared" type="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu"]
+[node name="Scared" type="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu"]
 light_mask = 0
 anchors_preset = 8
 anchor_left = 0.5
@@ -1058,56 +1780,56 @@ label_settings = SubResource("LabelSettings_vpns3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PauseMenuButtonSelector" parent="Camera2D/Overlays/PauseScreen/PauseMenu" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
+[node name="PauseMenuButtonSelector" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
 light_mask = 0
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3"), NodePath("ButtonRowConfig4")]
 
-[node name="ButtonRowConfig" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("ContinueButton")]
 
-[node name="ContinueButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
+[node name="ContinueButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, -100)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" index="2"]
 text = "Continue"
 
-[node name="ButtonRowConfig2" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig2" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 buttons = [NodePath("TutorialButton")]
 
-[node name="TutorialButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
+[node name="TutorialButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 50)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" index="2"]
 text = "Tutorial"
 
-[node name="ButtonRowConfig3" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig3" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("SettingsButton")]
 
-[node name="SettingsButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3" instance=ExtResource("44_8ttwp")]
+[node name="SettingsButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 200)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" index="2"]
 text = "Settings"
 
-[node name="ButtonRowConfig4" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig4" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("ExitButton")]
 
-[node name="ExitButton" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4" instance=ExtResource("44_8ttwp")]
+[node name="ExitButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 350)
 
-[node name="Label" parent="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" index="2"]
 text = "Exit to menu"
 
-[node name="TutorialSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("57_rmgxc")]
+[node name="TutorialSubmenu" parent="Camera2D/Overlays/CanvasLayer/PauseScreen" instance=ExtResource("57_rmgxc")]
 visible = false
 
-[node name="SettingsSubmenu" parent="Camera2D/Overlays/PauseScreen" instance=ExtResource("52_c1ie3")]
+[node name="SettingsSubmenu" parent="Camera2D/Overlays/CanvasLayer/PauseScreen" instance=ExtResource("52_c1ie3")]
 visible = false
 
-[node name="FadeOut" type="ColorRect" parent="Camera2D/Overlays/PauseScreen"]
+[node name="FadeOut" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer/PauseScreen"]
 modulate = Color(1, 1, 1, 0)
 light_mask = 0
 offset_left = -960.0
@@ -1116,6 +1838,18 @@ offset_right = 960.0
 offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="RemnantFog" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
+visible = false
+position = Vector2(960, 540)
+script = SubResource("GDScript_hbwsw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/Overlays/CanvasLayer/RemnantFog"]
+position = Vector2(4.55556, 6.00005)
+scale = Vector2(3.86265, 4.03704)
+sprite_frames = SubResource("SpriteFrames_aelwn")
+autoplay = "default"
+frame_progress = 0.70367
 
 [node name="MouseHider" parent="." instance=ExtResource("50_ywsql")]
 
@@ -1160,26 +1894,26 @@ parameters/looping = true
 
 [connection signal="body_entered" from="BackgroundWIN/Exit" to="BackgroundWIN/Exit" method="_on_body_entered"]
 [connection signal="player_exited" from="BackgroundWIN/Exit" to="PlayerClippingMask/Player" method="_on_player_exited"]
-[connection signal="player_exited" from="BackgroundWIN/Exit" to="Camera2D/Overlays/Transition" method="_on_player_exited"]
+[connection signal="player_exited" from="BackgroundWIN/Exit" to="Camera2D/Overlays/CanvasLayer/Transition" method="_on_player_exited"]
 [connection signal="boss_hit" from="PlayerClippingMask/Player" to="Boss" method="_on_player_boss_hit"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="RemnantPlayback" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="Boss" method="_on_game_over"]
-[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/Instructions" method="_on_game_over"]
-[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/IntroScreen" method="_on_game_over"]
-[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/GameOverScreen" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/CanvasLayer/Instructions" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/CanvasLayer/IntroScreen" method="_on_game_over"]
+[connection signal="game_over" from="PlayerClippingMask/Player" to="Camera2D/Overlays/CanvasLayer/GameOverScreen" method="_on_game_over"]
 [connection signal="game_over" from="PlayerClippingMask/Player" to="MusicManager" method="_on_game_over"]
 [connection signal="attack_status_changed" from="Boss" to="MusicManager" method="_on_boss_attack_status_changed"]
 [connection signal="chance_missed" from="Boss" to="PlayerClippingMask/Player" method="_on_chance_missed"]
-[connection signal="chance_missed" from="Boss" to="Camera2D/Overlays/GameOverScreen" method="_on_chance_missed"]
+[connection signal="chance_missed" from="Boss" to="Camera2D/Overlays/CanvasLayer/GameOverScreen" method="_on_chance_missed"]
 [connection signal="defeated" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="ExplodingTomato" method="_on_boss_defeated"]
-[connection signal="defeated" from="Boss" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" method="_on_boss_defeated"]
+[connection signal="defeated" from="Boss" to="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="MusicManager" method="_on_boss_defeated"]
 [connection signal="destroy_obstacle" from="Boss" to="Obstacles" method="_on_destroy_obstacle"]
 [connection signal="player_hit" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_hit"]
 [connection signal="set_shake" from="Boss" to="Camera2D" method="_on_set_shake"]
 [connection signal="vulnerable_status_changed" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_vulnerable_status_changed"]
-[connection signal="vulnerable_status_changed" from="Boss" to="Camera2D/Overlays/Instructions" method="_on_boss_vulnerable_status_changed"]
+[connection signal="vulnerable_status_changed" from="Boss" to="Camera2D/Overlays/CanvasLayer/Instructions" method="_on_boss_vulnerable_status_changed"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="Background" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN" method="_on_boss_death_done"]
 [connection signal="boss_death_done" from="ExplodingTomato" to="BackgroundWIN/Exit" method="_on_boss_death_done"]
@@ -1187,24 +1921,24 @@ parameters/looping = true
 [connection signal="boss_death_done" from="ExplodingTomato" to="MusicManager" method="_on_boss_death_done"]
 [connection signal="boss_death_permit_move" from="ExplodingTomato" to="PlayerClippingMask/Player" method="_on_boss_death_permit_move"]
 [connection signal="animation_finished" from="ExplodingTomato/Tomato/AnimationPlayer" to="ExplodingTomato" method="_on_animation_finished"]
-[connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
-[connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="Boss" method="_on_intro_done"]
-[connection signal="intro_done" from="Camera2D/Overlays/IntroScreen" to="MusicManager" method="_on_intro_done"]
-[connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="RemnantPlayback" method="_on_permit_movement"]
-[connection signal="permit_movement" from="Camera2D/Overlays/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
-[connection signal="closed" from="Camera2D/Overlays/IntroScreen/TutorialSubmenu" to="Camera2D/Overlays/IntroScreen" method="_on_tutorial_closed"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/PauseScreen" method="_on_continue_button_clicked"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/PauseScreen/TutorialSubmenu" method="_on_opened"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/PauseScreen/SettingsSubmenu" method="_on_opened"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen" method="_on_exit_button_clicked"]
-[connection signal="clicked" from="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector" method="disable"]
-[connection signal="closed" from="Camera2D/Overlays/PauseScreen/TutorialSubmenu" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
-[connection signal="closed" from="Camera2D/Overlays/PauseScreen/SettingsSubmenu" to="Camera2D/Overlays/PauseScreen/PauseMenu" method="_on_opened"]
+[connection signal="intro_done" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_done"]
+[connection signal="intro_done" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="Boss" method="_on_intro_done"]
+[connection signal="intro_done" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="MusicManager" method="_on_intro_done"]
+[connection signal="permit_movement" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="RemnantPlayback" method="_on_permit_movement"]
+[connection signal="permit_movement" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
+[connection signal="closed" from="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu" to="Camera2D/Overlays/CanvasLayer/IntroScreen" method="_on_tutorial_closed"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_continue_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu" method="_on_opened"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/SettingsSubmenu" method="_on_opened"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" method="disable"]
+[connection signal="closed" from="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu" to="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu" method="_on_opened"]
+[connection signal="closed" from="Camera2D/Overlays/CanvasLayer/PauseScreen/SettingsSubmenu" to="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu" method="_on_opened"]
 
-[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu"]
-[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
-[editable path="Camera2D/Overlays/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton"]
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton"]
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton"]
-[editable path="Camera2D/Overlays/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu"]
+[editable path="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton"]

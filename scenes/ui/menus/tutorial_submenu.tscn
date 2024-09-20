@@ -37,7 +37,7 @@ font_color = Color(1, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_dhwb4"]
 font = ExtResource("18_gddlt")
 font_size = 80
-font_color = Color(1, 0, 0, 1)
+font_color = Color(0.149571, 0.751863, 0.926546, 1)
 
 [sub_resource type="Curve" id="Curve_sordb"]
 _data = [Vector2(0.55298, 0.992651), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -336,6 +336,8 @@ buttons = [NodePath("ConjureToggle")]
 position = Vector2(0, 350)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("21_wk34c")
+toggled_fill_color = Color(0.298039, 0.807843, 1, 1)
+selected_color = Color(0.29621, 0.809, 1, 1)
 
 [node name="FillTexture" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="1"]
 light_mask = 0
@@ -350,10 +352,9 @@ text = "Conjure remnant"
 
 [node name="ClickSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="4"]
 stream = ExtResource("21_uctbs")
-volume_db = -5.0
+volume_db = -15.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="5"]
-modulate = Color(1, 0, 0, 1)
 light_mask = 0
 position = Vector2(-1.33333, -2.66667)
 amount = 30
@@ -363,13 +364,14 @@ lifetime = 2.0
 
 [node name="ClickOffSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="6"]
 stream = ExtResource("26_hxbkm")
-volume_db = -5.0
+volume_db = -15.0
 
 [node name="CollisionShape2D" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle/Area2DButtonSrc" index="0"]
 position = Vector2(-0.666664, 0)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="RemnantSubmenu/RemnantButtonSelector" index="2"]
 stream = ExtResource("21_n3rsh")
+volume_db = -5.0
 pitch_scale = 0.6
 bus = &"Music"
 parameters/looping = true
