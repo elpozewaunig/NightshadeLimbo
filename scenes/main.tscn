@@ -640,18 +640,6 @@ polygon = PackedVector2Array(27, -180.5, 23, -178.5, 21, -178.5, 14, -167.5, 14,
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgygx"]
 size = Vector2(286.555, 137)
 
-[sub_resource type="LabelSettings" id="LabelSettings_7bn66"]
-font = ExtResource("13_moeav")
-font_size = 120
-
-[sub_resource type="LabelSettings" id="LabelSettings_e7hxg"]
-font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_vpns3"]
-font = ExtResource("13_moeav")
-font_size = 60
-font_color = Color(0.485703, 0.485704, 0.485703, 1)
-
 [sub_resource type="GDScript" id="GDScript_hbwsw"]
 resource_name = "remnantfogtoggler"
 script/source = "extends Node2D
@@ -1371,6 +1359,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_7bn66"]
+font = ExtResource("13_moeav")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_e7hxg"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpns3"]
+font = ExtResource("13_moeav")
+font_size = 60
+font_color = Color(0.485703, 0.485704, 0.485703, 1)
+
 [node name="Main" type="Node2D"]
 
 [node name="Lights" type="Node2D" parent="."]
@@ -1578,6 +1578,18 @@ light_mask = 0
 position = Vector2(960, 540)
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("16_jxlxq")
+
+[node name="RemnantFog" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
+visible = false
+position = Vector2(960, 540)
+script = SubResource("GDScript_hbwsw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/Overlays/CanvasLayer/RemnantFog"]
+position = Vector2(4.55556, 6.00005)
+scale = Vector2(3.86265, 4.03704)
+sprite_frames = SubResource("SpriteFrames_aelwn")
+autoplay = "default"
+frame_progress = 0.70367
 
 [node name="Instructions" type="Label" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
@@ -1838,18 +1850,6 @@ offset_right = 960.0
 offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[node name="RemnantFog" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
-visible = false
-position = Vector2(960, 540)
-script = SubResource("GDScript_hbwsw")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/Overlays/CanvasLayer/RemnantFog"]
-position = Vector2(4.55556, 6.00005)
-scale = Vector2(3.86265, 4.03704)
-sprite_frames = SubResource("SpriteFrames_aelwn")
-autoplay = "default"
-frame_progress = 0.70367
 
 [node name="MouseHider" parent="." instance=ExtResource("50_ywsql")]
 
