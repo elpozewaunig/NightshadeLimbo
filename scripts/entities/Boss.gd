@@ -157,6 +157,7 @@ func _process(delta: float) -> void:
 			dmg_zone.monitoring = false
 			timeline.pause()
 			hide()
+			Input.start_joy_vibration(0, 0, 1, 1)
 			process_mode = PROCESS_MODE_DISABLED
 		
 	# Delete all array entries that were marked for deletion
