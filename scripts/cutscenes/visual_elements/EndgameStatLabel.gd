@@ -24,7 +24,3 @@ func death_string():
 		$TextureRect.self_modulate = Color.GOLD
 		$TextureRect2.self_modulate = Color.GOLD
 	return str(Data.run_deaths)+"x"
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
