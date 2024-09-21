@@ -157,6 +157,7 @@ func _process(delta: float) -> void:
 			dmg_zone.monitoring = false
 			timeline.pause()
 			hide()
+			process_mode = PROCESS_MODE_DISABLED
 		
 	# Delete all array entries that were marked for deletion
 	for deletion in array_delete_queue:

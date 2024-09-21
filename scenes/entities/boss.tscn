@@ -42,6 +42,9 @@
 radius = 80.0
 height = 550.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33fff"]
+size = Vector2(286.555, 147)
+
 [sub_resource type="Animation" id="Animation_yx575"]
 resource_name = "JumpAttack_END"
 length = 2.0
@@ -2400,9 +2403,6 @@ _data = {
 "salvos_1": SubResource("Animation_cyi4g")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_33fff"]
-size = Vector2(286.555, 147)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
 atlas = ExtResource("18_hjhdo")
 region = Rect2(0, 0, 384, 384)
@@ -2531,6 +2531,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mp6rq")
 debug_color = Color(0.829367, 0.394127, 0, 0.42)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 114.5)
+scale = Vector2(1.19, 1)
+shape = SubResource("RectangleShape2D_33fff")
+
 [node name="DropShadow" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.14902)
 position = Vector2(0, 126)
@@ -2593,11 +2598,6 @@ z_index = 1
 position = Vector2(-5, 107)
 scale = Vector2(0.468, 0.422)
 texture = ExtResource("22_kub0s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 114.5)
-scale = Vector2(1.19, 1)
-shape = SubResource("RectangleShape2D_33fff")
 
 [node name="PostProcessing" type="Control" parent="."]
 z_index = 2
