@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 var current : int = 0
 var playback_data : Array[Dictionary]
