@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	var y_input := Input.get_axis("game_up", "game_down")
 	
 	# Allow player to turn even when not allowing movement
-	if x_input and not dead:
+	if x_input and not dead and not escaped:
 		# Flip sprite depending on input to left or right
 		sprite.flip_h = x_input < 0
 	
