@@ -55,3 +55,4 @@ func default_behavior(_delta: float) -> void:
 func click_action():
 	clicked.emit()
 	click_sfx.play()
+	ControllerHandler.touch_haptic_feedback()

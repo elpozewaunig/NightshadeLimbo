@@ -27,6 +27,7 @@ func selection_behavior(delta: float) -> void:
 				slider.value += slider.step * sign(input)
 			else:
 				slider.value += delta * slider_speed * sign(input)
+			ControllerHandler.touch_haptic_feedback()
 			time_held = 0
 	else:
 		time_held = 0
