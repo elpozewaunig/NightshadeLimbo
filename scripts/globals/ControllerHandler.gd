@@ -1,6 +1,6 @@
 extends Node
 
-enum Type {KEYBOARD, TOUCH, PLAYSTATION, XBOX, NINTENDO}
+enum Type {KEYBOARD, TOUCH, PLAYSTATION, XBOX, NINTENDO, UNKNOWN}
 var type : Type = Type.KEYBOARD
 var last_type : Type
 
@@ -38,8 +38,7 @@ func _input(event: InputEvent) -> void:
 		elif controller_name.contains("Switch"):
 			type = Type.NINTENDO
 		else:
-			# Fallback to display keyboard in case of unknown controller
-			type = Type.KEYBOARD
+			type = Type.UNKNOWN
 	
 	# Controller/input type has changed
 	if type != last_type:

@@ -16,7 +16,8 @@ func _ready() -> void:
 		ControllerHandler.Type.TOUCH: touch,
 		ControllerHandler.Type.PLAYSTATION: playstation,
 		ControllerHandler.Type.XBOX: xbox,
-		ControllerHandler.Type.NINTENDO: nintendo
+		ControllerHandler.Type.NINTENDO: nintendo,
+		ControllerHandler.Type.UNKNOWN: keyboard
 	}
 	ControllerHandler.input_method_changed.connect(_on_input_method_changed)
 	_on_input_method_changed(ControllerHandler.type)
