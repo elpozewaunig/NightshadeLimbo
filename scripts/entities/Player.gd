@@ -8,6 +8,7 @@ class_name Player
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var weapon : Area2D = $Weapon
 @onready var death_sfx : AudioStreamPlayer = $DeathSFX
+@onready var tomato_hit_sfx : AudioStreamPlayer = $TomatoHitSFX
 
 const SPEED : float = 500.0
 const DECEL_TIME : float = 0.1
@@ -177,6 +178,7 @@ func _on_chance_missed() -> void:
 
 func _on_weapon_hitbox_entered(body: Node2D) -> void:
 	if body.name == "Boss":
+		tomato_hit_sfx.play()
 		boss_hit.emit()
 
 func _on_boss_defeated() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://s47feaqqdtgj"]
+[gd_scene load_steps=85 format=3 uid="uid://s47feaqqdtgj"]
 
 [ext_resource type="Script" path="res://scripts/entities/Boss.gd" id="1_3ifcl"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="2_4c6eb"]
@@ -30,7 +30,6 @@
 [ext_resource type="Shader" path="res://assets/shaders/mirage.gdshader" id="19_661uf"]
 [ext_resource type="Texture2D" uid="uid://btscq85drdvt0" path="res://assets/sprites/gloweyetomato.png" id="20_0q56x"]
 [ext_resource type="Shader" path="res://assets/shaders/contrasted.gdshader" id="20_50m7f"]
-[ext_resource type="AudioStream" uid="uid://d24xysr5nw0to" path="res://assets/sounds/attacks/sfx_TomatoHit.ogg" id="21_1pc22"]
 [ext_resource type="Shader" path="res://assets/shaders/normalized.gdshader" id="21_tuup4"]
 [ext_resource type="Shader" path="res://assets/shaders/old_film.gdshader" id="22_57xkm"]
 [ext_resource type="PackedScene" uid="uid://dybntfod3ak8q" path="res://scenes/utility/occluder_mimic.tscn" id="22_hf5xq"]
@@ -1565,21 +1564,6 @@ tracks/4/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.61, -0.237107, -0.113979, 0.062893, 0.22937, 0.61, -0.237107, -0.113979, 0.062893, 0.22937),
 "times": PackedFloat32Array(0.1, 0.4, 0.55)
 }
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Tomato/AudioStreamPlayer")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("21_1pc22")
-}],
-"times": PackedFloat32Array(0.05)
-}
-tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_p543x"]
 resource_name = "Vulnerable_END"

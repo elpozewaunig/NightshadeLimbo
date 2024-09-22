@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://v8w2nt3d8m03"]
+[gd_scene load_steps=19 format=3 uid="uid://v8w2nt3d8m03"]
 
 [ext_resource type="Script" path="res://scripts/entities/Player.gd" id="1_lgxym"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="2_do7yw"]
+[ext_resource type="AudioStream" uid="uid://d24xysr5nw0to" path="res://assets/sounds/attacks/sfx_TomatoHit.ogg" id="5_b350d"]
 [ext_resource type="AudioStream" uid="uid://cs4w62hbh2cxq" path="res://assets/sounds/sfx_PlayerDeath.ogg" id="5_t74wv"]
 [ext_resource type="Texture2D" uid="uid://dvh83f7shqs4d" path="res://assets/sprites/broom.png" id="5_xcjhp"]
 
@@ -254,5 +255,8 @@ occluder = SubResource("OccluderPolygon2D_jvu8b")
 [node name="DeathSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_t74wv")
 bus = &"SFX"
+
+[node name="TomatoHitSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b350d")
 
 [connection signal="body_entered" from="Weapon" to="." method="_on_weapon_hitbox_entered"]
