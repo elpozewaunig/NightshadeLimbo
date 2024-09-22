@@ -4,7 +4,6 @@ extends Node2D
 @export var boss : Boss
 
 @export var silence_level : float = -100
-@export var change_speed : float = 300
 
 var tracks = {}
 
@@ -63,7 +62,7 @@ func stream_active_anywhere(check_track_name) -> bool:
 	return false
 
 
-func _on_boss_attack_status_changed(attack: int, status: bool) -> void:
+func _on_boss_attack_status_changed(attack: Boss.Attacks, status: bool) -> void:
 	tracks[attack]["active"] = status
 
 
