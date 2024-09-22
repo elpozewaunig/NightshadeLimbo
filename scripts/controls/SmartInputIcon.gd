@@ -12,14 +12,14 @@ var textures : Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	textures = {
-		ControllerDetector.Type.KEYBOARD: keyboard,
-		ControllerDetector.Type.TOUCH: touch,
-		ControllerDetector.Type.PLAYSTATION: playstation,
-		ControllerDetector.Type.XBOX: xbox,
-		ControllerDetector.Type.NINTENDO: nintendo
+		ControllerHandler.Type.KEYBOARD: keyboard,
+		ControllerHandler.Type.TOUCH: touch,
+		ControllerHandler.Type.PLAYSTATION: playstation,
+		ControllerHandler.Type.XBOX: xbox,
+		ControllerHandler.Type.NINTENDO: nintendo
 	}
-	ControllerDetector.input_method_changed.connect(_on_input_method_changed)
-	_on_input_method_changed(ControllerDetector.type)
+	ControllerHandler.input_method_changed.connect(_on_input_method_changed)
+	_on_input_method_changed(ControllerHandler.type)
 
-func _on_input_method_changed(type: ControllerDetector.Type) -> void:
+func _on_input_method_changed(type: ControllerHandler.Type) -> void:
 	sprite.texture = textures[type]

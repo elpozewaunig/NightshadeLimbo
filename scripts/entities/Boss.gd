@@ -157,7 +157,7 @@ func _process(delta: float) -> void:
 			dmg_zone.monitoring = false
 			timeline.pause()
 			hide()
-			Input.start_joy_vibration(0, 0, 1, 1)
+			ControllerHandler.vibrate(0, 1, 1)
 			process_mode = PROCESS_MODE_DISABLED
 		
 	# Delete all array entries that were marked for deletion
@@ -325,3 +325,4 @@ func _on_player_boss_hit() -> void:
 		vulnerable_status_changed.emit(false)
 		animation.play("RESET")
 		animation.play("TakeDamageINITIATE")
+		ControllerHandler.vibrate(0, 1, 0.5)

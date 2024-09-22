@@ -123,7 +123,7 @@ func set_game_over() -> void:
 		death_sfx.play()
 		animation.clear_queue()
 		submit_time()
-		Input.start_joy_vibration(0, 1, 0, 0.5)
+		ControllerHandler.vibrate(1, 0, 0.5)
 		Data.submit_remnant_data(remnant_data)
 		
 		# Play random death animation
