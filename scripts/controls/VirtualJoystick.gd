@@ -70,5 +70,5 @@ func _unhandled_input(event: InputEvent):
 			prev_deadzone = false
 
 func haptic_confirmation() -> void:
-	Input.vibrate_handheld(200, 0.2)
+	ControllerHandler.touch_haptic_feedback()
 	prev_deadzone = true

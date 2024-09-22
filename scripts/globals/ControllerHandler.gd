@@ -50,3 +50,7 @@ func vibrate(weak_magnitude: float, strong_magnitude: float, duration: float = 1
 		Input.start_joy_vibration(0, weak_magnitude, strong_magnitude, duration)
 	elif category == Category.TOUCH:
 		Input.vibrate_handheld(int(duration * 1000), clamp(strong_magnitude + weak_magnitude / 2, 0, 1))
+
+func touch_haptic_feedback() -> void:
+	if category == Category.TOUCH:
+		Input.vibrate_handheld(200, 0.2)
