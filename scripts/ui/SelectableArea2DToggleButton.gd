@@ -21,12 +21,6 @@ func _process(delta: float) -> void:
 	else:
 		fill_texture.hide()
 
-func selection_behavior(delta: float) -> void:
-	super.selection_behavior(delta)
-
-func default_behavior(delta: float) -> void:
-	super.default_behavior(delta)
-
 
 func click_action() -> void:
 	active = not active
