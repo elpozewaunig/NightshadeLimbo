@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=37 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
@@ -10,10 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://rfpgtv3memol" path="res://assets/sprites/buttons/generic/LStick.png" id="7_q7xag"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="8_ib0yt"]
 [ext_resource type="Texture2D" uid="uid://d22aow0vxn6o8" path="res://assets/sprites/buttons/keyboard/Space.png" id="9_5k76c"]
+[ext_resource type="Texture2D" uid="uid://c3etq4tsyhwhq" path="res://assets/sprites/buttons/touch/Joystick.png" id="9_lsods"]
 [ext_resource type="Texture2D" uid="uid://6cwc881xqrrh" path="res://assets/sprites/buttons/playstation/Cross.png" id="10_n4thr"]
 [ext_resource type="Texture2D" uid="uid://pe1wvoqlax0c" path="res://assets/sprites/buttons/xbox/A.png" id="11_wjk5g"]
 [ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="12_0cgsy"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="13_5sat5"]
+[ext_resource type="Texture2D" uid="uid://bwchxs1bnmu1y" path="res://assets/sprites/buttons/touch/Attack.png" id="13_u1g75"]
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="14_k0sss"]
 [ext_resource type="PackedScene" uid="uid://di3o5lslj817b" path="res://scenes/ui/button_area2D_close.tscn" id="15_7orun"]
 [ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shaders/shader_overlays/screenvignette.png" id="16_avy2b"]
@@ -111,6 +113,7 @@ frame = 8
 [node name="SmartInputIcon" parent="MainSubmenu" index="4" instance=ExtResource("5_csx0y")]
 position = Vector2(-500, 100)
 keyboard = ExtResource("6_l5rbf")
+touch = ExtResource("9_lsods")
 playstation = ExtResource("7_q7xag")
 xbox = ExtResource("7_q7xag")
 nintendo = ExtResource("7_q7xag")
@@ -138,6 +141,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SmartInputIcon2" parent="MainSubmenu" index="5" instance=ExtResource("5_csx0y")]
 position = Vector2(500, 100)
 keyboard = ExtResource("9_5k76c")
+touch = ExtResource("13_u1g75")
 playstation = ExtResource("10_n4thr")
 xbox = ExtResource("11_wjk5g")
 nintendo = ExtResource("12_0cgsy")

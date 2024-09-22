@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgy32ui852hb"]
+
+[ext_resource type="Script" path="res://scripts/controls/PressableScreenArea.gd" id="1_t1d88"]
+[ext_resource type="Texture2D" uid="uid://bwchxs1bnmu1y" path="res://assets/sprites/buttons/touch/Attack.png" id="2_rfcjo"]
+
+[node name="PressableScreenArea" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("1_t1d88")
+
+[node name="ButtonTexture" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(680, 800)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_rfcjo")

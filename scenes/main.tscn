@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=192 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -47,12 +47,14 @@
 [ext_resource type="Script" path="res://scripts/game/overlays/HealthIndicator.gd" id="35_6s6uf"]
 [ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/controls/smart_input_icon.tscn" id="36_4ffvj"]
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
+[ext_resource type="PackedScene" uid="uid://ccgy32ui852hb" path="res://scenes/controls/pressable_screen_area.tscn" id="36_gb44q"]
 [ext_resource type="Texture2D" uid="uid://d22aow0vxn6o8" path="res://assets/sprites/buttons/keyboard/Space.png" id="37_83fk2"]
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
 [ext_resource type="Texture2D" uid="uid://6cwc881xqrrh" path="res://assets/sprites/buttons/playstation/Cross.png" id="38_jbba6"]
 [ext_resource type="Texture2D" uid="uid://pe1wvoqlax0c" path="res://assets/sprites/buttons/xbox/A.png" id="39_3pki5"]
 [ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="40_gg2ti"]
 [ext_resource type="AudioStream" uid="uid://ciw8tbxouv38f" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="40_vsbyh"]
+[ext_resource type="Texture2D" uid="uid://bwchxs1bnmu1y" path="res://assets/sprites/buttons/touch/Attack.png" id="41_pyilm"]
 [ext_resource type="Script" path="res://scripts/game/overlays/Pause.gd" id="43_8c0bu"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="43_j1v2b"]
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="44_8ttwp"]
@@ -1470,9 +1472,10 @@ offset_right = 2080.0
 offset_bottom = 1210.0
 mouse_filter = 2
 
-[node name="Player" parent="PlayerClippingMask" node_paths=PackedStringArray("virtual_joystick") instance=ExtResource("5_r2yhf")]
+[node name="Player" parent="PlayerClippingMask" node_paths=PackedStringArray("virtual_joystick", "attack_btn") instance=ExtResource("5_r2yhf")]
 position = Vector2(1030, 940)
 virtual_joystick = NodePath("../../Camera2D/Overlays/CanvasLayer/TouchControls/VirtualJoystick")
+attack_btn = NodePath("../../Camera2D/Overlays/CanvasLayer/TouchControls/AttackButton")
 
 [node name="ArenaBounds" type="StaticBody2D" parent="."]
 
@@ -1597,6 +1600,10 @@ frame_progress = 0.70367
 
 [node name="VirtualJoystick" parent="Camera2D/Overlays/CanvasLayer/TouchControls" instance=ExtResource("32_qlorp")]
 
+[node name="AttackButton" parent="Camera2D/Overlays/CanvasLayer/TouchControls" instance=ExtResource("36_gb44q")]
+offset_left = 960.0
+offset_right = 1920.0
+
 [node name="Instructions" type="Label" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
 light_mask = 0
@@ -1621,6 +1628,7 @@ script = ExtResource("33_rkonn")
 [node name="SmartInputIcon" parent="Camera2D/Overlays/CanvasLayer/Instructions" instance=ExtResource("36_4ffvj")]
 position = Vector2(1090, 200)
 keyboard = ExtResource("37_83fk2")
+touch = ExtResource("41_pyilm")
 playstation = ExtResource("38_jbba6")
 xbox = ExtResource("39_3pki5")
 nintendo = ExtResource("40_gg2ti")

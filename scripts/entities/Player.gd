@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var virtual_joystick : VirtualJoystick
+@export var attack_btn : PressableScreenArea
 
 @onready var animation : AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -86,7 +87,7 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		
-		if Input.is_action_just_pressed("game_attack"):
+		if Input.is_action_just_pressed("game_attack") or attack_btn.is_just_pressed:
 			if fight_back:
 				animation.play("attack")
 				animation.queue("chibicycle")
@@ -97,12 +98,14 @@ func _physics_process(delta: float) -> void:
 	
 	# If the player is in a phase where he can attack
 	if fight_back:
+		attack_btn.enabled = true
 		weapon.show()
 		weapon.modulate.a += delta * 3
 		if weapon.modulate.a >= 1:
 			weapon.modulate.a = 1
 		
 	else:
+		attack_btn.enabled = false
 		weapon.modulate.a -= delta * 3
 		if weapon.modulate.a <= 0:
 			weapon.modulate.a = 0

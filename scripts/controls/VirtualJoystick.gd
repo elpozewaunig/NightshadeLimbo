@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent):
 	# Screen was just touched
 	if event is InputEventScreenTouch and event.pressed and visible:
-		if get_rect().has_point(event.position - global_position):
+		if get_rect().has_point(event.position):
 			drag_active = true
 			joystick.global_position = event.position
 	
