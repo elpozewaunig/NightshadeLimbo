@@ -13,6 +13,7 @@ var enabled : bool = true
 var reset_position : Vector2 
 
 var drag_active : bool = false
+var drag_index : int
 var prev_deadzone : bool = true
 var input : Vector2 = Vector2(0, 0)
 
@@ -42,10 +43,11 @@ func _unhandled_input(event: InputEvent):
 	if event is InputEventScreenTouch and event.pressed and visible:
 		if get_rect().has_point(event.position):
 			drag_active = true
+			drag_index = event.index
 			joystick.global_position = event.position
 	
 	# Screen was just released
-	if event is InputEventScreenTouch and not event.pressed and drag_active:
+	if event is InputEventScreenTouch and not event.pressed and event.index == drag_index:
 		drag_active = false
 		input = Vector2(0, 0)
 		joystick.position = reset_position
