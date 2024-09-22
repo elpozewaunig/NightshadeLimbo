@@ -13,6 +13,7 @@ var enabled : bool = true
 var reset_position : Vector2 
 
 var drag_active : bool = false
+var prev_deadzone : bool = true
 var input : Vector2 = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
@@ -44,10 +45,11 @@ func _unhandled_input(event: InputEvent):
 			joystick.global_position = event.position
 	
 	# Screen was just released
-	if event is InputEventScreenTouch and not event.pressed:
+	if event is InputEventScreenTouch and not event.pressed and drag_active:
 		drag_active = false
 		input = Vector2(0, 0)
 		joystick.position = reset_position
+		haptic_confirmation()
 	
 	# Screen is currently being dragged
 	if event is InputEventScreenDrag and drag_active and visible:
@@ -56,3 +58,15 @@ func _unhandled_input(event: InputEvent):
 		# Ignore input if it doesn't exceed the deadzone
 		if input.length() < max_stick_movement * deadzone:
 			input = Vector2(0, 0)
+			
+			# Give haptic feedback for reset to zero
+			if not prev_deadzone:
+				haptic_confirmation()
+		
+		# Input has exceeded deadzone, haptic reset feedback may occur again
+		else:
+			prev_deadzone = false
+
+func haptic_confirmation() -> void:
+	Input.vibrate_handheld(200, 0.2)
+	prev_deadzone = true
