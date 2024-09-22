@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+@export var virtual_joystick : VirtualJoystick
+
 @onready var animation : AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var weapon : Area2D = $Weapon
@@ -41,9 +43,17 @@ func _physics_process(delta: float) -> void:
 			speed_debuff = 0
 			reset_debuff = false
 	
-	# Get axis input
-	var x_input := Input.get_axis("game_left", "game_right")
-	var y_input := Input.get_axis("game_up", "game_down")
+	var x_input : float
+	var y_input : float
+	
+	# If the virtual joystick is being used, prefer it over other input
+	if virtual_joystick.input:
+		x_input = virtual_joystick.input.x
+		y_input = virtual_joystick.input.y
+	else:
+		# Get axis input
+		x_input = Input.get_axis("game_left", "game_right")
+		y_input = Input.get_axis("game_up", "game_down")
 	
 	# Allow player to turn even when not allowing movement
 	if x_input and not dead and not escaped:
@@ -55,6 +65,8 @@ func _physics_process(delta: float) -> void:
 		# Record current position and delta for remnant playback
 		if not boss_defeated:
 			remnant_data.append({"position": global_position, "delta": delta})
+		
+		virtual_joystick.enabled = true
 		
 		# When both directions are active, the player might exceed maximum speed
 		# To compensate for this, normalize the input vector
@@ -78,6 +90,10 @@ func _physics_process(delta: float) -> void:
 			if fight_back:
 				animation.play("attack")
 				animation.queue("chibicycle")
+	
+	# If no movement is allowed
+	else:
+		virtual_joystick.enabled = false
 	
 	# If the player is in a phase where he can attack
 	if fight_back:

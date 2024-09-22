@@ -1,6 +1,6 @@
 extends Node
 
-enum Type {KEYBOARD, PLAYSTATION, XBOX, NINTENDO}
+enum Type {KEYBOARD, TOUCH, PLAYSTATION, XBOX, NINTENDO}
 var type : Type = Type.KEYBOARD
 var last_type : Type
 
@@ -15,6 +15,10 @@ func _input(event: InputEvent) -> void:
 	# Keyboard is used
 	if event is InputEventKey:
 		type = Type.KEYBOARD
+	
+	# Touchscreen is used
+	elif event is InputEventScreenTouch:
+		type = Type.TOUCH
 	
 	# When controller is used, detect controller type
 	elif (event is InputEventJoypadButton) or (event is InputEventJoypadMotion):

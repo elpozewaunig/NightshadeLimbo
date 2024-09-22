@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d1diahg6or5y0" path="res://scenes/ui/submenu_manager.tscn" id="2_qcur6"]
 [ext_resource type="LabelSettings" uid="uid://dvgl0yeqhbjco" path="res://assets/settings/labels/menu_title_label_settingsl.tres" id="3_pals6"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="4_x6hhj"]
-[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_input_icon.tscn" id="5_csx0y"]
+[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/controls/smart_input_icon.tscn" id="5_csx0y"]
 [ext_resource type="Texture2D" uid="uid://fp6oxi3puhv8" path="res://assets/sprites/buttons/keyboard/WASD.png" id="6_l5rbf"]
 [ext_resource type="Texture2D" uid="uid://rfpgtv3memol" path="res://assets/sprites/buttons/generic/LStick.png" id="7_q7xag"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="8_ib0yt"]

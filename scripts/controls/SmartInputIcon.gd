@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var keyboard : Texture2D
+@export var touch : Texture2D
 @export var playstation : Texture2D
 @export var xbox : Texture2D
 @export var nintendo : Texture2D
@@ -12,6 +13,7 @@ var textures : Dictionary
 func _ready() -> void:
 	textures = {
 		ControllerDetector.Type.KEYBOARD: keyboard,
+		ControllerDetector.Type.TOUCH: touch,
 		ControllerDetector.Type.PLAYSTATION: playstation,
 		ControllerDetector.Type.XBOX: xbox,
 		ControllerDetector.Type.NINTENDO: nintendo

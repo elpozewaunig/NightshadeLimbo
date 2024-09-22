@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=190 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -42,9 +42,10 @@
 [ext_resource type="PackedScene" uid="uid://cpqmks55fi0m" path="res://scenes/objects/obstacle.tscn" id="29_pypiw"]
 [ext_resource type="PackedScene" uid="uid://dybntfod3ak8q" path="res://scenes/utility/occluder_mimic.tscn" id="30_drmd2"]
 [ext_resource type="Script" path="res://scripts/game/Camera.gd" id="30_jje2y"]
+[ext_resource type="PackedScene" uid="uid://bb27qp7vlohk6" path="res://scenes/controls/virtual_joystick.tscn" id="32_qlorp"]
 [ext_resource type="Script" path="res://scripts/game/overlays/Instructions.gd" id="33_rkonn"]
 [ext_resource type="Script" path="res://scripts/game/overlays/HealthIndicator.gd" id="35_6s6uf"]
-[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/ui/smart_input_icon.tscn" id="36_4ffvj"]
+[ext_resource type="PackedScene" uid="uid://4i0aipnbtv4g" path="res://scenes/controls/smart_input_icon.tscn" id="36_4ffvj"]
 [ext_resource type="Texture2D" uid="uid://vfvkkm17ywmm" path="res://assets/sprites/HPtomato_combine.png" id="36_bymvh"]
 [ext_resource type="Texture2D" uid="uid://d22aow0vxn6o8" path="res://assets/sprites/buttons/keyboard/Space.png" id="37_83fk2"]
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
@@ -1469,8 +1470,9 @@ offset_right = 2080.0
 offset_bottom = 1210.0
 mouse_filter = 2
 
-[node name="Player" parent="PlayerClippingMask" instance=ExtResource("5_r2yhf")]
+[node name="Player" parent="PlayerClippingMask" node_paths=PackedStringArray("virtual_joystick") instance=ExtResource("5_r2yhf")]
 position = Vector2(1030, 940)
+virtual_joystick = NodePath("../../Camera2D/Overlays/CanvasLayer/TouchControls/VirtualJoystick")
 
 [node name="ArenaBounds" type="StaticBody2D" parent="."]
 
@@ -1590,6 +1592,10 @@ scale = Vector2(3.86265, 4.03704)
 sprite_frames = SubResource("SpriteFrames_aelwn")
 autoplay = "default"
 frame_progress = 0.70367
+
+[node name="TouchControls" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
+
+[node name="VirtualJoystick" parent="Camera2D/Overlays/CanvasLayer/TouchControls" instance=ExtResource("32_qlorp")]
 
 [node name="Instructions" type="Label" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
