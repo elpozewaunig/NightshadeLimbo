@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccgy32ui852hb"]
+[gd_scene load_steps=5 format=3 uid="uid://ccgy32ui852hb"]
 
 [ext_resource type="Script" path="res://scripts/controls/PressableScreenArea.gd" id="1_t1d88"]
+[ext_resource type="Texture2D" uid="uid://b83dgqy4bguce" path="res://assets/sprites/buttons/touch/AttackPressed.png" id="2_4558u"]
 [ext_resource type="Texture2D" uid="uid://bwchxs1bnmu1y" path="res://assets/sprites/buttons/touch/Attack.png" id="2_rfcjo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qkt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rfcjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4558u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="PressableScreenArea" type="Control"]
 layout_mode = 3
@@ -11,8 +26,8 @@ offset_bottom = 1080.0
 mouse_filter = 2
 script = ExtResource("1_t1d88")
 
-[node name="ButtonTexture" type="Sprite2D" parent="."]
+[node name="ButtonSprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.470588)
 position = Vector2(680, 800)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_rfcjo")
+sprite_frames = SubResource("SpriteFrames_5qkt2")

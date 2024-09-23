@@ -1,8 +1,7 @@
 extends Control
 class_name PressableScreenArea
 
-
-@onready var button_texture = $ButtonTexture
+@onready var sprite : AnimatedSprite2D = $ButtonSprite
 
 var enabled : bool = true
 
@@ -13,7 +12,7 @@ var reset_position : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	reset_position = button_texture.position
+	reset_position = sprite.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -34,9 +33,11 @@ func _unhandled_input(event: InputEvent):
 		if get_rect().has_point(event.position):
 			is_pressed = true
 			is_just_pressed = true
-			button_texture.global_position = event.position
+			sprite.global_position = event.position
+			sprite.frame = 1
 	
 	# Screen was just released
 	if event is InputEventScreenTouch and not event.pressed:
 		is_pressed = false
-		button_texture.position = reset_position
+		sprite.position = reset_position
+		sprite.frame = 0
