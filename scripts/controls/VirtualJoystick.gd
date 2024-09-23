@@ -55,7 +55,7 @@ func _unhandled_input(event: InputEvent):
 		haptic_confirmation()
 	
 	# Screen is currently being dragged
-	if event is InputEventScreenDrag and drag_active and visible:
+	if event is InputEventScreenDrag and drag_active and event.index == drag_index and visible:
 		input = event.position - joystick.global_position
 		
 		# Ignore input if it doesn't exceed the deadzone
