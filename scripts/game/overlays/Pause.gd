@@ -32,6 +32,9 @@ func pause(target : bool) -> void:
 	get_tree().paused = target
 
 
+func _on_pause_touch_button_pressed() -> void:
+	pause(true)
+
 func _on_continue_button_clicked() -> void:
 	pause(false)
 

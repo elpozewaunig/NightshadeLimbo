@@ -55,7 +55,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("5_orodj")
-volume_db = 2.0
 bus = &"SFX"
 
 [node name="Area2DButtonSrc" type="Area2D" parent="." index="4"]

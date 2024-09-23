@@ -1,5 +1,9 @@
 extends TouchScreenButton
 
+@export var enable_click_sound : bool = false
+
+@onready var click_sfx : AudioStreamPlayer = $ClickSFX
+
 var just_pressed : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -25,3 +29,6 @@ func is_just_pressed() -> bool:
 func _on_pressed() -> void:
 	just_pressed = true
 	ControllerHandler.touch_haptic_feedback()
+	
+	if enable_click_sound:
+		click_sfx.play()

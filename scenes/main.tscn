@@ -1,4 +1,4 @@
-[gd_scene load_steps=192 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=194 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -50,7 +50,9 @@
 [ext_resource type="PackedScene" uid="uid://ccgy32ui852hb" path="res://scenes/controls/pressable_screen_area.tscn" id="36_gb44q"]
 [ext_resource type="Texture2D" uid="uid://d22aow0vxn6o8" path="res://assets/sprites/buttons/keyboard/Space.png" id="37_83fk2"]
 [ext_resource type="Texture2D" uid="uid://bhvcwmomyf4df" path="res://assets/sprites/HPtomato_fillGRAY.png" id="37_lc3i1"]
+[ext_resource type="PackedScene" uid="uid://dco7p8c4mlcyd" path="res://scenes/controls/touch_button.tscn" id="37_tkc1d"]
 [ext_resource type="Texture2D" uid="uid://6cwc881xqrrh" path="res://assets/sprites/buttons/playstation/Cross.png" id="38_jbba6"]
+[ext_resource type="Texture2D" uid="uid://c2hvbnw0x4x2h" path="res://assets/sprites/buttons/touch/Pause.png" id="38_u6nh8"]
 [ext_resource type="Texture2D" uid="uid://pe1wvoqlax0c" path="res://assets/sprites/buttons/xbox/A.png" id="39_3pki5"]
 [ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="40_gg2ti"]
 [ext_resource type="AudioStream" uid="uid://ciw8tbxouv38f" path="res://assets/music/BGM_VinesSlowDelay.ogg" id="40_vsbyh"]
@@ -1648,6 +1650,15 @@ spacing = 120
 light_mask = 0
 texture = ExtResource("46_5x3ig")
 
+[node name="Transition" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer"]
+visible = false
+light_mask = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(1.15, 1.15)
+mouse_filter = 2
+script = ExtResource("44_pnwlx")
+
 [node name="IntroScreen" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
 visible = false
 light_mask = 0
@@ -1731,14 +1742,12 @@ label_settings = SubResource("LabelSettings_e7hxg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Transition" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer"]
-visible = false
-light_mask = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-scale = Vector2(1.15, 1.15)
-mouse_filter = 2
-script = ExtResource("44_pnwlx")
+[node name="PauseTouchButton" parent="Camera2D/Overlays/CanvasLayer" instance=ExtResource("37_tkc1d")]
+position = Vector2(1750, 40)
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("38_u6nh8")
+texture_pressed = null
+enable_click_sound = true
 
 [node name="PauseScreen" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]
 process_mode = 3
@@ -1941,6 +1950,7 @@ parameters/looping = true
 [connection signal="permit_movement" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="RemnantPlayback" method="_on_permit_movement"]
 [connection signal="permit_movement" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
 [connection signal="closed" from="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu" to="Camera2D/Overlays/CanvasLayer/IntroScreen" method="_on_tutorial_closed"]
+[connection signal="pressed" from="Camera2D/Overlays/CanvasLayer/PauseTouchButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_pause_touch_button_pressed"]
 [connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_continue_button_clicked"]
 [connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu" method="_on_opened"]
 [connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/SettingsSubmenu" method="_on_opened"]
