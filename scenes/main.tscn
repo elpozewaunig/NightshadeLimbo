@@ -1,4 +1,4 @@
-[gd_scene load_steps=194 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=195 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -1371,6 +1371,9 @@ font_size = 120
 [sub_resource type="LabelSettings" id="LabelSettings_e7hxg"]
 font_size = 40
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qxcv"]
+size = Vector2(212, 212)
+
 [sub_resource type="LabelSettings" id="LabelSettings_vpns3"]
 font = ExtResource("13_moeav")
 font_size = 60
@@ -1749,6 +1752,7 @@ visible = false
 position = Vector2(1750, 40)
 scale = Vector2(0.65, 0.65)
 texture_normal = ExtResource("38_u6nh8")
+shape = SubResource("RectangleShape2D_7qxcv")
 enable_click_sound = true
 
 [node name="PauseScreen" type="Node2D" parent="Camera2D/Overlays/CanvasLayer"]

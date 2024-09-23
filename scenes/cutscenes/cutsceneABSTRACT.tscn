@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgn5ighrttryb"]
+[gd_scene load_steps=13 format=3 uid="uid://bgn5ighrttryb"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Cutscene.gd" id="1_8yita"]
 [ext_resource type="PackedScene" uid="uid://muherruagjtj" path="res://scenes/main.tscn" id="2_nmqqy"]
@@ -46,6 +46,9 @@ _data = {
 "RESET": SubResource("Animation_tv4xh"),
 "blink": SubResource("Animation_dfiw0")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d154h"]
+size = Vector2(239.86, 154.875)
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_8yita")
@@ -171,6 +174,7 @@ scale = Vector2(0.135, 0.135)
 [node name="SkipTouchButton" parent="Control/HBoxContainer/RightRibbon" instance=ExtResource("7_v458j")]
 visible = false
 position = Vector2(220, 30)
+shape = SubResource("RectangleShape2D_d154h")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
