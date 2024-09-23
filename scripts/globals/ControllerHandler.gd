@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 		
 		var controller_name : String = Input.get_joy_name(0)
 		
-		if controller_name.contains("PlayStation") or controller_name.contains("DUALSHOCK"):
+		if controller_name.contains("PlayStation") or controller_name.contains("DUALSHOCK")  or controller_name.contains("XInput Gamepad"):
 			type = Type.PLAYSTATION
 		elif controller_name.contains("Xbox"):
 			type = Type.XBOX
