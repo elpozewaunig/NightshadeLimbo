@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://rfpgtv3memol" path="res://assets/sprites/buttons/generic/LStick.png" id="7_q7xag"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="8_ib0yt"]
 [ext_resource type="Texture2D" uid="uid://d22aow0vxn6o8" path="res://assets/sprites/buttons/keyboard/Space.png" id="9_5k76c"]
-[ext_resource type="Texture2D" uid="uid://c3etq4tsyhwhq" path="res://assets/sprites/buttons/touch/Joystick.png" id="9_lsods"]
+[ext_resource type="Texture2D" uid="uid://c3etq4tsyhwhq" path="res://assets/sprites/buttons/touch/JoystickIcon.png" id="9_lsods"]
 [ext_resource type="Texture2D" uid="uid://6cwc881xqrrh" path="res://assets/sprites/buttons/playstation/Cross.png" id="10_n4thr"]
 [ext_resource type="Texture2D" uid="uid://pe1wvoqlax0c" path="res://assets/sprites/buttons/xbox/A.png" id="11_wjk5g"]
 [ext_resource type="Texture2D" uid="uid://buoqwcdms2p7m" path="res://assets/sprites/buttons/nintendo/B.png" id="12_0cgsy"]

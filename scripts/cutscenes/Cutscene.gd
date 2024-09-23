@@ -12,6 +12,7 @@ extends Node2D
 @onready var musicplayer = $MusicPlayer
 @onready var click_next_hint = $Control/HBoxContainer/LeftRibbon/ClickNextHint
 @onready var click_next_hint_anim = $Control/HBoxContainer/LeftRibbon/ClickNextHint/AnimationPlayer
+@onready var skip_touch_button = $Control/HBoxContainer/RightRibbon/SkipTouchButton
 
 @export var load_on_skip : PackedScene
 @export var loading_screen : bool = true
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 		timesleep_override -= delta
 		
 	# Hold to skip?
-	if Input.is_action_pressed("cutscene_skip"):
+	if Input.is_action_pressed("cutscene_skip") or skip_touch_button.is_pressed():
 		holdskipcounter += delta
 		cutscene_skip_bar.value = holdskipcounter
 	else:

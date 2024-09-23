@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3etq4tsyhwhq"
-path="res://.godot/imported/Joystick.png-f284bc7727c651f4fc58ffdfc7cff1c2.ctex"
+path="res://.godot/imported/JoystickIcon.png-94e9d01bf21e5f579fa6aa51c2f8364f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/buttons/touch/Joystick.png"
-dest_files=["res://.godot/imported/Joystick.png-f284bc7727c651f4fc58ffdfc7cff1c2.ctex"]
+source_file="res://assets/sprites/buttons/touch/JoystickIcon.png"
+dest_files=["res://.godot/imported/JoystickIcon.png-94e9d01bf21e5f579fa6aa51c2f8364f.ctex"]
 
 [params]
 
