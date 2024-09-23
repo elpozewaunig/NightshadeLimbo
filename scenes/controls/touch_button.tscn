@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dco7p8c4mlcyd"]
+[gd_scene load_steps=4 format=3 uid="uid://dco7p8c4mlcyd"]
 
 [ext_resource type="Texture2D" uid="uid://y8ot60p8si5h" path="res://assets/sprites/buttons/touch/Skip.png" id="1_mwrek"]
-[ext_resource type="Texture2D" uid="uid://bc36xpcgshv14" path="res://assets/sprites/buttons/touch/SkipPressed.png" id="2_p2p8i"]
 [ext_resource type="Script" path="res://scripts/controls/TouchButton.gd" id="3_jdgh8"]
 [ext_resource type="AudioStream" uid="uid://ceiadu76lnhq4" path="res://assets/sounds/sfx_UIClick.ogg" id="4_j4qkm"]
 
 [node name="TouchButton" type="TouchScreenButton"]
 texture_normal = ExtResource("1_mwrek")
-texture_pressed = ExtResource("2_p2p8i")
 script = ExtResource("3_jdgh8")
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="."]
@@ -15,3 +13,4 @@ process_mode = 3
 stream = ExtResource("4_j4qkm")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="released" from="." to="." method="_on_released"]
