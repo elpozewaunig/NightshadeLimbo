@@ -19,6 +19,7 @@ var input : Vector2 = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hide()
 	reset_position = joystick.position
 
 

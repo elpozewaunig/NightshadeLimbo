@@ -11,6 +11,7 @@ var just_pressed : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hide()
 	reset_modulate = modulate
 
 
