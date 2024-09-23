@@ -52,7 +52,7 @@ func _unhandled_input(event: InputEvent):
 		drag_active = false
 		input = Vector2(0, 0)
 		joystick.position = reset_position
-		haptic_confirmation()
+		prev_deadzone = true
 	
 	# Screen is currently being dragged
 	if event is InputEventScreenDrag and drag_active and event.index == drag_index and visible:
@@ -64,12 +64,9 @@ func _unhandled_input(event: InputEvent):
 			
 			# Give haptic feedback for reset to zero
 			if not prev_deadzone:
-				haptic_confirmation()
+				ControllerHandler.touch_haptic_feedback()
+				prev_deadzone = true
 		
 		# Input has exceeded deadzone, haptic reset feedback may occur again
 		else:
 			prev_deadzone = false
-
-func haptic_confirmation() -> void:
-	ControllerHandler.touch_haptic_feedback()
-	prev_deadzone = true
