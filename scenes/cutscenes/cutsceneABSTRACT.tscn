@@ -173,7 +173,8 @@ scale = Vector2(0.135, 0.135)
 
 [node name="SkipTouchButton" parent="Control/HBoxContainer/RightRibbon" instance=ExtResource("7_v458j")]
 visible = false
-position = Vector2(220, 30)
+position = Vector2(187, 24)
+scale = Vector2(1.375, 1.375)
 shape = SubResource("RectangleShape2D_d154h")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]

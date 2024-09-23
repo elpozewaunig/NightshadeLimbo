@@ -1749,7 +1749,7 @@ vertical_alignment = 1
 
 [node name="PauseTouchButton" parent="Camera2D/Overlays/CanvasLayer" instance=ExtResource("37_tkc1d")]
 visible = false
-position = Vector2(1750, 40)
+position = Vector2(1910, -59)
 scale = Vector2(0.65, 0.65)
 texture_normal = ExtResource("38_u6nh8")
 shape = SubResource("RectangleShape2D_7qxcv")
