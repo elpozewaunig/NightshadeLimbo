@@ -59,4 +59,4 @@ func vibrate(weak_magnitude: float, strong_magnitude: float, duration: float = 1
 
 func touch_haptic_feedback() -> void:
 	if category == Category.TOUCH:
-		Input.vibrate_handheld(200, 0.2)
+		Input.vibrate_handheld(20, 0.2)
