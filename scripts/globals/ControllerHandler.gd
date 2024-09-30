@@ -8,6 +8,17 @@ enum Category {KEYBOARD, TOUCH, JOYPAD}
 var category : Category = Category.KEYBOARD
 var last_category : Category
 
+var category_matches : Dictionary = {
+	Type.KEYBOARD: Category.KEYBOARD,
+	
+	Type.TOUCH: Category.TOUCH,
+	
+	Type.PLAYSTATION: Category.JOYPAD,
+	Type.XBOX: Category.JOYPAD,
+	Type.NINTENDO: Category.JOYPAD,
+	Type.UNKNOWN: Category.JOYPAD
+}
+
 signal input_type_changed(type_index)
 signal input_category_changed(category_index)
 
@@ -19,18 +30,14 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# Keyboard is used
 	if event is InputEventKey:
-		category = Category.KEYBOARD
 		type = Type.KEYBOARD
 	
 	# Touchscreen is used
 	elif event is InputEventScreenTouch:
-		category = Category.TOUCH
 		type = Type.TOUCH
 	
 	# When controller is used, detect controller type
 	elif (event is InputEventJoypadButton) or (event is InputEventJoypadMotion):
-		category = Category.JOYPAD
-		
 		var controller_name : String = Input.get_joy_name(0)
 		
 		if controller_name.contains("PlayStation") or controller_name.contains("DUALSHOCK"):
@@ -41,6 +48,8 @@ func _input(event: InputEvent) -> void:
 			type = Type.NINTENDO
 		else:
 			type = Type.UNKNOWN
+	
+	category = category_matches[type]
 	
 	# Controller/input type has changed
 	if type != last_type:
