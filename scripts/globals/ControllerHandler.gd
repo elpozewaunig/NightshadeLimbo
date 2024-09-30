@@ -6,8 +6,10 @@ var last_type : Type
 
 enum Category {KEYBOARD, TOUCH, JOYPAD}
 var category : Category = Category.KEYBOARD
+var last_category : Category
 
-signal input_method_changed(type_index)
+signal input_type_changed(type_index)
+signal input_category_changed(category_index)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,13 +19,13 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# Keyboard is used
 	if event is InputEventKey:
-		type = Type.KEYBOARD
 		category = Category.KEYBOARD
+		type = Type.KEYBOARD
 	
 	# Touchscreen is used
 	elif event is InputEventScreenTouch:
-		type = Type.TOUCH
 		category = Category.TOUCH
+		type = Type.TOUCH
 	
 	# When controller is used, detect controller type
 	elif (event is InputEventJoypadButton) or (event is InputEventJoypadMotion):
@@ -31,7 +33,7 @@ func _input(event: InputEvent) -> void:
 		
 		var controller_name : String = Input.get_joy_name(0)
 		
-		if controller_name.contains("PlayStation") or controller_name.contains("DUALSHOCK")  or controller_name.contains("XInput Gamepad"):
+		if controller_name.contains("PlayStation") or controller_name.contains("DUALSHOCK"):
 			type = Type.PLAYSTATION
 		elif controller_name.contains("Xbox"):
 			type = Type.XBOX
@@ -42,8 +44,12 @@ func _input(event: InputEvent) -> void:
 	
 	# Controller/input type has changed
 	if type != last_type:
-		input_method_changed.emit(type)
+		input_type_changed.emit(type)
 		last_type = type
+	
+	if category != last_category:
+		input_category_changed.emit(category)
+		last_category = category
 
 func vibrate(weak_magnitude: float, strong_magnitude: float, duration: float = 1) -> void:
 	if category == Category.JOYPAD:

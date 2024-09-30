@@ -17,10 +17,10 @@ func _ready() -> void:
 		ControllerHandler.Type.PLAYSTATION: playstation,
 		ControllerHandler.Type.XBOX: xbox,
 		ControllerHandler.Type.NINTENDO: nintendo,
-		ControllerHandler.Type.UNKNOWN: keyboard
+		ControllerHandler.Type.UNKNOWN: playstation
 	}
-	ControllerHandler.input_method_changed.connect(_on_input_method_changed)
-	_on_input_method_changed(ControllerHandler.type)
+	ControllerHandler.input_type_changed.connect(_on_input_type_changed)
+	_on_input_type_changed(ControllerHandler.type)
 
-func _on_input_method_changed(type: ControllerHandler.Type) -> void:
+func _on_input_type_changed(type: ControllerHandler.Type) -> void:
 	sprite.texture = textures[type]
