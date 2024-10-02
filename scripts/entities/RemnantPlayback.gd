@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 var current : int = 0
 var playback_data : Array[Dictionary]
 
-var stored_alpha : float
+var stored_alpha : float = modulate.a
 
 var enabled : bool = Data.remnant_active
 var playback_active : bool = false
@@ -19,7 +19,6 @@ func _ready() -> void:
 	if not playback_data.is_empty():
 		global_position = playback_data[0]["position"]
 	
-	stored_alpha = modulate.a
 	hide()
 
 

@@ -1,11 +1,6 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
 @export var pitch: float = 1.00
 @export var pitch_range: float = 0.05
 @export var type_speed: float = 0.3

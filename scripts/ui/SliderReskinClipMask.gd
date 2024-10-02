@@ -1,19 +1,13 @@
 extends Control
 
-var boxsize = 0
+var boxsize = size.x
 var maxv = 0
-var minv = 0
 
 @onready var slider: HSlider = $"../SliderButtonSrc"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	boxsize = size.x
 	maxv = slider.max_value + slider.min_value * -1
-	minv = 0
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 
 func _on_slider_button_src_value_changed(value: float) -> void:

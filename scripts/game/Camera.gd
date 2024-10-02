@@ -6,15 +6,10 @@ extends Camera2D
 @export var max_shake : Vector2 = Vector2(50, 50)
 
 var shaking : bool = false
-var neutral_zoom : Vector2
-var neutral_pos : Vector2
+var neutral_zoom : Vector2 = zoom
+var neutral_pos : Vector2 = position
 
 var time_elapsed : float = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	neutral_zoom = zoom
-	neutral_pos = position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

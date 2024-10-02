@@ -29,8 +29,6 @@ var time_spent : float = 0
 signal game_over
 signal boss_hit
 
-func _ready() -> void:
-	pass
 
 func _physics_process(delta: float) -> void:
 	# If timer has started for stat recording

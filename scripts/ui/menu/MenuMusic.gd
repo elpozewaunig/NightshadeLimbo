@@ -1,12 +1,11 @@
 extends AudioStreamPlayer
 
-var target_volume : float
+var target_volume : float = volume_db
 
 var scene_transition = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	target_volume = volume_db
 	volume_db -= 20
 
 

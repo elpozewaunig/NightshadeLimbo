@@ -3,6 +3,7 @@ extends ColorRect
 @export var transition_duration : float = 1.5
 var transition = false
 var quit = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()

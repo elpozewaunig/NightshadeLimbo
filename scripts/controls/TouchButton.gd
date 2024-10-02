@@ -5,14 +5,13 @@ extends TouchScreenButton
 
 @onready var click_sfx : AudioStreamPlayer = $ClickSFX
 
-var reset_modulate : Color
+var reset_modulate : Color = modulate
 
 var just_pressed : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
-	reset_modulate = modulate
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
