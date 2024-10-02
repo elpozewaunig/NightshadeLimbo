@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhdhnq55pliab"]
+[gd_scene load_steps=10 format=3 uid="uid://dhdhnq55pliab"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_e5yrl"]
 [ext_resource type="LabelSettings" uid="uid://dvgl0yeqhbjco" path="res://assets/settings/labels/menu_title_label_settingsl.tres" id="2_x463n"]
 [ext_resource type="LabelSettings" uid="uid://00c63tny82sf" path="res://assets/settings/labels/credits_label_settings.tres" id="3_xdbc8"]
 [ext_resource type="PackedScene" uid="uid://df8xqdg6jx3ei" path="res://scenes/ui/button_selector.tscn" id="4_x305k"]
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/button_row_config.tscn" id="5_0e47a"]
+[ext_resource type="PackedScene" uid="uid://csdvun3qsjoy2" path="res://scenes/ui/ui_scaler.tscn" id="6_1lcc5"]
 [ext_resource type="PackedScene" uid="uid://di3o5lslj817b" path="res://scenes/ui/button_area2D_close.tscn" id="6_qdxjt"]
 [ext_resource type="Script" path="res://scripts/ui/menu/BusController.gd" id="7_6jhtp"]
 [ext_resource type="PackedScene" uid="uid://gh1ggcgi0xnd" path="res://scenes/ui/button_slider.tscn" id="8_6vocn"]
@@ -106,10 +107,13 @@ button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePa
 
 [node name="ButtonRowConfig" parent="BackgroundColor/SettingsButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
 light_mask = 0
-buttons = [NodePath("CloseMenuButton")]
+buttons = [NodePath("UIScaler/CloseMenuButton")]
 
-[node name="CloseMenuButton" parent="BackgroundColor/SettingsButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("6_qdxjt")]
-position = Vector2(1790, 110)
+[node name="UIScaler" parent="BackgroundColor/SettingsButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("6_1lcc5")]
+mobile_position = Vector2(-362, -22)
+
+[node name="CloseMenuButton" parent="BackgroundColor/SettingsButtonSelector/ButtonRowConfig/UIScaler" index="0" instance=ExtResource("6_qdxjt")]
+position = Vector2(1810, 110)
 
 [node name="ButtonRowConfig2" parent="BackgroundColor/SettingsButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("5_0e47a")]
 light_mask = 0
@@ -202,7 +206,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SliderSFX" parent="BackgroundColor/BusController/SfxSlider" index="5"]
 bus = &"SFX"
 
-[connection signal="clicked" from="BackgroundColor/SettingsButtonSelector/ButtonRowConfig/CloseMenuButton" to="." method="_on_closed"]
+[connection signal="clicked" from="BackgroundColor/SettingsButtonSelector/ButtonRowConfig/UIScaler/CloseMenuButton" to="." method="_on_closed"]
 
 [editable path="BackgroundColor/BusController/TotalVolumeSlider"]
 [editable path="BackgroundColor/BusController/MusicSlider"]

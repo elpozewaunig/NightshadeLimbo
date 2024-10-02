@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cs5d1e1oq65hf"]
+[gd_scene load_steps=38 format=3 uid="uid://cs5d1e1oq65hf"]
 
 [ext_resource type="PackedScene" uid="uid://4ltw4ue7a55q" path="res://scenes/ui/submenu.tscn" id="1_426du"]
 [ext_resource type="Texture2D" uid="uid://dqk80mvdvka7u" path="res://assets/sprites/background.jpg" id="2_ho7xl"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://gokqxajtnsko" path="res://assets/shaders/shader_overlays/screenvignette.png" id="16_avy2b"]
 [ext_resource type="PackedScene" uid="uid://bm3cidpku330i" path="res://scenes/ui/button_area2D.tscn" id="17_bgwk8"]
 [ext_resource type="FontFile" uid="uid://f00e528g8awo" path="res://assets/fonts/adrip1.ttf" id="18_gddlt"]
+[ext_resource type="PackedScene" uid="uid://csdvun3qsjoy2" path="res://scenes/ui/ui_scaler.tscn" id="19_7ijcd"]
 [ext_resource type="Texture2D" uid="uid://cof07gc1h0uoo" path="res://assets/sprites/eyes_bg.png" id="19_chnp1"]
 [ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantEnabledLayer.gd" id="19_r8ekq"]
 [ext_resource type="PackedScene" uid="uid://bogdpw0iwj2bl" path="res://scenes/ui/button_area2d_toggle.tscn" id="19_snqau"]
@@ -211,27 +212,33 @@ button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
 [node name="ButtonRowConfig" parent="MainSubmenu/TutorialButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
 light_mask = 0
-buttons = [NodePath("CloseButton")]
+buttons = [NodePath("UIScaler/CloseButton")]
 
-[node name="CloseButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
+[node name="UIScaler" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("19_7ijcd")]
+mobile_position = Vector2(-200, 120)
+
+[node name="CloseButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig/UIScaler" index="0" instance=ExtResource("15_7orun")]
 position = Vector2(860, -440)
 
 [node name="ButtonRowConfig2" parent="MainSubmenu/TutorialButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
 light_mask = 0
-buttons = [NodePath("TooHardButton")]
+buttons = [NodePath("UIScaler/TooHardButton")]
 
-[node name="TooHardButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("17_bgwk8")]
+[node name="UIScaler" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("19_7ijcd")]
+mobile_position = Vector2(-220, -100)
+
+[node name="TooHardButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler" index="0" instance=ExtResource("17_bgwk8")]
 position = Vector2(800, 450)
 scale = Vector2(0.65, 0.65)
 script = ExtResource("19_w1ycx")
 
-[node name="AnimatedSprite2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" index="1"]
+[node name="AnimatedSprite2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton" index="1"]
 scale = Vector2(1.325, 1)
 
-[node name="Label" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" index="2"]
+[node name="Label" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton" index="2"]
 text = "Still too hard?"
 
-[node name="CollisionShape2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton/Area2DButtonSrc" index="0"]
+[node name="CollisionShape2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton/Area2DButtonSrc" index="0"]
 position = Vector2(0.5, 0)
 
 [node name="RemnantSubmenu" parent="." index="2" instance=ExtResource("1_426du")]
@@ -327,9 +334,12 @@ button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2")]
 
 [node name="ButtonRowConfig" parent="RemnantSubmenu/RemnantButtonSelector" index="0" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
 light_mask = 0
-buttons = [NodePath("CloseButton")]
+buttons = [NodePath("UIScaler/CloseButton")]
 
-[node name="CloseButton" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("15_7orun")]
+[node name="UIScaler" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("19_7ijcd")]
+mobile_position = Vector2(-200, 120)
+
+[node name="CloseButton" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/UIScaler" index="0" instance=ExtResource("15_7orun")]
 position = Vector2(860, -440)
 
 [node name="ButtonRowConfig2" parent="RemnantSubmenu/RemnantButtonSelector" index="1" node_paths=PackedStringArray("buttons") instance=ExtResource("14_k0sss")]
@@ -381,11 +391,11 @@ bus = &"Music"
 parameters/looping = true
 script = ExtResource("22_4nqm7")
 
-[connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig/CloseButton" to="." method="_on_closed"]
-[connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" to="RemnantSubmenu" method="_on_opened"]
+[connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig/UIScaler/CloseButton" to="." method="_on_closed"]
+[connection signal="clicked" from="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton" to="RemnantSubmenu" method="_on_opened"]
 [connection signal="closed" from="RemnantSubmenu" to="MainSubmenu" method="_on_opened"]
-[connection signal="clicked" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/CloseButton" to="RemnantSubmenu" method="_on_closed"]
+[connection signal="clicked" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/UIScaler/CloseButton" to="RemnantSubmenu" method="_on_closed"]
 [connection signal="toggled" from="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" to="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" method="_on_toggled"]
 
-[editable path="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
+[editable path="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton"]
 [editable path="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]

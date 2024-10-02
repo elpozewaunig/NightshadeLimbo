@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=3 uid="uid://muherruagjtj"]
+[gd_scene load_steps=196 format=3 uid="uid://muherruagjtj"]
 
 [ext_resource type="Texture2D" uid="uid://c2bje8uut1obr" path="res://assets/sprites/storelight.png" id="1_6do2r"]
 [ext_resource type="Texture2D" uid="uid://cyv2u7crai7ao" path="res://assets/sprites/lighttry1.png" id="2_hvtn2"]
@@ -72,6 +72,7 @@
 [ext_resource type="PackedScene" uid="uid://dhdhnq55pliab" path="res://scenes/ui/menus/settings_submenu.tscn" id="52_c1ie3"]
 [ext_resource type="PackedScene" uid="uid://cs5d1e1oq65hf" path="res://scenes/ui/menus/tutorial_submenu.tscn" id="57_rmgxc"]
 [ext_resource type="Texture2D" uid="uid://bcv7gwmef58wi" path="res://assets/sprites/fog.png" id="59_fo3r4"]
+[ext_resource type="PackedScene" uid="uid://csdvun3qsjoy2" path="res://scenes/ui/ui_scaler.tscn" id="61_urmua"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6tmgd"]
 polygon = PackedVector2Array(1636, 861, 1632, -140, 1862, -320, 1858, 1031, -369, 1011, -367, -301, -177, -140, -185, 865)
@@ -1581,7 +1582,7 @@ layer = 3
 [node name="InputModeManager" parent="Camera2D/Overlays/CanvasLayer" node_paths=PackedStringArray("selectors_to_sync") instance=ExtResource("47_d1mlr")]
 light_mask = 0
 position = Vector2(0, 0)
-selectors_to_sync = [NodePath("../IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector"), NodePath("../IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector"), NodePath("../PauseScreen/PauseMenu/PauseMenuButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector"), NodePath("../PauseScreen/SettingsSubmenu/BackgroundColor/SettingsButtonSelector")]
+selectors_to_sync = [NodePath("../IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector"), NodePath("../IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector"), NodePath("../PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector"), NodePath("../PauseScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector"), NodePath("../PauseScreen/SettingsSubmenu/BackgroundColor/SettingsButtonSelector")]
 
 [node name="Vignette" type="Sprite2D" parent="Camera2D/Overlays/CanvasLayer"]
 light_mask = 0
@@ -1679,7 +1680,7 @@ texture = ExtResource("10_roquk")
 visible = false
 position = Vector2(960, 540)
 
-[node name="TooHardButton" parent="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0"]
+[node name="TooHardButton" parent="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler" index="0"]
 visible = false
 
 [node name="ClickOffSFX" parent="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="6"]
@@ -1749,7 +1750,7 @@ vertical_alignment = 1
 
 [node name="PauseTouchButton" parent="Camera2D/Overlays/CanvasLayer" instance=ExtResource("37_tkc1d")]
 visible = false
-position = Vector2(1910, -59)
+position = Vector2(1750, 40)
 scale = Vector2(0.65, 0.65)
 texture_normal = ExtResource("38_u6nh8")
 shape = SubResource("RectangleShape2D_7qxcv")
@@ -1821,47 +1822,49 @@ label_settings = SubResource("LabelSettings_vpns3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PauseMenuButtonSelector" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
+[node name="UIScaler" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu" instance=ExtResource("61_urmua")]
+
+[node name="PauseMenuButtonSelector" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler" node_paths=PackedStringArray("button_rows") instance=ExtResource("43_j1v2b")]
 light_mask = 0
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3"), NodePath("ButtonRowConfig4")]
 
-[node name="ButtonRowConfig" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("ContinueButton")]
 
-[node name="ContinueButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
+[node name="ContinueButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, -100)
 
-[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" index="2"]
 text = "Continue"
 
-[node name="ButtonRowConfig2" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig2" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 buttons = [NodePath("TutorialButton")]
 
-[node name="TutorialButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
+[node name="TutorialButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig2" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 50)
 
-[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" index="2"]
 text = "Tutorial"
 
-[node name="ButtonRowConfig3" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig3" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("SettingsButton")]
 
-[node name="SettingsButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3" instance=ExtResource("44_8ttwp")]
+[node name="SettingsButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig3" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 200)
 
-[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" index="2"]
 text = "Settings"
 
-[node name="ButtonRowConfig4" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
+[node name="ButtonRowConfig4" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("47_hsw4w")]
 light_mask = 0
 buttons = [NodePath("ExitButton")]
 
-[node name="ExitButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4" instance=ExtResource("44_8ttwp")]
+[node name="ExitButton" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig4" instance=ExtResource("44_8ttwp")]
 position = Vector2(0, 350)
 
-[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" index="2"]
+[node name="Label" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" index="2"]
 text = "Exit to menu"
 
 [node name="TutorialSubmenu" parent="Camera2D/Overlays/CanvasLayer/PauseScreen" instance=ExtResource("57_rmgxc")]
@@ -1936,7 +1939,7 @@ parameters/looping = true
 [connection signal="chance_missed" from="Boss" to="Camera2D/Overlays/CanvasLayer/GameOverScreen" method="_on_chance_missed"]
 [connection signal="defeated" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="ExplodingTomato" method="_on_boss_defeated"]
-[connection signal="defeated" from="Boss" to="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton" method="_on_boss_defeated"]
+[connection signal="defeated" from="Boss" to="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton" method="_on_boss_defeated"]
 [connection signal="defeated" from="Boss" to="MusicManager" method="_on_boss_defeated"]
 [connection signal="destroy_obstacle" from="Boss" to="Obstacles" method="_on_destroy_obstacle"]
 [connection signal="player_hit" from="Boss" to="PlayerClippingMask/Player" method="_on_boss_hit"]
@@ -1957,18 +1960,18 @@ parameters/looping = true
 [connection signal="permit_movement" from="Camera2D/Overlays/CanvasLayer/IntroScreen" to="PlayerClippingMask/Player" method="_on_intro_permit_movement"]
 [connection signal="closed" from="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu" to="Camera2D/Overlays/CanvasLayer/IntroScreen" method="_on_tutorial_closed"]
 [connection signal="pressed" from="Camera2D/Overlays/CanvasLayer/PauseTouchButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_pause_touch_button_pressed"]
-[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_continue_button_clicked"]
-[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu" method="_on_opened"]
-[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/SettingsSubmenu" method="_on_opened"]
-[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_exit_button_clicked"]
-[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector" method="disable"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_continue_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu" method="_on_opened"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/SettingsSubmenu" method="_on_opened"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen" method="_on_exit_button_clicked"]
+[connection signal="clicked" from="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton" to="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector" method="disable"]
 [connection signal="closed" from="Camera2D/Overlays/CanvasLayer/PauseScreen/TutorialSubmenu" to="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu" method="_on_opened"]
 [connection signal="closed" from="Camera2D/Overlays/CanvasLayer/PauseScreen/SettingsSubmenu" to="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu" method="_on_opened"]
 
 [editable path="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu"]
-[editable path="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/TooHardButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton"]
 [editable path="Camera2D/Overlays/CanvasLayer/IntroScreen/TutorialSubmenu/RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle"]
-[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton"]
-[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton"]
-[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton"]
-[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig/ContinueButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig2/TutorialButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig3/SettingsButton"]
+[editable path="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu/UIScaler/PauseMenuButtonSelector/ButtonRowConfig4/ExitButton"]
