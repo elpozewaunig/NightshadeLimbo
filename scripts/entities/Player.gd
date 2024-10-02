@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("game_attack") or attack_btn.is_just_pressed:
 			if fight_back:
+				ControllerHandler.touch_haptic_feedback()
 				animation.play("attack")
 				animation.queue("chibicycle")
 	
