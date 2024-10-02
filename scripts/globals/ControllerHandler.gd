@@ -5,7 +5,7 @@ var type : Type = Type.KEYBOARD
 var last_type : Type
 
 enum Category {KEYBOARD, TOUCH, JOYPAD}
-var category : Category = Category.KEYBOARD
+var category : Category
 var last_category : Category
 
 var category_matches : Dictionary = {
@@ -26,6 +26,13 @@ signal input_category_changed(category_index)
 func _ready() -> void:
 	# Always run detector in background, even when paused
 	process_mode = PROCESS_MODE_ALWAYS
+	
+	# If a mobile OS is detected, initially assume input mode as touch
+	if OS.get_name() == "Android" or OS.get_name() == "iOS":
+		type = Type.TOUCH
+	
+	# Assign correct category based on type
+	category = category_matches[type]
 
 func _input(event: InputEvent) -> void:
 	# Keyboard is used
