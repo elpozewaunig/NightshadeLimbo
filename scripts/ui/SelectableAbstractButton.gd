@@ -73,7 +73,14 @@ func default_behavior(_delta: float) -> void:
 	pass
 
 func is_selected() -> bool:
-	return (ext_selected and highlight_active) or (mouse_inside and not highlight_active)
+	return is_ext_highlighted() or is_mouse_selected() or (is_being_used() and not highlight_active)
+
+func is_ext_highlighted() -> bool:
+	return ext_selected and highlight_active
 
 func is_mouse_selected() -> bool:
 	return mouse_inside and not highlight_active
+
+func is_being_used() -> bool:
+	# Should be overridden by UI elements that keep their active state during mouse movement
+	return false

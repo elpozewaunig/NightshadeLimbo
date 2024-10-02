@@ -12,6 +12,7 @@ signal value_changed(value)
 
 var slider_speed : float = 30
 var time_held : float = 0
+var currently_used : bool = false
 
 func selection_behavior(delta: float) -> void:
 	box.modulate = Color(selected_color)
@@ -36,8 +37,18 @@ func default_behavior(_delta: float) -> void:
 	box.modulate = Color(default_color)
 	grabber.visible = false
 
+
 func _on_slider_value_changed(value: float) -> void:
 	value_changed.emit(value)
 	
 	if acoustic_feedback and not slider_sfx.playing:
 		slider_sfx.play()
+
+func _on_drag_started() -> void:
+	currently_used = true
+
+func _on_drag_ended(_value_changed: bool) -> void:
+	currently_used = false
+
+func is_being_used() -> bool:
+	return currently_used
