@@ -21,9 +21,9 @@ func _process(delta: float) -> void:
 	elif scene_transition:
 		volume_db -= delta * 10
 
+
 func _on_start_button_clicked() -> void:
 	scene_transition = true
-
 
 func _on_quit_button_clicked() -> void:
 	scene_transition = true
