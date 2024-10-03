@@ -26,7 +26,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Only show when enabled and touch is used
-	if enabled and ControllerHandler.type == ControllerHandler.Type.TOUCH:
+	if enabled and ControllerHandler.category == ControllerHandler.Category.TOUCH:
 		show()
 	else:
 		hide()
