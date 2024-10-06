@@ -12,16 +12,12 @@ var just_pressed : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
+	ControllerHandler.input_category_changed.connect(_on_input_category_changed)
+	_on_input_category_changed(ControllerHandler.category)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	# Only show when touch is used
-	if ControllerHandler.category == ControllerHandler.Category.TOUCH:
-		show()
-	else:
-		hide()
-	
 	if just_pressed:
 		set_deferred("is_just_pressed", false)
 
@@ -39,3 +35,10 @@ func _on_pressed() -> void:
 
 func _on_released() -> void:
 	modulate = reset_modulate
+
+func _on_input_category_changed(category: ControllerHandler.Category) -> void:
+	# Only show when touch is used
+	if category == ControllerHandler.Category.TOUCH:
+		show()
+	else:
+		hide()
