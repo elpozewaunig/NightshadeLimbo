@@ -129,7 +129,8 @@ selectors_to_sync = [NodePath("../MainSubmenu/UIScaler/MainMenuButtonSelector"),
 [node name="SubmenuManager" parent="UI" node_paths=PackedStringArray("submenus") instance=ExtResource("3_bmp7t")]
 submenus = [NodePath("../MainSubmenu"), NodePath("../CreditsSubmenu"), NodePath("../SettingsSubmenu")]
 
-[node name="MainSubmenu" parent="UI" instance=ExtResource("20_oquwj")]
+[node name="MainSubmenu" parent="UI" node_paths=PackedStringArray("ui_scalers") instance=ExtResource("20_oquwj")]
+ui_scalers = [NodePath("Title/UIScaler"), NodePath("UIScaler")]
 
 [node name="BG" type="Sprite2D" parent="UI/MainSubmenu"]
 self_modulate = Color(0.785334, 0.785334, 0.785334, 1)
@@ -237,8 +238,9 @@ scale = Vector2(0.6, 0.85)
 [node name="Label" parent="UI/MainSubmenu/UIScaler/MainMenuButtonSelector/ButtonRowConfig3/QuitButton" index="2"]
 text = "Quit"
 
-[node name="CreditsSubmenu" parent="UI" instance=ExtResource("20_oquwj")]
+[node name="CreditsSubmenu" parent="UI" node_paths=PackedStringArray("ui_scalers") instance=ExtResource("20_oquwj")]
 visible = false
+ui_scalers = [NodePath("BackgroundColor/CreditsButtonSelector/ButtonRowConfig/UIScaler")]
 
 [node name="BackgroundColor" type="ColorRect" parent="UI/CreditsSubmenu"]
 offset_left = -960.0

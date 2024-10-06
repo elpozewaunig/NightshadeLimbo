@@ -10,8 +10,9 @@
 [ext_resource type="Script" path="res://scripts/ui/menu/BusController.gd" id="7_6jhtp"]
 [ext_resource type="PackedScene" uid="uid://gh1ggcgi0xnd" path="res://scenes/ui/button_slider.tscn" id="8_6vocn"]
 
-[node name="SettingsSubmenu" instance=ExtResource("1_e5yrl")]
+[node name="SettingsSubmenu" node_paths=PackedStringArray("ui_scalers") instance=ExtResource("1_e5yrl")]
 light_mask = 0
+ui_scalers = [NodePath("BackgroundColor/SettingsButtonSelector/ButtonRowConfig/UIScaler")]
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="0"]
 light_mask = 0

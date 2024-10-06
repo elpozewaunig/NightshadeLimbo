@@ -1,5 +1,6 @@
 @tool
 extends Node2D
+class_name UIScaler
 
 @export_group("Editor Preview")
 @export var preview_mobile : bool = false
@@ -16,6 +17,8 @@ func _ready() -> void:
 		ControllerHandler.input_category_changed.connect(_on_input_category_changed)
 		_on_input_category_changed(ControllerHandler.category)
 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Generate position preview in editor
 	if Engine.is_editor_hint():

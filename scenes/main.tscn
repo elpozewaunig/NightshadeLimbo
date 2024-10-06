@@ -1767,8 +1767,9 @@ script = ExtResource("43_8c0bu")
 light_mask = 0
 submenus = [NodePath("../PauseMenu"), NodePath("../TutorialSubmenu"), NodePath("../SettingsSubmenu")]
 
-[node name="PauseMenu" parent="Camera2D/Overlays/CanvasLayer/PauseScreen" instance=ExtResource("48_cvxgy")]
+[node name="PauseMenu" parent="Camera2D/Overlays/CanvasLayer/PauseScreen" node_paths=PackedStringArray("ui_scalers") instance=ExtResource("48_cvxgy")]
 light_mask = 0
+ui_scalers = [NodePath("UIScaler")]
 
 [node name="Background" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer/PauseScreen/PauseMenu"]
 light_mask = 0

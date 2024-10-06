@@ -71,8 +71,9 @@ light_mask = 0
 light_mask = 0
 submenus = [NodePath("../MainSubmenu"), NodePath("../RemnantSubmenu")]
 
-[node name="MainSubmenu" parent="." index="1" instance=ExtResource("1_426du")]
+[node name="MainSubmenu" parent="." index="1" node_paths=PackedStringArray("ui_scalers") instance=ExtResource("1_426du")]
 light_mask = 0
+ui_scalers = [NodePath("TutorialButtonSelector/ButtonRowConfig/UIScaler"), NodePath("TutorialButtonSelector/ButtonRowConfig2/UIScaler")]
 
 [node name="Background" type="Sprite2D" parent="MainSubmenu" index="0"]
 light_mask = 0
@@ -243,9 +244,10 @@ text = "Still too hard?"
 [node name="CollisionShape2D" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler/TooHardButton/Area2DButtonSrc" index="0"]
 position = Vector2(0.5, 0)
 
-[node name="RemnantSubmenu" parent="." index="2" instance=ExtResource("1_426du")]
+[node name="RemnantSubmenu" parent="." index="2" node_paths=PackedStringArray("ui_scalers") instance=ExtResource("1_426du")]
 visible = false
 light_mask = 0
+ui_scalers = [NodePath("RemnantButtonSelector/ButtonRowConfig/UIScaler")]
 
 [node name="ColorRect" type="ColorRect" parent="RemnantSubmenu" index="0"]
 light_mask = 0
