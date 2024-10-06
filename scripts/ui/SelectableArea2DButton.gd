@@ -10,6 +10,7 @@ class_name SelectableArea2DButton
 @onready var collider = $Area2DButtonSrc/CollisionShape2D
 
 var prev_visible = false
+var prev_scale = global_scale
 var require_release = true
 
 signal clicked
@@ -24,10 +25,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	# If the button was just shown, require input to be released before it can be clicked
-	if is_visible_in_tree() != prev_visible:
+	# If the button was just shown or resized
+	if is_visible_in_tree() != prev_visible or global_scale != prev_scale:
+		# Require input to be released before it can be clicked
 		require_release = true
 		prev_visible = is_visible_in_tree()
+		prev_scale = global_scale 
 	
 	# Poll for behavior
 	super._process(delta)
@@ -44,7 +47,7 @@ func selection_behavior(_delta: float) -> void:
 	modulate = Color(selected_color)
 	sprite.frame = 1
 		
-	if (Input.is_action_just_pressed("ui_click") and is_mouse_selected()) or Input.is_action_just_pressed("ui_select") and not require_release:
+	if ((Input.is_action_just_pressed("ui_click") and is_mouse_selected()) or Input.is_action_just_pressed("ui_select")) and not require_release:
 		click_action()
 
 func default_behavior(_delta: float) -> void:
