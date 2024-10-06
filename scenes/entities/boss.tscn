@@ -2559,7 +2559,6 @@ visible = false
 occluder = SubResource("OccluderPolygon2D_3v6nc")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="OccluderMimic"]
-visible = false
 occluder = SubResource("OccluderPolygon2D_26ud2")
 
 [node name="LightOccluder2D4" type="LightOccluder2D" parent="OccluderMimic"]
