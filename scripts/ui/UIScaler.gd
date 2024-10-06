@@ -6,7 +6,7 @@ extends Node2D
 
 @export_group("Mobile Transform")
 @export var mobile_position : Vector2
-@export var mobile_scale : Vector2 = Vector2(1.2, 1.2)
+@export var mobile_scale : Vector2 = Vector2(1, 1)
 var default_position : Vector2 = position
 var default_scale : Vector2 = scale
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 		ControllerHandler.input_category_changed.connect(_on_input_category_changed)
 		_on_input_category_changed(ControllerHandler.category)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Generate position preview in editor
 	if Engine.is_editor_hint():
 		if preview_mobile:

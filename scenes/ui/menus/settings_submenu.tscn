@@ -110,7 +110,8 @@ light_mask = 0
 buttons = [NodePath("UIScaler/CloseMenuButton")]
 
 [node name="UIScaler" parent="BackgroundColor/SettingsButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("6_1lcc5")]
-mobile_position = Vector2(-362, -22)
+mobile_position = Vector2(-920, -35)
+mobile_scale = Vector2(1.5, 1.5)
 
 [node name="CloseMenuButton" parent="BackgroundColor/SettingsButtonSelector/ButtonRowConfig/UIScaler" index="0" instance=ExtResource("6_qdxjt")]
 position = Vector2(1810, 110)

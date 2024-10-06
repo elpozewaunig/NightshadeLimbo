@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgn5ighrttryb"]
+[gd_scene load_steps=14 format=3 uid="uid://bgn5ighrttryb"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Cutscene.gd" id="1_8yita"]
 [ext_resource type="PackedScene" uid="uid://muherruagjtj" path="res://scenes/main.tscn" id="2_nmqqy"]
@@ -46,6 +46,10 @@ _data = {
 "RESET": SubResource("Animation_tv4xh"),
 "blink": SubResource("Animation_dfiw0")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_5bb0l"]
+font_size = 30
+font_color = Color(0.368479, 0.368479, 0.368479, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d154h"]
 size = Vector2(239.86, 154.875)
@@ -141,7 +145,6 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("2_ommmk")
 
 [node name="HoldToSkip" type="Label" parent="Control/HBoxContainer/RightRibbon"]
-self_modulate = Color(1, 1, 1, 0.145098)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -152,8 +155,8 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 22
-text = "Hold        to Skip"
+text = "Hold      to Skip"
+label_settings = SubResource("LabelSettings_5bb0l")
 horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/HBoxContainer/RightRibbon/HoldToSkip"]
@@ -168,12 +171,12 @@ show_percentage = false
 
 [node name="SmartInputIcon" parent="Control/HBoxContainer/RightRibbon/HoldToSkip" instance=ExtResource("5_cnvi6")]
 modulate = Color(1, 1, 1, 0.288)
-position = Vector2(169.985, 16)
+position = Vector2(166, 20)
 scale = Vector2(0.135, 0.135)
 
 [node name="SkipTouchButton" parent="Control/HBoxContainer/RightRibbon" instance=ExtResource("7_v458j")]
 visible = false
-position = Vector2(187, 24)
+position = Vector2(135, 60)
 scale = Vector2(1.375, 1.375)
 shape = SubResource("RectangleShape2D_d154h")
 

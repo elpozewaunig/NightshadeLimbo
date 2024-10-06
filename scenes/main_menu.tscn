@@ -151,20 +151,27 @@ libraries = {
 }
 autoplay = "scaryfadeflicker"
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/MainSubmenu"]
-position = Vector2(701, -383.345)
+[node name="Title" type="Node2D" parent="UI/MainSubmenu"]
+position = Vector2(-960, -540)
+
+[node name="UIScaler" parent="UI/MainSubmenu/Title" instance=ExtResource("8_lto26")]
+mobile_position = Vector2(-850, -50)
+mobile_scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/MainSubmenu/Title/UIScaler"]
+position = Vector2(1661, 156.655)
 scale = Vector2(0.65, 0.522)
 texture = ExtResource("6_ngex0")
 
-[node name="Label" type="Label" parent="UI/MainSubmenu"]
+[node name="Label" type="Label" parent="UI/MainSubmenu/Title/UIScaler"]
 self_modulate = Color(1, 1, 1, 0.980392)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 102.0
-offset_top = -442.0
-offset_right = 1079.0
-offset_bottom = -195.0
+offset_left = 1062.0
+offset_top = 98.0
+offset_right = 2039.0
+offset_bottom = 345.0
 grow_horizontal = 2
 scale = Vector2(0.73813, 0.73813)
 text = "Nightshade Limbo"
@@ -172,12 +179,13 @@ label_settings = SubResource("LabelSettings_0c7lh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="UI/MainSubmenu"]
-position = Vector2(460, -342)
+[node name="GPUParticles2D" type="GPUParticles2D" parent="UI/MainSubmenu/Title/UIScaler"]
+position = Vector2(1420, 198)
 process_material = SubResource("ParticleProcessMaterial_fvk6i")
 
 [node name="UIScaler" parent="UI/MainSubmenu" instance=ExtResource("8_lto26")]
-mobile_position = Vector2(200, -110)
+mobile_position = Vector2(450, -250)
+mobile_scale = Vector2(1.5, 1.5)
 
 [node name="MainMenuButtonSelector" parent="UI/MainSubmenu/UIScaler" node_paths=PackedStringArray("button_rows") instance=ExtResource("7_ls1if")]
 button_rows = [NodePath("ButtonRowConfig"), NodePath("ButtonRowConfig2"), NodePath("ButtonRowConfig3")]
@@ -244,11 +252,15 @@ color = Color(0, 0, 0, 1)
 button_rows = [NodePath("ButtonRowConfig")]
 
 [node name="ButtonRowConfig" parent="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector" node_paths=PackedStringArray("buttons") instance=ExtResource("9_n4m28")]
-buttons = [NodePath("CloseMenuButton")]
+buttons = [NodePath("UIScaler/CloseMenuButton")]
 
-[node name="CloseMenuButton" parent="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig" instance=ExtResource("13_jvtd0")]
+[node name="UIScaler" parent="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig" instance=ExtResource("8_lto26")]
+mobile_position = Vector2(-920, -35)
+mobile_scale = Vector2(1.5, 1.5)
+
+[node name="CloseMenuButton" parent="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig/UIScaler" instance=ExtResource("13_jvtd0")]
 light_mask = 1
-position = Vector2(1790, 110)
+position = Vector2(1810, 110)
 
 [node name="Title" type="Label" parent="UI/CreditsSubmenu/BackgroundColor"]
 layout_mode = 1
@@ -560,7 +572,7 @@ script = ExtResource("21_otmm1")
 [connection signal="clicked" from="UI/MainSubmenu/UIScaler/MainMenuButtonSelector/ButtonRowConfig3/QuitButton" to="UI/SceneTransition" method="_on_quit_button_clicked"]
 [connection signal="clicked" from="UI/MainSubmenu/UIScaler/MainMenuButtonSelector/ButtonRowConfig3/QuitButton" to="MenuMusic" method="_on_quit_button_clicked"]
 [connection signal="closed" from="UI/CreditsSubmenu" to="UI/MainSubmenu" method="_on_opened"]
-[connection signal="clicked" from="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig/CloseMenuButton" to="UI/CreditsSubmenu" method="_on_closed"]
+[connection signal="clicked" from="UI/CreditsSubmenu/BackgroundColor/CreditsButtonSelector/ButtonRowConfig/UIScaler/CloseMenuButton" to="UI/CreditsSubmenu" method="_on_closed"]
 [connection signal="closed" from="UI/SettingsSubmenu" to="UI/MainSubmenu" method="_on_opened"]
 
 [editable path="UI/MainSubmenu/UIScaler/MainMenuButtonSelector/ButtonRowConfig/StartButton"]

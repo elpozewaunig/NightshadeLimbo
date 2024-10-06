@@ -215,7 +215,8 @@ light_mask = 0
 buttons = [NodePath("UIScaler/CloseButton")]
 
 [node name="UIScaler" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("19_7ijcd")]
-mobile_position = Vector2(-200, 120)
+mobile_position = Vector2(-450, 250)
+mobile_scale = Vector2(1.5, 1.5)
 
 [node name="CloseButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig/UIScaler" index="0" instance=ExtResource("15_7orun")]
 position = Vector2(860, -440)
@@ -225,7 +226,8 @@ light_mask = 0
 buttons = [NodePath("UIScaler/TooHardButton")]
 
 [node name="UIScaler" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2" index="0" instance=ExtResource("19_7ijcd")]
-mobile_position = Vector2(-220, -100)
+mobile_position = Vector2(-550, -300)
+mobile_scale = Vector2(1.6, 1.6)
 
 [node name="TooHardButton" parent="MainSubmenu/TutorialButtonSelector/ButtonRowConfig2/UIScaler" index="0" instance=ExtResource("17_bgwk8")]
 position = Vector2(800, 450)
@@ -305,7 +307,7 @@ text = "Force a long-dead version of your soul
 to relive its eternal torment.
 
 Maybe there is some wisdom to be learned.
-Maybe you will doom both of you to endless suffering"
+Maybe you will doom both of you to endless suffering."
 label_settings = ExtResource("8_ib0yt")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -337,7 +339,8 @@ light_mask = 0
 buttons = [NodePath("UIScaler/CloseButton")]
 
 [node name="UIScaler" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig" index="0" instance=ExtResource("19_7ijcd")]
-mobile_position = Vector2(-200, 120)
+mobile_position = Vector2(-450, 250)
+mobile_scale = Vector2(1.5, 1.5)
 
 [node name="CloseButton" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig/UIScaler" index="0" instance=ExtResource("15_7orun")]
 position = Vector2(860, -440)
