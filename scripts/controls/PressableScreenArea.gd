@@ -36,9 +36,11 @@ func _unhandled_input(event: InputEvent):
 			is_just_pressed = true
 			sprite.global_position = event.position
 			sprite.frame = 1
+			modulate.a = 0.5
 	
 	# Screen was just released
 	if event is InputEventScreenTouch and not event.pressed:
 		is_pressed = false
 		sprite.position = reset_position
 		sprite.frame = 0
+		modulate.a = 1

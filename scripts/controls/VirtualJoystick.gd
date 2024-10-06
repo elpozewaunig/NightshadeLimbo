@@ -46,12 +46,14 @@ func _unhandled_input(event: InputEvent):
 			drag_active = true
 			drag_index = event.index
 			joystick.global_position = event.position
+			modulate.a = 0.5
 	
 	# Screen was just released
 	if event is InputEventScreenTouch and not event.pressed and event.index == drag_index:
 		drag_active = false
 		input = Vector2(0, 0)
 		joystick.position = reset_position
+		modulate.a = 1
 		prev_deadzone = true
 	
 	# Screen is currently being dragged
