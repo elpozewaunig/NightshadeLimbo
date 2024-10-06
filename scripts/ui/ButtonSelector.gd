@@ -2,7 +2,6 @@ extends Node2D
 class_name ButtonSelector
 
 @export var button_rows : Array[ButtonRowConfig] = []
-@export var default_active : bool = false
 
 var highlight_active = false
 var highlight_row = 0
@@ -32,17 +31,10 @@ func _ready() -> void:
 			
 			# Connect self to button's select signal
 			button.selected.connect(_on_btn_selected)
-	
-	if default_active:
-		enable_highlight()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# Notify input manager of mode when active by default, cannot be done in _ready
-	if default_active:
-		set_key_mode.emit(self)
-		default_active = false
-	
 	if get_current_button().is_visible_in_tree() and not get_current_button().disabled:
 		var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		if input:
