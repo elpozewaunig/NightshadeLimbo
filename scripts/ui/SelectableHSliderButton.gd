@@ -40,6 +40,7 @@ func default_behavior(_delta: float) -> void:
 
 func _on_slider_value_changed(value: float) -> void:
 	value_changed.emit(value)
+	ControllerHandler.touch_haptic_feedback()
 	
 	if acoustic_feedback and not slider_sfx.playing:
 		slider_sfx.play()
