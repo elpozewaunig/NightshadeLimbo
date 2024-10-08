@@ -30,3 +30,4 @@ func click_action() -> void:
 		click_sfx.play()
 	else:
 		off_sfx.play()
+	ControllerHandler.touch_haptic_feedback()
