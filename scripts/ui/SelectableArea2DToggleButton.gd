@@ -6,7 +6,7 @@ class_name SelectableArea2DToggleButton
 
 @export var toggled_fill_color : Color = Color("9e001f")
 
-var active = false
+var active : bool = false
 
 signal toggled(active)
 

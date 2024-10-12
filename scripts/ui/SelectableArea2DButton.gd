@@ -9,9 +9,9 @@ class_name SelectableArea2DButton
 @onready var click_sfx = $ClickSFX
 @onready var collider = $Area2DButtonSrc/CollisionShape2D
 
-var prev_visible = false
-var prev_scale = global_scale
-var require_release = true
+var prev_visible : bool = false
+var prev_scale : Vector2 = global_scale
+var require_release : bool = true
 
 signal clicked
 

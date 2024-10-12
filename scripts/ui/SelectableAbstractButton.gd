@@ -6,10 +6,10 @@ class_name SelectableButton
 @export var selected_color: Color = Color("ff7070")
 @export var default_color: Color = Color("ffffff")
 
-var mouse_inside = false
-var disabled = false
-var highlight_active = false
-var ext_selected = false
+var mouse_inside : bool = false
+var disabled : bool = false
+var highlight_active : bool = false
+var ext_selected : bool = false
 
 signal selected(selectable)
 
@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 	# Don't perform selection if the mouse cursor is only "left over" after touch input
 	and (ControllerHandler.category != ControllerHandler.Category.TOUCH or Input.is_action_pressed("ui_click"))):
 		selection_behavior(delta)
+		
 	else:
 		default_behavior(delta)
 
