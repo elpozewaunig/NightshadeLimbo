@@ -17,7 +17,9 @@ signal selected(selectable)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# If the button is selected (either through the mouse or key input)
-	if is_visible_in_tree() and is_selected() and not disabled:
+	if (is_visible_in_tree() and is_selected() and not disabled
+	# Don't perform selection if the mouse cursor is only "left over" after touch input
+	and (ControllerHandler.category != ControllerHandler.Category.TOUCH or Input.is_action_pressed("ui_click"))):
 		selection_behavior(delta)
 	else:
 		default_behavior(delta)
@@ -27,7 +29,9 @@ func _on_mouse_entered() -> void:
 		mouse_inside = true
 		
 		# Don't perform selection action if external selection is active
-		if not highlight_active:
+		if (not highlight_active
+		# Don't perform selection if the mouse cursor is only "left over" after touch input
+		and (ControllerHandler.category != ControllerHandler.Category.TOUCH or Input.is_action_pressed("ui_click"))):
 			_on_selected()
 
 func _on_mouse_exited() -> void:
@@ -44,7 +48,7 @@ func _on_ext_selected(selectable_node) -> void:
 			# Only perform selection action when visible and not already selected
 			if is_visible_in_tree() and not is_selected():
 				_on_selected()
-		
+			
 			highlight_active = true
 			ext_selected = true
 		
