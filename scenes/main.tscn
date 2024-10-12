@@ -1531,6 +1531,8 @@ libraries = {
 mimic_src = NodePath("../Tomato")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="ExplodingTomato/OccluderMimic"]
+visible = false
+position = Vector2(952, 220)
 occluder = SubResource("OccluderPolygon2D_lp0op")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="ExplodingTomato/OccluderMimic"]
@@ -1650,12 +1652,12 @@ src_node = NodePath("../../../../Boss")
 heart_texture = ExtResource("36_bymvh")
 no_heart_texture = ExtResource("37_lc3i1")
 heart_scale = 0.1
-spacing = 120
+spacing = 120.0
 
 [node name="Box" type="Sprite2D" parent="Camera2D/Overlays/CanvasLayer/HealthIndicator"]
 light_mask = 0
 position = Vector2(-60, 0)
-scale = Vector2(0.756463, 1)
+scale = Vector2(0.756463, 1.20588)
 texture = ExtResource("46_5x3ig")
 
 [node name="Transition" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer"]
