@@ -18,4 +18,5 @@ nintendo = ExtResource("5_ujpi5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
+scale = Vector2(0.740741, 0.740741)
 texture = ExtResource("2_vm2vu")
