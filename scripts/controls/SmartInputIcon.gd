@@ -7,6 +7,9 @@ extends Node2D
 @export var xbox : Texture2D
 @export var nintendo : Texture2D
 
+@export_group("Preview")
+@export var preview_type : ControllerHandler.Type = ControllerHandler.Type.KEYBOARD
+
 @onready var sprite = $Sprite2D
 var textures : Dictionary
 var base_width : float = 200
@@ -41,6 +44,6 @@ func _on_input_type_changed(type: ControllerHandler.Type) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
-		# Show keyboard icon as preview in editor
+		# Show specified icon as preview in editor
 		update_texture_dict()
-		_on_input_type_changed(ControllerHandler.Type.KEYBOARD)
+		_on_input_type_changed(preview_type)
