@@ -6,7 +6,7 @@ class_name VirtualJoystick
 @onready var stick = $Joystick/Stick
 
 @export var max_stick_movement : float = 80
-@export var deadzone : float = 0.25
+@export var deadzone : float = 0.4
 
 var enabled : bool = true
 
