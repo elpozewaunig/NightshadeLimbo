@@ -1652,12 +1652,12 @@ src_node = NodePath("../../../../Boss")
 heart_texture = ExtResource("36_bymvh")
 no_heart_texture = ExtResource("37_lc3i1")
 heart_scale = 0.1
-spacing = 120.0
+spacing = Vector2(120, -30)
 
 [node name="Box" type="Sprite2D" parent="Camera2D/Overlays/CanvasLayer/HealthIndicator"]
 light_mask = 0
 position = Vector2(-60, 0)
-scale = Vector2(0.756463, 1.20588)
+scale = Vector2(0.756463, 1.28529)
 texture = ExtResource("46_5x3ig")
 
 [node name="Transition" type="ColorRect" parent="Camera2D/Overlays/CanvasLayer"]
