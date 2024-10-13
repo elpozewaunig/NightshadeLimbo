@@ -5,14 +5,16 @@ extends Node2D
 @export var heart_texture : Texture2D
 @export var no_heart_texture : Texture2D
 @export var heart_scale : float = 1.0
-@export var spacing : Vector2
+@export var heart_spacing : float
+@export var box_padding : Vector2
 
 @onready var box = $Box
 
 var prev_src_node : Node2D = src_node
 var prev_heart_texture : Texture2D = heart_texture
 var prev_heart_scale : float = heart_scale
-var prev_spacing : Vector2 = spacing
+var prev_heart_spacing : float = heart_spacing
+var prev_box_padding : Vector2 = box_padding
 
 var max_health : int
 var prev_max_health : int
@@ -33,9 +35,11 @@ func _ready() -> void:
 	prev_heart_texture = heart_texture
 	prev_max_health = max_health
 	prev_heart_scale = heart_scale
-	prev_spacing = spacing
+	prev_heart_spacing = heart_spacing
+	prev_box_padding = box_padding
 	
-	placement_pos_x = - max_health * float(spacing.x) / 2
+	var effective_spacing : float = heart_spacing + heart_texture.get_width() * heart_scale
+	placement_pos_x = - (max_health * effective_spacing - heart_spacing) / 2
 	
 	for heart in hearts:
 		remove_child(heart)
@@ -46,21 +50,22 @@ func _ready() -> void:
 		heart.scale = Vector2(heart_scale, heart_scale)
 		
 		heart.position.x = placement_pos_x
-		placement_pos_x += spacing.x
+		placement_pos_x += effective_spacing
 		
 		hearts.append(heart)
 		add_child(heart)
 	
-	box.scale.x = (hearts.size() * spacing.x + 0.5 * heart_texture.get_width() * heart_scale) / box.texture.get_width()
-	box.scale.y = (heart_texture.get_height() * heart_scale) / box.texture.get_height() + spacing.y / box.texture.get_height()
-	box.position.x = - float(spacing.x) / 2
+	box.scale.x = (hearts.size() * effective_spacing - heart_spacing + 2 * box_padding.x) / box.texture.get_width()
+	box.scale.y = (heart_texture.get_height() * heart_scale + 2 * box_padding.y) / box.texture.get_height()
+	box.position.x = - float(effective_spacing) / 2
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		# Update display when properties change or src_node's health changes in editor
 		if (src_node != prev_src_node or (src_node != null and src_node.health != prev_max_health)
-		or heart_scale != prev_heart_scale or spacing != prev_spacing or heart_texture != prev_heart_texture):
+		or heart_scale != prev_heart_scale or heart_spacing != prev_heart_spacing
+		or box_padding != prev_box_padding or heart_texture != prev_heart_texture):
 			_ready()
 	
 	if visible:
