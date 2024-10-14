@@ -44,7 +44,8 @@ func _input(event: InputEvent) -> void:
 		type = Type.TOUCH
 	
 	# When controller is used, detect controller type
-	elif (event is InputEventJoypadButton) or (event is InputEventJoypadMotion):
+	elif ((event is InputEventJoypadButton)
+	or (event is InputEventJoypadMotion and abs(event.axis_value) >= 0.2)):
 		var controller_name : String = Input.get_joy_name(0)
 		
 		if controller_name.contains("PlayStation") or controller_name.contains("DUALSHOCK"):
