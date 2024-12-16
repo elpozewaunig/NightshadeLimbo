@@ -5,6 +5,7 @@ extends Label
 func _ready() -> void:
 	text = time_string() + "\n" + death_string()
 
+@warning_ignore("integer_division")
 func time_string():
 	var rawtime = int(Data.run_time)
 	var hours = rawtime/3600
