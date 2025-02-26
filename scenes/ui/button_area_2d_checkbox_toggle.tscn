@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8xynhd4vurmt"]
+
+[ext_resource type="PackedScene" uid="uid://bogdpw0iwj2bl" path="res://scenes/ui/button_area2d_toggle.tscn" id="1_xswe0"]
+[ext_resource type="Script" path="res://scripts/ui/SelectableArea2DCheckboxToggleButton.gd" id="2_tfltf"]
+[ext_resource type="Texture2D" uid="uid://ddp4gpish8356" path="res://assets/sprites/checkmark.png" id="3_v3nw4"]
+
+[node name="ButtonArea2DCheckboxToggle" instance=ExtResource("1_xswe0")]
+script = ExtResource("2_tfltf")
+toggled_fill_color = Color(0.619608, 0, 0.121569, 1)
+
+[node name="FillTexture" parent="." index="1"]
+visible = true
+position = Vector2(-2, 0)
+scale = Vector2(0.387755, 1)
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+scale = Vector2(0.387755, 1)
+
+[node name="Check" type="Sprite2D" parent="." index="3"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_v3nw4")
+
+[node name="Label" parent="." index="4"]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 83.0
+offset_top = -46.0
+offset_right = 378.0
+offset_bottom = 54.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "Option name"
+horizontal_alignment = 0

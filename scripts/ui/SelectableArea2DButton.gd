@@ -5,7 +5,6 @@ class_name SelectableArea2DButton
 @export var trigger_through_cancel : bool = false
 
 @onready var sprite = $AnimatedSprite2D
-@onready var label = $Label
 @onready var click_sfx = $ClickSFX
 @onready var collider = $Area2DButtonSrc/CollisionShape2D
 
