@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dco7p8c4mlcyd"]
 
 [ext_resource type="Texture2D" uid="uid://y8ot60p8si5h" path="res://assets/sprites/buttons/touch/Skip.png" id="1_mwrek"]
-[ext_resource type="Script" path="res://scripts/controls/TouchButton.gd" id="3_jdgh8"]
+[ext_resource type="Script" uid="uid://bj5t8tlw1pd5j" path="res://scripts/controls/TouchButton.gd" id="3_jdgh8"]
 [ext_resource type="AudioStream" uid="uid://ceiadu76lnhq4" path="res://assets/sounds/sfx_UIClick.ogg" id="4_j4qkm"]
 
 [node name="TouchButton" type="TouchScreenButton"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bo5ct1aq1wmge"]
 
-[ext_resource type="Script" path="res://scripts/ui/InputModeManager.gd" id="1_1ibyt"]
+[ext_resource type="Script" uid="uid://c57pgov7jviuf" path="res://scripts/ui/InputModeManager.gd" id="1_1ibyt"]
 
 [node name="InputModeManager" type="Node2D"]
 position = Vector2(-960, -540)

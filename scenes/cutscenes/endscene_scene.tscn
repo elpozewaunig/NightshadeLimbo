@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bgn5ighrttryb" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_bwjam"]
 [ext_resource type="AudioStream" uid="uid://bklpbpee5btea" path="res://assets/music/BGM_HappyEndingPiano.ogg" id="2_6xdq2"]
-[ext_resource type="Script" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_up8y8"]
+[ext_resource type="Script" uid="uid://dpionyb6w6bpv" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_up8y8"]
 [ext_resource type="PackedScene" uid="uid://d0b5k5bag47l6" path="res://scenes/cutscenes/visual_elements/daveThumbsUp.tscn" id="3_4f5uw"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="3_8wusx"]
 [ext_resource type="AudioStream" uid="uid://bu5ide6lvks3x" path="res://assets/music/BGM_BossEndingLoop.ogg" id="3_13d54"]

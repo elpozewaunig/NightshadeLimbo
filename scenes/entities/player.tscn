@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://v8w2nt3d8m03"]
 
-[ext_resource type="Script" path="res://scripts/entities/Player.gd" id="1_lgxym"]
+[ext_resource type="Script" uid="uid://h8k0j3rowu30" path="res://scripts/entities/Player.gd" id="1_lgxym"]
 [ext_resource type="Texture2D" uid="uid://dcqgjx1pajac" path="res://assets/sprites/chibifacesprites.png" id="2_do7yw"]
 [ext_resource type="AudioStream" uid="uid://d24xysr5nw0to" path="res://assets/sounds/attacks/sfx_TomatoHit.ogg" id="5_b350d"]
 [ext_resource type="AudioStream" uid="uid://cs4w62hbh2cxq" path="res://assets/sounds/sfx_PlayerDeath.ogg" id="5_t74wv"]
@@ -125,12 +125,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bxdp4"]
 _data = {
-"RESET": SubResource("Animation_44kvd"),
-"attack": SubResource("Animation_rj3dv"),
-"chibicycle": SubResource("Animation_ai6a4"),
-"die1": SubResource("Animation_0yqkh"),
-"die2": SubResource("Animation_8bxc3"),
-"win": SubResource("Animation_chinw")
+&"RESET": SubResource("Animation_44kvd"),
+&"attack": SubResource("Animation_rj3dv"),
+&"chibicycle": SubResource("Animation_ai6a4"),
+&"die1": SubResource("Animation_0yqkh"),
+&"die2": SubResource("Animation_8bxc3"),
+&"win": SubResource("Animation_chinw")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stp6r"]
@@ -194,8 +194,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjoh5"]
 _data = {
-"RESET": SubResource("Animation_vdu7f"),
-"idle": SubResource("Animation_i2qhy")
+&"RESET": SubResource("Animation_vdu7f"),
+&"idle": SubResource("Animation_i2qhy")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_377i5"]
@@ -217,7 +217,7 @@ frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_bxdp4")
+&"": SubResource("AnimationLibrary_bxdp4")
 }
 autoplay = "chibicycle"
 
@@ -240,7 +240,7 @@ texture = ExtResource("5_xcjhp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_vjoh5")
+&"": SubResource("AnimationLibrary_vjoh5")
 }
 autoplay = "idle"
 

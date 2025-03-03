@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://crimjtannrtp8"]
 
 [ext_resource type="PackedScene" uid="uid://bgn5ighrttryb" path="res://scenes/cutscenes/cutsceneABSTRACT.tscn" id="1_dwso8"]
-[ext_resource type="Script" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_b10p6"]
+[ext_resource type="Script" uid="uid://dpionyb6w6bpv" path="res://scripts/cutscenes/CutsceneDataTubele.gd" id="2_b10p6"]
 [ext_resource type="AudioStream" uid="uid://b604cqk27kjg8" path="res://assets/music/BGM_VinesSlowEXTRA.ogg" id="3_jxv7m"]
 [ext_resource type="AudioStream" uid="uid://bnfwomlp04au2" path="res://assets/sounds/typewritertalking/sfx_Typewriter.ogg" id="4_22gs2"]
 [ext_resource type="PackedScene" uid="uid://d0rpmp060ri0h" path="res://scenes/cutscenes/visual_elements/daveThumbsUpMeh.tscn" id="5_wfnvc"]

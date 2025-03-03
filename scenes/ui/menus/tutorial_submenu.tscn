@@ -23,13 +23,13 @@
 [ext_resource type="FontFile" uid="uid://f00e528g8awo" path="res://assets/fonts/adrip1.ttf" id="18_gddlt"]
 [ext_resource type="PackedScene" uid="uid://csdvun3qsjoy2" path="res://scenes/ui/ui_scaler.tscn" id="19_7ijcd"]
 [ext_resource type="Texture2D" uid="uid://cof07gc1h0uoo" path="res://assets/sprites/eyes_bg.png" id="19_chnp1"]
-[ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantEnabledLayer.gd" id="19_r8ekq"]
+[ext_resource type="Script" uid="uid://djfi4g8huuqj6" path="res://scripts/ui/tutorial/RemnantEnabledLayer.gd" id="19_r8ekq"]
 [ext_resource type="PackedScene" uid="uid://bogdpw0iwj2bl" path="res://scenes/ui/button_area2d_toggle.tscn" id="19_snqau"]
-[ext_resource type="Script" path="res://scripts/ui/tutorial/TooHardButton.gd" id="19_w1ycx"]
+[ext_resource type="Script" uid="uid://b3dtds4onrrou" path="res://scripts/ui/tutorial/TooHardButton.gd" id="19_w1ycx"]
 [ext_resource type="AudioStream" uid="uid://bivsujiugiea8" path="res://assets/music/BGM_EvilAmbience.ogg" id="21_n3rsh"]
 [ext_resource type="AudioStream" uid="uid://b88wk672acn4u" path="res://assets/sounds/sfx_RemnantActivated.ogg" id="21_uctbs"]
-[ext_resource type="Script" path="res://scripts/ui/tutorial/RemnantButton.gd" id="21_wk34c"]
-[ext_resource type="Script" path="res://scripts/utility/VisibilityBasedAudioPlayer.gd" id="22_4nqm7"]
+[ext_resource type="Script" uid="uid://iiilj8kt6s0b" path="res://scripts/ui/tutorial/RemnantButton.gd" id="21_wk34c"]
+[ext_resource type="Script" uid="uid://cl8u1lmtswe16" path="res://scripts/utility/VisibilityBasedAudioPlayer.gd" id="22_4nqm7"]
 [ext_resource type="Texture2D" uid="uid://dqgtxqllyr530" path="res://assets/sprites/ominous_particle.png" id="23_4ycvk"]
 [ext_resource type="AudioStream" uid="uid://cpurve4i8sl6b" path="res://assets/sounds/sfx_RemnantDisabled.ogg" id="26_hxbkm"]
 
@@ -377,9 +377,9 @@ volume_db = -15.0
 light_mask = 0
 position = Vector2(-1.33333, -2.66667)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_0ftdt")
 texture = ExtResource("23_4ycvk")
 lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_0ftdt")
 
 [node name="ClickOffSFX" parent="RemnantSubmenu/RemnantButtonSelector/ButtonRowConfig2/ConjureToggle" index="6"]
 stream = ExtResource("26_hxbkm")

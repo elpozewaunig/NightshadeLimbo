@@ -5,12 +5,14 @@ extends Label
 func _ready() -> void:
 	text = time_string() + "\n" + death_string()
 
-@warning_ignore("integer_division")
 func time_string():
+	@warning_ignore_start("integer_division")
 	var rawtime = int(Data.run_time)
 	var hours = rawtime/3600
 	var minutes = (rawtime/60)%60
 	var seconds = rawtime%60
+	@warning_ignore_restore("integer_division")
+	
 	var s = ""
 	if hours>0:
 		s+=str(hours)+"h "

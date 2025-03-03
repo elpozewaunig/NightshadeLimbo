@@ -1,6 +1,6 @@
 [gd_scene load_steps=85 format=3 uid="uid://s47feaqqdtgj"]
 
-[ext_resource type="Script" path="res://scripts/entities/Boss.gd" id="1_3ifcl"]
+[ext_resource type="Script" uid="uid://dxt7llmxrvt2g" path="res://scripts/entities/Boss.gd" id="1_3ifcl"]
 [ext_resource type="Texture2D" uid="uid://caai8dkei1rht" path="res://assets/sprites/dropshadow.png" id="2_4c6eb"]
 [ext_resource type="PackedScene" uid="uid://b17k760rfqwu2" path="res://scenes/attacks/projectile.tscn" id="2_jst8t"]
 [ext_resource type="Texture2D" uid="uid://ciibeq1sxy6bi" path="res://assets/sprites/tomato_sprite.png" id="3_1ef8q"]
@@ -25,13 +25,13 @@
 [ext_resource type="AudioStream" uid="uid://2tbi8nox7078" path="res://assets/sounds/voice/Boss_hehihi.ogg" id="15_2nse7"]
 [ext_resource type="AudioStream" uid="uid://c0bij2uvssivx" path="res://assets/sounds/voice/Boss_HoHahaa.ogg" id="16_wqp8q"]
 [ext_resource type="AudioStream" uid="uid://bocaey3bkjw2r" path="res://assets/sounds/voice/Boss_IIAA.ogg" id="17_f4ntp"]
-[ext_resource type="Shader" path="res://assets/shaders/negative.gdshader" id="18_fhefg"]
+[ext_resource type="Shader" uid="uid://8gph8k56w8n4" path="res://assets/shaders/negative.gdshader" id="18_fhefg"]
 [ext_resource type="Texture2D" uid="uid://c5uk7355c1umy" path="res://assets/sprites/TomatoRagingAuroSpriteDownscale.png" id="18_hjhdo"]
-[ext_resource type="Shader" path="res://assets/shaders/mirage.gdshader" id="19_661uf"]
+[ext_resource type="Shader" uid="uid://cfj14ppexya5b" path="res://assets/shaders/mirage.gdshader" id="19_661uf"]
 [ext_resource type="Texture2D" uid="uid://btscq85drdvt0" path="res://assets/sprites/gloweyetomato.png" id="20_0q56x"]
-[ext_resource type="Shader" path="res://assets/shaders/contrasted.gdshader" id="20_50m7f"]
-[ext_resource type="Shader" path="res://assets/shaders/normalized.gdshader" id="21_tuup4"]
-[ext_resource type="Shader" path="res://assets/shaders/old_film.gdshader" id="22_57xkm"]
+[ext_resource type="Shader" uid="uid://chk8ocjo78n2h" path="res://assets/shaders/contrasted.gdshader" id="20_50m7f"]
+[ext_resource type="Shader" uid="uid://t63q5sdwki4k" path="res://assets/shaders/normalized.gdshader" id="21_tuup4"]
+[ext_resource type="Shader" uid="uid://dl5h2cee4iqmc" path="res://assets/shaders/old_film.gdshader" id="22_57xkm"]
 [ext_resource type="PackedScene" uid="uid://dybntfod3ak8q" path="res://scenes/utility/occluder_mimic.tscn" id="22_hf5xq"]
 [ext_resource type="Texture2D" uid="uid://c35i00sbdkdnv" path="res://assets/sprites/thornsb.png" id="22_kub0s"]
 [ext_resource type="Texture2D" uid="uid://b5balmxe7ebn4" path="res://assets/shaders/shader_overlays/filmgrain.png" id="23_ldehw"]
@@ -1982,26 +1982,26 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmcjg"]
 _data = {
-"JumpAttack_END": SubResource("Animation_yx575"),
-"JumpAttack_START": SubResource("Animation_b0qkw"),
-"MockIntense1": SubResource("Animation_2blex"),
-"MockIntense2": SubResource("Animation_v3mi5"),
-"MockIntense3": SubResource("Animation_wus56"),
-"MockIntense4": SubResource("Animation_jv1bg"),
-"MockShort1": SubResource("Animation_j0r4h"),
-"MockShort2": SubResource("Animation_bfd82"),
-"MockShort3": SubResource("Animation_nvqsl"),
-"MockShort4": SubResource("Animation_0rfwp"),
-"PlayerHasDied": SubResource("Animation_rg5yq"),
-"RESET": SubResource("Animation_jcuak"),
-"SoundMockTwoLaugh": SubResource("Animation_k0yyv"),
-"THORNSINVISIBLE": SubResource("Animation_ayyi2"),
-"THORNSVISIBLE": SubResource("Animation_1j3so"),
-"TakeDamageDONE": SubResource("Animation_fgltm"),
-"TakeDamageINITIATE": SubResource("Animation_avpw4"),
-"Vulnerable_END": SubResource("Animation_p543x"),
-"Vulnerable_INITIATE": SubResource("Animation_ggd8g"),
-"Walk": SubResource("Animation_mptwy")
+&"JumpAttack_END": SubResource("Animation_yx575"),
+&"JumpAttack_START": SubResource("Animation_b0qkw"),
+&"MockIntense1": SubResource("Animation_2blex"),
+&"MockIntense2": SubResource("Animation_v3mi5"),
+&"MockIntense3": SubResource("Animation_wus56"),
+&"MockIntense4": SubResource("Animation_jv1bg"),
+&"MockShort1": SubResource("Animation_j0r4h"),
+&"MockShort2": SubResource("Animation_bfd82"),
+&"MockShort3": SubResource("Animation_nvqsl"),
+&"MockShort4": SubResource("Animation_0rfwp"),
+&"PlayerHasDied": SubResource("Animation_rg5yq"),
+&"RESET": SubResource("Animation_jcuak"),
+&"SoundMockTwoLaugh": SubResource("Animation_k0yyv"),
+&"THORNSINVISIBLE": SubResource("Animation_ayyi2"),
+&"THORNSVISIBLE": SubResource("Animation_1j3so"),
+&"TakeDamageDONE": SubResource("Animation_fgltm"),
+&"TakeDamageINITIATE": SubResource("Animation_avpw4"),
+&"Vulnerable_END": SubResource("Animation_p543x"),
+&"Vulnerable_INITIATE": SubResource("Animation_ggd8g"),
+&"Walk": SubResource("Animation_mptwy")
 }
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pnw1c"]
@@ -2382,9 +2382,9 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14rc6"]
 _data = {
-"RESET": SubResource("Animation_b7x2e"),
-"oldsalvos": SubResource("Animation_doasl"),
-"salvos_1": SubResource("Animation_cyi4g")
+&"RESET": SubResource("Animation_b7x2e"),
+&"oldsalvos": SubResource("Animation_doasl"),
+&"salvos_1": SubResource("Animation_cyi4g")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fhgg"]
@@ -2482,21 +2482,21 @@ shader = ExtResource("21_tuup4")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r34jc"]
 shader = ExtResource("22_57xkm")
 shader_parameter/base = Color(1, 1, 1, 1)
+shader_parameter/grain = ExtResource("23_ldehw")
 shader_parameter/grain_strength = 0.32
 shader_parameter/fps = 12.0
 shader_parameter/stretch = 0.5
 shader_parameter/flashing = 0.0
-shader_parameter/grain = ExtResource("23_ldehw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rl8xq"]
 shader = ExtResource("22_57xkm")
 shader_parameter/base = Color(1, 1, 1, 1)
+shader_parameter/grain = ExtResource("23_ldehw")
 shader_parameter/grain_strength = 0.0
+shader_parameter/vignette = ExtResource("24_wm84g")
 shader_parameter/fps = 12.0
 shader_parameter/stretch = 0.5
 shader_parameter/flashing = 0.1
-shader_parameter/grain = ExtResource("23_ldehw")
-shader_parameter/vignette = ExtResource("24_wm84g")
 
 [node name="Boss" type="StaticBody2D"]
 position = Vector2(960, 540)
@@ -2540,7 +2540,7 @@ frame = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tomato"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_nmcjg")
+&"": SubResource("AnimationLibrary_nmcjg")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Tomato"]
@@ -2567,7 +2567,7 @@ occluder = SubResource("OccluderPolygon2D_3j4vf")
 
 [node name="AttackTimeline" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_14rc6")
+&"": SubResource("AnimationLibrary_14rc6")
 }
 
 [node name="VulnerableOverlay" type="Sprite2D" parent="."]

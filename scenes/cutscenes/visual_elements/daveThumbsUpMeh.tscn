@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbrwl"]
 _data = {
-"RESET": SubResource("Animation_wpbfj"),
-"blink": SubResource("Animation_clxak")
+&"RESET": SubResource("Animation_wpbfj"),
+&"blink": SubResource("Animation_clxak")
 }
 
 [node name="Control" type="Control"]

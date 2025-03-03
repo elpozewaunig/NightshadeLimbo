@@ -21,7 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eko1j"]
 _data = {
-"fade": SubResource("Animation_mydhk")
+&"fade": SubResource("Animation_mydhk")
 }
 
 [node name="Control" type="Control"]

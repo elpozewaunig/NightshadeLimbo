@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://qpgj47ccpw50"]
 
 [ext_resource type="Texture2D" uid="uid://clpu74ml6h7si" path="res://assets/sprites/theend.jpg" id="1_lduy5"]
-[ext_resource type="Script" path="res://scripts/cutscenes/visual_elements/EndgameStatLabel.gd" id="2_3oe6g"]
+[ext_resource type="Script" uid="uid://d24jwe8uulxwx" path="res://scripts/cutscenes/visual_elements/EndgameStatLabel.gd" id="2_3oe6g"]
 [ext_resource type="Texture2D" uid="uid://bxv7bi6uwht5r" path="res://assets/sprites/chibi_death.png" id="3_3gv2c"]
 [ext_resource type="Texture2D" uid="uid://c0f5ehb4ovpc4" path="res://assets/sprites/stopwatch.png" id="4_utxrt"]
 

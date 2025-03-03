@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dukyhdiq8iidn"]
 
-[ext_resource type="Script" path="res://scripts/utility/MouseHider.gd" id="1_ua7cp"]
+[ext_resource type="Script" uid="uid://tr65h8woxq4n" path="res://scripts/utility/MouseHider.gd" id="1_ua7cp"]
 
 [node name="MouseHider" type="Node2D"]
 process_mode = 3

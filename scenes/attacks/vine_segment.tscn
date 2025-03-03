@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://sqglvltvgjlb"]
 
-[ext_resource type="Script" path="res://scripts/attacks/VineSegment.gd" id="1_slclr"]
+[ext_resource type="Script" uid="uid://bq50v7kt1x0kb" path="res://scripts/attacks/VineSegment.gd" id="1_slclr"]
 [ext_resource type="Texture2D" uid="uid://bq3n7g1ea24vd" path="res://assets/sprites/vine_segment_straight.png" id="2_h61od"]
 [ext_resource type="Texture2D" uid="uid://b2ipdnvwodghx" path="res://assets/sprites/connectionvinepoint.png" id="3_cejyl"]
 

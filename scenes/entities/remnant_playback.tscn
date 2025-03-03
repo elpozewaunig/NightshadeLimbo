@@ -1,7 +1,7 @@
 [gd_scene load_steps=54 format=3 uid="uid://rwl76vd53mg2"]
 
 [ext_resource type="Texture2D" uid="uid://wdy32rlx6ua4" path="res://assets/sprites/ghost_sprite_sheet.png" id="1_nrlwg"]
-[ext_resource type="Script" path="res://scripts/entities/RemnantPlayback.gd" id="2_vd8st"]
+[ext_resource type="Script" uid="uid://cpxnvf2pxwqva" path="res://scripts/entities/RemnantPlayback.gd" id="2_vd8st"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xiv0d"]
 atlas = ExtResource("1_nrlwg")

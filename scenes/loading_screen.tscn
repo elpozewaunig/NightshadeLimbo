@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dom3anlmfh46m"]
 
-[ext_resource type="Script" path="res://scripts/loader/SceneLoader.gd" id="1_b201a"]
+[ext_resource type="Script" uid="uid://bsiagyykovcfy" path="res://scripts/loader/SceneLoader.gd" id="1_b201a"]
 [ext_resource type="LabelSettings" uid="uid://s0qyqn44ctv7" path="res://assets/settings/labels/big_text_label.tres" id="2_bvnq6"]
 [ext_resource type="Texture2D" uid="uid://bsxiace5ji7vs" path="res://assets/sprites/HPtomato_outline_white.png" id="2_w7eb3"]
-[ext_resource type="Script" path="res://scripts/loader/LoadingDots.gd" id="3_8xd4m"]
+[ext_resource type="Script" uid="uid://dcfmpvxo1oc7m" path="res://scripts/loader/LoadingDots.gd" id="3_8xd4m"]
 [ext_resource type="Texture2D" uid="uid://c0rfx2m66mqm5" path="res://assets/sprites/loading_dot.svg" id="4_hbq67"]
 
 [sub_resource type="Animation" id="Animation_aou33"]
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3ux6"]
 _data = {
-"RESET": SubResource("Animation_aou33"),
-"loading": SubResource("Animation_s65n3")
+&"RESET": SubResource("Animation_aou33"),
+&"loading": SubResource("Animation_s65n3")
 }
 
 [node name="LoadingScreen" type="Node2D"]
@@ -61,7 +61,7 @@ texture = ExtResource("2_w7eb3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Text/Tomato"]
 libraries = {
-"": SubResource("AnimationLibrary_f3ux6")
+&"": SubResource("AnimationLibrary_f3ux6")
 }
 autoplay = "loading"
 

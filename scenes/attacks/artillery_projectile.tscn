@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4nx06mcvy8ym"]
 
-[ext_resource type="Script" path="res://scripts/attacks/ArtilleryProjectile.gd" id="1_13j4v"]
+[ext_resource type="Script" uid="uid://c2yv4r3qmogrl" path="res://scripts/attacks/ArtilleryProjectile.gd" id="1_13j4v"]
 [ext_resource type="Texture2D" uid="uid://dpk77hai3qmsu" path="res://assets/sprites/projectile.png" id="1_bkl56"]
 [ext_resource type="Texture2D" uid="uid://dvl50ncbe28rx" path="res://assets/sprites/projectile_splatter.png" id="1_d018f"]
 [ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="2_1odop"]
@@ -48,9 +48,9 @@ shape = SubResource("CapsuleShape2D_jfgu7")
 
 [node name="GlobalParticles" type="GPUParticles2D" parent="Projectile"]
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_ckfk3")
 texture = ExtResource("1_d018f")
 lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_ckfk3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Projectile"]
 position = Vector2(0, -50)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b17k760rfqwu2"]
 
-[ext_resource type="Script" path="res://scripts/attacks/Projectile.gd" id="1_jyir0"]
+[ext_resource type="Script" uid="uid://v6s37ptjydbp" path="res://scripts/attacks/Projectile.gd" id="1_jyir0"]
 [ext_resource type="Texture2D" uid="uid://dpk77hai3qmsu" path="res://assets/sprites/projectile.png" id="2_qj00h"]
 [ext_resource type="AudioStream" uid="uid://o6dot7afyas5" path="res://assets/sounds/attacks/Boss_Bullet.ogg" id="3_hrpa6"]
 [ext_resource type="Texture2D" uid="uid://dvl50ncbe28rx" path="res://assets/sprites/projectile_splatter.png" id="4_5ejsk"]
@@ -30,9 +30,9 @@ script = ExtResource("1_jyir0")
 
 [node name="GlobalParticles" type="GPUParticles2D" parent="."]
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_g6007")
 texture = ExtResource("4_5ejsk")
 lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_g6007")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-21, 0)

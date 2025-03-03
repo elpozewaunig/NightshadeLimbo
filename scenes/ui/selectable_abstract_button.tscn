@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://iodcpklmqw1"]
 
-[ext_resource type="Script" path="res://scripts/ui/SelectableAbstractButton.gd" id="1_2qcwo"]
+[ext_resource type="Script" uid="uid://cqlwsaqrrql5o" path="res://scripts/ui/SelectableAbstractButton.gd" id="1_2qcwo"]
 [ext_resource type="AudioStream" uid="uid://bx4u5rf8ihnxo" path="res://assets/sounds/sfx_UIHover.ogg" id="2_gy3fk"]
 
 [node name="SelectableAbstractButton" type="Node2D"]

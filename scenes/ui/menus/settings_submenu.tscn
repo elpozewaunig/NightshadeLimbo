@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u0j35riq7pfy" path="res://scenes/ui/btn_row_config.tscn" id="5_0e47a"]
 [ext_resource type="PackedScene" uid="uid://csdvun3qsjoy2" path="res://scenes/ui/ui_scaler.tscn" id="6_1lcc5"]
 [ext_resource type="PackedScene" uid="uid://di3o5lslj817b" path="res://scenes/ui/button_area2D_close.tscn" id="6_qdxjt"]
-[ext_resource type="Script" path="res://scripts/ui/menu/BusController.gd" id="7_6jhtp"]
+[ext_resource type="Script" uid="uid://dwmukj2lkgaxw" path="res://scripts/ui/menu/BusController.gd" id="7_6jhtp"]
 [ext_resource type="PackedScene" uid="uid://gh1ggcgi0xnd" path="res://scenes/ui/button_h_slider.tscn" id="8_6vocn"]
 
 [node name="SettingsSubmenu" node_paths=PackedStringArray("ui_scalers") instance=ExtResource("1_e5yrl")]

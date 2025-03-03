@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpqmks55fi0m"]
 
-[ext_resource type="Script" path="res://scripts/game/objects/Obstacle.gd" id="1_wa1la"]
+[ext_resource type="Script" uid="uid://bkatmq3ndkiyw" path="res://scripts/game/objects/Obstacle.gd" id="1_wa1la"]
 [ext_resource type="Texture2D" uid="uid://cvl8je1ubaxb5" path="res://assets/sprites/obstacle_pillar.png" id="2_y1h5l"]
 [ext_resource type="Texture2D" uid="uid://1opqocpun2tt" path="res://assets/sprites/obstacle_rubble.png" id="3_6fl0k"]
 [ext_resource type="AudioStream" uid="uid://bjfb044wdyi4q" path="res://assets/sounds/sfx_PillarCrumble.ogg" id="4_jsh6w"]

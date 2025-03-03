@@ -48,7 +48,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ac7tq"]
 _data = {
-"dizzy": SubResource("Animation_sm0k2")
+&"dizzy": SubResource("Animation_sm0k2")
 }
 
 [node name="Control" type="Control"]

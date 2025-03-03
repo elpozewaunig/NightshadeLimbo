@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccgy32ui852hb"]
 
-[ext_resource type="Script" path="res://scripts/controls/PressableScreenArea.gd" id="1_t1d88"]
+[ext_resource type="Script" uid="uid://tmygtyi0gwch" path="res://scripts/controls/PressableScreenArea.gd" id="1_t1d88"]
 [ext_resource type="Texture2D" uid="uid://b83dgqy4bguce" path="res://assets/sprites/buttons/touch/AttackPressed.png" id="2_4558u"]
 [ext_resource type="Texture2D" uid="uid://bwchxs1bnmu1y" path="res://assets/sprites/buttons/touch/Attack.png" id="2_rfcjo"]
 
